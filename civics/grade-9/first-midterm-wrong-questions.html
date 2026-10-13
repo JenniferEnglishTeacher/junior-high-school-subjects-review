@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>九上公民第一次段考錯題互動測驗</title>
+<style>
+:root{--ink:#17313a;--muted:#61727a;--paper:#fffdf8;--bg:#edf4f3;--accent:#0b6b57;--accent2:#d39b36;--bad:#a33a35;--line:#d8e2df}
+*{box-sizing:border-box} body{margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e4f0ee,#f6efe2);line-height:1.65}
+.dashboard-link{position:fixed;left:16px;top:16px;z-index:10;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.95);color:var(--ink);font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(22,49,58,.12);backdrop-filter:blur(10px)}.dashboard-link:hover{border-color:var(--accent);color:var(--accent)}
+header{padding:48px 20px 30px;text-align:center} h1{margin:0;font-size:clamp(2rem,5vw,3.6rem);line-height:1.12} header p{max-width:760px;margin:14px auto;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;background:var(--accent);color:white} button.secondary{background:#dfe9e6;color:var(--ink)} button.download{background:#244b5a} button[hidden]{display:none}.score{font-weight:800;min-width:160px;text-align:center}
+main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:22px} .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08)}
+.q-head{display:flex;gap:14px;align-items:center;margin-bottom:14px} .num{display:grid;place-items:center;min-width:52px;height:52px;border-radius:15px;background:var(--ink);color:white;font-weight:900} .source{color:var(--accent);font-weight:800;font-size:.9rem} h2{margin:0;font-size:1.18rem} .stem{font-size:1.08rem;font-weight:700}
+.context{background:#f2f7f5;border-left:4px solid var(--accent);padding:14px 16px;margin:14px 0;border-radius:0 12px 12px 0} .context p{margin:.35rem 0 0} .adapted{color:#73581c;background:#fff6dc;padding:8px 12px;border-radius:10px;font-size:.92rem}
+.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
+.card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
+.feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
+.unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
+</style></head><body>
+<a class="dashboard-link" href="../../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
+<header><h1>九上公民第一次段考錯題</h1><p>23 題互動練習。先完成全部題目，再按「批改並看詳解」。原題 43–47 為填充題，選項是為線上練習新增。</p></header>
+<div class="bar"><button id="grade">批改並看詳解</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">尚未批改</span></div>
+<main><article class="card" id="q1" data-answer="B">
+          <div class="q-head"><span class="num">01</span><div><span class="source">原題 1</span><h2>讚美與友誼</h2></div></div>
+          
+          <p class="stem">「把掌聲留給自己，你的荷包不會變多一點，但你的朋友會少一個；把掌聲留給自己的伙伴，你的荷包不會變少，但你會多一個朋友。」這段話的主旨，與下列何者最接近？</p>
+          <div class="options"><label class="option"><input type="radio" name="q1" value="A"><span class="letter">A</span><span>掌聲是幸福人生不可或缺的良伴</span></label><label class="option"><input type="radio" name="q1" value="B"><span class="letter">B</span><span>友誼的手，常伸向不吝讚美的人</span></label><label class="option"><input type="radio" name="q1" value="C"><span class="letter">C</span><span>朋友的多寡可決定財富與掌聲的多寡</span></label><label class="option"><input type="radio" name="q1" value="D"><span class="letter">D</span><span>能適時鼓掌的人，最懂得奉獻的道理</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>引文比較兩種做法：只把掌聲留給自己，可能失去朋友；願意把掌聲給伙伴，雖不會增加或減少金錢，卻能增進友誼。重點是肯定、欣賞與讚美他人能帶來良好人際關係，因此最接近 B。A 把重點放在掌聲與幸福，過度延伸；C 誤把友誼、財富與掌聲說成可互相決定；D 雖提到鼓掌，卻把核心解讀為奉獻，並非文句主要意思。</p><p class="key"><strong>解題關鍵：</strong>抓住『掌聲給別人會多一個朋友』，主旨是讚美他人的正面人際意義。</p></div>
+        </article>
+<article class="card" id="q2" data-answer="C">
+          <div class="q-head"><span class="num">02</span><div><span class="source">原題 4</span><h2>名言的恰當運用</h2></div></div>
+          
+          <p class="stem">下列「　」中皆為胡適的名言，何者運用不恰當？</p>
+          <div class="options"><label class="option"><input type="radio" name="q2" value="A"><span class="letter">A</span><span>「少說點空話，多做點實事」，行動永遠比言語更有力量</span></label><label class="option"><input type="radio" name="q2" value="B"><span class="letter">B</span><span>「要怎麼收穫，先怎麼栽」，唯有付出努力才有回報</span></label><label class="option"><input type="radio" name="q2" value="C"><span class="letter">C</span><span>「為學有如金字塔，要能廣大，要能高」，故應謹記並實踐書上學來的知識</span></label><label class="option"><input type="radio" name="q2" value="D"><span class="letter">D</span><span>「不做無益事，一日當三日，人活五十年，我活百五十」，我們應珍惜光陰，及時努力</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>「為學有如金字塔，要能廣大，要能高」用金字塔比喻學問：底座要廣，才能向上累積到一定高度，強調廣博學習與逐步累積學力。C 卻把它解釋成『謹記並實踐書上知識』，沒有對應『廣大』與『高』的比喻，所以運用不恰當。A 對應少空談、多實作；B 對應先付出才有收穫；D 對應善用時間。</p><p class="key"><strong>解題關鍵：</strong>名言題要逐一核對比喻或關鍵詞，不能只看句子是否正向。</p></div>
+        </article>
+<article class="card" id="q3" data-answer="A">
+          <div class="q-head"><span class="num">03</span><div><span class="source">原題 43</span><h2>選擇與機會成本</h2></div></div>
+          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
+          <p class="stem">當我們選擇時，會考慮得到的利益和付出的代價，而有所取捨，這便有了【　】的概念。</p>
+          <div class="options"><label class="option"><input type="radio" name="q3" value="A"><span class="letter">A</span><span>機會成本</span></label><label class="option"><input type="radio" name="q3" value="B"><span class="letter">B</span><span>比較利益</span></label><label class="option"><input type="radio" name="q3" value="C"><span class="letter">C</span><span>公共財</span></label><label class="option"><input type="radio" name="q3" value="D"><span class="letter">D</span><span>外部成本</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>選擇代表必須放棄其他可能方案。被放棄選項中價值最高者，就是這項選擇的機會成本。題幹同時提到利益、代價與取捨，正是在描述機會成本。比較利益用來比較不同生產者的相對生產成本；公共財與外部成本都不是此處的選擇概念。</p><p class="key"><strong>解題關鍵：</strong>看到『選擇、代價、取捨』，先想到機會成本。</p></div>
+        </article>
+<article class="card" id="q4" data-answer="B">
+          <div class="q-head"><span class="num">04</span><div><span class="source">原題 44</span><h2>市場與商品</h2></div></div>
+          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
+          <p class="stem">在市場中進行交易的產品，稱為【　】。</p>
+          <div class="options"><label class="option"><input type="radio" name="q4" value="A"><span class="letter">A</span><span>資源</span></label><label class="option"><input type="radio" name="q4" value="B"><span class="letter">B</span><span>商品</span></label><label class="option"><input type="radio" name="q4" value="C"><span class="letter">C</span><span>公共財</span></label><label class="option"><input type="radio" name="q4" value="D"><span class="letter">D</span><span>生產要素</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>能在市場中被買賣、交換的產品稱為商品，可能是有形物品，也可能是服務。資源與生產要素是生產過程中投入的條件；公共財則具有公共性，通常不容易只讓付費者使用，因此都不符合題幹定義。</p><p class="key"><strong>解題關鍵：</strong>市場上可供交易的產品，就是商品。</p></div>
+        </article>
+<article class="card" id="q5" data-answer="A">
+          <div class="q-head"><span class="num">05</span><div><span class="source">原題 45</span><h2>生產成本</h2></div></div>
+          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
+          <p class="stem">【　】是生產者使用各項生產資源來從事生產時，必須付出的成本。</p>
+          <div class="options"><label class="option"><input type="radio" name="q5" value="A"><span class="letter">A</span><span>生產成本</span></label><label class="option"><input type="radio" name="q5" value="B"><span class="letter">B</span><span>機會利益</span></label><label class="option"><input type="radio" name="q5" value="C"><span class="letter">C</span><span>消費支出</span></label><label class="option"><input type="radio" name="q5" value="D"><span class="letter">D</span><span>市場價格</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>生產者為了取得勞力、土地、資本與企業才能等生產資源所付出的代價，統稱生產成本。市場價格是交易形成的價格；消費支出是消費者購買商品的支出；『機會利益』並非此處的標準概念。</p><p class="key"><strong>解題關鍵：</strong>題幹主詞是生產者，且明說使用生產資源時的付出。</p></div>
+        </article>
+<article class="card" id="q6" data-answer="C">
+          <div class="q-head"><span class="num">06</span><div><span class="source">原題 46</span><h2>消費行為</h2></div></div>
+          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
+          <p class="stem">每個人都會有食、衣、住、行、育、樂等日常需求，滿足這些需求的行為便稱為【　】行為。</p>
+          <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>生產</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>交換</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>消費</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>儲蓄</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>人們使用商品或服務來滿足生活需求，稱為消費行為。生產是創造商品或服務；交換是透過市場互換；儲蓄是保留所得、延後支用。題幹列出食衣住行育樂，核心是滿足需要，因此答案為消費。</p><p class="key"><strong>解題關鍵：</strong>『滿足需求』是消費的定義關鍵。</p></div>
+        </article>
+<article class="card" id="q7" data-answer="B">
+          <div class="q-head"><span class="num">07</span><div><span class="source">原題 47</span><h2>稀少性與選擇</h2></div></div>
+          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
+          <p class="stem">資源具有稀少性，因此「必須【　】」，例如：零用錢有限，該如何花用。</p>
+          <div class="options"><label class="option"><input type="radio" name="q7" value="A"><span class="letter">A</span><span>生產</span></label><label class="option"><input type="radio" name="q7" value="B"><span class="letter">B</span><span>選擇</span></label><label class="option"><input type="radio" name="q7" value="C"><span class="letter">C</span><span>交換</span></label><label class="option"><input type="radio" name="q7" value="D"><span class="letter">D</span><span>競爭</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>資源有限而欲望很多，不可能同時滿足所有需要，所以必須在不同用途之間作選擇。零用錢有限時，要決定買文具、點心或存下來，就是稀少性迫使人作取捨的例子。競爭可能因稀少而發生，但題幹要表達的是個人面對有限資源時的直接反應。</p><p class="key"><strong>解題關鍵：</strong>稀少性 → 無法全部滿足 → 必須選擇與取捨。</p></div>
+        </article>
+<article class="card" id="q8" data-answer="A">
+          <div class="q-head"><span class="num">08</span><div><span class="source">原題 41 第 1 小題</span><h2>生產資源與企業經營</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>因應全球淨零排放趨勢，各國航空公司自 2025 年起被要求提升永續航空燃料（SAF）的使用比例，但 SAF 價格遠高於傳統航燃，加上全球飛機維修工程師短缺導致地勤與維修成本攀升，許多航空公司正面臨龐大的營運壓力。冠軍航空公司決定引進更節能的新型客機，並調漲熱門時段票價。每趟航班平均數據：調整前銷貨收入 300 萬元、生產成本 200 萬元；調整後銷貨收入 350 萬元、生產成本 270 萬元。</p></div>
+          <p class="stem">下列關於冠軍航空公司的敘述，何者最正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q8" value="A"><span class="letter">A</span><span>該公司購買新型節能客機，在生產資源中屬於資本的投入</span></label><label class="option"><input type="radio" name="q8" value="B"><span class="letter">B</span><span>該公司針對熱門時段調漲機票價格，這主要是透過降低生產成本來提高利潤</span></label><label class="option"><input type="radio" name="q8" value="C"><span class="letter">C</span><span>維修工程師短缺導致薪資成本攀升，這代表生產資源中的企業才能成本增加</span></label><label class="option"><input type="radio" name="q8" value="D"><span class="letter">D</span><span>對於該公司而言，決定引進節能客機並調漲票價的經營策略，屬於人力資源的發揮</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>新型客機是企業為生產運輸服務而使用的耐久設備，屬於資本，因此 A 正確。調漲票價是在銷量不變時增加銷貨收入，不是降低成本，所以 B 錯。維修工程師屬勞動或人力資源，薪資上升不是企業才能成本，因此 C 錯。整合資源、承擔風險並制定經營策略屬企業才能，不只是一般人力資源，所以 D 錯。</p><p class="key"><strong>解題關鍵：</strong>分清楚四種生產資源：自然資源、勞動、資本、企業才能。</p></div>
+        </article>
+<article class="card" id="q9" data-answer="D">
+          <div class="q-head"><span class="num">09</span><div><span class="source">原題 39 第 2 小題</span><h2>受教權與入學制度</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>2018 年 3 月 8 日，法國總統馬克宏簽署《學生指導和成功》法案。過去基於人民有『自由上大學』的權利，大學原則上應接受所有具高中學歷的學生。學生在 APB 網站填寫大學志願序，系統依『地域』、其次『志願的順序』、最後『家庭考量』篩選；若報名人數超過地區名額且系統仍無法篩選，最後以抽籤決定。原圖後段文字未完整入鏡。</p></div>
+          <p class="stem">根據上文判斷，法國 APB 網站篩選學生的方式，其目的可能為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q9" value="A"><span class="letter">A</span><span>營造高度競爭的環境</span></label><label class="option"><input type="radio" name="q9" value="B"><span class="letter">B</span><span>確保公平的入學標準</span></label><label class="option"><input type="radio" name="q9" value="C"><span class="letter">C</span><span>協助學生的適性發展</span></label><label class="option"><input type="radio" name="q9" value="D"><span class="letter">D</span><span>保障人民受教育權利</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>文章先指出人民有『自由上大學』的權利，大學原則上應接受具高中學歷的學生；當名額不足、一般條件無法完成篩選時，最後以抽籤處理。整套制度是在名額有限時安排入學，以維持人民接受大學教育的機會，因此 D 最符合制度目的。A 把篩選目的誤解為競爭；B 雖與程序有關，但地域、家庭考量不代表完全一致的入學標準；C 文中沒有依興趣或能力進行適性配對。</p><p class="key"><strong>解題關鍵：</strong>先找制度背後要保障的權利，再判斷技術性篩選只是手段。</p></div>
+        </article>
+<article class="card" id="q10" data-answer="B">
+          <div class="q-head"><span class="num">10</span><div><span class="source">原題 39 第 3 小題</span><h2>資料判讀</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>妮妮：用抽籤方式決定入學資格，可能存在公平性的問題。<br>小新：現在申請居住地附近的大學，錄取的機率會較高。<br>正男：學生的志願序是 APB 網站的首要篩選標準。<br>阿呆：新的入學制度，可能衝擊『自由上大學』的原則。</p></div>
+          <p class="stem">看完上文後，四位同學發表了各自的意見，請問何者的敘述有誤？</p>
+          <div class="options"><label class="option"><input type="radio" name="q10" value="A"><span class="letter">A</span><span>妮妮、小新</span></label><label class="option"><input type="radio" name="q10" value="B"><span class="letter">B</span><span>小新、正男</span></label><label class="option"><input type="radio" name="q10" value="C"><span class="letter">C</span><span>正男、阿呆</span></label><label class="option"><input type="radio" name="q10" value="D"><span class="letter">D</span><span>妮妮、阿呆</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>小新的說法把『居住地』直接等同錄取優勢，但文章的地域條件還包含高中畢業學校地區，不能只由住家遠近斷定錄取率。正男說志願序是首要標準，也與文章順序不符；首要篩選標準是地域，志願序在後。因此有誤的是小新與正男，選 B。妮妮質疑抽籤的公平性，是對隨機決定入學資格可能產生的合理評價；阿呆指出篩選可能衝擊原有『自由上大學』原則，也符合文意。</p><p class="key"><strong>解題關鍵：</strong>資料排序題要照原文順序：地域 → 志願序 → 家庭考量 → 抽籤。</p></div>
+        </article>
+<article class="card" id="q11" data-answer="B">
+          <div class="q-head"><span class="num">11</span><div><span class="source">晶片題 第 1 小題</span><h2>利潤最大化</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>假設每家公司在相同時間內只能選擇一種晶片生產，且不考慮其他因素。</p><div class="table-wrap"><table><tr><th>公司／項目</th><th>電腦 CPU</th><th>手機 CPU</th><th>電腦 GPU</th><th>車用晶片</th></tr><tr><td>甲公司產量</td><td>50 片</td><td>150 片</td><td>175 片</td><td>200 片</td></tr><tr><td>甲每片利潤</td><td>4 萬元</td><td>5 萬元</td><td>2 萬元</td><td>1 萬元</td></tr><tr><td>乙公司產量</td><td>70 片</td><td>100 片</td><td>80 片</td><td>250 片</td></tr><tr><td>乙每片利潤</td><td>5 萬元</td><td>3 萬元</td><td>4 萬元</td><td>1 萬元</td></tr></table></div></div>
+          <p class="stem">根據表中資料判斷，甲公司應選擇生產下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="q11" value="A"><span class="letter">A</span><span>電腦 CPU</span></label><label class="option"><input type="radio" name="q11" value="B"><span class="letter">B</span><span>手機 CPU</span></label><label class="option"><input type="radio" name="q11" value="C"><span class="letter">C</span><span>電腦 GPU</span></label><label class="option"><input type="radio" name="q11" value="D"><span class="letter">D</span><span>車用晶片</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>要比較總利潤，必須用『可生產數量 × 每片利潤』。甲公司四種晶片分別是：電腦 CPU 50×4＝200 萬元；手機 CPU 150×5＝750 萬元；電腦 GPU 175×2＝350 萬元；車用晶片 200×1＝200 萬元。最高為 750 萬元，所以選 B。只看單片利潤會誤選電腦 CPU；只看產量則會誤選車用晶片。</p><p class="key"><strong>解題關鍵：</strong>先把每個方案換算成總利潤，再比較，不能只看單價或產量。</p></div>
+        </article>
+<article class="card" id="q12" data-answer="D">
+          <div class="q-head"><span class="num">12</span><div><span class="source">晶片題 第 2 小題</span><h2>機會成本</h2></div></div>
+          <div class="table-wrap"><table><tr><th>公司／項目</th><th>電腦 CPU</th><th>手機 CPU</th><th>電腦 GPU</th><th>車用晶片</th></tr><tr><td>甲公司總利潤</td><td>200 萬元</td><td>750 萬元</td><td>350 萬元</td><td>200 萬元</td></tr><tr><td>乙公司總利潤</td><td>350 萬元</td><td>300 萬元</td><td>320 萬元</td><td>250 萬元</td></tr></table></div>
+          <p class="stem">根據表中資料，以機會成本來考量，下列敘述何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q12" value="A"><span class="letter">A</span><span>兩家公司最終將選擇生產相同的晶片</span></label><label class="option"><input type="radio" name="q12" value="B"><span class="letter">B</span><span>乙公司生產車用晶片的機會成本最低</span></label><label class="option"><input type="radio" name="q12" value="C"><span class="letter">C</span><span>乙公司生產電腦 CPU 的機會成本最高</span></label><label class="option"><input type="radio" name="q12" value="D"><span class="letter">D</span><span>兩家公司生產手機 CPU 的機會成本相同</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>甲公司各方案總利潤為 200、750、350、200 萬元；若甲生產手機 CPU，放棄方案中最高的是電腦 GPU 的 350 萬元，所以機會成本是 350 萬元。乙公司的總利潤為 350、300、320、250 萬元；若乙生產手機 CPU，放棄方案中最高的是電腦 CPU 的 350 萬元，機會成本也是 350 萬元，因此 D 正確。兩家公司追求最大利潤時分別選手機 CPU 與電腦 CPU，並不相同；乙生產車用晶片的機會成本是 350 萬元，不是最低；乙生產電腦 CPU 的機會成本是 320 萬元，反而低於其他三種方案的 350 萬元。</p><p class="key"><strong>解題關鍵：</strong>某方案的機會成本＝放棄方案中價值最高者，不是把所有放棄項目相加。</p></div>
+        </article>
+<article class="card" id="q13" data-answer="B">
+          <div class="q-head"><span class="num">13</span><div><span class="source">京都題 第 1 小題</span><h2>公共財</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>2019 年到訪日本京都的外國遊客約 800 多萬人。觀光產業帶來稅收，但也出現公車擠滿觀光客、遊客騷擾藝妓、迷路遊客闖入住宅等『觀光公害』。京都市政府預計停售『京都市巴士一日券』，希望改善觀光客擠滿公車的問題。</p></div>
+          <p class="stem">觀光資源這一類的公共自由財，容易產生社會成本讓社會大眾承擔，請問是因為此類公共自由財資源具有何種特點？</p>
+          <div class="options"><label class="option"><input type="radio" name="q13" value="A"><span class="letter">A</span><span>私有性</span></label><label class="option"><input type="radio" name="q13" value="B"><span class="letter">B</span><span>公共性</span></label><label class="option"><input type="radio" name="q13" value="C"><span class="letter">C</span><span>稀少性</span></label><label class="option"><input type="radio" name="q13" value="D"><span class="letter">D</span><span>利益性</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>觀光景點、城市環境等公共自由財具有公共性，不易排除未付費者使用，也常被許多人共同使用。個別遊客在使用時可能不必負擔全部成本，卻把擁擠、噪音、垃圾或交通干擾留給居民與社會，因而形成外部成本。A 私有性與題意相反；C 稀少性雖可能造成擁擠，但題幹問的是成本由大眾承擔的制度特點；D 不是公共財的標準特性。</p><p class="key"><strong>解題關鍵：</strong>『大家都能用、成本由大眾承擔』指向公共性與外部成本。</p></div>
+        </article>
+<article class="card" id="q14" data-answer="B">
+          <div class="q-head"><span class="num">14</span><div><span class="source">京都題 第 2 小題</span><h2>機會成本</h2></div></div>
+          
+          <p class="stem">題文中關於停止販售『京都市巴士一日券』所帶來的影響，如果用機會成本的概念來作解釋，所指『影響』的機會成本最可能是？</p>
+          <div class="options"><label class="option"><input type="radio" name="q14" value="A"><span class="letter">A</span><span>減少的售票收益</span></label><label class="option"><input type="radio" name="q14" value="B"><span class="letter">B</span><span>減少的潛在觀光收益</span></label><label class="option"><input type="radio" name="q14" value="C"><span class="letter">C</span><span>增加的公車便利</span></label><label class="option"><input type="radio" name="q14" value="D"><span class="letter">D</span><span>增加的交通成本</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>停售一日券可能讓部分依賴公車的遊客覺得京都較不方便，甚至不再前往偏遠景點或減少旅遊。若政府選擇改善居民搭車與擁擠問題，就可能放棄原本可由這些旅客帶來的最佳替代利益，也就是潛在觀光收益，因此選 B。A 只是直接少賣票的收入，範圍較窄；C 是居民可能得到的利益，不是被放棄的利益；D 是可能增加的代價，但題目脈絡特別指向觀光產業失去遊客與收入。</p><p class="key"><strong>解題關鍵：</strong>機會成本問的是『因這個選擇而放棄的最高價值利益』。</p></div>
+        </article>
+<article class="card" id="q15" data-answer="D">
+          <div class="q-head"><span class="num">15</span><div><span class="source">原題 36 第 1 小題</span><h2>薪資與選擇</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>詠輝現在的薪水是 29,500 元。他想培養第二專長、換公司增加工作經驗，應徵甲公司月薪 29,000 元、乙公司 28,500 元；朋友新開珍珠奶茶店，希望他幫忙，月薪 28,000 元。</p></div>
+          <p class="stem">若不考慮其他因素，單以薪資為考量，則詠輝的最佳選擇應是下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="q15" value="A"><span class="letter">A</span><span>甲公司</span></label><label class="option"><input type="radio" name="q15" value="B"><span class="letter">B</span><span>乙公司</span></label><label class="option"><input type="radio" name="q15" value="C"><span class="letter">C</span><span>朋友的店</span></label><label class="option"><input type="radio" name="q15" value="D"><span class="letter">D</span><span>不換工作</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>四個方案月薪依序是 29,000 元、28,500 元、28,000 元與目前工作的 29,500 元。題目限定只看薪資，因此直接比較金額即可；29,500 元最高，所以不換工作。題幹中培養專長、增加經驗或人情等因素，在本小題都被『不考慮其他因素』排除。</p><p class="key"><strong>解題關鍵：</strong>先遵守題目限定條件；只比較薪資，不加入喜好或發展性。</p></div>
+        </article>
+<article class="card" id="q16" data-answer="D">
+          <div class="q-head"><span class="num">16</span><div><span class="source">原題 36 第 2 小題</span><h2>喜好與機會成本</h2></div></div>
+          <div class="table-wrap"><table><tr><th>選擇項目</th><th>喜好程度</th></tr><tr><td>甲公司</td><td>☆☆</td></tr><tr><td>乙公司</td><td>☆☆☆</td></tr><tr><td>朋友的店</td><td>☆☆☆☆</td></tr><tr><td>原來公司</td><td>☆</td></tr></table></div>
+          <p class="stem">假設詠輝以附表所列為考量，決定到朋友的店去上班，則下列敘述何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q16" value="A"><span class="letter">A</span><span>詠輝是以金錢衡量機會成本高低</span></label><label class="option"><input type="radio" name="q16" value="B"><span class="letter">B</span><span>詠輝選擇了表中機會成本最高的</span></label><label class="option"><input type="radio" name="q16" value="C"><span class="letter">C</span><span>若選擇原來公司可獲得最大利益</span></label><label class="option"><input type="radio" name="q16" value="D"><span class="letter">D</span><span>選擇另外三者的機會成本均相同</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>表中偏好由高到低為朋友的店 4 顆星、乙公司 3 顆星、甲公司 2 顆星、原來公司 1 顆星。若改選甲、乙或原公司，三種選擇都會放棄最喜歡的『朋友的店』，所以其機會成本都同樣是朋友的店，D 正確。A 錯在表格衡量的是喜好，不是金額；B 不能說選了『機會成本最高』，因為選朋友的店時，最高價值的放棄方案是乙公司；C 與偏好表相反。</p><p class="key"><strong>解題關鍵：</strong>比較偏好時，選任何非首選方案，都會放棄同一個最高價值選項。</p></div>
+        </article>
+<article class="card" id="q17" data-answer="A">
+          <div class="q-head"><span class="num">17</span><div><span class="source">原題 34 第 1 小題</span><h2>經濟財</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>美國富翁諾克到日本富士山觀光，發現山上風景優美且空氣清新，於是把空氣裝入罐頭銷售；後來隨著空氣污染議題受重視，空氣罐頭在日本各地暢銷，甚至銷往歐美。</p></div>
+          <p class="stem">上文中的空氣罐頭屬於下列何種類型？</p>
+          <div class="options"><label class="option"><input type="radio" name="q17" value="A"><span class="letter">A</span><span>經濟財</span></label><label class="option"><input type="radio" name="q17" value="B"><span class="letter">B</span><span>自由財</span></label><label class="option"><input type="radio" name="q17" value="C"><span class="letter">C</span><span>生產財</span></label><label class="option"><input type="radio" name="q17" value="D"><span class="letter">D</span><span>消耗財</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>山上的清新空氣原本可能是可自由取得的自由財，但被裝入罐中、運送並在市場販售後，需要投入資源且有價格，消費者必須付出代價才能取得，因此成為經濟財。它的用途是直接滿足吸入清新空氣的需求，不是拿來生產其他產品，所以不能依『生產財』判斷。</p><p class="key"><strong>解題關鍵：</strong>同一種物質會因取得方式、地點與是否有代價，而改變財貨性質。</p></div>
+        </article>
+<article class="card" id="q18" data-answer="C">
+          <div class="q-head"><span class="num">18</span><div><span class="source">原題 34 第 2 小題</span><h2>稀少性</h2></div></div>
+          
+          <p class="stem">像『空氣罐頭』這類的產品具備下列何種特性？</p>
+          <div class="options"><label class="option"><input type="radio" name="q18" value="A"><span class="letter">A</span><span>替代性</span></label><label class="option"><input type="radio" name="q18" value="B"><span class="letter">B</span><span>功能性</span></label><label class="option"><input type="radio" name="q18" value="C"><span class="letter">C</span><span>稀少性</span></label><label class="option"><input type="radio" name="q18" value="D"><span class="letter">D</span><span>同質性</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>能被裝罐販售的清新空氣並非隨時隨地無限可得；特定地點的清潔空氣，加上收集、包裝與運送能力都有限，而人們又有需求，因此具有稀少性。稀少性不是指極端罕見，而是可用資源相對於人的欲望有限。A、B、D 都可能描述某些商品特徵，但不是題文形成市場價格的核心。</p><p class="key"><strong>解題關鍵：</strong>經濟學的稀少性是『相對有限』，不是日常語言的罕見。</p></div>
+        </article>
+<article class="card" id="q19" data-answer="A">
+          <div class="q-head"><span class="num">19</span><div><span class="source">原題 32</span><h2>成本與機會成本</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>昱瑋每天到文興書局工作 8 小時，書局給付 1,600 元／天。</p></div>
+          <p class="stem">附圖是昱瑋和文興書局之間的關係，根據附圖資訊判斷，下列敘述何者有誤？</p>
+          <div class="options"><label class="option"><input type="radio" name="q19" value="A"><span class="letter">A</span><span>請一天假所要支付的成本為 1,600 元</span></label><label class="option"><input type="radio" name="q19" value="B"><span class="letter">B</span><span>上一天班的機會成本是 8 個小時</span></label><label class="option"><input type="radio" name="q19" value="C"><span class="letter">C</span><span>上一個小時的班可獲取的價值為 200 元</span></label><label class="option"><input type="radio" name="q19" value="D"><span class="letter">D</span><span>上一天班的隱藏成本是 8 個小時的休息時間</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>昱瑋工作 8 小時獲得 1,600 元，因此每小時工資為 200 元，C 正確。選擇上一天班，就放棄 8 小時可自由運用或休息的時間，所以 B、D 都在描述工作的機會成本或隱藏成本。請一天假時，1,600 元是因不上班而放棄的薪資，也就是機會成本，不是昱瑋必須實際『支付』給書局的金錢，因此 A 的用語錯誤。</p><p class="key"><strong>解題關鍵：</strong>分清楚實際支出與放棄的利益；沒有付錢，也可能有機會成本。</p></div>
+        </article>
+<article class="card" id="q20" data-answer="C">
+          <div class="q-head"><span class="num">20</span><div><span class="source">原題 26</span><h2>稀少性的判斷</h2></div></div>
+          
+          <p class="stem">於經濟學所討論的『稀少』，下列敘述何者不正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q20" value="A"><span class="letter">A</span><span>清潔空氣在空汙嚴重的都市中具有稀少性</span></label><label class="option"><input type="radio" name="q20" value="B"><span class="letter">B</span><span>沒代價、可任意使用的東西不具有稀少性</span></label><label class="option"><input type="radio" name="q20" value="C"><span class="letter">C</span><span>眾人爭相購買的物品一定具有稀少性</span></label><label class="option"><input type="radio" name="q20" value="D"><span class="letter">D</span><span>只要資源無法滿足人們的欲望，就具有稀少性</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>經濟學的稀少性是『可用資源相對於欲望不足』。A 符合這一定義；B 所說可無代價、任意使用，表示供給足以滿足需要；D 直接陳述稀少性的核心。C 使用『一定』過度推論：人們爭相購買可能由流行、促銷或預期心理造成，不能只憑搶購現象就確定資源相對欲望不足；仍須看取得是否需要取捨與付出代價。</p><p class="key"><strong>解題關鍵：</strong>不要把『熱門』直接等同『稀少』；稀少性要看資源與欲望的相對關係。</p></div>
+        </article>
+<article class="card" id="q21" data-answer="B">
+          <div class="q-head"><span class="num">21</span><div><span class="source">原題 18</span><h2>誘因與選擇</h2></div></div>
+          
+          <p class="stem">鈺華因沉迷於線上遊戲、荒廢學業，在這次段考表現一塌糊塗。為了矯正鈺華不良的行為，媽媽決定懲罰他一個月都不可以上網。根據上述，下列敘述何者有誤？</p>
+          <div class="options"><label class="option"><input type="radio" name="q21" value="A"><span class="letter">A</span><span>懲罰屬於負向誘因</span></label><label class="option"><input type="radio" name="q21" value="B"><span class="letter">B</span><span>此懲罰無法矯正鈺華不良的行為</span></label><label class="option"><input type="radio" name="q21" value="C"><span class="letter">C</span><span>媽媽的決定有衡量『上網』對鈺華的價值</span></label><label class="option"><input type="radio" name="q21" value="D"><span class="letter">D</span><span>『禁止上網』應比『禁足』更具影響效果</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>負向誘因是用不利後果降低某種行為發生的可能，禁止上網正是負向誘因，因此 A 正確。鈺華沉迷線上遊戲，表示上網對他價值很高；剝奪上網機會可能提高荒廢學業的代價，因而具有矯正作用，所以直接斷言『無法矯正』的 B 有誤。C 符合誘因設計必須考量當事人的偏好；相較禁足，禁止上網更直接對準其重視的活動，所以 D 在題幹條件下較合理。</p><p class="key"><strong>解題關鍵：</strong>誘因是否有效，要看它是否改變當事人在意的利益或代價。</p></div>
+        </article>
+<article class="card" id="q22" data-answer="B">
+          <div class="q-head"><span class="num">22</span><div><span class="source">原題 17</span><h2>供給法則</h2></div></div>
+          
+          <p class="stem">某項商品價格上漲時，生產者的生產意願會呈現何種變化？</p>
+          <div class="options"><label class="option"><input type="radio" name="q22" value="A"><span class="letter">A</span><span>減少</span></label><label class="option"><input type="radio" name="q22" value="B"><span class="letter">B</span><span>增加</span></label><label class="option"><input type="radio" name="q22" value="C"><span class="letter">C</span><span>不變</span></label><label class="option"><input type="radio" name="q22" value="D"><span class="letter">D</span><span>不一定</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>在其他條件不變下，商品價格上漲會提高生產與出售該商品可能得到的收益，生產者通常願意增加供給，因此生產意願增加。這是供給法則。若成本、技術或政策同時改變，結果可能不同，但題目沒有提供這些變動，所以應採『其他條件不變』的基本判斷。</p><p class="key"><strong>解題關鍵：</strong>價格與供給量通常同方向變動：價格上升，生產意願增加。</p></div>
+        </article>
+<article class="card" id="q23" data-answer="C">
+          <div class="q-head"><span class="num">23</span><div><span class="source">原題 7</span><h2>利潤與銷貨收入</h2></div></div>
+          
+          <p class="stem">阿輝到廟會活動的場邊販賣小吃，活動結束後，商品全都賣完了，且利潤為 12,000 元，占銷貨收入的 60%。根據上述內容判斷，阿輝所販售的小吃，其售價與銷售數量最可能為下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="q23" value="A"><span class="letter">A</span><span>售價 10 元，銷售數量 1,000 份</span></label><label class="option"><input type="radio" name="q23" value="B"><span class="letter">B</span><span>售價 15 元，銷售數量 2,000 份</span></label><label class="option"><input type="radio" name="q23" value="C"><span class="letter">C</span><span>售價 10 元，銷售數量 2,000 份</span></label><label class="option"><input type="radio" name="q23" value="D"><span class="letter">D</span><span>售價 15 元，銷售數量 1,000 份</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>利潤 12,000 元占銷貨收入 60%，所以銷貨收入＝12,000÷0.6＝20,000 元。再計算各選項的『售價×數量』：A 為 10,000 元，B 為 30,000 元，C 為 20,000 元，D 為 15,000 元，只有 C 符合。也可檢查成本：20,000－12,000＝8,000 元，數值合理。</p><p class="key"><strong>解題關鍵：</strong>先用『利潤＝收入×60%』倒推收入，再核對售價×數量。</p></div>
+        </article></main>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const downloadBtn=document.querySelector('#downloadDocx');
+let graded=false;
+
+document.querySelector('#grade').addEventListener('click',()=>{
+  let score=0,first=null;
+  cards.forEach(c=>{
+    c.classList.remove('correct','incorrect','unanswered');
+    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
+    const pick=c.querySelector('input:checked');
+    const ans=c.dataset.answer;
+    c.classList.add('checked');
+    c.querySelectorAll('input').forEach(i=>{
+      const lab=i.closest('.option');
+      if(i.value===ans)lab.classList.add('good');
+      if(pick&&i===pick&&i.value!==ans)lab.classList.add('bad');
+    });
+    if(!pick){c.classList.add('unanswered');first??=c}
+    else if(pick.value===ans){score++;c.classList.add('correct')}
+    else c.classList.add('incorrect');
+  });
+  graded=true;
+  const mistakeCount=cards.length-score;
+  document.querySelector('#score').textContent=`得分 ${score} / ${cards.length}`;
+  downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+  downloadBtn.hidden=false;
+  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.querySelector('#reset').addEventListener('click',()=>{
+  cards.forEach(c=>{
+    c.className='card';
+    c.querySelectorAll('input').forEach(i=>i.checked=false);
+    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
+  });
+  graded=false;
+  downloadBtn.hidden=true;
+  downloadBtn.textContent='下載錯題詳解 DOCX';
+  document.querySelector('#score').textContent='尚未批改';
+  scrollTo({top:0,behavior:'smooth'});
+});
+
+function xmlEscape(value){
+  return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+}
+
+function wordParagraph(text,{bold=false,size=22,color='000000',before=0,after=100}={}){
+  const safe=xmlEscape(text);
+  return `<w:p><w:pPr><w:spacing w:before="${before}" w:after="${after}" w:line="330" w:lineRule="auto"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Microsoft JhengHei" w:hAnsi="Microsoft JhengHei" w:eastAsia="Microsoft JhengHei"/><w:sz w:val="${size}"/><w:szCs w:val="${size}"/>${bold?'<w:b/><w:bCs/>':''}${color!=='000000'?`<w:color w:val="${color}"/>`:''}<w:lang w:eastAsia="zh-TW"/></w:rPr><w:t xml:space="preserve">${safe}</w:t></w:r></w:p>`;
+}
+
+function textBlock(text,options={}){
+  return String(text??'').split(/\r?\n/).filter(Boolean).map(line=>wordParagraph(line,options)).join('');
+}
+
+function collectMistakes(){
+  return cards.filter(c=>{
+    const pick=c.querySelector('input:checked');
+    return !pick||pick.value!==c.dataset.answer;
+  }).map(c=>{
+    const picked=c.querySelector('input:checked');
+    const feedback=[...c.querySelectorAll('.feedback p')];
+    return {
+      number:c.querySelector('.num').textContent.trim(),
+      source:c.querySelector('.source').textContent.trim(),
+      topic:c.querySelector('h2').textContent.trim(),
+      context:c.querySelector('.context')?.innerText.trim()||'',
+      stem:c.querySelector('.stem').textContent.trim(),
+      options:[...c.querySelectorAll('.option')].map(o=>`${o.querySelector('.letter').textContent.trim()}　${o.querySelector('span:last-child').textContent.trim()}`),
+      selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
+      answer:c.dataset.answer,
+      explanation:feedback[1]?.textContent.trim()||'',
+      key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
+    };
+  });
+}
+
+const encoder=new TextEncoder();
+function le16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function le32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function joinBytes(chunks){
+  const out=new Uint8Array(chunks.reduce((sum,c)=>sum+c.length,0));
+  let at=0;for(const c of chunks){out.set(c,at);at+=c.length}return out;
+}
+const crcTable=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(data){let c=0xffffffff;for(const b of data)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0}
+function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());return {time:(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date:((year-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate()}}
+
+function makeDocxZip(files){
+  const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
+  for(const [name,text] of files){
+    const nameBytes=encoder.encode(name),data=encoder.encode(text),crc=crc32(data);
+    const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
+    const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
+    locals.push(local);centrals.push(central);offset+=local.length;
+  }
+  const centralData=joinBytes(centrals);
+  const end=joinBytes([le32(0x06054b50),le16(0),le16(0),le16(files.length),le16(files.length),le32(centralData.length),le32(offset),le16(0)]);
+  return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+function buildMistakeDocx(){
+  const mistakes=collectMistakes();
+  let body=wordParagraph('九上公民第一次段考錯題詳解',{bold:true,size:34,color:'17313A',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　錯題與未作答共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  if(!mistakes.length){
+    body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
+  }else{
+    mistakes.forEach((m,index)=>{
+      if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+      body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
+      if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
+      m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
+      body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
+      body+=wordParagraph(`正確答案：${m.answer}`,{bold:true,size:22,color:'0B6B57',after:100});
+      body+=wordParagraph('詳解',{bold:true,size:22,after:55});
+      body+=textBlock(m.explanation,{size:21,after:90});
+      body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
+    });
+  }
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml]]);
+}
+
+downloadBtn.addEventListener('click',()=>{
+  if(!graded)return;
+  const blob=buildMistakeDocx();
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='九上公民第一次段考錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+</script></body></html>
+
