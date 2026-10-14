@@ -11,7 +11,7 @@
   - 一字多音
   - 一字多義
   - 常用詞語
-- 國文｜七年級上學期｜第一次段考錯題複習（67 題：字音字形、解釋、改錯、成語、選擇）：`chinese/grade-7/first-midterm-wrong-questions.html`
+- 國文｜七年級上學期｜第一次段考錯題複習（75 題：字音字形、解釋、改錯、成語、選擇、段考卷選擇）：`chinese/grade-7/first-midterm-wrong-questions.html`
 - 生物（自然）｜七年級上學期｜第一次段考錯題複習（6 題）：`biology/grade-7/first-midterm-wrong-questions.html`
 - 公民｜九年級上學期｜第一次段考錯題複習（23 題）
 
