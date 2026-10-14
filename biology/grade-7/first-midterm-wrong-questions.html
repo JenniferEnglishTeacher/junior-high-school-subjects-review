@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>七上自然（生物）第一次段考錯題互動測驗</title>
+<style>
+:root{--ink:#17313a;--muted:#61727a;--paper:#fffdf8;--bg:#edf4f3;--accent:#0b6b57;--accent2:#d39b36;--bad:#a33a35;--line:#d8e2df}
+*{box-sizing:border-box} body{margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e4f0ee,#f6efe2);line-height:1.65}
+.dashboard-link{position:fixed;left:16px;top:16px;z-index:10;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.95);color:var(--ink);font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(22,49,58,.12);backdrop-filter:blur(10px)}.dashboard-link:hover{border-color:var(--accent);color:var(--accent)}
+header{padding:48px 20px 30px;text-align:center} h1{margin:0;font-size:clamp(2rem,5vw,3.6rem);line-height:1.12} header p{max-width:760px;margin:14px auto;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;background:var(--accent);color:white} button.secondary{background:#dfe9e6;color:var(--ink)} button.download{background:#244b5a} button[hidden]{display:none}.score{font-weight:800;min-width:160px;text-align:center}
+main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:22px} .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08)}
+.q-head{display:flex;gap:14px;align-items:center;margin-bottom:14px} .num{display:grid;place-items:center;min-width:52px;height:52px;border-radius:15px;background:var(--ink);color:white;font-weight:900} .source{color:var(--accent);font-weight:800;font-size:.9rem} h2{margin:0;font-size:1.18rem} .stem{font-size:1.08rem;font-weight:700}
+.context{background:#f2f7f5;border-left:4px solid var(--accent);padding:14px 16px;margin:14px 0;border-radius:0 12px 12px 0} .context p{margin:.35rem 0 0} .adapted{color:#73581c;background:#fff6dc;padding:8px 12px;border-radius:10px;font-size:.92rem}
+.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .card.checked .option{cursor:default}.card.checked .option:hover{transform:none}.option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
+.card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
+.feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
+.unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
+@media(max-width:620px){.dashboard-link{position:static;margin:12px 16px 0}}</style></head><body>
+<a class="dashboard-link" href="../../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
+<header><h1>七上自然第一次段考錯題</h1><p>緒論・科學方法與進入實驗室，共 6 題。每題選擇答案後，會立即顯示正確答案與詳細講解；作答完可下載錯題詳解 DOCX。</p></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 6</span></div>
+<main><article class="card" id="q1" data-answer="A">
+          <div class="q-head"><span class="num">01</span><div><span class="source">緒論 好題示例（會考107）</span><h2>實驗設計：變因控制</h2></div></div>
+          
+          <p class="stem">琪婷觀察爸爸在家中利用茶壺煮水時，茶壺內水量的多少似乎會影響水煮沸所需的時間，她假設當茶壺內水量越多，將水煮沸所需的時間也越多。若要驗證她的假設是否合理，下列哪一種實驗設計可直接用來驗證她的假設？</p>
+          <div class="options"><label class="option"><input type="radio" name="q1" value="A"><span class="letter">A</span><span>在完全相同的茶壺中，分別裝入不同水量，以同一個瓦斯爐的相同火力加熱，測量水從室溫加熱到沸騰所需時間</span></label><label class="option"><input type="radio" name="q1" value="B"><span class="letter">B</span><span>使用不同大小的茶壺，分別裝入等量的水，以同一個瓦斯爐的相同火力加熱，測量水從室溫加熱到沸騰所需時間</span></label><label class="option"><input type="radio" name="q1" value="C"><span class="letter">C</span><span>在完全相同的茶壺中，分別裝入不同水量，以同一個瓦斯爐的相同火力加熱，將水加熱 5 分鐘，測量瓦斯桶減輕的重量</span></label><label class="option"><input type="radio" name="q1" value="D"><span class="letter">D</span><span>在完全相同的茶壺中，分別裝入相同水量，以同一個瓦斯爐的大、中、小不同的火力加熱，測量水從室溫加熱到沸騰所需時間</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>先從假設找出三種變因：操縱變因是「茶壺內的水量」，應變變因是「水煮沸所需的時間」，其他條件（茶壺、瓦斯爐、火力、起始水溫）都要相同，是控制變因。A 只改變水量、測量煮沸時間，完全符合。B 改變的是茶壺大小；C 測量的是瓦斯減少的重量，不是煮沸時間；D 改變的是火力大小，都無法直接驗證「水量越多、煮沸時間越長」。</p><p class="key"><strong>解題關鍵：</strong>操縱變因＝假設中「改變的東西」（水量），應變變因＝假設中「因此改變的結果」（煮沸時間）。</p></div>
+        </article>
+<article class="card" id="q2" data-answer="D">
+          <div class="q-head"><span class="num">02</span><div><span class="source">緒論 焦點1 即時練 3</span><h2>科學方法的步驟</h2></div></div>
+          
+          <p class="stem">「曉華發現冬天在戶外講話時，常會吐出白煙，查詢資料後發現人呼出的氣體中含有二氧化碳與水氣，所以她推論冬天講話呼出的白色煙霧是水氣。」則在上述過程中，曉華並沒有做到以下科學方法中的哪一步驟？</p>
+          <div class="options"><label class="option"><input type="radio" name="q2" value="A"><span class="letter">A</span><span>觀察</span></label><label class="option"><input type="radio" name="q2" value="B"><span class="letter">B</span><span>文獻探討</span></label><label class="option"><input type="radio" name="q2" value="C"><span class="letter">C</span><span>提出假設</span></label><label class="option"><input type="radio" name="q2" value="D"><span class="letter">D</span><span>實驗</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>逐一對照曉華做過的事：「發現冬天講話會吐出白煙」是觀察（A）；「查詢資料」是文獻探討（B）；「推論白色煙霧是水氣」是提出假設（C）。她只停在推論，並沒有設計實驗去驗證白煙是不是水氣，所以缺少的是實驗（D）。</p><p class="key"><strong>解題關鍵：</strong>假設提出後必須用「實驗」驗證；只推論、沒動手測試，就是缺了實驗。</p></div>
+        </article>
+<article class="card" id="q3" data-answer="D">
+          <div class="q-head"><span class="num">03</span><div><span class="source">緒論 焦點2 好題示例 1（會考103）</span><h2>實驗器材：滴管與量筒</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>右圖為兩項實驗器材，其使用說明如下：<br>器材一（滴管）：多用於吸取少量的液體，吸取液體後應將其顛倒放置，以防止其內液體流出。<br>器材二（量筒）：常用於測量液體的體積，但不可在其內進行化學反應，也不可用於加熱。</p></div>
+          <p class="stem">關於這兩項器材的使用說明，下列判斷何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q3" value="A"><span class="letter">A</span><span>兩項器材的說明皆正確</span></label><label class="option"><input type="radio" name="q3" value="B"><span class="letter">B</span><span>兩項器材的說明皆錯誤</span></label><label class="option"><input type="radio" name="q3" value="C"><span class="letter">C</span><span>只有器材一的說明正確</span></label><label class="option"><input type="radio" name="q3" value="D"><span class="letter">D</span><span>只有器材二的說明正確</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>器材一是滴管：吸取液體後不可倒置（顛倒放置），否則液體會流入橡膠頭，汙染液體或腐蝕橡膠頭，所以器材一的說明錯誤。器材二是量筒：用來測量液體體積，不可在其中混合溶液進行反應，也不可加熱，說明正確。因此只有器材二正確，選 D。</p><p class="key"><strong>解題關鍵：</strong>滴管「不可倒置」、量筒「只量體積，不加熱、不反應」。</p></div>
+        </article>
+<article class="card" id="q4" data-answer="D">
+          <div class="q-head"><span class="num">04</span><div><span class="source">緒論 實力養成評量 1</span><h2>變因的意義</h2></div></div>
+          
+          <p class="stem">關於「變因」的敘述，下列何者錯誤？</p>
+          <div class="options"><label class="option"><input type="radio" name="q4" value="A"><span class="letter">A</span><span>具有可變動性</span></label><label class="option"><input type="radio" name="q4" value="B"><span class="letter">B</span><span>可能影響結果的因素</span></label><label class="option"><input type="radio" name="q4" value="C"><span class="letter">C</span><span>實驗主要是研究操縱變因和應變變因間的關係</span></label><label class="option"><input type="radio" name="q4" value="D"><span class="letter">D</span><span>實驗組和對照組間，主要是改變控制變因來進行實驗</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>實驗組和對照組之間只改變「操縱變因」，其他條件都保持相同，這些保持相同的條件才是「控制變因」。D 說「改變控制變因」，把兩者弄反了，所以錯誤。A、B、C 都是變因的正確描述：變因可以變動、可能影響結果，實驗就是在研究操縱變因如何影響應變變因。</p><p class="key"><strong>解題關鍵：</strong>控制變因＝保持不變；操縱變因＝刻意改變；應變變因＝跟著改變的結果。</p></div>
+        </article>
+<article class="card" id="q5" data-answer="C">
+          <div class="q-head"><span class="num">05</span><div><span class="source">緒論 實力養成評量 2</span><h2>找出操縱變因</h2></div></div>
+          
+          <p class="stem">想要探討在不同大氣壓力下對水沸騰時溫度的影響，則「操縱變因」應為下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="q5" value="A"><span class="letter">A</span><span>沸騰時的水溫</span></label><label class="option"><input type="radio" name="q5" value="B"><span class="letter">B</span><span>水的質量</span></label><label class="option"><input type="radio" name="q5" value="C"><span class="letter">C</span><span>不同大氣壓力</span></label><label class="option"><input type="radio" name="q5" value="D"><span class="letter">D</span><span>加熱時間</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>題目要研究「大氣壓力」對「沸騰溫度」的影響：刻意改變的是大氣壓力，所以操縱變因是 C。沸騰時的水溫是跟著改變、要測量的結果，屬於應變變因（A）；水的質量應保持相同，屬於控制變因（B）；加熱時間不是本實驗要探討的因素（D）。</p><p class="key"><strong>解題關鍵：</strong>題目句型「探討 X 對 Y 的影響」：X 是操縱變因，Y 是應變變因。</p></div>
+        </article>
+<article class="card" id="q6" data-answer="C">
+          <div class="q-head"><span class="num">06</span><div><span class="source">緒論 歷屆經典題 2（會考109）</span><h2>判斷實驗結果是否支持假設</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>下列為小庭依據科學方法所寫的實驗報告：<br>▸初步觀察：放有數枚一元硬幣的水盆裡沒有孑孓生存，但沒有一元硬幣的水盆裡有孑孓生存。<br>▸提出問題：為什麼放有一元硬幣的水盆中孑孓無法生存？<br>▸提出假設：含有一元硬幣的水可能會促使孑孓死亡。<br>▸設計實驗步驟：準備甲、乙兩組相同的水盆，皆倒入等量的純水。僅在甲組中放入一枚一元硬幣，乙組則無。甲、乙兩組皆放入 30 隻孑孓，每日皆提供充足的相同食物，待一週後觀察兩組孑孓的存活率。<br>▸實驗結果：甲組（純水＋孑孓＋一元硬幣）孑孓存活率 43.3%；乙組（純水＋孑孓）孑孓存活率 40.0%。</p></div>
+          <p class="stem">根據上述，下列關於小庭的實驗結果是否支持他所提出的假設，何者最合理？</p>
+          <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>支持，因為甲組孑孓的存活率沒有比乙組低</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>支持，因為甲、乙兩組孑孓的存活率皆低於 50%</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>不支持，因為甲組孑孓的存活率沒有比乙組低</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>不支持，因為甲、乙兩組孑孓的存活率皆低於 50%</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>假設是「一元硬幣會促使孑孓死亡」，如果假設成立，放硬幣的甲組存活率應該明顯比乙組低。結果甲組 43.3% 反而沒有比乙組 40.0% 低，所以實驗結果「不支持」假設，理由是甲組存活率沒有比乙組低，選 C。A 理由對但結論錯；B、D 用「低於 50%」判斷，沒有比較實驗組與對照組，不合理。</p><p class="key"><strong>解題關鍵：</strong>判斷是否支持假設，要比較「實驗組 vs 對照組」，不是看數字本身高低。</p></div>
+        </article>
+</main>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const downloadBtn=document.querySelector('#downloadDocx');
+let graded=false;
+
+function checkCard(card,revealUnanswered=false){
+  card.classList.remove('correct','incorrect','unanswered');
+  card.querySelectorAll('.option').forEach(option=>option.classList.remove('good','bad'));
+  const pick=card.querySelector('input:checked');
+  const answer=card.dataset.answer;
+  if(!pick&&!revealUnanswered)return {answered:false,correct:false};
+  card.classList.add('checked');
+  card.querySelectorAll('input').forEach(input=>{
+    const option=input.closest('.option');
+    if(input.value===answer)option.classList.add('good');
+    if(pick&&input===pick&&input.value!==answer)option.classList.add('bad');
+    input.disabled=true;
+  });
+  if(!pick)card.classList.add('unanswered');
+  else if(pick.value===answer)card.classList.add('correct');
+  else card.classList.add('incorrect');
+  return {answered:!!pick,correct:!!pick&&pick.value===answer};
+}
+
+function updateProgress(){
+  const answered=cards.filter(card=>card.querySelector('input:checked')).length;
+  const score=cards.filter(card=>card.querySelector('input:checked')?.value===card.dataset.answer).length;
+  document.querySelector('#score').textContent=`已作答 ${answered} / ${cards.length}・答對 ${score} 題`;
+  if(answered===cards.length){
+    graded=true;
+    const mistakeCount=cards.length-score;
+    downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+    downloadBtn.hidden=false;
+  }
+}
+
+cards.forEach(card=>card.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+  checkCard(card);
+  updateProgress();
+})));
+
+document.querySelector('#grade').addEventListener('click',()=>{
+  let score=0,first=null;
+  cards.forEach(c=>{
+    const result=checkCard(c,true);
+    if(!result.answered)first??=c;
+    if(result.correct)score++;
+  });
+  graded=true;
+  const mistakeCount=cards.length-score;
+  document.querySelector('#score').textContent=`得分 ${score} / ${cards.length}`;
+  downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+  downloadBtn.hidden=false;
+  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.querySelector('#reset').addEventListener('click',()=>{
+  cards.forEach(c=>{
+    c.className='card';
+    c.querySelectorAll('input').forEach(i=>{i.checked=false;i.disabled=false});
+    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
+  });
+  graded=false;
+  downloadBtn.hidden=true;
+  downloadBtn.textContent='下載錯題詳解 DOCX';
+  document.querySelector('#score').textContent=`已作答 0 / ${cards.length}`;
+  scrollTo({top:0,behavior:'smooth'});
+});
+
+function xmlEscape(value){
+  return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+}
+
+function wordParagraph(text,{bold=false,size=22,color='000000',before=0,after=100}={}){
+  const safe=xmlEscape(text);
+  return `<w:p><w:pPr><w:spacing w:before="${before}" w:after="${after}" w:line="330" w:lineRule="auto"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Microsoft JhengHei" w:hAnsi="Microsoft JhengHei" w:eastAsia="Microsoft JhengHei"/><w:sz w:val="${size}"/><w:szCs w:val="${size}"/>${bold?'<w:b/><w:bCs/>':''}${color!=='000000'?`<w:color w:val="${color}"/>`:''}<w:lang w:eastAsia="zh-TW"/></w:rPr><w:t xml:space="preserve">${safe}</w:t></w:r></w:p>`;
+}
+
+function textBlock(text,options={}){
+  return String(text??'').split(/\r?\n/).filter(Boolean).map(line=>wordParagraph(line,options)).join('');
+}
+
+function collectMistakes(){
+  return cards.filter(c=>{
+    const pick=c.querySelector('input:checked');
+    return !pick||pick.value!==c.dataset.answer;
+  }).map(c=>{
+    const picked=c.querySelector('input:checked');
+    const feedback=[...c.querySelectorAll('.feedback p')];
+    return {
+      number:c.querySelector('.num').textContent.trim(),
+      source:c.querySelector('.source').textContent.trim(),
+      topic:c.querySelector('h2').textContent.trim(),
+      context:c.querySelector('.context')?.innerText.trim()||'',
+      stem:c.querySelector('.stem').textContent.trim(),
+      options:[...c.querySelectorAll('.option')].map(o=>`${o.querySelector('.letter').textContent.trim()}　${o.querySelector('span:last-child').textContent.trim()}`),
+      selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
+      answer:c.dataset.answer,
+      explanation:feedback[1]?.textContent.trim()||'',
+      key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
+    };
+  });
+}
+
+const encoder=new TextEncoder();
+function le16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function le32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function joinBytes(chunks){
+  const out=new Uint8Array(chunks.reduce((sum,c)=>sum+c.length,0));
+  let at=0;for(const c of chunks){out.set(c,at);at+=c.length}return out;
+}
+const crcTable=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(data){let c=0xffffffff;for(const b of data)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0}
+function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());return {time:(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date:((year-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate()}}
+
+function makeDocxZip(files){
+  const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
+  for(const [name,text] of files){
+    const nameBytes=encoder.encode(name),data=encoder.encode(text),crc=crc32(data);
+    const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
+    const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
+    locals.push(local);centrals.push(central);offset+=local.length;
+  }
+  const centralData=joinBytes(centrals);
+  const end=joinBytes([le32(0x06054b50),le16(0),le16(0),le16(files.length),le16(files.length),le32(centralData.length),le32(offset),le16(0)]);
+  return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+function buildMistakeDocx(){
+  const mistakes=collectMistakes();
+  let body=wordParagraph('七上自然第一次段考錯題詳解',{bold:true,size:34,color:'17313A',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　錯題與未作答共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  if(!mistakes.length){
+    body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
+  }else{
+    mistakes.forEach((m,index)=>{
+      if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+      body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
+      if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
+      m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
+      body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
+      body+=wordParagraph(`正確答案：${m.answer}`,{bold:true,size:22,color:'0B6B57',after:100});
+      body+=wordParagraph('詳解',{bold:true,size:22,after:55});
+      body+=textBlock(m.explanation,{size:21,after:90});
+      body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
+    });
+  }
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml]]);
+}
+
+downloadBtn.addEventListener('click',()=>{
+  if(!graded)return;
+  const blob=buildMistakeDocx();
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='七上自然第一次段考錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+</script></body></html>
+
