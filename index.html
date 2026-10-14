@@ -99,8 +99,8 @@
     <p class="intro">整理國文、數學、地理、歷史、公民、理化與地科的分年級題庫。選擇科目與年級，就能快速找到段考、單元及錯題複習。</p>
     <div class="stats" aria-label="題庫統計">
       <span class="stat"><strong>7</strong> 個科目</span>
-      <span class="stat"><strong id="liveCount">1</strong> 份題庫</span>
-      <span class="stat">支援 <strong>七至九年級</strong></span>
+      <span class="stat"><strong id="liveCount">2</strong> 份題庫</span>
+      <span class="stat">支援 <strong>七至九年級與跨年級主題</strong></span>
     </div>
   </header>
 
@@ -111,8 +111,8 @@
         <p>點選科目後，下方會顯示對應題庫。</p>
       </div>
       <div class="subject-grid" id="subjectGrid">
-        <button class="subject active" style="--subject:#18323a" data-subject="全部"><span class="mark">全</span><span class="name">全部</span><span class="count">1 份題庫</span></button>
-        <button class="subject" style="--subject:#a04d69" data-subject="國文"><span class="mark">文</span><span class="name">國文</span><span class="count">待新增</span></button>
+        <button class="subject active" style="--subject:#18323a" data-subject="全部"><span class="mark">全</span><span class="name">全部</span><span class="count">2 份題庫</span></button>
+        <button class="subject" style="--subject:#a04d69" data-subject="國文"><span class="mark">文</span><span class="name">國文</span><span class="count">1 份題庫</span></button>
         <button class="subject" style="--subject:#3269a8" data-subject="數學"><span class="mark">數</span><span class="name">數學</span><span class="count">待新增</span></button>
         <button class="subject" style="--subject:#4a8465" data-subject="地理"><span class="mark">地</span><span class="name">地理</span><span class="count">待新增</span></button>
         <button class="subject" style="--subject:#9a6b35" data-subject="歷史"><span class="mark">史</span><span class="name">歷史</span><span class="count">待新增</span></button>
@@ -134,9 +134,19 @@
           <button class="grade" data-grade="七年級">七年級</button>
           <button class="grade" data-grade="八年級">八年級</button>
           <button class="grade" data-grade="九年級">九年級</button>
+          <button class="grade" data-grade="跨年級">跨年級</button>
         </div>
       </div>
       <div class="resource-list" id="resourceList">
+        <article class="resource" data-subject="國文" data-grade="跨年級" data-search="國文 跨年級 七年級 八年級 九年級 形音義比較 形近易錯 一字多音 一字多義 常用詞語 密 蜜 秘 祕 謐 撒 當 道 盡 續 績 鋪 堪 練 鍊 盛 善 揀 儉 還 強 橫 靜 淨 朝 捕 補 華 皎 絞 將 模 禁 說 惡 酬 虛 易 濫竽充數 鍥而不捨">
+          <div class="book" style="background:linear-gradient(135deg,#b23b47,#6e2e43)" aria-hidden="true">文</div>
+          <div>
+            <div class="meta"><span class="tag">國文</span><span class="tag">跨七、八、九年級</span><span class="tag">29 個小單元</span></div>
+            <h3>形音義比較</h3>
+            <p>分為形近易錯、一字多音、一字多義與常用詞語；每單元包含學習表、字詞庫及即時回饋測驗。</p>
+          </div>
+          <a class="open" href="./chinese/xing-yin-yi/index.html">進入專區 <span aria-hidden="true">→</span></a>
+        </article>
         <article class="resource" data-subject="公民" data-grade="九年級" data-search="公民 九年級 九上 第一次段考 錯題 選擇題 機會成本 公共財 稀少性">
           <div class="book" aria-hidden="true">公</div>
           <div>
@@ -162,12 +172,13 @@
     let currentSubject='全部',currentGrade='全部';
 
     function applyFilters(){
-      const query=searchInput.value.trim().toLowerCase();
+      const terms=searchInput.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
       let visible=0;
       resources.forEach(card=>{
         const subjectOK=currentSubject==='全部'||card.dataset.subject===currentSubject;
         const gradeOK=currentGrade==='全部'||card.dataset.grade===currentGrade;
-        const searchOK=!query||card.dataset.search.toLowerCase().includes(query)||card.textContent.toLowerCase().includes(query);
+        const haystack=`${card.dataset.search} ${card.textContent}`.toLowerCase();
+        const searchOK=terms.length===0||terms.every(term=>haystack.includes(term));
         const show=subjectOK&&gradeOK&&searchOK;
         card.classList.toggle('hidden',!show);
         if(show)visible++;
@@ -189,4 +200,3 @@
   </script>
 </body>
 </html>
-
