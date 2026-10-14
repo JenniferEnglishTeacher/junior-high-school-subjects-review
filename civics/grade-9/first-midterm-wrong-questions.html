@@ -13,14 +13,14 @@ button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:poi
 main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:22px} .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08)}
 .q-head{display:flex;gap:14px;align-items:center;margin-bottom:14px} .num{display:grid;place-items:center;min-width:52px;height:52px;border-radius:15px;background:var(--ink);color:white;font-weight:900} .source{color:var(--accent);font-weight:800;font-size:.9rem} h2{margin:0;font-size:1.18rem} .stem{font-size:1.08rem;font-weight:700}
 .context{background:#f2f7f5;border-left:4px solid var(--accent);padding:14px 16px;margin:14px 0;border-radius:0 12px 12px 0} .context p{margin:.35rem 0 0} .adapted{color:#73581c;background:#fff6dc;padding:8px 12px;border-radius:10px;font-size:.92rem}
-.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
+.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .card.checked .option{cursor:default}.card.checked .option:hover{transform:none}.option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
 .card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
 .feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
 .unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
 </style></head><body>
 <a class="dashboard-link" href="../../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
-<header><h1>九上公民第一次段考錯題</h1><p>23 題互動練習。先完成全部題目，再按「批改並看詳解」。原題 43–47 為填充題，選項是為線上練習新增。</p></header>
-<div class="bar"><button id="grade">批改並看詳解</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">尚未批改</span></div>
+<header><h1>九上公民第一次段考錯題</h1><p>23 題互動練習。每題選擇答案後，會立即顯示正確答案與詳細講解。原題 43–47 為填充題，選項是為線上練習新增。</p></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 23</span></div>
 <main><article class="card" id="q1" data-answer="B">
           <div class="q-head"><span class="num">01</span><div><span class="source">原題 1</span><h2>讚美與友誼</h2></div></div>
           
@@ -187,22 +187,48 @@ const cards=[...document.querySelectorAll('.card')];
 const downloadBtn=document.querySelector('#downloadDocx');
 let graded=false;
 
+function checkCard(card,revealUnanswered=false){
+  card.classList.remove('correct','incorrect','unanswered');
+  card.querySelectorAll('.option').forEach(option=>option.classList.remove('good','bad'));
+  const pick=card.querySelector('input:checked');
+  const answer=card.dataset.answer;
+  if(!pick&&!revealUnanswered)return {answered:false,correct:false};
+  card.classList.add('checked');
+  card.querySelectorAll('input').forEach(input=>{
+    const option=input.closest('.option');
+    if(input.value===answer)option.classList.add('good');
+    if(pick&&input===pick&&input.value!==answer)option.classList.add('bad');
+    input.disabled=true;
+  });
+  if(!pick)card.classList.add('unanswered');
+  else if(pick.value===answer)card.classList.add('correct');
+  else card.classList.add('incorrect');
+  return {answered:!!pick,correct:!!pick&&pick.value===answer};
+}
+
+function updateProgress(){
+  const answered=cards.filter(card=>card.querySelector('input:checked')).length;
+  const score=cards.filter(card=>card.querySelector('input:checked')?.value===card.dataset.answer).length;
+  document.querySelector('#score').textContent=`已作答 ${answered} / ${cards.length}・答對 ${score} 題`;
+  if(answered===cards.length){
+    graded=true;
+    const mistakeCount=cards.length-score;
+    downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+    downloadBtn.hidden=false;
+  }
+}
+
+cards.forEach(card=>card.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+  checkCard(card);
+  updateProgress();
+})));
+
 document.querySelector('#grade').addEventListener('click',()=>{
   let score=0,first=null;
   cards.forEach(c=>{
-    c.classList.remove('correct','incorrect','unanswered');
-    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
-    const pick=c.querySelector('input:checked');
-    const ans=c.dataset.answer;
-    c.classList.add('checked');
-    c.querySelectorAll('input').forEach(i=>{
-      const lab=i.closest('.option');
-      if(i.value===ans)lab.classList.add('good');
-      if(pick&&i===pick&&i.value!==ans)lab.classList.add('bad');
-    });
-    if(!pick){c.classList.add('unanswered');first??=c}
-    else if(pick.value===ans){score++;c.classList.add('correct')}
-    else c.classList.add('incorrect');
+    const result=checkCard(c,true);
+    if(!result.answered)first??=c;
+    if(result.correct)score++;
   });
   graded=true;
   const mistakeCount=cards.length-score;
@@ -215,13 +241,13 @@ document.querySelector('#grade').addEventListener('click',()=>{
 document.querySelector('#reset').addEventListener('click',()=>{
   cards.forEach(c=>{
     c.className='card';
-    c.querySelectorAll('input').forEach(i=>i.checked=false);
+    c.querySelectorAll('input').forEach(i=>{i.checked=false;i.disabled=false});
     c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
   });
   graded=false;
   downloadBtn.hidden=true;
   downloadBtn.textContent='下載錯題詳解 DOCX';
-  document.querySelector('#score').textContent='尚未批改';
+  document.querySelector('#score').textContent=`已作答 0 / ${cards.length}`;
   scrollTo({top:0,behavior:'smooth'});
 });
 
