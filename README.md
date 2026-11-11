@@ -11,7 +11,7 @@
   - 一字多音
   - 一字多義
   - 常用詞語
-- 國文｜國文錯題（180 題，依題型分類：字音、字形、字義・詞語解釋、成語運用、改錯、語文常識、文法結構・修辭、閱讀理解、筆記自我檢測）：`chinese/grade-7/first-midterm-wrong-questions.html`
+- 國文｜國文錯題（321 題，依題型分類：字音、字形、字義・詞語、成語運用、語文常識・文法修辭、課文理解、閱讀理解；一列一題、一點作答）：`chinese/grade-7/first-midterm-wrong-questions.html`
 - 生物（自然）｜生物錯題，依章節概念分類（9 題：緒論、第 2 章 養分）：`biology/wrong-questions.html`
 - 公民｜公民錯題，依章節概念分類（26 題，7 個概念）：`civics/wrong-questions.html`
 
