@@ -84,18 +84,22 @@ function renderMCQ(g,list){
   });
 }
 function renderMatch(g,list){
-  const wrap=document.createElement('div');wrap.className='match';
-  wrap.innerHTML=`<div class="m-words" role="group" aria-label="詞語"></div><div class="m-chars" role="group" aria-label="選字"><p class="m-tip">① 先點詞語　② 再點正確的字</p></div><div class="feedback m-feed"><strong></strong><div class="explain"></div></div>`;
-  const words=wrap.querySelector('.m-words'),chars=wrap.querySelector('.m-chars'),feed=wrap.querySelector('.m-feed');let cur=null;
-  g.questions.forEach((q,i)=>{const t=document.createElement('button');t.type='button';t.className='m-word';t.innerHTML=esc(q.word).replace('□','<span class="blank">□</span>');t.dataset.i=i;
-    t.addEventListener('click',()=>{if(t.disabled||needName())return;words.querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));t.classList.add('sel');cur=t;wrap.classList.add('picking')});words.appendChild(t)});
-  g.chars.forEach(c=>{const b=document.createElement('button');b.type='button';b.className='m-char';b.textContent=c;
-    b.addEventListener('click',()=>{if(needName())return;if(!cur){feed.classList.add('show');feed.querySelector('strong').textContent='請先點一個詞語';feed.querySelector('.explain').textContent='';return}
-      const i=+cur.dataset.i,q=g.questions[i],ok=c===q.answer;cur.disabled=true;cur.classList.remove('sel');cur.classList.add(ok?'good':'bad');
-      cur.innerHTML=esc(q.full).split(esc(q.answer)).join(`<span class="fill">${esc(q.answer)}</span>`)+(ok?'':` <small>（你選 ${esc(c)}）</small>`);
-      feed.classList.add('show');feed.querySelector('strong').textContent=ok?`答對了！${q.full}`:`不對喔，應為「${q.answer}」：${q.full}`;feed.querySelector('.explain').innerHTML=rich(q.explanation);
-      record(g,i,ok,c);cur=null;wrap.classList.remove('picking')});chars.appendChild(b)});
-  list.appendChild(wrap);
+  const wrap=document.createElement('div');wrap.className='m-rows';
+  g.questions.forEach((q,i)=>{
+    const row=document.createElement('div');row.className='m-row';
+    row.innerHTML=`<span class="m-num">${i+1}</span><span class="m-w">${esc(q.word).replace('□','<span class="blank">□</span>')}</span><span class="m-btns"></span><div class="m-exp"></div>`;
+    const btns=row.querySelector('.m-btns');
+    g.chars.forEach(c=>{const b=document.createElement('button');b.type='button';b.className='m-char';b.textContent=c;
+      b.addEventListener('click',()=>{if(row.dataset.done||needName())return;row.dataset.done='1';const ok=c===q.answer;
+        [...btns.children].forEach(x=>{x.disabled=true;if(x.textContent===q.answer)x.classList.add('correct')});if(!ok)b.classList.add('wrong');
+        row.classList.add(ok?'good':'bad');
+        row.querySelector('.m-w').innerHTML=esc(q.full).split(esc(q.answer)).join(`<span class="fill">${esc(q.answer)}</span>`);
+        row.querySelector('.m-exp').innerHTML=(ok?'':`<strong>應為「${esc(q.answer)}」</strong>　`)+rich(q.explanation).replace(/<br>.*$/,'');
+        record(g,i,ok,c)});btns.appendChild(b)});
+    wrap.appendChild(row);
+  });
+  const legend=document.createElement('p');legend.className='m-legend';legend.textContent=`本組字：${g.chars.join('、')}　｜　每列直接點旁邊正確的字，一次一點。`;
+  list.appendChild(legend);list.appendChild(wrap);
 }
 function renderDual(g,list){
   g.questions.forEach((q,i)=>{
