@@ -47,6 +47,26 @@ function downloadGroup(g){
     items:mistakes(g.id),filename:`${pageTitle.replace(/\s+/g,'')}_${g.title}_${name}_${t.file}`});
 }
 
+
+/* ---------- 灑花 ---------- */
+function confetti(big){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const c=document.createElement('canvas');c.className='confetti';document.body.appendChild(c);
+  const x=c.getContext('2d'),W=c.width=innerWidth,H=c.height=innerHeight;
+  const cols=['#c0392b','#e67e22','#f1c40f','#2ecc71','#1abc9c','#3498db','#9b59b6','#ff6fa8'];
+  const N=big?260:140,P=[];
+  for(let i=0;i<N;i++){const side=i%2?W*0.15:W*0.85;P.push({x:big?Math.random()*W:side,y:big?-20-Math.random()*H*0.3:H*0.65,
+    vx:big?(Math.random()-.5)*4:(i%2?1:-1)*(2+Math.random()*6),vy:big?2+Math.random()*3:-(8+Math.random()*9),
+    r:Math.random()*Math.PI,vr:(Math.random()-.5)*.3,w:6+Math.random()*7,h:4+Math.random()*5,c:cols[i%cols.length]})}
+  const t0=performance.now();
+  (function f(t){x.clearRect(0,0,W,H);let alive=false;
+    P.forEach(p=>{p.vy+=0.25;p.vx*=0.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;if(p.y<H+20)alive=true;
+      x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.w/2,-p.h/2,p.w,p.h);x.restore()});
+    if(alive&&t-t0<4500)requestAnimationFrame(f);else c.remove()})(t0);
+}
+function cheer(el,text){const b=document.createElement('div');b.className='cheer';b.textContent=text;el.appendChild(b);setTimeout(()=>b.remove(),2600)}
+const CHEERS=['全對！太厲害了 🎉','滿分！繼續保持 ✨','一題都沒錯 👏','完美！下一區衝 🚀','全對過關 🌟'];
+
 /* ---------- 計分 ---------- */
 const bars=new Map();
 function record(g,i,ok,selected){
@@ -60,6 +80,7 @@ function record(g,i,ok,selected){
 function finish(){
   dlAll.hidden=false;dlAll.textContent=`再次下載成績與錯題 DOCX（${total-okCount()} 題）`;
   downloadAll();
+  if(okCount()===total)confetti(true);
   const box=document.createElement('div');box.className='finish';box.setAttribute('role','status');
   box.innerHTML=`<strong>完成一回！</strong> ${esc(getName())}，得分 ${Math.round(okCount()/total*100)} 分（${okCount()} / ${total}）。成績與錯題 DOCX 已自動下載。`;
   score.before(box);box.scrollIntoView({behavior:'smooth',block:'center'});
@@ -129,7 +150,9 @@ groups.forEach(g=>{
   const prog=bar.querySelector('.gprog'),btn=bar.querySelector('.dl');btn.addEventListener('click',()=>downloadGroup(g));
   bars.set(g.id,()=>{const done=g.questions.filter((q,i)=>results.has(`${g.id}:${i}`)).length,ok=g.questions.filter((q,i)=>(results.get(`${g.id}:${i}`)||{}).ok).length;
     prog.textContent=`本區進度：${done} / ${g.questions.length}　答對 ${ok} 題`;
-    if(done===g.questions.length){btn.disabled=false;btn.textContent=`下載本區錯題詳解 DOCX（${g.questions.length-ok} 題）`;bar.classList.add('ready')}});
+    if(done===g.questions.length&&!bar.classList.contains('ready')){btn.disabled=false;bar.classList.add('ready');
+      if(ok===g.questions.length){btn.textContent='本區全對！下載紀錄 DOCX';bar.classList.add('perfect');confetti(false);cheer(bar,CHEERS[Math.floor(Math.random()*CHEERS.length)])}
+      else btn.textContent=`下載本區錯題詳解 DOCX（${g.questions.length-ok} 題）`}});
   list.after(bar);
 });
 const dlAll=document.createElement('button');dlAll.type='button';dlAll.className='reset dl-all';dlAll.hidden=true;dlAll.addEventListener('click',downloadAll);
