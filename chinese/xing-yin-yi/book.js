@@ -1,76 +1,136 @@
+/* 形音義書本單元：全部內容題目化＋計分＋完成一回自動下載成績與錯題 DOCX */
 const data=JSON.parse(document.querySelector('#unit-data').textContent);
 const score=document.querySelector('#score');
-const total=data.groups.reduce((n,g)=>n+g.questions.length,0);
+const groups=data.groups;
+const total=groups.reduce((n,g)=>n+g.questions.length,0);
 const pageTitle=document.querySelector('.hero h1').innerText.replace(/\s+/g,' ').trim();
-let answered=0,correct=0;
-const results=[]; // {group, q, index, selected, ok}
+const results=new Map(); // `${gid}:${i}` -> {ok, selected}
+let finished=false;
 
-function esc(value){return String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
-function mark(text){return esc(text).replace(/&lt;br&gt;/g,'<br>').replace(/「([^」]{1,24})」/g,'「<span class="target-text">$1</span>」');}
-function table(rows){if(!rows||!rows.length)return'';const [head,...body]=rows;return `<div class="table-wrap"><table class="q-table"><thead><tr>${head.map(c=>`<th>${mark(c)}</th>`).join('')}</tr></thead><tbody>${body.map(r=>`<tr>${r.map(c=>`<td>${mark(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;}
+function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function mark(t){return esc(t).replace(/&lt;br&gt;/g,'<br>').replace(/「([^」]{1,24})」/g,'「<span class="target-text">$1</span>」')}
+function rich(t){return String(t).replace(/「([^」]{1,24})」/g,'「<span class="target-text">$1</span>」')}
+function table(rows){if(!rows||!rows.length)return'';const [h,...b]=rows;return `<div class="table-wrap"><table class="q-table"><thead><tr>${h.map(c=>`<th>${mark(c)}</th>`).join('')}</tr></thead><tbody>${b.map(r=>`<tr>${r.map(c=>`<td>${mark(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`}
+const okCount=()=>[...results.values()].filter(r=>r.ok).length;
 
-function mistakes(groupId){
-  const out=[];
-  data.groups.forEach(g=>{
-    if(groupId&&g.id!==groupId)return;
-    g.questions.forEach((q,i)=>{
-      const r=results.find(x=>x.group===g.id&&x.index===i);
-      if(r&&r.ok)return;
-      out.push({source:`${g.title.replace("牛刀小試｜","牛刀小試・")}　${q.source.replace(/^(牛刀小試|綜合測驗) /,"")} 第 ${i+1} 題`,box:q.box||[],table:q.table||[],stem:q.stem!==undefined?q.stem:q.prompt,options:q.options,selected:r?r.selected:'未作答',answer:q.answer,explanation:q.explanation});
-    });
-  });
-  return out;
+/* ---------- 學生姓名 ---------- */
+const nameInput=document.querySelector('#studentName');
+const hint=document.querySelector('.student-hint');
+function getName(){return nameInput?nameInput.value.trim():''}
+function lockState(){const on=!!getName();document.body.classList.toggle('locked',!on);if(hint)hint.textContent=on?`${getName()}，開始作答吧！完成全部 ${total} 題會自動下載成績單。`:'請先輸入姓名才能作答'}
+if(nameInput){try{nameInput.value=localStorage.getItem('xyy-student')||''}catch(e){}
+  nameInput.addEventListener('input',()=>{try{localStorage.setItem('xyy-student',getName())}catch(e){}lockState()});}
+lockState();
+function needName(){if(getName())return false;nameInput.focus();nameInput.scrollIntoView({behavior:'smooth',block:'center'});nameInput.classList.add('shake');setTimeout(()=>nameInput.classList.remove('shake'),600);return true}
+
+/* ---------- 錯題整理 ---------- */
+function itemFor(g,q,i){
+  const r=results.get(`${g.id}:${i}`);const sel=r?r.selected:'未作答';const src=`${g.section}・${g.title}　第 ${i+1} 題`;
+  if(g.type==='match')return{source:src,stem:`${q.word}　（□ 應填哪個字？）`,options:[`本組字：${g.chars.join('、')}`],selected:sel,answer:`${q.answer}（${q.full}）`,explanation:q.explanation};
+  if(g.type==='dual')return{source:src,stem:`「${q.word}」中的「${q.ch}」：選出注音與字義`,options:[`注音：${q.zyOpts.join('、')}`,`字義：${q.meanOpts.join('／')}`],selected:sel,answer:`${q.zy}／${q.mean}`,explanation:q.explanation};
+  return{source:src,box:q.box||[],table:q.table||[],stem:q.stem!==undefined?q.stem:q.prompt,options:q.options,selected:sel,answer:q.answer,explanation:q.explanation};
 }
-function download(groupId){
-  const g=groupId&&data.groups.find(x=>x.id===groupId);
-  const list=mistakes(groupId);
-  const done=groupId?results.filter(r=>r.group===groupId):results;
-  const right=done.filter(r=>r.ok).length, n=groupId?g.questions.length:total;
-  const name=`${pageTitle}${g?'｜'+g.title.replace('｜',' '):'｜全部題目'}`;
-  MistakeDocx.download({title:`${name} 錯題詳解`,subtitle:`國中國文 · 形音義比較　｜　得分：${right} / ${n} 題答對`,items:list,filename:`${name}_錯題詳解`});
+function mistakes(gid){const out=[];groups.forEach(g=>{if(gid&&g.id!==gid)return;g.questions.forEach((q,i)=>{const r=results.get(`${g.id}:${i}`);if(r&&r.ok)return;out.push(itemFor(g,q,i))})});return out}
+function stamp(){const d=new Date(),p=n=>String(n).padStart(2,'0');return{text:`${d.getFullYear()}/${p(d.getMonth()+1)}/${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`,file:`${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`}}
+function sectionLines(){const m=new Map();groups.forEach(g=>{const s=m.get(g.section)||{ok:0,n:0};g.questions.forEach((q,i)=>{s.n++;const r=results.get(`${g.id}:${i}`);if(r&&r.ok)s.ok++});m.set(g.section,s)});return[...m].map(([k,v])=>`${k}：${v.ok} / ${v.n}`).join('　｜　')}
+function downloadAll(){
+  const t=stamp(),ok=okCount(),pts=Math.round(ok/total*100),name=getName()||'未填姓名';
+  MistakeDocx.download({title:`${pageTitle} 成績與錯題詳解`,subtitle:'國中國文 · 形音義比較 · 書本單元',
+    meta:[`學生姓名：${name}`,`完成日期時間：${t.text}`,`得分：${pts} 分（答對 ${ok} / ${total} 題）`,`各區答對：${sectionLines()}`],
+    items:mistakes(null),filename:`${pageTitle.replace(/\s+/g,'')}_${name}_${t.file}_${pts}分`});
+}
+function downloadGroup(g){
+  const done=g.questions.filter((q,i)=>results.has(`${g.id}:${i}`)).length,ok=g.questions.filter((q,i)=>(results.get(`${g.id}:${i}`)||{}).ok).length;
+  const t=stamp(),name=getName()||'未填姓名';
+  MistakeDocx.download({title:`${pageTitle}｜${g.section}・${g.title} 錯題詳解`,subtitle:'國中國文 · 形音義比較',
+    meta:[`學生姓名：${name}`,`下載時間：${t.text}`,`本區答對：${ok} / ${g.questions.length} 題（已作答 ${done} 題）`],
+    items:mistakes(g.id),filename:`${pageTitle.replace(/\s+/g,'')}_${g.title}_${name}_${t.file}`});
 }
 
-data.groups.forEach(group=>{
-  const list=document.querySelector(`.question-list[data-group="${group.id}"]`);
-  if(!list)return;
-  const bar=document.createElement('div');bar.className='group-bar';
-  bar.innerHTML=`<span class="gprog">本區進度：0 / ${group.questions.length}</span><button type="button" class="dl" disabled>完成本區後可下載錯題詳解 DOCX</button>`;
-  const prog=bar.querySelector('.gprog'),btn=bar.querySelector('.dl');
-  btn.addEventListener('click',()=>download(group.id));
-  function refresh(){
-    const done=results.filter(r=>r.group===group.id),ok=done.filter(r=>r.ok).length;
-    prog.textContent=`本區進度：${done.length} / ${group.questions.length}　答對 ${ok} 題`;
-    if(done.length===group.questions.length){btn.disabled=false;btn.textContent=`下載本區錯題詳解 DOCX（${group.questions.length-ok} 題）`;bar.classList.add('ready')}
-  }
-  group.questions.forEach((q,index)=>{
+/* ---------- 計分 ---------- */
+const bars=new Map();
+function record(g,i,ok,selected){
+  results.set(`${g.id}:${i}`,{ok,selected});
+  const b=bars.get(g.id);if(b)b();
+  const n=results.size,ok2=okCount();
+  score.classList.add('show');
+  score.querySelector('span').textContent=n<total?`進度 ${n} / ${total}・答對 ${ok2} 題`:`全部完成：${ok2} / ${total} 題答對（${Math.round(ok2/total*100)} 分）`;
+  if(n===total&&!finished){finished=true;finish()}
+}
+function finish(){
+  dlAll.hidden=false;dlAll.textContent=`再次下載成績與錯題 DOCX（${total-okCount()} 題）`;
+  downloadAll();
+  const box=document.createElement('div');box.className='finish';box.setAttribute('role','status');
+  box.innerHTML=`<strong>完成一回！</strong> ${esc(getName())}，得分 ${Math.round(okCount()/total*100)} 分（${okCount()} / ${total}）。成績與錯題 DOCX 已自動下載。`;
+  score.before(box);box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* ---------- 題型 ---------- */
+function renderMCQ(g,list){
+  g.questions.forEach((q,i)=>{
     const card=document.createElement('article');card.className='question';
     const prompt=q.stem!==undefined?q.stem:q.prompt;
     const box=(q.box&&q.box.length)?`<div class="q-box">${q.box.map(t=>`<p>${mark(t)}</p>`).join('')}</div>`:'';
     const after=(q.after&&q.after.length)?q.after.map(t=>`<p class="q-after">${mark(t)}</p>`).join(''):'';
-    card.innerHTML=`<div class="q-meta">${esc(q.source)} · 第 ${index+1} 題</div>${prompt?`<h3>${mark(prompt)}</h3>`:''}${box}${table(q.table)}${after}<div class="options"></div><div class="feedback"><strong></strong><div class="explain"></div></div>`;
-    const options=card.querySelector('.options');
-    if(q.options.some(o=>o.length>14))options.classList.add('wide');
-    q.options.forEach(choice=>{
-      const button=document.createElement('button');button.className='option';button.type='button';button.innerHTML=mark(choice);button.dataset.value=choice;
-      button.addEventListener('click',()=>{
-        if(card.dataset.done)return;card.dataset.done='1';answered++;
-        const ok=choice===q.answer;if(ok)correct++;
-        results.push({group:group.id,index,selected:choice,ok});
-        [...options.children].forEach(item=>{item.disabled=true;if(item.dataset.value===q.answer)item.classList.add('correct')});
-        if(!ok)button.classList.add('wrong');
-        const feedback=card.querySelector('.feedback');feedback.classList.add('show');
-        feedback.querySelector('strong').textContent=ok?'答對了！':'再留意這組字詞。';
-        feedback.querySelector('.explain').innerHTML=`正確答案：<span class="target-text">${esc(q.answer)}</span><br>${mark(q.explanation)}`;
-        refresh();
-        if(answered===total){score.classList.add('show');score.querySelector('span').textContent=`全部完成：${correct} / ${total} 題答對`;dlAll.hidden=false;dlAll.textContent=`下載全部錯題詳解 DOCX（${total-correct} 題）`}
-      });options.appendChild(button);
-    });
+    card.innerHTML=`<div class="q-meta">${esc(q.source||g.title)} · 第 ${i+1} 題</div>${prompt?`<h3>${mark(prompt)}</h3>`:''}${box}${table(q.table)}${after}<div class="options"></div><div class="feedback"><strong></strong><div class="explain"></div></div>`;
+    const opts=card.querySelector('.options');if(q.options.some(o=>o.length>14))opts.classList.add('wide');
+    q.options.forEach(choice=>{const b=document.createElement('button');b.type='button';b.className='option';b.innerHTML=mark(choice);b.dataset.value=choice;
+      b.addEventListener('click',()=>{if(card.dataset.done||needName())return;card.dataset.done='1';const ok=choice===q.answer;
+        [...opts.children].forEach(x=>{x.disabled=true;if(x.dataset.value===q.answer)x.classList.add('correct')});if(!ok)b.classList.add('wrong');
+        const f=card.querySelector('.feedback');f.classList.add('show');f.querySelector('strong').textContent=ok?'答對了！':'再想想看。';
+        f.querySelector('.explain').innerHTML=`正確答案：<span class="target-text">${esc(q.answer)}</span><br>${rich(q.explanation)}`;
+        record(g,i,ok,choice)});opts.appendChild(b)});
     list.appendChild(card);
   });
+}
+function renderMatch(g,list){
+  const wrap=document.createElement('div');wrap.className='match';
+  wrap.innerHTML=`<div class="m-words" role="group" aria-label="詞語"></div><div class="m-chars" role="group" aria-label="選字"><p class="m-tip">① 先點詞語　② 再點正確的字</p></div><div class="feedback m-feed"><strong></strong><div class="explain"></div></div>`;
+  const words=wrap.querySelector('.m-words'),chars=wrap.querySelector('.m-chars'),feed=wrap.querySelector('.m-feed');let cur=null;
+  g.questions.forEach((q,i)=>{const t=document.createElement('button');t.type='button';t.className='m-word';t.innerHTML=esc(q.word).replace('□','<span class="blank">□</span>');t.dataset.i=i;
+    t.addEventListener('click',()=>{if(t.disabled||needName())return;words.querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));t.classList.add('sel');cur=t;wrap.classList.add('picking')});words.appendChild(t)});
+  g.chars.forEach(c=>{const b=document.createElement('button');b.type='button';b.className='m-char';b.textContent=c;
+    b.addEventListener('click',()=>{if(needName())return;if(!cur){feed.classList.add('show');feed.querySelector('strong').textContent='請先點一個詞語';feed.querySelector('.explain').textContent='';return}
+      const i=+cur.dataset.i,q=g.questions[i],ok=c===q.answer;cur.disabled=true;cur.classList.remove('sel');cur.classList.add(ok?'good':'bad');
+      cur.innerHTML=esc(q.full).split(esc(q.answer)).join(`<span class="fill">${esc(q.answer)}</span>`)+(ok?'':` <small>（你選 ${esc(c)}）</small>`);
+      feed.classList.add('show');feed.querySelector('strong').textContent=ok?`答對了！${q.full}`:`不對喔，應為「${q.answer}」：${q.full}`;feed.querySelector('.explain').innerHTML=rich(q.explanation);
+      record(g,i,ok,c);cur=null;wrap.classList.remove('picking')});chars.appendChild(b)});
+  list.appendChild(wrap);
+}
+function renderDual(g,list){
+  g.questions.forEach((q,i)=>{
+    const card=document.createElement('article');card.className='question dual';
+    const w=esc(q.word).split(esc(q.ch)).join(`<span class="target-text">${esc(q.ch)}</span>`);
+    card.innerHTML=`<div class="q-meta">${esc(g.section)} · 第 ${i+1} 題</div><h3>${w}</h3><p class="d-label">① 注音</p><div class="options zy"></div><p class="d-label">② 字義</p><div class="options wide mean"></div><div class="feedback"><strong></strong><div class="explain"></div></div>`;
+    const pick={};
+    const row=(cls,arr,key)=>{const box=card.querySelector(cls);arr.forEach(v=>{const b=document.createElement('button');b.type='button';b.className='option';b.textContent=v;b.dataset.value=v;
+      b.addEventListener('click',()=>{if(pick[key]!==undefined||needName())return;pick[key]=v;[...box.children].forEach(x=>{x.disabled=true});b.classList.add('picked');
+        if(pick.zy!==undefined&&pick.mean!==undefined)judge()});box.appendChild(b)})};
+    row('.zy',q.zyOpts,'zy');row('.mean',q.meanOpts,'mean');
+    function judge(){const zo=pick.zy===q.zy,mo=pick.mean===q.mean,ok=zo&&mo;
+      card.querySelectorAll('.zy .option').forEach(x=>{if(x.dataset.value===q.zy)x.classList.add('correct');else if(x.classList.contains('picked'))x.classList.add('wrong')});
+      card.querySelectorAll('.mean .option').forEach(x=>{if(x.dataset.value===q.mean)x.classList.add('correct');else if(x.classList.contains('picked'))x.classList.add('wrong')});
+      const f=card.querySelector('.feedback');f.classList.add('show');f.querySelector('strong').textContent=ok?'兩項都答對了！':(!zo&&!mo?'注音和字義都要再留意。':!zo?'字義對了，注音錯了。':'注音對了，字義錯了。');
+      f.querySelector('.explain').innerHTML=`正確答案：<span class="target-text">${esc(q.zy)}</span>／${esc(q.mean)}<br>${rich(q.explanation)}`;
+      record(g,i,ok,`${pick.zy}／${pick.mean}`)}
+    list.appendChild(card);
+  });
+}
+
+groups.forEach(g=>{
+  const list=document.querySelector(`.question-list[data-group="${g.id}"]`);if(!list)return;
+  ({match:renderMatch,dual:renderDual}[g.type]||renderMCQ)(g,list);
+  const bar=document.createElement('div');bar.className='group-bar';
+  bar.innerHTML=`<span class="gprog">本區進度：0 / ${g.questions.length}</span><button type="button" class="dl" disabled>完成本區後可下載錯題詳解 DOCX</button>`;
+  const prog=bar.querySelector('.gprog'),btn=bar.querySelector('.dl');btn.addEventListener('click',()=>downloadGroup(g));
+  bars.set(g.id,()=>{const done=g.questions.filter((q,i)=>results.has(`${g.id}:${i}`)).length,ok=g.questions.filter((q,i)=>(results.get(`${g.id}:${i}`)||{}).ok).length;
+    prog.textContent=`本區進度：${done} / ${g.questions.length}　答對 ${ok} 題`;
+    if(done===g.questions.length){btn.disabled=false;btn.textContent=`下載本區錯題詳解 DOCX（${g.questions.length-ok} 題）`;bar.classList.add('ready')}});
   list.after(bar);
 });
-const dlAll=document.createElement('button');dlAll.type='button';dlAll.className='reset dl-all';dlAll.hidden=true;dlAll.addEventListener('click',()=>download(null));
+const dlAll=document.createElement('button');dlAll.type='button';dlAll.className='reset dl-all';dlAll.hidden=true;dlAll.addEventListener('click',downloadAll);
 score.querySelector('#resetQuiz').before(dlAll);
+score.classList.add('show');score.querySelector('span').textContent=`進度 0 / ${total}`;
 document.querySelector('#resetQuiz').addEventListener('click',()=>location.reload());
 const wf=document.querySelector('#wordFilter');
 if(wf){const rows=[...document.querySelectorAll('#wordTable tbody tr')];wf.addEventListener('input',()=>{const t=wf.value.trim().split(/\s+/).filter(Boolean);rows.forEach(r=>{r.style.display=(t.length===0||t.some(x=>r.textContent.includes(x)))?'':'none'})})}
