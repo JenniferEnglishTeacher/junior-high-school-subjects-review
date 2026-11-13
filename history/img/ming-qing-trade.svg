@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 360" role="img" aria-label="明清時期東南沿海對外貿易發展趨勢圖" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+<rect width="620" height="360" fill="#fffdf8"/>
+<rect width="620" height="40" fill="#3a2a17"/><text x="16" y="27" font-size="19" font-weight="700" fill="#fff">明清時期東南沿海對外貿易發展趨勢圖</text>
+<line x1="80" y1="300" x2="590" y2="300" stroke="#3a2a17" stroke-width="2"/><line x1="80" y1="300" x2="80" y2="60" stroke="#3a2a17" stroke-width="2"/>
+<polygon points="590,300 580,295 580,305" fill="#3a2a17"/><polygon points="80,60 75,70 85,70" fill="#3a2a17"/>
+<text x="40" y="130" font-size="15" fill="#3a2a17" writing-mode="tb">貿易繁榮程度</text>
+<path d="M85,90 C130,90 160,270 200,270 C250,270 290,110 340,110 C390,110 420,270 460,270 C510,270 540,150 580,80" fill="none" stroke="#c0392b" stroke-width="4"/>
+<polygon points="580,80 566,86 576,96" fill="#c0392b"/>
+<g font-size="16" text-anchor="middle" fill="#3a2a17"><text x="200" y="325">明初</text><text x="340" y="325">明末</text><text x="460" y="325">清初</text></g>
+<g stroke="#9a6b35" stroke-dasharray="4 4"><line x1="200" y1="270" x2="200" y2="300"/><line x1="460" y1="270" x2="460" y2="300"/></g>
+<text x="200" y="293" font-size="13" fill="#c0392b" text-anchor="middle">衰落①</text><text x="460" y="293" font-size="13" fill="#c0392b" text-anchor="middle">衰落②</text>
+</svg>

@@ -17,7 +17,7 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
 .card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
 .feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
 .unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
-.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.summary{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 20px;margin-top:10px}.summary h4{margin:14px 0 6px;color:var(--accent)}.summary h4:first-child{margin-top:0}.summary td{text-align:left;vertical-align:top}.summary td:first-child{font-weight:800;background:#f7efe2;white-space:nowrap}.kw{color:#73581c;background:#fff6dc;padding:6px 12px;border-radius:10px;font-size:.92rem;margin-top:8px}</style></head><body>
+.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.summary{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 20px;margin-top:10px}.summary h4{margin:14px 0 6px;color:var(--accent)}.summary h4:first-child{margin-top:0}.summary td{text-align:left;vertical-align:top}.summary td:first-child{font-weight:800;background:#f7efe2;white-space:nowrap}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px}.figure.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:640px){.figure.pair{grid-template-columns:1fr}}.kw{color:#73581c;background:#fff6dc;padding:6px 12px;border-radius:10px;font-size:.92rem;margin-top:8px}</style></head><body>
 <a class="dashboard-link" href="../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
 <header><h1>歷史錯題</h1><p>依時代分章，共 51 題。每章開頭有重點整理與事件比較表；每題選擇答案後，立即顯示正確答案、詳解與選項辨析；作答完可下載錯題詳解 DOCX。</p><nav class="jump"><a href="#ch1">先秦</a><a href="#ch2">秦漢</a><a href="#ch3">魏晉南北朝・隋唐</a><a href="#ch4">宋元</a><a href="#ch5">明清前期</a><a href="#ch6">清末</a></nav></header>
 <div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 51</span></div>
@@ -56,13 +56,13 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
         </article>
 <article class="card" data-chapter="秦漢" id="q6" data-answer="A">
           <div class="q-head"><span class="num">06</span><div><span class="source">秦漢</span><h2>漢代絲路</h2></div></div>
-          <p class="stem">圖為漢代中西文化交流與貿易路線圖。下列關於漢代此路線的敘述，何者正確？</p>
+          <div class="figure"><img src="./img/silk-road.svg" alt="漢代絲路與中西交流路線" loading="lazy"></div><p class="stem">圖為漢代中西文化交流與貿易路線圖。下列關於漢代此路線的敘述，何者正確？</p>
           <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>佛教經此路線傳入漢帝國</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>從長安往西可以走到大食帝國</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>輸出中國棉紡織品到西方國家</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>漢武帝曾聯絡西域國家抵抗鮮卑</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>這條路線是絲路。東漢時佛教從印度經中亞、西域，沿絲路傳入中國（白馬寺）。</p><p class="key"><strong>解題關鍵：</strong>(B)漢代絲路西端是「大秦」（羅馬帝國）；大食是唐代的阿拉伯帝國。(C)輸出的是「絲織品」。(D)漢武帝派張騫聯絡大月氏是為了對抗「匈奴」，不是鮮卑。</p></div>
         </article>
 <article class="card" data-chapter="秦漢" id="q7" data-answer="A">
           <div class="q-head"><span class="num">07</span><div><span class="source">秦漢</span><h2>西漢外患：匈奴</h2></div></div>
-          <p class="stem">圖為西漢的疆域圖，根據圖中內容判斷，此時的主要外患位於圖中何處？</p>
+          <div class="figure"><img src="./img/han-territory.svg" alt="西漢疆域圖" loading="lazy"></div><p class="stem">圖為西漢的疆域圖，根據圖中內容判斷，此時的主要外患位於圖中何處？</p>
           <div class="options"><label class="option"><input type="radio" name="q7" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q7" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q7" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q7" value="D"><span class="letter">D</span><span>丁</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>西漢最大的外患是北方草原的匈奴（今蒙古高原一帶），即圖中位於北方的甲處。</p><p class="key"><strong>解題關鍵：</strong>記憶法：漢—匈奴（北）、唐—突厥（北）、北宋—遼（東北）、南宋—金（北）、明初—蒙古（北）、明末—滿清（東北）。</p></div>
         </article>
@@ -87,7 +87,7 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
         </article>
 <article class="card" data-chapter="魏晉南北朝・隋唐" id="q11" data-answer="B">
           <div class="q-head"><span class="num">11</span><div><span class="source">魏晉南北朝・隋唐</span><h2>天可汗與東突厥</h2></div></div>
-          <p class="stem">《資治通鑑》記載：「唐太宗貞觀4年3月，生擒頡利可汗，獻於京師。4月，西北君長詣闕請太宗為『天可汗』。」上文所述與唐太宗派兵平定圖中何區的部族有關？</p>
+          <div class="figure"><img src="./img/tang-neighbors.svg" alt="唐太宗時期唐帝國與周邊部族" loading="lazy"></div><p class="stem">《資治通鑑》記載：「唐太宗貞觀4年3月，生擒頡利可汗，獻於京師。4月，西北君長詣闕請太宗為『天可汗』。」上文所述與唐太宗派兵平定圖中何區的部族有關？</p>
           <div class="options"><label class="option"><input type="radio" name="q11" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q11" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q11" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q11" value="D"><span class="letter">D</span><span>丁</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>頡利可汗是東突厥的領袖。唐太宗滅東突厥後，西北各族尊稱他為「天可汗」。東突厥位於唐帝國北方的蒙古高原，即圖中乙區。</p><p class="key"><strong>解題關鍵：</strong>看地圖時先找「北方草原」：唐代北方外患是突厥（分東、西突厥）。</p></div>
         </article>
@@ -118,9 +118,9 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
         </article>
 <article class="card" data-chapter="宋元" id="q16" data-answer="B">
           <div class="q-head"><span class="num">16</span><div><span class="source">宋元</span><h2>靖康之禍（地圖演變）</h2></div></div>
-          <p class="stem">歷史上的重大事件，有時會造成相鄰國家勢力的消長及版圖變遷。根據圖10（北宋、遼、西夏）演變到圖11（南宋、金、西夏）的內容判斷，其關鍵事件為下列何者？</p>
+          <div class="figure pair"><img src="./img/song-north.svg" alt="圖A 北宋時期" loading="lazy"><img src="./img/song-south.svg" alt="圖B 南宋時期" loading="lazy"></div><p class="stem">歷史上的重大事件，有時會造成相鄰國家勢力的消長及版圖變遷。根據圖A演變到圖B的內容判斷，其關鍵事件為下列何者？</p>
           <div class="options"><label class="option"><input type="radio" name="q16" value="A"><span class="letter">A</span><span>胡漢融合</span></label><label class="option"><input type="radio" name="q16" value="B"><span class="letter">B</span><span>靖康之禍</span></label><label class="option"><input type="radio" name="q16" value="C"><span class="letter">C</span><span>蒙古西征</span></label><label class="option"><input type="radio" name="q16" value="D"><span class="letter">D</span><span>澶淵之盟</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>圖10是北宋與遼並立；圖11變成南宋與金並立。中間關鍵事件是靖康之禍（1127）：女真建立的金滅遼後南下，擄走徽、欽二帝，北宋滅亡，宋室南遷建立南宋。</p><p class="key"><strong>解題關鍵：</strong>(D)澶淵之盟後版圖沒有改變，維持和平。(C)蒙古西征是向西擴張。</p></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>圖A是北宋與遼並立；圖B變成南宋與金並立。中間關鍵事件是靖康之禍（1127）：女真建立的金滅遼後南下，擄走徽、欽二帝，北宋滅亡，宋室南遷建立南宋。</p><p class="key"><strong>解題關鍵：</strong>(D)澶淵之盟後版圖沒有改變，維持和平。(C)蒙古西征是向西擴張。</p></div>
         </article>
 <article class="card" data-chapter="宋元" id="q17" data-answer="A">
           <div class="q-head"><span class="num">17</span><div><span class="source">宋元</span><h2>澶淵之盟 vs 靖康之禍 比較表</h2></div></div>
@@ -172,7 +172,7 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
         </article>
 <article class="card" data-chapter="宋元" id="q25" data-answer="D">
           <div class="q-head"><span class="num">25</span><div><span class="source">宋元</span><h2>元代四等人：南人</h2></div></div>
-          <p class="stem">曾在南宋生活的阿明，現正經歷元朝統治。他努力讀書後雖考到官員，但因他是圖中種族政策下的哪個階級，因此只能擔任幕僚及副手？</p>
+          <div class="figure"><img src="./img/yuan-classes.svg" alt="元代種族政策示意圖" loading="lazy"></div><p class="stem">曾在南宋生活的阿明，現正經歷元朝統治。他努力讀書後雖考到官員，但因他是圖中種族政策下的哪個階級，因此只能擔任幕僚及副手？</p>
           <div class="options"><label class="option"><input type="radio" name="q25" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q25" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q25" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q25" value="D"><span class="letter">D</span><span>丁</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>元代四等人：蒙古人＞色目人＞漢人＞南人。原南宋統治下的人民被列為「南人」，地位最低（丁），任官多只能當副手或幕僚。</p><p class="key"><strong>解題關鍵：</strong>對照上方「元代四等人」表。原金朝統治的北方人（含契丹、女真）是第三等「漢人」。</p></div>
         </article>
@@ -203,7 +203,7 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
         </article>
 <article class="card" data-chapter="明清前期" id="q30" data-answer="B">
           <div class="q-head"><span class="num">30</span><div><span class="source">明清前期</span><h2>明初東南貿易衰落：倭寇與海禁</h2></div></div>
-          <p class="stem">圖為明清時期海上貿易發展趨勢圖，顯示明初、清初兩時期東南地區對外貿易曾兩度衰落。依史實判斷，明初衰落的原因為何？</p>
+          <div class="figure"><img src="./img/ming-qing-trade.svg" alt="明清時期東南沿海對外貿易發展趨勢圖" loading="lazy"></div><p class="stem">圖為明清時期海上貿易發展趨勢圖，顯示明初、清初兩時期東南地區對外貿易曾兩度衰落。依史實判斷，明初衰落的原因為何？</p>
           <div class="options"><label class="option"><input type="radio" name="q30" value="A"><span class="letter">A</span><span>歐洲勢力入侵東南</span></label><label class="option"><input type="radio" name="q30" value="B"><span class="letter">B</span><span>倭寇侵擾東南沿海</span></label><label class="option"><input type="radio" name="q30" value="C"><span class="letter">C</span><span>蒙古與女真的進犯</span></label><label class="option"><input type="radio" name="q30" value="D"><span class="letter">D</span><span>鄭氏政權在臺灣</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>明初倭寇（日本海盜）侵擾東南沿海，明太祖實施海禁，禁止人民出海貿易，東南對外貿易因此衰落。</p><p class="key"><strong>解題關鍵：</strong>(D)鄭氏政權是「清初」衰落的原因（清廷頒遷界令、海禁）。(C)蒙古、女真在北方。(A)歐洲人來華反而帶動貿易。</p></div>
         </article>
@@ -264,7 +264,7 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
         </article>
 <article class="card" data-chapter="清末" id="q40" data-answer="D">
           <div class="q-head"><span class="num">40</span><div><span class="source">清末</span><h2>林則徐到廣州禁煙</h2></div></div>
-          <p class="stem">有一位臣子上書皇帝：「鴉片流毒於天下，則危害甚巨……使數十年後，中原幾無可以禦敵之兵，且無可以充餉之銀。」皇帝因而派他去查禁鴉片。上述中的臣子應是去圖中何地？</p>
+          <div class="figure"><img src="./img/qing-coast.svg" alt="清代中國沿海城市" loading="lazy"></div><p class="stem">有一位臣子上書皇帝：「鴉片流毒於天下，則危害甚巨……使數十年後，中原幾無可以禦敵之兵，且無可以充餉之銀。」皇帝因而派他去查禁鴉片。上述中的臣子應是去圖中何地？</p>
           <div class="options"><label class="option"><input type="radio" name="q40" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q40" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q40" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q40" value="D"><span class="letter">D</span><span>丁</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>這位臣子是林則徐。鴉片戰爭前清廷只開放廣州一口通商（公行制度），鴉片也從廣州進口，所以道光皇帝派林則徐到廣州禁煙（虎門銷煙），圖中丁＝廣州。</p><p class="key"><strong>解題關鍵：</strong>地圖由北到南：甲（天津一帶）、乙、丙（上海一帶）、丁（廣州）。記「一口通商＝廣州」。</p></div>
         </article>
@@ -306,7 +306,7 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
         </article>
 <article class="card" data-chapter="清末" id="q47" data-answer="A">
           <div class="q-head"><span class="num">47</span><div><span class="source">清末</span><h2>甲午戰爭起因：朝鮮</h2></div></div>
-          <p class="stem">1894年，中日甲午戰爭爆發，中國戰敗。上述戰爭爆發的原因，與圖中哪一個地方有關？</p>
+          <div class="figure"><img src="./img/sino-japanese.svg" alt="甲午戰爭相關地區" loading="lazy"></div><p class="stem">1894年，中日甲午戰爭爆發，中國戰敗。上述戰爭爆發的原因，與圖中哪一個地方有關？</p>
           <div class="options"><label class="option"><input type="radio" name="q47" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q47" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q47" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q47" value="D"><span class="letter">D</span><span>丁</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>1894年朝鮮發生東學黨之亂，中、日同時出兵朝鮮，爆發甲午戰爭。戰後簽馬關條約，中國承認朝鮮獨立，割讓臺灣、澎湖。圖中甲＝朝鮮。</p><p class="key"><strong>解題關鍵：</strong>甲午戰爭的起因是「朝鮮問題」；結果是「割臺」。</p></div>
         </article>

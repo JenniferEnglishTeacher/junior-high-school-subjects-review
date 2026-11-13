@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 400" role="img" aria-label="元代種族政策示意圖" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+<rect width="620" height="400" fill="#fffdf8"/>
+<rect width="620" height="40" fill="#3a2a17"/><text x="16" y="27" font-size="19" font-weight="700" fill="#fff">元代種族政策示意圖（地位由高到低）</text>
+<g fill="#e8b76a" stroke="#7a5a2b" stroke-width="2">
+<rect x="70" y="160" width="110" height="200"/><rect x="200" y="210" width="110" height="150"/><rect x="330" y="260" width="110" height="100"/><rect x="460" y="310" width="110" height="50"/></g>
+<g fill="#c0392b" font-size="26" font-weight="700" text-anchor="middle"><text x="125" y="275">甲</text><text x="255" y="300">乙</text><text x="385" y="320">丙</text><text x="515" y="345">丁</text></g>
+<g fill="#5e3f1d">
+<circle cx="125" cy="100" r="18"/><rect x="105" y="120" width="40" height="40" rx="8"/>
+<circle cx="255" cy="150" r="18"/><rect x="235" y="170" width="40" height="40" rx="8"/>
+<circle cx="385" cy="200" r="18"/><rect x="365" y="220" width="40" height="40" rx="8"/>
+<circle cx="515" cy="250" r="18"/><rect x="495" y="270" width="40" height="40" rx="8"/></g>
+<line x1="40" y1="360" x2="600" y2="360" stroke="#7a5a2b" stroke-width="2"/>
+<text x="310" y="388" font-size="14" fill="#6f6455" text-anchor="middle">台階越高，政治地位越高；任官與法律待遇差別很大</text>
+</svg>
