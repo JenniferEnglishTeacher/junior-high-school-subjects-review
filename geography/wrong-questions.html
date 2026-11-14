@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>地理錯題互動測驗</title>
+<style>
+:root{--ink:#1f3a2c;--muted:#6f6455;--paper:#fffdf8;--bg:#f4efe6;--accent:#4a8465;--accent2:#d39b36;--bad:#a33a35;--line:#d8e2df}
+*{box-sizing:border-box} body{margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e4f0ee,#f6efe2);line-height:1.65}
+.dashboard-link{position:fixed;left:16px;top:16px;z-index:10;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.95);color:var(--ink);font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(22,49,58,.12);backdrop-filter:blur(10px)}.dashboard-link:hover{border-color:var(--accent);color:var(--accent)}
+header{padding:48px 20px 30px;text-align:center} h1{margin:0;font-size:clamp(2rem,5vw,3.6rem);line-height:1.12} header p{max-width:760px;margin:14px auto;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;background:var(--accent);color:white} button.secondary{background:#dfe9e6;color:var(--ink)} button.download{background:#244b5a} button[hidden]{display:none}.score{font-weight:800;min-width:160px;text-align:center}
+main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:22px} .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08)}
+.q-head{display:flex;gap:14px;align-items:center;margin-bottom:14px} .num{display:grid;place-items:center;min-width:52px;height:52px;border-radius:15px;background:var(--ink);color:white;font-weight:900} .source{color:var(--accent);font-weight:800;font-size:.9rem} h2{margin:0;font-size:1.18rem} .stem{font-size:1.08rem;font-weight:700}
+.context{background:#f2f7f5;border-left:4px solid var(--accent);padding:14px 16px;margin:14px 0;border-radius:0 12px 12px 0} .context p{margin:.35rem 0 0} .adapted{color:#73581c;background:#fff6dc;padding:8px 12px;border-radius:10px;font-size:.92rem}
+.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .card.checked .option{cursor:default}.card.checked .option:hover{transform:none}.option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
+.card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
+.feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
+.unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
+.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.summary{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 20px;margin-top:10px}.summary h4{margin:14px 0 6px;color:var(--accent)}.summary h4:first-child{margin-top:0}.summary td{text-align:left;vertical-align:top}.summary td:first-child{font-weight:800;background:#e8f2ec;white-space:nowrap}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px}.figure.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:640px){.figure.pair{grid-template-columns:1fr}}.kw{color:#73581c;background:#fff6dc;padding:6px 12px;border-radius:10px;font-size:.92rem;margin-top:8px}.figure.q img{max-width:460px;margin:0 auto}</style></head><body>
+<a class="dashboard-link" href="../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
+<header><h1>地理錯題</h1><p>第3章 地形，共 5 題。章節開頭附臺灣地形填圖與比較表；每題選擇答案後，立即顯示正確答案、詳解與圖解；作答完可下載錯題詳解 DOCX（含圖）。</p><nav class="jump"><a href="#ch1">3-1 地形種類・臺灣地形</a><a href="#ch2">3-2 等高線地形圖</a><a href="#ch3">3-3 臺灣的地形區</a></nav></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 5</span></div>
+<main>
+<section class="sec-head" id="ch1"><h3>1. 地形種類與臺灣地形總圖</h3><p>填圖練習 p.28</p><p class="kw">關鍵字：山地、丘陵、台地、盆地、平原、五大山脈、火山地形</p><div class="summary"><div class="figure"><img src="./img/taiwan-landforms.png" alt="臺灣地形填圖解答" loading="lazy"></div><h4>📊 填圖易錯整理（★＝易錯）</h4><div class="table-wrap"><table><tr><th>類型</th><th>填圖編號與名稱</th><th>易錯提醒</th></tr><tr><td>台地</td><td>①林口　②桃園　③大肚★　④八卦　⑤恆春★</td><td>⑤在最南端屏東，叫「恆春台地」，不是墾丁台地</td></tr><tr><td>丘陵</td><td>⑥竹東　⑦苗栗★</td><td>丘陵集中在竹苗地區</td></tr><tr><td>盆地</td><td>⑧臺北　⑨臺中　⑩埔里（＋泰源）</td><td>埔里在臺灣地理中心附近</td></tr><tr><td>平原</td><td>⑪彰化★　⑫嘉南　⑬屏東　⑭宜蘭　⑮花東縱谷</td><td>嘉南平原面積最大</td></tr><tr><td>山脈</td><td>Ⓐ雪山　Ⓑ中央　Ⓒ玉山　Ⓓ阿里山　Ⓔ海岸</td><td>中央山脈最長；玉山山脈有最高峰</td></tr><tr><td>火山</td><td>大屯火山群、基隆火山群、龜山島、澎湖群島、綠島、蘭嶼</td><td>澎湖是玄武岩方山</td></tr></table></div><h4>📊 五種地形比較</h4><div class="table-wrap"><table><tr><th>地形</th><th>外觀特徵</th><th>臺灣例子</th></tr><tr><td>山地</td><td>海拔高、起伏大、坡度陡</td><td>五大山脈</td></tr><tr><td>丘陵</td><td>海拔較低、起伏和緩</td><td>竹東、苗栗丘陵</td></tr><tr><td>台地</td><td>頂部平坦、四周陡崖</td><td>林口、桃園、大肚、八卦、恆春</td></tr><tr><td>盆地</td><td>四周高、中間低</td><td>臺北、臺中、埔里、泰源</td></tr><tr><td>平原</td><td>海拔低、地勢平坦，多為河川沖積</td><td>嘉南、屏東、彰化、宜蘭、花東縱谷</td></tr></table></div></div></section>
+<article class="card" id="q1" data-answer="A">
+          <div class="q-head"><span class="num">01</span><div><span class="source">3-3 學習即時通・第1題</span><h2>火山地形</h2></div></div>
+          <p class="stem">臺灣因特殊的地理位置，火山活動頻仍。下列哪一地形區的形成與火山活動有關？</p>
+          <div class="options"><label class="option"><input type="radio" name="q1" value="A"><span class="letter">A</span><span>澎湖群島</span></label><label class="option"><input type="radio" name="q1" value="B"><span class="letter">B</span><span>屏東平原</span></label><label class="option"><input type="radio" name="q1" value="C"><span class="letter">C</span><span>苗栗丘陵</span></label><label class="option"><input type="radio" name="q1" value="D"><span class="letter">D</span><span>埔里盆地</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>澎湖群島是火山熔岩噴發後冷卻形成的「玄武岩方山」地形，與火山活動有關。</p><p class="key"><strong>解題關鍵：</strong>(B)屏東平原是高屏溪等河川沖積形成；(C)苗栗丘陵、(D)埔里盆地也都不是火山作用形成。臺灣與火山有關：大屯火山群、基隆火山群、龜山島、澎湖群島、綠島、蘭嶼。</p><div class="figure"><img src="./img/volcano.png" alt="與火山活動有關的地形分布" loading="lazy"></div></div>
+        </article>
+
+<section class="sec-head" id="ch2"><h3>2. 等高線地形圖</h3><p>2 題</p><p class="kw">關鍵字：閉合曲線、疏緩密陡、山頂與盆地、河谷與山脊</p><div class="summary"><h4>📊 等高線判讀重點</h4><div class="table-wrap"><table><tr><th>項目</th><th>重點</th></tr><tr><td>定義</td><td>海拔相同的點連成的「閉合」曲線</td></tr><tr><td>疏密</td><td>線距密集→坡陡；線距稀疏→坡緩</td></tr><tr><td>數值</td><td>往中央變大→山頂；往中央變小→盆地</td></tr><tr><td>V字形</td><td>尖端指向高處→河谷；尖端指向低處→山脊</td></tr></table></div></div></section>
+<article class="card" id="q2" data-answer="B">
+          <div class="q-head"><span class="num">02</span><div><span class="source">3-2 重點整理・填空</span><h2>等高線的定義</h2></div></div>
+          <p class="stem">等高線是將地表上海拔高度相同的點連接而成的（　　）曲線。</p>
+          <div class="options"><label class="option"><input type="radio" name="q2" value="A"><span class="letter">A</span><span>密集</span></label><label class="option"><input type="radio" name="q2" value="B"><span class="letter">B</span><span>閉合</span></label><label class="option"><input type="radio" name="q2" value="C"><span class="letter">C</span><span>平行</span></label><label class="option"><input type="radio" name="q2" value="D"><span class="letter">D</span><span>交叉</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>等高線是一條條「閉合」的曲線（繞一圈會接回起點），同一條線上每一點海拔都相同。</p><p class="key"><strong>解題關鍵：</strong>「密集／稀疏」是判斷坡度用的：線距密集→坡陡；稀疏→坡緩，不是定義。數值往中央愈大→山頂；往中央愈小→盆地。</p><div class="figure"><img src="./img/contour-basics.png" alt="等高線是閉合曲線與疏密判讀" loading="lazy"></div></div>
+        </article>
+
+<article class="card" id="q3" data-answer="C">
+          <div class="q-head"><span class="num">03</span><div><span class="source">3-2 學習即時通・第3題</span><h2>等高線判讀：河谷營地</h2></div></div>
+          <div class="figure q"><img src="./img/camp-contour-q.png" alt="翰翰登山隊等高線地形圖" loading="lazy"></div><p class="stem">下圖是翰翰登山隊正在攀爬某地的等高線地形圖，傍晚他們欲在海拔359公尺的河谷附近紮營。由此可知，他們應該要紮營在何處？</p>
+          <div class="options"><label class="option"><input type="radio" name="q3" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q3" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q3" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q3" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>步驟①：359公尺一定在300與400兩條等高線之間，先刪去不在此高度區間的點。步驟②：河谷是等高線V字尖端指向「高處」的地方；尖端指向「低處」是山脊。同時符合兩個條件的只有丙。</p><p class="key"><strong>解題關鍵：</strong>先看高度區間，再分河谷（V尖向高）或山脊（V尖向低）。</p><div class="figure"><img src="./img/valley-ridge.png" alt="河谷與山脊的V字判讀示意圖" loading="lazy"></div></div>
+        </article>
+
+<section class="sec-head" id="ch3"><h3>3. 臺灣的地形區</h3><p>2 題</p><p class="kw">關鍵字：宜蘭平原、花東縱谷、東北季風、嘉南平原、土地類型比例</p><div class="summary"><h4>📊 臺灣主要平原比較</h4><div class="table-wrap"><table><tr><th>平原</th><th>夾在哪裡</th><th>特色</th></tr><tr><td>宜蘭平原</td><td>雪山山脈＋中央山脈</td><td>蘭陽溪沖積、三角形、冬雨多</td></tr><tr><td>花東縱谷平原</td><td>中央山脈＋海岸山脈</td><td>狹長斷層谷地</td></tr><tr><td>嘉南平原</td><td>阿里山山脈以西</td><td>面積最大</td></tr><tr><td>屏東平原</td><td>中央山脈以西</td><td>高屏溪沖積</td></tr><tr><td>彰化平原</td><td>八卦台地以西</td><td>濁水溪沖積</td></tr></table></div></div></section>
+<article class="card" id="q4" data-answer="B">
+          <div class="q-head"><span class="num">04</span><div><span class="source">3-3 精熟題・第8題</span><h2>宜蘭平原</h2></div></div>
+          <p class="stem">小益看到節目正在介紹臺灣某平原的自然環境：「位在中央山脈、雪山山脈間，由河川沖積而成，冬季降雨較多，地下水含量豐富。」該節目應該是在描述下列哪一個平原？</p>
+          <div class="options"><label class="option"><input type="radio" name="q4" value="A"><span class="letter">A</span><span>嘉南平原</span></label><label class="option"><input type="radio" name="q4" value="B"><span class="letter">B</span><span>宜蘭平原</span></label><label class="option"><input type="radio" name="q4" value="C"><span class="letter">C</span><span>屏東平原</span></label><label class="option"><input type="radio" name="q4" value="D"><span class="letter">D</span><span>花東縱谷平原</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>「中央山脈＋雪山山脈之間」→ 宜蘭平原（蘭陽溪沖積的三角形平原）。宜蘭面向東北，冬季東北季風迎風降雨，所以冬雨多。</p><p class="key"><strong>解題關鍵：</strong>看「夾在哪兩條山脈之間」：雪山＋中央＝宜蘭；中央＋海岸＝花東縱谷。(D)花東縱谷平原夾在中央山脈與海岸山脈之間，不是雪山山脈。</p><div class="figure"><img src="./img/yilan-plain.png" alt="宜蘭平原的位置與冬季東北季風" loading="lazy"></div></div>
+        </article>
+
+<article class="card" id="q5" data-answer="B">
+          <div class="q-head"><span class="num">05</span><div><span class="source">3-3 精熟題・第28題【112會考】</span><h2>土地類型比例判斷縣市</h2></div></div>
+          <div class="figure q"><img src="./img/county-pie-q.png" alt="某縣土地類型面積比例圓餅圖" loading="lazy"></div><p class="stem">下圖為臺灣某縣的各類型土地面積占全縣總面積的百分比。根據其地形特色判斷，該縣最可能為下列何者？（山坡地區指海拔100到1,000公尺之間的丘陵地，或未滿100公尺而平均坡度在5%以上的坡地）</p>
+          <div class="options"><label class="option"><input type="radio" name="q5" value="A"><span class="letter">A</span><span>苗栗縣</span></label><label class="option"><input type="radio" name="q5" value="B"><span class="letter">B</span><span>雲林縣</span></label><label class="option"><input type="radio" name="q5" value="C"><span class="letter">C</span><span>南投縣</span></label><label class="option"><input type="radio" name="q5" value="D"><span class="letter">D</span><span>花蓮縣</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>平原占將近九成 → 找「大部分是平原」的縣：雲林縣位於嘉南平原北部，地勢平坦。</p><p class="key"><strong>解題關鍵：</strong>(A)苗栗縣以丘陵、台地為主；(C)南投縣是唯一不靠海的縣，大多是山地；(D)花蓮縣多為中央山脈與海岸山脈，平原只有狹長的花東縱谷。圓餅圖題：先抓占最多的地形，再對照各縣主要地形。</p></div>
+        </article>
+
+</main>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const downloadBtn=document.querySelector('#downloadDocx');
+let graded=false;
+
+function checkCard(card,revealUnanswered=false){
+  card.classList.remove('correct','incorrect','unanswered');
+  card.querySelectorAll('.option').forEach(option=>option.classList.remove('good','bad'));
+  const pick=card.querySelector('input:checked');
+  const answer=card.dataset.answer;
+  if(!pick&&!revealUnanswered)return {answered:false,correct:false};
+  card.classList.add('checked');
+  card.querySelectorAll('input').forEach(input=>{
+    const option=input.closest('.option');
+    if(input.value===answer)option.classList.add('good');
+    if(pick&&input===pick&&input.value!==answer)option.classList.add('bad');
+    input.disabled=true;
+  });
+  if(!pick)card.classList.add('unanswered');
+  else if(pick.value===answer)card.classList.add('correct');
+  else card.classList.add('incorrect');
+  return {answered:!!pick,correct:!!pick&&pick.value===answer};
+}
+
+function updateProgress(){
+  const answered=cards.filter(card=>card.querySelector('input:checked')).length;
+  const score=cards.filter(card=>card.querySelector('input:checked')?.value===card.dataset.answer).length;
+  document.querySelector('#score').textContent=`已作答 ${answered} / ${cards.length}・答對 ${score} 題`;
+  if(answered===cards.length){
+    graded=true;
+    const mistakeCount=cards.length-score;
+    downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+    downloadBtn.hidden=false;
+  }
+}
+
+cards.forEach(card=>card.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+  checkCard(card);
+  updateProgress();
+})));
+
+document.querySelector('#grade').addEventListener('click',()=>{
+  let score=0,first=null;
+  cards.forEach(c=>{
+    const result=checkCard(c,true);
+    if(!result.answered)first??=c;
+    if(result.correct)score++;
+  });
+  graded=true;
+  const mistakeCount=cards.length-score;
+  document.querySelector('#score').textContent=`得分 ${score} / ${cards.length}`;
+  downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+  downloadBtn.hidden=false;
+  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.querySelector('#reset').addEventListener('click',()=>{
+  cards.forEach(c=>{
+    c.className='card';
+    c.querySelectorAll('input').forEach(i=>{i.checked=false;i.disabled=false});
+    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
+  });
+  graded=false;
+  downloadBtn.hidden=true;
+  downloadBtn.textContent='下載錯題詳解 DOCX';
+  document.querySelector('#score').textContent=`已作答 0 / ${cards.length}`;
+  scrollTo({top:0,behavior:'smooth'});
+});
+
+function xmlEscape(value){
+  return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+}
+
+function wordParagraph(text,{bold=false,size=22,color='000000',before=0,after=100}={}){
+  const safe=xmlEscape(text);
+  return `<w:p><w:pPr><w:spacing w:before="${before}" w:after="${after}" w:line="330" w:lineRule="auto"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Microsoft JhengHei" w:hAnsi="Microsoft JhengHei" w:eastAsia="Microsoft JhengHei"/><w:sz w:val="${size}"/><w:szCs w:val="${size}"/>${bold?'<w:b/><w:bCs/>':''}${color!=='000000'?`<w:color w:val="${color}"/>`:''}<w:lang w:eastAsia="zh-TW"/></w:rPr><w:t xml:space="preserve">${safe}</w:t></w:r></w:p>`;
+}
+
+function textBlock(text,options={}){
+  return String(text??'').split(/\r?\n/).filter(Boolean).map(line=>wordParagraph(line,options)).join('');
+}
+
+function collectMistakes(){
+  return cards.filter(c=>{
+    const pick=c.querySelector('input:checked');
+    return !pick||pick.value!==c.dataset.answer;
+  }).map(c=>{
+    const picked=c.querySelector('input:checked');
+    const feedback=[...c.querySelectorAll('.feedback p')];
+    return {
+      number:c.querySelector('.num').textContent.trim(),
+      source:(c.dataset.chapter?c.dataset.chapter+'｜':'')+c.querySelector('.source').textContent.trim(),
+      topic:c.querySelector('h2').textContent.trim(),
+      context:c.querySelector('.context')?.innerText.trim()||'',
+      stem:c.querySelector('.stem').textContent.trim(),
+      options:[...c.querySelectorAll('.option')].map(o=>`${o.querySelector('.letter').textContent.trim()}　${o.querySelector('span:last-child').textContent.trim()}`),
+      selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
+      answer:c.dataset.answer,
+      explanation:feedback[1]?.textContent.trim()||'',
+      figures:[...c.querySelectorAll('.figure img')].map(i=>({src:i.getAttribute('src').replace(/\.svg$/,'.png'),alt:i.alt})),
+      key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
+    };
+  });
+}
+
+const encoder=new TextEncoder();
+function le16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function le32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function joinBytes(chunks){
+  const out=new Uint8Array(chunks.reduce((sum,c)=>sum+c.length,0));
+  let at=0;for(const c of chunks){out.set(c,at);at+=c.length}return out;
+}
+const crcTable=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(data){let c=0xffffffff;for(const b of data)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0}
+function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());return {time:(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date:((year-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate()}}
+
+function makeDocxZip(files){
+  const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
+  for(const [name,text] of files){
+    const nameBytes=encoder.encode(name),data=text instanceof Uint8Array?text:encoder.encode(text),crc=crc32(data);
+    const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
+    const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
+    locals.push(local);centrals.push(central);offset+=local.length;
+  }
+  const centralData=joinBytes(centrals);
+  const end=joinBytes([le32(0x06054b50),le16(0),le16(0),le16(files.length),le16(files.length),le32(centralData.length),le32(offset),le16(0)]);
+  return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+async function loadPng(src){
+  const res=await fetch(src);if(!res.ok)throw new Error(src);
+  const bytes=new Uint8Array(await res.arrayBuffer());
+  const dv=new DataView(bytes.buffer);
+  return {bytes,w:dv.getUint32(16),h:dv.getUint32(20)};
+}
+function imageParagraph(rid,id,w,h,alt){
+  const cx=Math.round(6.2*914400),cy=Math.round(cx*h/w);
+  return `<w:p><w:pPr><w:spacing w:after="80"/><w:jc w:val="center"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${id}" name="圖${id}" descr="${xmlEscape(alt)}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${id}" name="image${id}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+}
+async function buildMistakeDocx(){
+  const mistakes=collectMistakes();
+  const media=[],relsXml=[],cache={};
+  for(const m of mistakes){
+    m.imgs=[];
+    for(const f of m.figures||[]){
+      try{
+        if(!cache[f.src]){
+          const png=await loadPng(f.src),n=media.length+1;
+          media.push([`word/media/image${n}.png`,png.bytes]);
+          relsXml.push(`<Relationship Id="rImg${n}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/image${n}.png"/>`);
+          cache[f.src]={rid:`rImg${n}`,w:png.w,h:png.h};
+        }
+        m.imgs.push({...cache[f.src],alt:f.alt});
+      }catch(e){console.warn('圖片載入失敗',f.src)}
+    }
+  }
+  let picId=0;
+  let body=wordParagraph('地理錯題詳解',{bold:true,size:34,color:'17313A',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　錯題與未作答共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  if(!mistakes.length){
+    body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
+  }else{
+    mistakes.forEach((m,index)=>{
+      if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+      body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
+      if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      m.imgs.forEach(im=>{body+=imageParagraph(im.rid,++picId,im.w,im.h,im.alt)});
+      body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
+      m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
+      body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
+      body+=wordParagraph(`正確答案：${m.answer}`,{bold:true,size:22,color:'0B6B57',after:100});
+      body+=wordParagraph('詳解',{bold:true,size:22,after:55});
+      body+=textBlock(m.explanation,{size:21,after:90});
+      body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
+    });
+  }
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const docRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${relsXml.join('')}</Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml],['word/_rels/document.xml.rels',docRels],...media]);
+}
+
+downloadBtn.addEventListener('click',async()=>{
+  if(!graded)return;
+  downloadBtn.disabled=true;
+  let blob;try{blob=await buildMistakeDocx()}finally{downloadBtn.disabled=false}
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='地理錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+</script></body></html>
+
