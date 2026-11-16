@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>數學錯題互動測驗</title>
+<style>
+:root{--ink:#3a2a17;--muted:#6f6455;--paper:#fffdf8;--bg:#f4efe6;--accent:#9a6b35;--accent2:#d39b36;--bad:#a33a35;--line:#d8e2df}
+*{box-sizing:border-box} body{margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e4f0ee,#f6efe2);line-height:1.65}
+.dashboard-link{position:fixed;left:16px;top:16px;z-index:10;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.95);color:var(--ink);font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(22,49,58,.12);backdrop-filter:blur(10px)}.dashboard-link:hover{border-color:var(--accent);color:var(--accent)}
+header{padding:48px 20px 30px;text-align:center} h1{margin:0;font-size:clamp(2rem,5vw,3.6rem);line-height:1.12} header p{max-width:760px;margin:14px auto;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;background:var(--accent);color:white} button.secondary{background:#dfe9e6;color:var(--ink)} button.download{background:#244b5a} button[hidden]{display:none}.score{font-weight:800;min-width:160px;text-align:center}
+main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:22px} .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08)}
+.q-head{display:flex;gap:14px;align-items:center;margin-bottom:14px} .num{display:grid;place-items:center;min-width:52px;height:52px;border-radius:15px;background:var(--ink);color:white;font-weight:900} .source{color:var(--accent);font-weight:800;font-size:.9rem} h2{margin:0;font-size:1.18rem} .stem{font-size:1.08rem;font-weight:700}
+.context{background:#f2f7f5;border-left:4px solid var(--accent);padding:14px 16px;margin:14px 0;border-radius:0 12px 12px 0} .context p{margin:.35rem 0 0} .adapted{color:#73581c;background:#fff6dc;padding:8px 12px;border-radius:10px;font-size:.92rem}
+.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .card.checked .option{cursor:default}.card.checked .option:hover{transform:none}.option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
+.card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
+.feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
+.unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
+.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.summary{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 20px;margin-top:10px}.summary h4{margin:14px 0 6px;color:var(--accent)}.summary h4:first-child{margin-top:0}.summary td{text-align:left;vertical-align:top}.summary td:first-child{font-weight:800;background:#f7efe2;white-space:nowrap}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px}.figure.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:640px){.figure.pair{grid-template-columns:1fr}}.kw{color:#73581c;background:#fff6dc;padding:6px 12px;border-radius:10px;font-size:.92rem;margin-top:8px}</style><style>.steps{font-family:"Cambria Math","Times New Roman","Microsoft JhengHei",serif;line-height:1.95;background:#f6f9fc;border-left:4px solid #1f5fa8;padding:8px 12px;border-radius:0 10px 10px 0}.figure img{max-width:560px}</style>
+</head><body>
+<a class="dashboard-link" href="../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
+<header><h1>數學錯題</h1><p>依章節概念分類，共 17 題（8 上 第 4 章 一元二次方程式）。每章開頭有重點整理表；每題選擇答案後，立即顯示正確答案與一步一步的教學算式；作答完可下載錯題詳解 DOCX（含圖）。原為填充、計算題者已改寫成選擇題。</p><nav class="jump"><a href="#ch1">一元二次方程式的解（因式分解法）</a><a href="#ch2">根與係數：由根求係數、整數根</a><a href="#ch3">應用問題：數量與年齡</a><a href="#ch4">應用問題：圖形與數線</a></nav></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 17</span></div>
+<main>
+<section class="sec-head" id="ch1"><h3>1. 一元二次方程式的解（因式分解法）</h3><p>4 題</p><p class="kw">重點：AB＝0 ⇒ A＝0 或 B＝0；兩邊有相同因式：移項、提公因式，不可直接約分；「一元二次」⇒ 二次項係數 ≠ 0</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>題型</th><th>正確做法</th><th>常見錯誤</th></tr><tr><td>兩邊有相同因式</td><td>移項 → 提公因式 → 拆成兩個一次式</td><td>兩邊同除 (x－1)，漏掉 x＝1</td></tr><tr><td>x(2x－1)＝0</td><td>x＝0 或 x＝1/2</td><td>只寫 1/2，漏掉 0</td></tr><tr><td>已知一根為 0</td><td>把 x＝0 代入，求出參數</td><td>忘了檢查二次項係數 ≠ 0</td></tr></table></div></div></section>
+<article class="card" data-chapter="一元二次方程式的解（因式分解法）" id="q1" data-answer="C">
+          <div class="q-head"><span class="num">01</span><div><span class="source">8上 4-1 練習 選擇 3｜原作答：A</span><h2>兩邊有相同因式</h2></div></div>
+          <p class="stem">關於方程式 (2x＋1)(x－1)＝(3x＋2)(x－1) 的根，下列敘述何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q1" value="A"><span class="letter">A</span><span>方程式只有一根，而且這個根是負數</span></label><label class="option"><input type="radio" name="q1" value="B"><span class="letter">B</span><span>方程式有兩根，而且兩根的正、負號相同</span></label><label class="option"><input type="radio" name="q1" value="C"><span class="letter">C</span><span>方程式有兩根，一根為正數，一根為負數</span></label><label class="option"><input type="radio" name="q1" value="D"><span class="letter">D</span><span>方程式沒有解</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">⚠ 不可以兩邊同除以 (x－1)：x－1 可能等於 0，除掉會漏根。<br>移項：(2x＋1)(x－1)－(3x＋2)(x－1)＝0<br>提出公因式：(x－1)[(2x＋1)－(3x＋2)]＝0<br>化簡：(x－1)(－x－1)＝0<br>x－1＝0 或 －x－1＝0 → x＝1 或 x＝－1<br>兩根一正一負，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>兩邊有相同因式時，要「移項、提公因式」，不能直接約分。</p></div>
+        </article>
+<article class="card" data-chapter="一元二次方程式的解（因式分解法）" id="q2" data-answer="A">
+          <div class="q-head"><span class="num">02</span><div><span class="source">8上 4-1 練習 選擇 5｜原作答：D</span><h2>已知一根為 0</h2></div></div>
+          <p class="stem">若一元二次方程式 (k－2)x²＋4x＋k²－4＝0 有一根為 0，則 k 的值為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q2" value="A"><span class="letter">A</span><span>－2</span></label><label class="option"><input type="radio" name="q2" value="B"><span class="letter">B</span><span>0</span></label><label class="option"><input type="radio" name="q2" value="C"><span class="letter">C</span><span>2</span></label><label class="option"><input type="radio" name="q2" value="D"><span class="letter">D</span><span>±2</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">把 x＝0 代入：(k－2)·0²＋4·0＋k²－4＝0<br>k²＝4 → k＝2 或 k＝－2<br>但這是「一元二次方程式」，x² 的係數 k－2 ≠ 0 → k ≠ 2<br>所以 k＝－2，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>一元二次方程式 ⇒ 二次項係數不可為 0，算完要檢查。</p></div>
+        </article>
+<article class="card" data-chapter="一元二次方程式的解（因式分解法）" id="q3" data-answer="C">
+          <div class="q-head"><span class="num">03</span><div><span class="source">8上 4-1 練習 填充 1｜原作答：只寫 1/2</span><h2>乘積為 0 的方程式</h2></div></div>
+          <p class="stem">解方程式 x(2x－1)＝0，得 x＝？</p>
+          <div class="options"><label class="option"><input type="radio" name="q3" value="A"><span class="letter">A</span><span>x＝1/2</span></label><label class="option"><input type="radio" name="q3" value="B"><span class="letter">B</span><span>x＝0</span></label><label class="option"><input type="radio" name="q3" value="C"><span class="letter">C</span><span>x＝0 或 x＝1/2</span></label><label class="option"><input type="radio" name="q3" value="D"><span class="letter">D</span><span>x＝0 或 x＝－1/2</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">兩數相乘＝0 → 至少有一個是 0<br>x＝0 或 2x－1＝0<br>2x－1＝0 → x＝1/2<br>答：x＝0 或 1/2（兩個根都要寫）<br>⚠ 不要把式子展開成 2x²＝x 再兩邊除以 x，這樣會把 x＝0 消掉。</p><p class="key"><strong>解題關鍵：</strong>AB＝0 ⇒ A＝0 或 B＝0；不要漏掉 x＝0。</p></div>
+        </article>
+<article class="card" data-chapter="一元二次方程式的解（因式分解法）" id="q4" data-answer="A">
+          <div class="q-head"><span class="num">04</span><div><span class="source">8上 4-1 練習 計算 3｜原作答：未作答</span><h2>已知一根為 0，求參數與另一根</h2></div></div>
+          <p class="stem">若一元二次方程式 (a＋2)x²－2ax－(a²－a－6)＝0 恰有一根為 0，則 a 的值與方程式的另一解為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q4" value="A"><span class="letter">A</span><span>a＝3，另一解 6/5</span></label><label class="option"><input type="radio" name="q4" value="B"><span class="letter">B</span><span>a＝－2，另一解 0</span></label><label class="option"><input type="radio" name="q4" value="C"><span class="letter">C</span><span>a＝3 或 －2，另一解 6/5</span></label><label class="option"><input type="radio" name="q4" value="D"><span class="letter">D</span><span>a＝3，另一解 －6/5</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">(1) 求 a：把 x＝0 代入 → －(a²－a－6)＝0<br>a²－a－6＝0 → (a－3)(a＋2)＝0 → a＝3 或 a＝－2<br>二次項係數 a＋2 ≠ 0 → a ≠ －2，所以 a＝3<br>(2) 求另一解：a＝3 代回<br>5x²－6x－(9－3－6)＝0 → 5x²－6x＝0<br>x(5x－6)＝0 → x＝0 或 x＝6/5<br>另一解為 6/5，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>代 0 求參數 → 檢查二次項係數 → 代回求另一根。</p></div>
+        </article>
+<section class="sec-head" id="ch2"><h3>2. 根與係數：由根求係數、整數根</h3><p>6 題</p><p class="kw">重點：(x－p)(x－q)＝x²－(p＋q)x＋pq；整數根：先列出常數項的所有因數組（含負數）；兩根互為相反數 ⇒ 一次項係數＝0；重根 ⇒ 可寫成完全平方</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>已知條件</th><th>可以得到</th></tr><tr><td>兩根 p、q（首項係數 1）</td><td>x²－(p＋q)x＋pq＝0</td></tr><tr><td>兩根互為相反數</td><td>一次項係數＝0</td></tr><tr><td>有重根</td><td>左式是完全平方：(ax＋b)²</td></tr><tr><td>看錯常數項</td><td>一次項係數仍正確，用他的根還原</td></tr><tr><td>看錯一次項係數</td><td>常數項仍正確，用他的根還原</td></tr></table></div></div></section>
+<article class="card" data-chapter="根與係數：由根求係數、整數根" id="q5" data-answer="B">
+          <div class="q-head"><span class="num">05</span><div><span class="source">8上 4-1 練習 選擇 6｜原作答：A</span><h2>整數根</h2></div></div>
+          <p class="stem">若一元二次方程式 x²＋kx＋6＝0 的兩根皆為整數，則下列何者「不可能」為 k 的值？</p>
+          <div class="options"><label class="option"><input type="radio" name="q5" value="A"><span class="letter">A</span><span>－5</span></label><label class="option"><input type="radio" name="q5" value="B"><span class="letter">B</span><span>1</span></label><label class="option"><input type="radio" name="q5" value="C"><span class="letter">C</span><span>5</span></label><label class="option"><input type="radio" name="q5" value="D"><span class="letter">D</span><span>7</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">設兩整數根 p、q：x²＋kx＋6＝(x－p)(x－q) → pq＝6，k＝－(p＋q)<br>列出乘積為 6 的整數組：<br>1 × 6 → 和 7 → k＝－7<br>2 × 3 → 和 5 → k＝－5<br>(－1)×(－6) → 和 －7 → k＝7<br>(－2)×(－3) → 和 －5 → k＝5<br>k 只可能是 ±5、±7，不可能是 1，選 (B)。</p><p class="key"><strong>解題關鍵：</strong>整數根：先列出常數項的所有因數組（包含負數），再算 k。</p></div>
+        </article>
+<article class="card" data-chapter="根與係數：由根求係數、整數根" id="q6" data-answer="D">
+          <div class="q-head"><span class="num">06</span><div><span class="source">8上 4-1 練習 選擇 7｜原作答：B</span><h2>看錯係數</h2></div></div>
+          <p class="stem">石頭與春梅兩人同解方程式 2x²＋bx＋c＝0，石頭看錯 c，解得兩根為 －4、2；春梅看錯 b，解得兩根為 －1、3，則下列敘述何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>b＝2</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>c＝－3</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>原方程式的兩根為 －4、－2</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>原方程式的兩根為 －3、1</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">石頭看錯 c，但 b 是對的：用他的根還原 → 2(x＋4)(x－2)＝2x²＋4x－16 → b＝4<br>春梅看錯 b，但 c 是對的：用她的根還原 → 2(x＋1)(x－3)＝2x²－4x－6 → c＝－6<br>（記得乘回首項係數 2！）<br>原方程式：2x²＋4x－6＝0 → x²＋2x－3＝0<br>(x＋3)(x－1)＝0 → x＝－3 或 x＝1，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>看錯誰就不用誰：用另一人的根還原「沒看錯」的係數。</p></div>
+        </article>
+<article class="card" data-chapter="根與係數：由根求係數、整數根" id="q7" data-answer="B">
+          <div class="q-head"><span class="num">07</span><div><span class="source">8上 4-1 練習 選擇 9｜原作答：D</span><h2>質數根</h2></div></div>
+          <p class="stem">已知方程式 x²－15x＋m＝0 的兩根皆為質數，求 m 的值為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q7" value="A"><span class="letter">A</span><span>14</span></label><label class="option"><input type="radio" name="q7" value="B"><span class="letter">B</span><span>26</span></label><label class="option"><input type="radio" name="q7" value="C"><span class="letter">C</span><span>36</span></label><label class="option"><input type="radio" name="q7" value="D"><span class="letter">D</span><span>50</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">設兩質數根 p、q：x²－15x＋m＝(x－p)(x－q) → p＋q＝15，pq＝m<br>兩個奇數相加是偶數；和是 15（奇數）→ 其中一個必是偶質數 2<br>另一根＝15－2＝13（是質數 ✓）<br>m＝2×13＝26，選 (B)。</p><p class="key"><strong>解題關鍵：</strong>兩質數和為奇數 ⇒ 其中一個一定是 2。</p></div>
+        </article>
+<article class="card" data-chapter="根與係數：由根求係數、整數根" id="q8" data-answer="A">
+          <div class="q-head"><span class="num">08</span><div><span class="source">8上 4-1 練習 填充 4｜原作答：算錯（紅筆訂正）</span><h2>整數根與二位數</h2></div></div>
+          <p class="stem">若一元二次方程式 x²＋ax－18＝0 的兩根均為整數，且正整數 a 為二位數，則 a 的個位數字與十位數字之和為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q8" value="A"><span class="letter">A</span><span>8</span></label><label class="option"><input type="radio" name="q8" value="B"><span class="letter">B</span><span>7</span></label><label class="option"><input type="radio" name="q8" value="C"><span class="letter">C</span><span>10</span></label><label class="option"><input type="radio" name="q8" value="D"><span class="letter">D</span><span>9</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">設整數根 p、q：pq＝－18，a＝－(p＋q)<br>(1, －18) → a＝17　(－1, 18) → a＝－17<br>(2, －9) → a＝7　(－2, 9) → a＝－7<br>(3, －6) → a＝3　(－3, 6) → a＝－3<br>正的二位數只有 a＝17 → 1＋7＝8，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>列出所有因數組，再挑出符合條件（正、二位數）的 a。</p></div>
+        </article>
+<article class="card" data-chapter="根與係數：由根求係數、整數根" id="q9" data-answer="A">
+          <div class="q-head"><span class="num">09</span><div><span class="source">8上 4-1 練習 填充 7｜原作答：未作答</span><h2>相反數根與重根</h2></div></div>
+          <p class="stem">已知一元二次方程式 x²＋(m＋2n)x－9＝0 的兩根互為相反數，且方程式 4x²＋4x＋(2m＋3n)＝0 有重根，則 m＋n 之值為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q9" value="A"><span class="letter">A</span><span>1</span></label><label class="option"><input type="radio" name="q9" value="B"><span class="letter">B</span><span>－1</span></label><label class="option"><input type="radio" name="q9" value="C"><span class="letter">C</span><span>3</span></label><label class="option"><input type="radio" name="q9" value="D"><span class="letter">D</span><span>0</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">兩根互為相反數 r、－r：(x－r)(x＋r)＝x²－r²，沒有 x 項<br>→ 一次項係數 m＋2n＝0 ……①<br>有重根 → 左式是完全平方：(2x＋1)²＝4x²＋4x＋1<br>→ 2m＋3n＝1 ……②<br>由① m＝－2n，代入②：－4n＋3n＝1 → n＝－1，m＝2<br>m＋n＝2＋(－1)＝1，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>相反數根 ⇒ 一次項係數＝0；重根 ⇒ 完全平方式。</p></div>
+        </article>
+<article class="card" data-chapter="根與係數：由根求係數、整數根" id="q10" data-answer="A">
+          <div class="q-head"><span class="num">10</span><div><span class="source">8上 4-3 實力評量 填充 8｜原作答：只寫 －3</span><h2>看錯一次項係數的正負號</h2></div></div>
+          <p class="stem">某考生解一元二次方程式時，不慎將一次項係數的正負號看錯，解得兩根為 －4 和 3，則此方程式正確的兩根為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q10" value="A"><span class="letter">A</span><span>4 和 －3</span></label><label class="option"><input type="radio" name="q10" value="B"><span class="letter">B</span><span>－4 和 3</span></label><label class="option"><input type="radio" name="q10" value="C"><span class="letter">C</span><span>4 和 3</span></label><label class="option"><input type="radio" name="q10" value="D"><span class="letter">D</span><span>－4 和 －3</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">考生解的方程式：(x＋4)(x－3)＝x²＋x－12<br>一次項 ＋x 的符號是看錯的，常數項 －12 是對的<br>正確方程式：x²－x－12＝0<br>(x－4)(x＋3)＝0 → x＝4 或 x＝－3<br>兩根都要寫：4 和 －3，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>一次項係數變號 ⇒ 兩根都變號（常數項不變）。</p></div>
+        </article>
+<section class="sec-head" id="ch3"><h3>3. 應用問題：數量與年齡</h3><p>3 題</p><p class="kw">重點：設未知數 → 列方程式 → 解 → 檢查是否合理；平方根 A、B 互為相反數 ⇒ A＋B＝0；解完要回頭看題目條件（正數、負數、整數）</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>題型</th><th>關係式</th></tr><tr><td>某數的兩個平方根是 A、B</td><td>A＋B＝0</td></tr><tr><td>年份＝某數平方</td><td>先估算：44²＝1936、45²＝2025</td></tr><tr><td>算錯比正確少 k</td><td>正確－錯誤＝k</td></tr></table></div></div></section>
+<article class="card" data-chapter="應用問題：數量與年齡" id="q11" data-answer="A">
+          <div class="q-head"><span class="num">11</span><div><span class="source">8上 4-1 練習 計算 2｜原作答：寫出 √15（錯）</span><h2>平方根與年齡</h2></div></div>
+          <p class="stem">佩盈想知道老師的年齡，老師說：「我的年齡的平方根是 2x＋4 與 x²＋4x－11，且 x＞0，請妳算出我今年幾歲吧！」求老師的年齡為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q11" value="A"><span class="letter">A</span><span>36 歲</span></label><label class="option"><input type="radio" name="q11" value="B"><span class="letter">B</span><span>100 歲</span></label><label class="option"><input type="radio" name="q11" value="C"><span class="letter">C</span><span>15 歲</span></label><label class="option"><input type="radio" name="q11" value="D"><span class="letter">D</span><span>16 歲</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">一個正數有兩個平方根，而且「互為相反數」→ 兩個平方根相加＝0<br>(2x＋4)＋(x²＋4x－11)＝0 → x²＋6x－7＝0<br>(x＋7)(x－1)＝0 → x＝1（x＞0，－7 不合）<br>兩個平方根：2×1＋4＝6，1＋4－11＝－6 ✓（互為相反數）<br>年齡＝6²＝36 歲，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>「a 的平方根是 A 與 B」⇒ A＋B＝0，不是 A＝B。</p></div>
+        </article>
+<article class="card" data-chapter="應用問題：數量與年齡" id="q12" data-answer="A">
+          <div class="q-head"><span class="num">12</span><div><span class="source">8上 4-3 實力評量 選擇 5｜原作答：C</span><h2>算錯成 2 倍</h2></div></div>
+          <p class="stem">小美在計算某負數的平方時，誤將其算成該數的 2 倍，所得的結果比正確答案少 63，求原來的正確答案為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q12" value="A"><span class="letter">A</span><span>49</span></label><label class="option"><input type="radio" name="q12" value="B"><span class="letter">B</span><span>－49</span></label><label class="option"><input type="radio" name="q12" value="C"><span class="letter">C</span><span>81</span></label><label class="option"><input type="radio" name="q12" value="D"><span class="letter">D</span><span>－81</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">設此負數為 x（x＜0）<br>正確答案是 x²，算錯得到 2x<br>「錯的比正確的少 63」→ x²－2x＝63<br>x²－2x－63＝0 → (x－9)(x＋7)＝0<br>x＝9（不是負數，不合）或 x＝－7<br>正確答案＝(－7)²＝49，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>解完一定要回頭檢查題目條件（負數）。</p></div>
+        </article>
+<article class="card" data-chapter="應用問題：數量與年齡" id="q13" data-answer="A">
+          <div class="q-head"><span class="num">13</span><div><span class="source">8上 4-3 實力評量 填充 1｜原作答：44、45 都寫</span><h2>年份問題</h2></div></div>
+          <p class="stem">已知阿德出生於西元 1980 年，且經過 x 年後，正好是西元 x² 年，則 x＝？</p>
+          <div class="options"><label class="option"><input type="radio" name="q13" value="A"><span class="letter">A</span><span>45</span></label><label class="option"><input type="radio" name="q13" value="B"><span class="letter">B</span><span>44</span></label><label class="option"><input type="radio" name="q13" value="C"><span class="letter">C</span><span>44 或 45</span></label><label class="option"><input type="radio" name="q13" value="D"><span class="letter">D</span><span>46</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">1980＋x＝x² → x²－x－1980＝0<br>找兩數：乘積 －1980、和 －1 → 45 與 －44<br>(x－45)(x＋44)＝0 → x＝45 或 x＝－44<br>經過的年數 x＞0 → x＝45<br>檢查：1980＋45＝2025＝45² ✓，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>先估算平方數：44²＝1936、45²＝2025，再列式驗證。</p></div>
+        </article>
+<section class="sec-head" id="ch4"><h3>4. 應用問題：圖形與數線</h3><p>4 題</p><p class="kw">重點：畫圖、標出未知數；重疊總面積＝A＋B－重疊部分；長度、距離一定 ＞ 0，負根要捨去</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>題型</th><th>關係式</th></tr><tr><td>直角三角形</td><td>股²＋股²＝斜邊²；面積＝兩股相乘÷2</td></tr><tr><td>兩紙重疊</td><td>總面積＝兩紙面積和－重疊</td></tr><tr><td>相同長方形重疊</td><td>對應邊相等，扣掉共同的部分</td></tr><tr><td>數線上互為相反數</td><td>兩數相加＝0</td></tr></table></div></div></section>
+<article class="card" data-chapter="應用問題：圖形與數線" id="q14" data-answer="C">
+          <div class="q-head"><span class="num">14</span><div><span class="source">8上 4-3 實力評量 選擇 1｜原作答：A</span><h2>直角三角形面積</h2></div></div>
+          <p class="stem">已知一直角三角形的兩股差為 14 公分，斜邊是 26 公分，則面積是多少平方公分？</p>
+          <div class="options"><label class="option"><input type="radio" name="q14" value="A"><span class="letter">A</span><span>80</span></label><label class="option"><input type="radio" name="q14" value="B"><span class="letter">B</span><span>100</span></label><label class="option"><input type="radio" name="q14" value="C"><span class="letter">C</span><span>120</span></label><label class="option"><input type="radio" name="q14" value="D"><span class="letter">D</span><span>150</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">設短股 x，長股 x＋14<br>畢氏定理：x²＋(x＋14)²＝26²<br>2x²＋28x＋196＝676 → x²＋14x－240＝0<br>(x＋24)(x－10)＝0 → x＝10（－24 不合）<br>兩股為 10、24，面積＝10×24÷2＝120，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>直角三角形面積＝兩股相乘 ÷ 2（不是用斜邊）。</p></div>
+        </article>
+<article class="card" data-chapter="應用問題：圖形與數線" id="q15" data-answer="B">
+          <div class="q-head"><span class="num">15</span><div><span class="source">8上 4-3 實力評量 選擇 6｜原作答：B（題號圈起，計算過程未完成）</span><h2>兩紙重疊的面積</h2></div></div>
+          <div class="figure"><img src="./img/papers.svg" alt="兩張長方形紙重疊示意圖" loading="lazy"></div><p class="stem">桌面上有兩張長方形紙張重疊，重疊的部分（如圖中陰影）為正方形。已知兩張紙重疊後的總面積是 1003 平方公分，那麼陰影部分的正方形邊長是多少公分？</p>
+          <div class="options"><label class="option"><input type="radio" name="q15" value="A"><span class="letter">A</span><span>10</span></label><label class="option"><input type="radio" name="q15" value="B"><span class="letter">B</span><span>11</span></label><label class="option"><input type="radio" name="q15" value="C"><span class="letter">C</span><span>12</span></label><label class="option"><input type="radio" name="q15" value="D"><span class="letter">D</span><span>13</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">設陰影正方形邊長 x<br>左上紙：寬 x＋14、高 x＋9；右下紙：寬 x＋13、高 x＋15<br>總面積＝兩紙面積相加－重疊部分（重疊算了兩次）<br>(x＋14)(x＋9)＋(x＋13)(x＋15)－x²＝1003<br>x²＋23x＋126＋x²＋28x＋195－x²＝1003<br>x²＋51x－682＝0 → (x－11)(x＋62)＝0<br>x＝11（－62 不合），選 (B)。</p><p class="key"><strong>解題關鍵：</strong>重疊總面積＝A＋B－重疊。</p></div>
+        </article>
+<article class="card" data-chapter="應用問題：圖形與數線" id="q16" data-answer="A">
+          <div class="q-head"><span class="num">16</span><div><span class="source">8上 4-1 練習 填充 5｜原作答：1⅓</span><h2>數線上的相反數</h2></div></div>
+          <div class="figure"><img src="./img/numberline.svg" alt="數線上 A、B 兩點" loading="lazy"></div><p class="stem">如圖，數線上 A 點所代表的數為 3x²，B 點在 －4 右邊且相距 x 單位。若 A、B 兩點的坐標互為相反數，則 B 點的坐標為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q16" value="A"><span class="letter">A</span><span>－3</span></label><label class="option"><input type="radio" name="q16" value="B"><span class="letter">B</span><span>1</span></label><label class="option"><input type="radio" name="q16" value="C"><span class="letter">C</span><span>－4/3</span></label><label class="option"><input type="radio" name="q16" value="D"><span class="letter">D</span><span>1⅓</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">B 在 －4 右邊 x 單位 → B＝－4＋x（x＞0）<br>A、B 互為相反數 → A＋B＝0<br>3x²＋(－4＋x)＝0 → 3x²＋x－4＝0<br>(3x＋4)(x－1)＝0 → x＝1 或 x＝－4/3（距離不能是負的，不合）<br>B＝－4＋1＝－3（此時 A＝3，和 B 互為相反數 ✓），選 (A)。</p><p class="key"><strong>解題關鍵：</strong>求出 x 之後，還要代回去求「B 點坐標」。</p></div>
+        </article>
+<article class="card" data-chapter="應用問題：圖形與數線" id="q17" data-answer="A">
+          <div class="q-head"><span class="num">17</span><div><span class="source">8上 4-1 練習 填充 6｜原作答：未作答</span><h2>相同長方形重疊</h2></div></div>
+          <div class="figure"><img src="./img/rectangles.svg" alt="兩個相同長方形重疊" loading="lazy"></div><p class="stem">如圖，小庭將兩個相同的長方形 ABCD 與 EFGH 疊在一起。若四邊形 EICJ 也是長方形，且 BI＝x²，IF＝2x－2，JH＝－2x＋8，則 x 的值為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q17" value="A"><span class="letter">A</span><span>2</span></label><label class="option"><input type="radio" name="q17" value="B"><span class="letter">B</span><span>－4</span></label><label class="option"><input type="radio" name="q17" value="C"><span class="letter">C</span><span>4</span></label><label class="option"><input type="radio" name="q17" value="D"><span class="letter">D</span><span>1</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">兩個長方形相同 → 長邊相等：BC＝EH<br>BC＝BI＋IC，EH＝EJ＋JH<br>EICJ 是長方形 → IC＝EJ<br>所以 BI＝JH → x²＝－2x＋8<br>x²＋2x－8＝0 → (x＋4)(x－2)＝0 → x＝2 或 x＝－4<br>長度要是正的：IF＝2x－2＞0、JH＝－2x＋8＞0 → 1＜x＜4<br>x＝2，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>相同長方形 → 對應邊相等，扣掉共同的部分。</p></div>
+        </article>
+</main>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const downloadBtn=document.querySelector('#downloadDocx');
+let graded=false;
+
+function checkCard(card,revealUnanswered=false){
+  card.classList.remove('correct','incorrect','unanswered');
+  card.querySelectorAll('.option').forEach(option=>option.classList.remove('good','bad'));
+  const pick=card.querySelector('input:checked');
+  const answer=card.dataset.answer;
+  if(!pick&&!revealUnanswered)return {answered:false,correct:false};
+  card.classList.add('checked');
+  card.querySelectorAll('input').forEach(input=>{
+    const option=input.closest('.option');
+    if(input.value===answer)option.classList.add('good');
+    if(pick&&input===pick&&input.value!==answer)option.classList.add('bad');
+    input.disabled=true;
+  });
+  if(!pick)card.classList.add('unanswered');
+  else if(pick.value===answer)card.classList.add('correct');
+  else card.classList.add('incorrect');
+  return {answered:!!pick,correct:!!pick&&pick.value===answer};
+}
+
+function updateProgress(){
+  const answered=cards.filter(card=>card.querySelector('input:checked')).length;
+  const score=cards.filter(card=>card.querySelector('input:checked')?.value===card.dataset.answer).length;
+  document.querySelector('#score').textContent=`已作答 ${answered} / ${cards.length}・答對 ${score} 題`;
+  if(answered===cards.length){
+    graded=true;
+    const mistakeCount=cards.length-score;
+    downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+    downloadBtn.hidden=false;
+  }
+}
+
+cards.forEach(card=>card.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+  checkCard(card);
+  updateProgress();
+})));
+
+document.querySelector('#grade').addEventListener('click',()=>{
+  let score=0,first=null;
+  cards.forEach(c=>{
+    const result=checkCard(c,true);
+    if(!result.answered)first??=c;
+    if(result.correct)score++;
+  });
+  graded=true;
+  const mistakeCount=cards.length-score;
+  document.querySelector('#score').textContent=`得分 ${score} / ${cards.length}`;
+  downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+  downloadBtn.hidden=false;
+  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.querySelector('#reset').addEventListener('click',()=>{
+  cards.forEach(c=>{
+    c.className='card';
+    c.querySelectorAll('input').forEach(i=>{i.checked=false;i.disabled=false});
+    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
+  });
+  graded=false;
+  downloadBtn.hidden=true;
+  downloadBtn.textContent='下載錯題詳解 DOCX';
+  document.querySelector('#score').textContent=`已作答 0 / ${cards.length}`;
+  scrollTo({top:0,behavior:'smooth'});
+});
+
+function xmlEscape(value){
+  return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+}
+
+function wordParagraph(text,{bold=false,size=22,color='000000',before=0,after=100}={}){
+  const safe=xmlEscape(text);
+  return `<w:p><w:pPr><w:spacing w:before="${before}" w:after="${after}" w:line="330" w:lineRule="auto"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Microsoft JhengHei" w:hAnsi="Microsoft JhengHei" w:eastAsia="Microsoft JhengHei"/><w:sz w:val="${size}"/><w:szCs w:val="${size}"/>${bold?'<w:b/><w:bCs/>':''}${color!=='000000'?`<w:color w:val="${color}"/>`:''}<w:lang w:eastAsia="zh-TW"/></w:rPr><w:t xml:space="preserve">${safe}</w:t></w:r></w:p>`;
+}
+
+function textBlock(text,options={}){
+  return String(text??'').split(/\r?\n/).filter(Boolean).map(line=>wordParagraph(line,options)).join('');
+}
+
+function collectMistakes(){
+  return cards.filter(c=>{
+    const pick=c.querySelector('input:checked');
+    return !pick||pick.value!==c.dataset.answer;
+  }).map(c=>{
+    const picked=c.querySelector('input:checked');
+    const feedback=[...c.querySelectorAll('.feedback p')];
+    return {
+      number:c.querySelector('.num').textContent.trim(),
+      source:(c.dataset.chapter?c.dataset.chapter+'｜':'')+c.querySelector('.source').textContent.trim(),
+      topic:c.querySelector('h2').textContent.trim(),
+      context:c.querySelector('.context')?.innerText.trim()||'',
+      stem:c.querySelector('.stem').textContent.trim(),
+      options:[...c.querySelectorAll('.option')].map(o=>`${o.querySelector('.letter').textContent.trim()}　${o.querySelector('span:last-child').textContent.trim()}`),
+      selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
+      answer:c.dataset.answer,
+      explanation:feedback[1]?.innerText.trim()||'',
+      figures:[...c.querySelectorAll('.figure img')].map(i=>({src:i.getAttribute('src').replace(/\.svg$/,'.png'),alt:i.alt})),
+      key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
+    };
+  });
+}
+
+const encoder=new TextEncoder();
+function le16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function le32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function joinBytes(chunks){
+  const out=new Uint8Array(chunks.reduce((sum,c)=>sum+c.length,0));
+  let at=0;for(const c of chunks){out.set(c,at);at+=c.length}return out;
+}
+const crcTable=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(data){let c=0xffffffff;for(const b of data)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0}
+function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());return {time:(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date:((year-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate()}}
+
+function makeDocxZip(files){
+  const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
+  for(const [name,text] of files){
+    const nameBytes=encoder.encode(name),data=text instanceof Uint8Array?text:encoder.encode(text),crc=crc32(data);
+    const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
+    const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
+    locals.push(local);centrals.push(central);offset+=local.length;
+  }
+  const centralData=joinBytes(centrals);
+  const end=joinBytes([le32(0x06054b50),le16(0),le16(0),le16(files.length),le16(files.length),le32(centralData.length),le32(offset),le16(0)]);
+  return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+async function loadPng(src){
+  const res=await fetch(src);if(!res.ok)throw new Error(src);
+  const bytes=new Uint8Array(await res.arrayBuffer());
+  const dv=new DataView(bytes.buffer);
+  return {bytes,w:dv.getUint32(16),h:dv.getUint32(20)};
+}
+function imageParagraph(rid,id,w,h,alt){
+  const cx=Math.round(6.2*914400),cy=Math.round(cx*h/w);
+  return `<w:p><w:pPr><w:spacing w:after="80"/><w:jc w:val="center"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${id}" name="圖${id}" descr="${xmlEscape(alt)}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${id}" name="image${id}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+}
+async function buildMistakeDocx(){
+  const mistakes=collectMistakes();
+  const media=[],relsXml=[],cache={};
+  for(const m of mistakes){
+    m.imgs=[];
+    for(const f of m.figures||[]){
+      try{
+        if(!cache[f.src]){
+          const png=await loadPng(f.src),n=media.length+1;
+          media.push([`word/media/image${n}.png`,png.bytes]);
+          relsXml.push(`<Relationship Id="rImg${n}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/image${n}.png"/>`);
+          cache[f.src]={rid:`rImg${n}`,w:png.w,h:png.h};
+        }
+        m.imgs.push({...cache[f.src],alt:f.alt});
+      }catch(e){console.warn('圖片載入失敗',f.src)}
+    }
+  }
+  let picId=0;
+  let body=wordParagraph('數學錯題詳解',{bold:true,size:34,color:'17313A',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　錯題與未作答共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  if(!mistakes.length){
+    body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
+  }else{
+    mistakes.forEach((m,index)=>{
+      if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+      body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
+      if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      m.imgs.forEach(im=>{body+=imageParagraph(im.rid,++picId,im.w,im.h,im.alt)});
+      body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
+      m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
+      body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
+      body+=wordParagraph(`正確答案：${m.answer}`,{bold:true,size:22,color:'0B6B57',after:100});
+      body+=wordParagraph('詳解',{bold:true,size:22,after:55});
+      body+=textBlock(m.explanation,{size:21,after:90});
+      body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
+    });
+  }
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const docRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${relsXml.join('')}</Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml],['word/_rels/document.xml.rels',docRels],...media]);
+}
+
+downloadBtn.addEventListener('click',async()=>{
+  if(!graded)return;
+  downloadBtn.disabled=true;
+  let blob;try{blob=await buildMistakeDocx()}finally{downloadBtn.disabled=false}
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='數學錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+</script><script src="../shared/moe-dict.js?v=20261116" defer></script>
+</body></html>
+

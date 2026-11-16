@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 330" font-family="Noto Sans CJK TC, Microsoft JhengHei, sans-serif">
+<rect width="560" height="330" fill="#fff"/>
+<rect x="250" y="120" width="140" height="70" fill="#fdebd0"/>
+<rect x="60" y="50" width="330" height="140" fill="none" stroke="#1f5fa8" stroke-width="3"/>
+<rect x="250" y="120" width="250" height="140" fill="none" stroke="#c0392b" stroke-width="3"/>
+<g font-size="22" font-weight="700"><text x="40" y="45">A</text><text x="395" y="45">D</text><text x="38" y="210">B</text><text x="395" y="210">C</text>
+<text x="226" y="116">E</text><text x="505" y="116">H</text><text x="226" y="282">F</text><text x="505" y="282">G</text>
+<text x="256" y="212">I</text><text x="396" y="114">J</text></g>
+<g font-size="20" fill="#333"><text x="140" y="228">BI = x²</text><text x="262" y="232">IF = 2x−2</text><text x="388" y="152" font-size="17">JH = −2x+8</text></g>
+<g fill="#1f5fa8" font-size="16"><text x="70" y="318">藍：長方形 ABCD　紅：長方形 EFGH　橘色：長方形 EICJ</text></g>
+</svg>
