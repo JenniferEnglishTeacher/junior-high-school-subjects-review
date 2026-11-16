@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 190" font-family="Noto Sans CJK TC, Microsoft JhengHei, sans-serif"><rect width="620" height="190" fill="#fff"/>
+<g font-size="20" font-weight="700"><text x="30" y="45">甲</text><text x="30" y="100">乙</text><text x="30" y="155">丙</text></g>
+<line x1="70" y1="40" x2="290" y2="40" stroke="#333" stroke-width="2"/><line x1="70" y1="95" x2="440" y2="95" stroke="#333" stroke-width="2"/><line x1="70" y1="150" x2="440" y2="150" stroke="#333" stroke-width="6"/>
+<g font-size="15" fill="#1f5fa8"><text x="300" y="45">短、細 → 最高</text><text x="450" y="100">長、細</text><text x="450" y="155">長、粗 → 最低</text></g>
+<text x="310" y="183" text-anchor="middle" font-size="16" font-weight="700">音調：甲 ＞ 乙 ＞ 丙</text></svg>

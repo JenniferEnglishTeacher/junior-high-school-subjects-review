@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250" font-family="Noto Sans CJK TC, Microsoft JhengHei, sans-serif"><rect width="600" height="250" fill="#fff"/>
+<text x="300" y="28" text-anchor="middle" font-size="18" font-weight="700">乾燥空氣的組成（體積百分比）</text>
+<g font-size="16"><text x="20" y="72">氮氣 N₂</text><rect x="120" y="55" width="390" height="24" fill="#5d6d7e"/><text x="518" y="73">78%</text>
+<text x="20" y="122">氧氣 O₂</text><rect x="120" y="105" width="105" height="24" fill="#3498db"/><text x="233" y="123">21%</text>
+<text x="20" y="172">氬氣 Ar</text><rect x="120" y="155" width="5" height="24" fill="#e67e22"/><text x="133" y="173">0.93%</text>
+<text x="20" y="222">二氧化碳</text><rect x="120" y="205" width="1.5" height="24" fill="#c0392b"/><text x="133" y="223">0.04%（最少！）</text></g></svg>

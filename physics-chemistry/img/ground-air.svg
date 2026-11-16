@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 220" font-family="Noto Sans CJK TC, Microsoft JhengHei, sans-serif"><rect width="620" height="220" fill="#fff"/>
+<rect x="0" y="130" width="620" height="90" fill="#d7c4a3"/><rect x="0" y="0" width="620" height="130" fill="#eaf4fb"/>
+<text x="60" y="110" text-anchor="middle" font-size="34">💥</text><text x="60" y="30" text-anchor="middle" font-size="16">爆竹工廠</text>
+<text x="560" y="110" text-anchor="middle" font-size="34">🧍</text><text x="560" y="30" text-anchor="middle" font-size="16">小惠</text>
+<line x1="95" y1="70" x2="520" y2="70" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="8 5"/><text x="310" y="60" text-anchor="middle" font-size="16" fill="#1f5fa8">空氣 340 m/s（慢）→ 聲音</text>
+<line x1="95" y1="170" x2="520" y2="170" stroke="#8e4a10" stroke-width="5"/><text x="310" y="200" text-anchor="middle" font-size="16" fill="#5a2d08">陸地 2380 m/s（快）→ 震動先到</text>
+<text x="310" y="120" text-anchor="middle" font-size="17" font-weight="700">距離都是 d；d/340 － d/2380 ＝ 6 秒</text></svg>

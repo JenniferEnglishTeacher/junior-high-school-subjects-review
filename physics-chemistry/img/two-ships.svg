@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 230" font-family="Noto Sans CJK TC, Microsoft JhengHei, sans-serif"><rect width="620" height="100" fill="#eaf4fb"/><rect y="100" width="620" height="130" fill="#aed6f1"/>
+<path d="M40 92 h70 l-12 16 h-46z" fill="#566573"/><path d="M510 92 h70 l-12 16 h-46z" fill="#566573"/>
+<text x="75" y="80" text-anchor="middle" font-size="18" font-weight="700">甲</text><text x="545" y="80" text-anchor="middle" font-size="18" font-weight="700">乙</text>
+<line x1="110" y1="55" x2="510" y2="55" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="8 5"/><text x="310" y="45" text-anchor="middle" font-size="16" fill="#1f5fa8">空氣 340 m/s：680÷340＝2 s</text>
+<line x1="110" y1="150" x2="510" y2="150" stroke="#154360" stroke-width="4"/><text x="310" y="175" text-anchor="middle" font-size="16" fill="#154360">海水 1700 m/s：680÷1700＝0.4 s</text>
+<text x="310" y="212" text-anchor="middle" font-size="17" font-weight="700">相距 680 m；時間差 2 － 0.4 ＝ 1.6 s</text></svg>

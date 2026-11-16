@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>理化錯題互動測驗</title>
+<style>
+:root{--ink:#3a2a17;--muted:#6f6455;--paper:#fffdf8;--bg:#f4efe6;--accent:#9a6b35;--accent2:#d39b36;--bad:#a33a35;--line:#d8e2df}
+*{box-sizing:border-box} body{margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e4f0ee,#f6efe2);line-height:1.65}
+.dashboard-link{position:fixed;left:16px;top:16px;z-index:10;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.95);color:var(--ink);font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(22,49,58,.12);backdrop-filter:blur(10px)}.dashboard-link:hover{border-color:var(--accent);color:var(--accent)}
+header{padding:48px 20px 30px;text-align:center} h1{margin:0;font-size:clamp(2rem,5vw,3.6rem);line-height:1.12} header p{max-width:760px;margin:14px auto;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;background:var(--accent);color:white} button.secondary{background:#dfe9e6;color:var(--ink)} button.download{background:#244b5a} button[hidden]{display:none}.score{font-weight:800;min-width:160px;text-align:center}
+main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:22px} .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08)}
+.q-head{display:flex;gap:14px;align-items:center;margin-bottom:14px} .num{display:grid;place-items:center;min-width:52px;height:52px;border-radius:15px;background:var(--ink);color:white;font-weight:900} .source{color:var(--accent);font-weight:800;font-size:.9rem} h2{margin:0;font-size:1.18rem} .stem{font-size:1.08rem;font-weight:700}
+.context{background:#f2f7f5;border-left:4px solid var(--accent);padding:14px 16px;margin:14px 0;border-radius:0 12px 12px 0} .context p{margin:.35rem 0 0} .adapted{color:#73581c;background:#fff6dc;padding:8px 12px;border-radius:10px;font-size:.92rem}
+.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .card.checked .option{cursor:default}.card.checked .option:hover{transform:none}.option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
+.card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
+.feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
+.unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
+.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.summary{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 20px;margin-top:10px}.summary h4{margin:14px 0 6px;color:var(--accent)}.summary h4:first-child{margin-top:0}.summary td{text-align:left;vertical-align:top}.summary td:first-child{font-weight:800;background:#f7efe2;white-space:nowrap}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px}.figure.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:640px){.figure.pair{grid-template-columns:1fr}}.kw{color:#73581c;background:#fff6dc;padding:6px 12px;border-radius:10px;font-size:.92rem;margin-top:8px}</style><style>.guide{margin:10px 0 12px;border:1px dashed #1f5fa8;border-radius:12px;background:#f7faff;padding:8px 12px}.guide summary{cursor:pointer;font-weight:800;color:#1f5fa8}.gstep{margin:10px 0;padding:10px 12px;background:#fff;border:1px solid #d6e2f0;border-radius:10px}.gstep .ask{font-weight:700;margin-bottom:6px}.gstep .ask b{color:#1f5fa8}.gchoices{display:flex;flex-wrap:wrap;gap:6px}.gchoices button{color:#17313a;opacity:1;border:1px solid #b9c9de;background:#fff;border-radius:999px;padding:5px 12px;cursor:pointer;font:inherit}.gchoices button.no{background:#fbe5e7;border-color:#c0392b;color:#8e2a20}.gchoices button.yes{background:#e3f4ec;border-color:#2f8f6f;color:#1e6b50;font-weight:700}.ghint{color:#a33a35;font-size:.92rem;margin-top:6px}.gres{margin-top:8px;font-family:"Cambria Math","Times New Roman","Microsoft JhengHei",serif;background:#eef6ff;border-left:4px solid #1f5fa8;padding:6px 10px;border-radius:0 8px 8px 0}.gdone{font-weight:800;color:#2f8f6f;margin:8px 0 2px}.gprog{font-size:.85rem;color:#6a7a8a;margin-top:4px}.steps{font-family:"Cambria Math","Times New Roman","Microsoft JhengHei",serif;line-height:1.95;background:#f6f9fc;border-left:4px solid #1f5fa8;padding:8px 12px;border-radius:0 10px 10px 0}.figure img{max-width:560px}</style>
+</head><body>
+<a class="dashboard-link" href="../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
+<header><h1>理化錯題</h1><p>依章節概念分類，共 24 題（八年級 聲音（3-2～3-4）與 空氣、水溶液）。每章開頭有重點整理表；不會的題目先點「🧭 引導解題」，跟著提問一步一步想出算式；選擇答案後，立即顯示正確答案與一步一步的教學算式；作答完可下載錯題詳解 DOCX（含圖）。原為填充題者已改寫成選擇題；需要圖解的題目附上自製示意圖。</p><nav class="jump"><a href="#ch1">聲音的產生與傳播</a><a href="#ch2">聲速計算與回聲</a><a href="#ch3">聲波的特性：響度、音調、音色</a><a href="#ch4">空氣、氧氣與二氧化碳</a><a href="#ch5">水溶液與濃度</a></nav></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 24</span></div>
+<main>
+<section class="sec-head" id="ch1"><h3>1. 聲音的產生與傳播</h3><p>2 題</p><p class="kw">重點：物體振動才會發聲，振動停止聲音就停止；聲音要靠介質傳播，真空不能傳聲；聲速和介質的種類、溫度、溼度、密度都有關</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>介質</th><th>聲速大約</th><th>記法</th></tr><tr><td>空氣（15℃）</td><td>340 m/s</td><td>氣體最慢</td></tr><tr><td>水</td><td>約 1500 m/s</td><td>液體居中</td></tr><tr><td>鋼鐵</td><td>約 5000 m/s</td><td>固體最快</td></tr><tr><td>影響聲速的因素</td><td>種類、溫度、溼度、密度</td><td>溫度越高，空氣中聲速越快</td></tr></table></div></div></section>
+<article class="card" data-chapter="聲音的產生與傳播" id="q1" data-answer="D">
+          <div class="q-head"><span class="num">01</span><div><span class="source">第 6 回 基礎演練 1｜原作答：未作答</span><h2>影響聲速的因素</h2></div></div>
+          <p class="stem">下列哪些因素會影響聲速？甲.介質的密度　乙.介質的溼度　丙.介質的溫度　丁.介質的種類</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;聲速是由什麼決定的？&quot;, [&quot;發聲體振動得多快&quot;, &quot;傳聲的介質&quot;], 1, &quot;聲音大聲或小聲、高或低，速度都一樣。&quot;, &quot;聲速由「介質」決定&quot;], [&quot;「介質的種類」會影響聲速嗎？&quot;, [&quot;會（固＞液＞氣）&quot;, &quot;不會&quot;], 0, &quot;想想鐵管和空氣哪個傳得快。&quot;, &quot;丁 ✓&quot;], [&quot;在空氣中，溫度和溼度會影響聲速嗎？&quot;, [&quot;都會&quot;, &quot;都不會&quot;], 0, &quot;溫度越高、越潮溼，空氣中聲速越快。&quot;, &quot;乙、丙 ✓，密度不同也會影響 → 甲 ✓ → 選 (D)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q1" value="A"><span class="letter">A</span><span>僅甲</span></label><label class="option"><input type="radio" name="q1" value="B"><span class="letter">B</span><span>僅乙丙</span></label><label class="option"><input type="radio" name="q1" value="C"><span class="letter">C</span><span>僅丙丁</span></label><label class="option"><input type="radio" name="q1" value="D"><span class="letter">D</span><span>甲乙丙丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">聲速由「介質」決定，介質的各種性質都有影響：<br>種類：固體＞液體＞氣體<br>溫度：空氣溫度越高，聲速越快<br>溼度：空氣越潮溼，聲速越快<br>密度：介質密度不同，聲速也不同<br>四個都會影響，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>聲速只和「介質」有關，和聲音大小、高低無關。</p></div>
+        </article>
+<article class="card" data-chapter="聲音的產生與傳播" id="q2" data-answer="C">
+          <div class="q-head"><span class="num">02</span><div><span class="source">第 6 回 實驗題 15｜原作答：B</span><h2>按住振動的音叉</h2></div></div>
+          <p class="stem">用手按住振動中的音叉，則音叉會出現何種變化？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;用手按住音叉，手對音叉的振動有什麼影響？&quot;, [&quot;幫它振得更大&quot;, &quot;阻止它振動&quot;], 1, &quot;手按住時，音叉還能自由來回擺動嗎？&quot;, &quot;手會阻止音叉振動&quot;], [&quot;音叉振動停止後，聲音會？&quot;, [&quot;跟著停止&quot;, &quot;繼續一樣大&quot;], 0, &quot;聲音是由振動產生的。&quot;, &quot;振動停止 → 聲音停止 → 選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q2" value="A"><span class="letter">A</span><span>振動加大</span></label><label class="option"><input type="radio" name="q2" value="B"><span class="letter">B</span><span>頻率不變</span></label><label class="option"><input type="radio" name="q2" value="C"><span class="letter">C</span><span>迅速停止振動</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">手按住音叉 → 阻止音叉振動<br>振動停止 → 聲音也跟著停止<br>所以音叉會「迅速停止振動」，選 (C)。<br>這說明：物體發聲時一定在振動。</p><p class="key"><strong>解題關鍵：</strong>沒有振動就沒有聲音。</p></div>
+        </article>
+<section class="sec-head" id="ch2"><h3>2. 聲速計算與回聲</h3><p>6 題</p><p class="kw">重點：距離＝速率 × 時間；回聲：聲音「一去一回」，走了 2 倍距離；兩條路徑比快慢：時間差＝慢的時間－快的時間</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>題型</th><th>關鍵式子</th></tr><tr><td>回聲測距</td><td>2d＝v × t → d＝v × t ÷ 2</td></tr><tr><td>邊走邊鳴笛（船）</td><td>聲音走的＋船走的＝2d</td></tr><tr><td>兩種介質到達時間差</td><td>Δt＝d/v慢－d/v快</td></tr><tr><td>回聲能分辨</td><td>時間間隔 ≥ 0.1 秒 → d ≥ v × 0.1 ÷ 2</td></tr></table></div></div></section>
+<article class="card" data-chapter="聲速計算與回聲" id="q3" data-answer="C">
+          <div class="q-head"><span class="num">03</span><div><span class="source">周考 14｜原作答：B</span><h2>回聲測距（海中）</h2></div></div>
+          <div class="figure"><img src="./img/echo-whale.svg" alt="回聲測距示意圖" loading="lazy"></div><p class="stem">抹香鯨在海中發出 28,000 赫的探測聲波，3 分鐘後接收到經障礙物反射回來的聲波，已知海水的傳聲速率為 1400 m/s，試問此障礙物距抹香鯨多少公里？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;3 分鐘等於幾秒？&quot;, [&quot;3 秒&quot;, &quot;180 秒&quot;, &quot;300 秒&quot;], 1, &quot;1 分鐘＝60 秒。&quot;, &quot;t＝180 s&quot;], [&quot;聲音在 180 秒內走了多遠？&quot;, [&quot;1400 × 180＝252000 m&quot;, &quot;1400 ÷ 180&quot;], 0, &quot;距離＝速率 × 時間。&quot;, &quot;聲音共走 252000 m&quot;], [&quot;這是回聲，聲音走的距離是障礙物距離的幾倍？&quot;, [&quot;1 倍&quot;, &quot;2 倍&quot;], 1, &quot;聲音要去到障礙物，再反射回來。&quot;, &quot;252000 ÷ 2＝126000 m&quot;], [&quot;126000 m 是幾公里？&quot;, [&quot;126&quot;, &quot;12.6&quot;, &quot;1260&quot;], 0, &quot;1 公里＝1000 m。&quot;, &quot;126 公里，選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q3" value="A"><span class="letter">A</span><span>5.4</span></label><label class="option"><input type="radio" name="q3" value="B"><span class="letter">B</span><span>48</span></label><label class="option"><input type="radio" name="q3" value="C"><span class="letter">C</span><span>126</span></label><label class="option"><input type="radio" name="q3" value="D"><span class="letter">D</span><span>252</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">先換單位：3 分鐘＝180 秒<br>聲音一去一回：走的總距離＝1400 × 180＝252000 m<br>障礙物距離＝252000 ÷ 2＝126000 m＝126 公里，選 (C)。<br>⚠ 28000 赫是頻率，和距離無關（陷阱）。</p><p class="key"><strong>解題關鍵：</strong>回聲要除以 2；時間單位要換成秒。</p></div>
+        </article>
+<article class="card" data-chapter="聲速計算與回聲" id="q4" data-answer="B">
+          <div class="q-head"><span class="num">04</span><div><span class="source">周考 9｜原作答：C</span><h2>地面與空氣的時間差</h2></div></div>
+          <div class="figure"><img src="./img/ground-air.svg" alt="震動與聲音兩條路徑" loading="lazy"></div><p class="stem">小惠住家附近的爆竹工廠爆炸，小惠感受到震動後，經 6 秒才聽到爆炸聲，則工廠距離小惠約為多少公尺？（已知當時陸地聲速 2380 m/s，空氣聲速 340 m/s）</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;先感受到震動，是因為震動從哪裡傳來？&quot;, [&quot;陸地（固體，快）&quot;, &quot;空氣（慢）&quot;], 0, &quot;固體傳聲比氣體快。&quot;, &quot;震動走陸地 2380 m/s，聲音走空氣 340 m/s&quot;], [&quot;兩者走的距離一樣都是 d，時間各是多少？&quot;, [&quot;d/2380 和 d/340&quot;, &quot;2380d 和 340d&quot;], 0, &quot;時間＝距離 ÷ 速率。&quot;, &quot;t陸＝d/2380，t空＝d/340&quot;], [&quot;「晚 6 秒聽到」怎麼列式？&quot;, [&quot;d/340－d/2380＝6&quot;, &quot;d/340＋d/2380＝6&quot;], 0, &quot;慢的時間減快的時間＝差。&quot;, &quot;d/340－d/2380＝6&quot;], [&quot;2380 ÷ 340＝7，所以 d/340＝7d/2380。整理得？&quot;, [&quot;6d/2380＝6 → d＝2380&quot;, &quot;8d/2380＝6&quot;], 0, &quot;7d/2380－d/2380＝6d/2380。&quot;, &quot;d＝2380 m，選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q4" value="A"><span class="letter">A</span><span>4760</span></label><label class="option"><input type="radio" name="q4" value="B"><span class="letter">B</span><span>2380</span></label><label class="option"><input type="radio" name="q4" value="C"><span class="letter">C</span><span>1190</span></label><label class="option"><input type="radio" name="q4" value="D"><span class="letter">D</span><span>397</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">震動走「陸地」（快），聲音走「空氣」（慢），距離都是 d<br>時間差：d/340－d/2380＝6<br>通分：d × (7－1)/2380＝6（因為 2380÷340＝7）<br>d × 6/2380＝6 → d＝2380 m，選 (B)。<br>驗算：2380/340＝7 秒，2380/2380＝1 秒，7－1＝6 ✓</p><p class="key"><strong>解題關鍵：</strong>兩條路徑距離相同，用「時間差」列式。</p></div>
+        </article>
+<article class="card" data-chapter="聲速計算與回聲" id="q5" data-answer="A">
+          <div class="q-head"><span class="num">05</span><div><span class="source">周考 10｜原作答：C</span><h2>邊前進邊鳴笛</h2></div></div>
+          <div class="figure"><img src="./img/boat-iceberg.svg" alt="船向冰山前進鳴笛示意圖" loading="lazy"></div><p class="stem">某船以等速度 34 m/s 朝冰山前進，在船上的人於鳴汽笛後 6 秒才聽到由冰山反射的回聲，若當時聲速為 337 m/s，則鳴汽笛時，船與冰山的距離為多少公尺？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;6 秒內聲音走了多少公尺？&quot;, [&quot;337 × 6＝2022&quot;, &quot;337 ÷ 6&quot;], 0, &quot;距離＝速率 × 時間。&quot;, &quot;聲音走 2022 m&quot;], [&quot;6 秒內船走了多少公尺？&quot;, [&quot;34 × 6＝204&quot;, &quot;34 ÷ 6&quot;], 0, &quot;船也一直在往冰山前進。&quot;, &quot;船走 204 m&quot;], [&quot;看圖：聲音走的路程和船走的路程加起來等於？&quot;, [&quot;d&quot;, &quot;2d&quot;], 1, &quot;聲音去到冰山再回來遇到船；船從起點往前走。兩段加起來剛好是來回一趟。&quot;, &quot;2022＋204＝2226＝2d&quot;], [&quot;d＝？&quot;, [&quot;1113&quot;, &quot;2226&quot;, &quot;1011&quot;], 0, &quot;2226 ÷ 2。&quot;, &quot;d＝1113 m，選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q5" value="A"><span class="letter">A</span><span>1113</span></label><label class="option"><input type="radio" name="q5" value="B"><span class="letter">B</span><span>1011</span></label><label class="option"><input type="radio" name="q5" value="C"><span class="letter">C</span><span>909</span></label><label class="option"><input type="radio" name="q5" value="D"><span class="letter">D</span><span>807</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">設鳴笛時船與冰山距離 d<br>6 秒內聲音走：337 × 6＝2022 m<br>6 秒內船走：34 × 6＝204 m<br>畫圖可知：聲音走的＋船走的＝2d<br>2d＝2022＋204＝2226 → d＝1113 m，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>船在前進：聲音路程＋船的路程＝2 倍的原距離。</p></div>
+        </article>
+<article class="card" data-chapter="聲速計算與回聲" id="q6" data-answer="D">
+          <div class="q-head"><span class="num">06</span><div><span class="source">周考 11｜原作答：未作答</span><h2>鐵管傳聲</h2></div></div>
+          <p class="stem">已知固體傳聲速率較氣體快，且能量也較集中。阿寶把耳朵貼在長鐵管的一端，老皮在另一端輕輕敲打鐵管一次，但阿寶卻先後聽到甲、乙兩次聲響，則下列敘述何者正確？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;為什麼會聽到兩次聲音？&quot;, [&quot;聲音走了兩條路（鐵管、空氣）&quot;, &quot;老皮敲了兩次&quot;], 0, &quot;題目說只敲一次。&quot;, &quot;一次從鐵管、一次從空氣&quot;], [&quot;先聽到的「甲」從哪裡傳來？&quot;, [&quot;鐵管&quot;, &quot;空氣&quot;], 0, &quot;固體傳聲比較快。&quot;, &quot;甲＝鐵管&quot;], [&quot;鐵管傳來的聲音比較大聲還是小聲？&quot;, [&quot;比較大聲&quot;, &quot;比較小聲&quot;], 0, &quot;題目說固體傳聲「能量較集中」。&quot;, &quot;甲較大聲，選 (D)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>甲由空氣中傳來，且比乙小聲</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>甲由空氣中傳來，且比乙大聲</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>甲由鐵管中傳來，且比乙小聲</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>甲由鐵管中傳來，且比乙大聲</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">同一次敲打，聲音同時從鐵管和空氣兩條路傳出<br>固體傳聲快 → 先聽到的「甲」是從鐵管傳來<br>固體傳聲能量集中 → 鐵管傳來的聲音比較大聲<br>甲：鐵管、較大聲；乙：空氣、較小聲，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>題目給的兩個條件「速率快」「能量集中」各回答一個問題。</p></div>
+        </article>
+<article class="card" data-chapter="聲速計算與回聲" id="q7" data-answer="C">
+          <div class="q-head"><span class="num">07</span><div><span class="source">第 6 回 基礎演練 6｜原作答：D</span><h2>空氣與海水的時間差</h2></div></div>
+          <div class="figure"><img src="./img/two-ships.svg" alt="甲乙兩船空氣與海水傳聲" loading="lazy"></div><p class="stem">靜止在海面上的甲船發出聲波訊號，訊號同時由空氣及海水以直線傳至同樣靜止在海面上的乙船，兩船相距 680 m。已知空氣中聲速 340 m/s，海水中聲速 1700 m/s，則乙船先後接收到兩個聲波訊號的時間差為幾秒？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;聲音經空氣到乙船要幾秒？&quot;, [&quot;2 秒&quot;, &quot;0.5 秒&quot;], 0, &quot;680 ÷ 340。&quot;, &quot;t空＝2 s&quot;], [&quot;聲音經海水到乙船要幾秒？&quot;, [&quot;0.4 秒&quot;, &quot;2.5 秒&quot;], 0, &quot;680 ÷ 1700。&quot;, &quot;t水＝0.4 s&quot;], [&quot;時間差是多少？&quot;, [&quot;2－0.4＝1.6 秒&quot;, &quot;2 秒&quot;], 0, &quot;兩個時間要相減。&quot;, &quot;1.6 秒，選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q7" value="A"><span class="letter">A</span><span>0.3</span></label><label class="option"><input type="radio" name="q7" value="B"><span class="letter">B</span><span>0.5</span></label><label class="option"><input type="radio" name="q7" value="C"><span class="letter">C</span><span>1.6</span></label><label class="option"><input type="radio" name="q7" value="D"><span class="letter">D</span><span>2</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">空氣：t＝680 ÷ 340＝2 秒<br>海水：t＝680 ÷ 1700＝0.4 秒<br>時間差＝2－0.4＝1.6 秒，選 (C)。<br>⚠ (D) 2 秒只算了空氣，還要扣掉海水的時間。</p><p class="key"><strong>解題關鍵：</strong>「時間差」要兩條路都算，再相減。</p></div>
+        </article>
+<article class="card" data-chapter="聲速計算與回聲" id="q8" data-answer="B">
+          <div class="q-head"><span class="num">08</span><div><span class="source">第 6 回 6-1 7｜原作答：D</span><h2>可分辨回聲的最短距離</h2></div></div>
+          <p class="stem">已知回聲與原聲的時間間隔在 0.1 秒以下時，人耳不易區別所聽到的聲音。若聲速為 350 m/s，則發聲者與障礙物的距離須超過多少公尺，回聲會較明顯？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;0.1 秒內聲音走多遠？&quot;, [&quot;35 m&quot;, &quot;3500 m&quot;], 0, &quot;350 × 0.1。&quot;, &quot;聲音走 35 m&quot;], [&quot;回聲的 35 m 包含了什麼？&quot;, [&quot;去程＋回程&quot;, &quot;只有去程&quot;], 0, &quot;聲音要到障礙物再彈回來。&quot;, &quot;35 m＝2d&quot;], [&quot;障礙物距離至少是？&quot;, [&quot;17.5 m&quot;, &quot;35 m&quot;], 0, &quot;35 ÷ 2。&quot;, &quot;17.5 m，選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q8" value="A"><span class="letter">A</span><span>17</span></label><label class="option"><input type="radio" name="q8" value="B"><span class="letter">B</span><span>17.5</span></label><label class="option"><input type="radio" name="q8" value="C"><span class="letter">C</span><span>34</span></label><label class="option"><input type="radio" name="q8" value="D"><span class="letter">D</span><span>35</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">時間間隔要超過 0.1 秒<br>0.1 秒內聲音走：350 × 0.1＝35 m<br>這 35 m 是「一去一回」<br>距離＝35 ÷ 2＝17.5 m，選 (B)。<br>⚠ 選 35 是忘了除以 2。</p><p class="key"><strong>解題關鍵：</strong>回聲距離 ＝ 速率 × 時間 ÷ 2。</p></div>
+        </article>
+<section class="sec-head" id="ch3"><h3>3. 聲波的特性：響度、音調、音色</h3><p>6 題</p><p class="kw">重點：響度看振幅（分貝）；音調看頻率（弦越短、越細、越緊 → 頻率越高）；音色看波形（分辨是誰的聲音）</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>特性</th><th>由什麼決定</th><th>生活例子</th></tr><tr><td>響度（大小聲）</td><td>振幅，單位分貝 dB</td><td>每增加 10 dB，強度變 10 倍；0 dB 是人耳可聽見最小聲</td></tr><tr><td>音調（高低）</td><td>頻率，單位赫 Hz</td><td>弦短／細／緊、空氣柱短 → 音調高</td></tr><tr><td>音色</td><td>波形</td><td>聽聲音就知道是媽媽在叫你</td></tr></table></div></div></section>
+<article class="card" data-chapter="聲波的特性：響度、音調、音色" id="q9" data-answer="A">
+          <div class="q-head"><span class="num">09</span><div><span class="source">周考 12｜原作答：未作答</span><h2>辨認聲音：音色</h2></div></div>
+          <p class="stem">座頭鯨會到溫暖的海域繁殖，在此海域中有不少鯨魚在此繁殖，然而母鯨卻能從眾多幼鯨中分辨出自己子代的所在位置，而不會判斷錯誤，這是聲音的哪個特性？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;母鯨要分辨的是什麼？&quot;, [&quot;聲音是不是自己孩子的&quot;, &quot;聲音大不大&quot;], 0, &quot;重點是「從眾多幼鯨中」找到自己的。&quot;, &quot;要分辨「是誰」的聲音&quot;], [&quot;聲音三要素中，哪一個用來分辨「是誰」發出的？&quot;, [&quot;音色&quot;, &quot;響度&quot;, &quot;音調&quot;], 0, &quot;響度＝大小聲，音調＝高低，音色＝特色。&quot;, &quot;音色，選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q9" value="A"><span class="letter">A</span><span>音色</span></label><label class="option"><input type="radio" name="q9" value="B"><span class="letter">B</span><span>響度</span></label><label class="option"><input type="radio" name="q9" value="C"><span class="letter">C</span><span>頻率</span></label><label class="option"><input type="radio" name="q9" value="D"><span class="letter">D</span><span>方向性</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">題組文字：「每隻鯨魚的聲音皆獨一無二」<br>每個發聲體的聲音波形不同 → 音色不同<br>母鯨靠音色認出自己的孩子<br>就像我們聽聲音就知道是誰在說話，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>分辨「是誰」的聲音 → 音色。</p></div>
+        </article>
+<article class="card" data-chapter="聲波的特性：響度、音調、音色" id="q10" data-answer="B">
+          <div class="q-head"><span class="num">10</span><div><span class="source">第 6 回 基礎演練 3｜原作答：未作答</span><h2>分貝</h2></div></div>
+          <p class="stem">一般常用分貝作為判斷聲音響度的單位，關於分貝的敘述，下列何者錯誤？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;人耳剛好聽得到的最小聲音是幾分貝？&quot;, [&quot;0 分貝&quot;, &quot;10 分貝&quot;], 0, &quot;分貝的起點就是人耳的聽覺下限。&quot;, &quot;(B) 錯&quot;], [&quot;每增加 10 分貝，聲音強度變幾倍？&quot;, [&quot;10 倍&quot;, &quot;2 倍&quot;], 0, &quot;分貝是用「倍數」來算的。&quot;, &quot;40－10＝30 dB → 10³＝1000 倍，(C) 對&quot;], [&quot;所以錯誤的是？&quot;, [&quot;(B)&quot;, &quot;(C)&quot;], 0, &quot;題目問「錯誤」。&quot;, &quot;選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q10" value="A"><span class="letter">A</span><span>分貝是「貝」的 1/10</span></label><label class="option"><input type="radio" name="q10" value="B"><span class="letter">B</span><span>人耳可聽見最小的聲音強度為 10 分貝</span></label><label class="option"><input type="radio" name="q10" value="C"><span class="letter">C</span><span>40 分貝的聲音強度為 10 分貝的 1000 倍</span></label><label class="option"><input type="radio" name="q10" value="D"><span class="letter">D</span><span>分貝數越大，表示其聲波的振幅越大</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">(A) 分貝 dB＝1/10 貝 ✓<br>(B) 人耳可聽見最小聲音是 0 分貝，不是 10 分貝 ✗<br>(C) 每增加 10 dB，強度變 10 倍：40－10＝30 dB → 10×10×10＝1000 倍 ✓<br>(D) 分貝越大 → 越大聲 → 振幅越大 ✓<br>找錯誤，選 (B)。</p><p class="key"><strong>解題關鍵：</strong>0 dB＝聽得到的最小聲；＋10 dB → ×10 倍。</p></div>
+        </article>
+<article class="card" data-chapter="聲波的特性：響度、音調、音色" id="q11" data-answer="C">
+          <div class="q-head"><span class="num">11</span><div><span class="source">第 6 回 基礎演練 4｜原作答：未作答</span><h2>弦的音調</h2></div></div>
+          <div class="figure"><img src="./img/strings.svg" alt="甲乙丙三條弦" loading="lazy"></div><p class="stem">貝貝以相同力道撥動材質及鬆緊度相同的甲、乙、丙三條弦，若三者的弦長、截面積如附圖所示（甲短而細，乙長而細，丙長而粗），則音調高低的比較下列何者正確？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;弦越短，音調會？&quot;, [&quot;越高&quot;, &quot;越低&quot;], 0, &quot;想想吉他按短弦的位置，聲音變尖。&quot;, &quot;短 → 高&quot;], [&quot;甲和乙粗細相同，甲較短，所以？&quot;, [&quot;甲＞乙&quot;, &quot;乙＞甲&quot;], 0, &quot;短的音調高。&quot;, &quot;甲＞乙&quot;], [&quot;乙和丙長度相同，丙較粗，所以？&quot;, [&quot;乙＞丙&quot;, &quot;丙＞乙&quot;], 0, &quot;粗的弦振動慢，音調低。&quot;, &quot;乙＞丙 → 甲＞乙＞丙，選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q11" value="A"><span class="letter">A</span><span>甲＞乙＝丙</span></label><label class="option"><input type="radio" name="q11" value="B"><span class="letter">B</span><span>丙＞乙＞甲</span></label><label class="option"><input type="radio" name="q11" value="C"><span class="letter">C</span><span>甲＞乙＞丙</span></label><label class="option"><input type="radio" name="q11" value="D"><span class="letter">D</span><span>甲＝乙＝丙</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">音調由頻率決定：弦越短、越細、越緊 → 頻率越高<br>甲和乙一樣細，甲比較短 → 甲＞乙<br>乙和丙一樣長，乙比較細 → 乙＞丙<br>甲＞乙＞丙，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>控制變因比較：一次只看一個不同點。</p></div>
+        </article>
+<article class="card" data-chapter="聲波的特性：響度、音調、音色" id="q12" data-answer="B">
+          <div class="q-head"><span class="num">12</span><div><span class="source">第 6 回 基礎演練 5｜原作答：未作答</span><h2>傳得最遠</h2></div></div>
+          <p class="stem">以木槌敲擊甲～丙三支音叉時，音叉發出聲音的頻率及強度：甲：400 赫，50 分貝；乙：300 赫，80 分貝；丙：100 赫，60 分貝，則何者的聲音可傳得最遠？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;聲音能傳得遠，主要靠什麼？&quot;, [&quot;能量大（大聲）&quot;, &quot;頻率高&quot;], 0, &quot;小聲的話很快就聽不到了。&quot;, &quot;看響度&quot;], [&quot;響度的單位是？&quot;, [&quot;分貝&quot;, &quot;赫&quot;], 0, &quot;赫是頻率的單位。&quot;, &quot;比分貝：乙 80 最大 → 選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q12" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q12" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q12" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q12" value="D"><span class="letter">D</span><span>一樣遠</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">傳得遠不遠看「響度」（能量大小），不是看頻率<br>分貝越大 → 能量越大 → 傳得越遠<br>乙 80 分貝最大，選 (B)。</p><p class="key"><strong>解題關鍵：</strong>傳多遠看分貝；音高看赫茲。</p></div>
+        </article>
+<article class="card" data-chapter="聲波的特性：響度、音調、音色" id="q13" data-answer="C">
+          <div class="q-head"><span class="num">13</span><div><span class="source">第 6 回 6-1 9｜原作答：未作答</span><h2>烏克麗麗的音調</h2></div></div>
+          <p class="stem">太郎練習彈烏克麗麗，左手壓弦、右手撥弦使烏克麗麗發出聲音，試問下列何種方法可以使同一條弦產生音調較高的聲音？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;撥弦的力道變大，改變的是？&quot;, [&quot;響度&quot;, &quot;音調&quot;], 0, &quot;用力撥 → 振幅大 → 大聲。&quot;, &quot;力道 → 響度&quot;], [&quot;要讓音調變高，振動的弦要？&quot;, [&quot;變短&quot;, &quot;變長&quot;], 0, &quot;短的弦振動得快。&quot;, &quot;振動部分縮短 → 選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q13" value="A"><span class="letter">A</span><span>撥弦的速度變快</span></label><label class="option"><input type="radio" name="q13" value="B"><span class="letter">B</span><span>撥弦的力道變大</span></label><label class="option"><input type="radio" name="q13" value="C"><span class="letter">C</span><span>改變壓弦位置，使振動的部分縮短</span></label><label class="option"><input type="radio" name="q13" value="D"><span class="letter">D</span><span>改變壓弦位置，使振動的部分變長</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">音調高低看頻率<br>同一條弦：振動部分越短 → 頻率越高 → 音調越高<br>撥弦力道變大只會變大聲（響度），不會變高<br>選 (C)。</p><p class="key"><strong>解題關鍵：</strong>弦越短、越細、越緊 → 音調越高。</p></div>
+        </article>
+<article class="card" data-chapter="聲波的特性：響度、音調、音色" id="q14" data-answer="A">
+          <div class="q-head"><span class="num">14</span><div><span class="source">第 6 回 填充 1｜原作答：未作答</span><h2>裝水的寶特瓶</h2></div></div>
+          <div class="figure"><img src="./img/bottle.svg" alt="寶特瓶裝水空氣柱" loading="lazy"></div><p class="stem">大利拿一空寶特瓶置於水龍頭下裝水，當瓶中的水越來越多時，大利聽到瓶中因裝水而產生的聲音頻率會越變越如何？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;裝水時，瓶子裡是什麼在振動發聲？&quot;, [&quot;瓶內的空氣柱&quot;, &quot;塑膠瓶身&quot;], 0, &quot;水注入時，上方剩下的空氣在振動。&quot;, &quot;空氣柱振動&quot;], [&quot;水越來越多，空氣柱會？&quot;, [&quot;變短&quot;, &quot;變長&quot;], 0, &quot;水把空間佔掉了。&quot;, &quot;空氣柱變短&quot;], [&quot;空氣柱變短，頻率會？&quot;, [&quot;變高&quot;, &quot;變低&quot;], 0, &quot;和弦一樣：越短越高。&quot;, &quot;頻率越來越高，選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q14" value="A"><span class="letter">A</span><span>高</span></label><label class="option"><input type="radio" name="q14" value="B"><span class="letter">B</span><span>低</span></label><label class="option"><input type="radio" name="q14" value="C"><span class="letter">C</span><span>不變</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">裝水時發聲的是瓶中的「空氣柱」<br>水越多 → 上方空氣柱越短<br>空氣柱越短 → 振動越快 → 頻率越高<br>答案：越來越高，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>空氣柱越短，音調越高（像吹不同長度的笛管）。</p></div>
+        </article>
+<section class="sec-head" id="ch4"><h3>4. 空氣、氧氣與二氧化碳</h3><p>8 題</p><p class="kw">重點：乾燥空氣：氮 78%、氧 21%、氬 0.93%、二氧化碳 0.04%；氧氣：雙氧水＋二氧化錳，排水集氣法，線香復燃；二氧化錳是催化劑：加快反應，本身不消耗</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>比較</th><th>氧氣 O₂</th><th>二氧化碳 CO₂</th></tr><tr><td>藥品</td><td>雙氧水＋二氧化錳</td><td>大理石（碳酸鈣）＋稀鹽酸</td></tr><tr><td>裝置</td><td>固體＋液體、不加熱（同一套）</td><td>固體＋液體、不加熱（同一套）</td></tr><tr><td>收集</td><td>排水集氣法</td><td>向上排空氣法（也可排水法）</td></tr><tr><td>檢驗</td><td>線香復燃</td><td>澄清石灰水變混濁</td></tr><tr><td>可燃性</td><td>助燃，本身不可燃</td><td>不可燃、不助燃</td></tr></table></div></div></section>
+<article class="card" data-chapter="空氣、氧氣與二氧化碳" id="q15" data-answer="A">
+          <div class="q-head"><span class="num">15</span><div><span class="source">周考 填充 1｜原作答：集氣法</span><h2>收集氧氣的方法</h2></div></div>
+          <div class="figure"><img src="./img/o2-setup.svg" alt="製氧裝置與排水集氣法" loading="lazy"></div><p class="stem">附圖為製備氧氣的實驗裝置示意圖（氣體導入倒置裝滿水的集氣瓶），圖中收集氣體的方式稱為什麼？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;集氣瓶裡一開始裝的是什麼？&quot;, [&quot;水&quot;, &quot;空氣&quot;], 0, &quot;看圖：瓶子倒立在水槽裡。&quot;, &quot;瓶內裝滿水&quot;], [&quot;氧氣進來後，瓶子裡的水會？&quot;, [&quot;被排出去&quot;, &quot;溶解氧氣&quot;], 0, &quot;氧氣不易溶於水。&quot;, &quot;氣體把水排出 → 排水集氣法，選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q15" value="A"><span class="letter">A</span><span>排水集氣法</span></label><label class="option"><input type="radio" name="q15" value="B"><span class="letter">B</span><span>向上排空氣法</span></label><label class="option"><input type="radio" name="q15" value="C"><span class="letter">C</span><span>向下排空氣法</span></label><label class="option"><input type="radio" name="q15" value="D"><span class="letter">D</span><span>集氣法</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">氧氣不易溶於水<br>集氣瓶先裝滿水倒置在水槽中<br>氧氣進入瓶內，把水「排」出去<br>這種方法叫「排水集氣法」，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>名稱要寫完整：排水集氣法。</p></div>
+        </article>
+<article class="card" data-chapter="空氣、氧氣與二氧化碳" id="q16" data-answer="A">
+          <div class="q-head"><span class="num">16</span><div><span class="source">周考 填充 2｜原作答：二氧化碳</span><h2>空氣中最多的氣體</h2></div></div>
+          <div class="figure"><img src="./img/air.svg" alt="乾燥空氣組成" loading="lazy"></div><p class="stem">乾燥空氣中含量最多的氣體為何？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;空氣中氧氣大約占多少？&quot;, [&quot;21%&quot;, &quot;78%&quot;], 0, &quot;呼吸用的氧氣大約五分之一。&quot;, &quot;氧氣約 21%&quot;], [&quot;那剩下將近 4/5 是什麼氣體？&quot;, [&quot;氮氣&quot;, &quot;二氧化碳&quot;], 0, &quot;二氧化碳只有 0.04%，很少！&quot;, &quot;氮氣約 78%，選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q16" value="A"><span class="letter">A</span><span>氮氣</span></label><label class="option"><input type="radio" name="q16" value="B"><span class="letter">B</span><span>氧氣</span></label><label class="option"><input type="radio" name="q16" value="C"><span class="letter">C</span><span>二氧化碳</span></label><label class="option"><input type="radio" name="q16" value="D"><span class="letter">D</span><span>氬氣</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">乾燥空氣的組成（體積比）：<br>氮氣 約 78%<br>氧氣 約 21%<br>氬氣 約 0.93%<br>二氧化碳 約 0.04%<br>最多的是氮氣，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>記住順序：氮＞氧＞氬＞二氧化碳。</p></div>
+        </article>
+<article class="card" data-chapter="空氣、氧氣與二氧化碳" id="q17" data-answer="A">
+          <div class="q-head"><span class="num">17</span><div><span class="source">周考 填充 5｜原作答：甲＞乙＞丙</span><h2>空氣中的氣體比例</h2></div></div>
+          <div class="figure"><img src="./img/air.svg" alt="乾燥空氣組成" loading="lazy"></div><p class="stem">比較甲.二氧化碳、乙.氧氣和丙.氬氣三者在乾燥空氣中所占的比例，由大排至小的順序為何？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;三者中占最多的是？&quot;, [&quot;氧氣&quot;, &quot;二氧化碳&quot;], 0, &quot;氧氣約 21%。&quot;, &quot;乙最多&quot;], [&quot;氬氣 0.93% 和二氧化碳 0.04%，哪個多？&quot;, [&quot;氬氣&quot;, &quot;二氧化碳&quot;], 0, &quot;0.93 ＞ 0.04。&quot;, &quot;丙＞甲 → 乙＞丙＞甲，選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q17" value="A"><span class="letter">A</span><span>乙＞丙＞甲</span></label><label class="option"><input type="radio" name="q17" value="B"><span class="letter">B</span><span>甲＞乙＞丙</span></label><label class="option"><input type="radio" name="q17" value="C"><span class="letter">C</span><span>丙＞乙＞甲</span></label><label class="option"><input type="radio" name="q17" value="D"><span class="letter">D</span><span>乙＞甲＞丙</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">氧氣（乙）約 21%<br>氬氣（丙）約 0.93%<br>二氧化碳（甲）約 0.04%<br>乙＞丙＞甲，選 (A)。<br>⚠ 二氧化碳雖然常被提到，但含量其實最少。</p><p class="key"><strong>解題關鍵：</strong>氮＞氧＞氬＞二氧化碳。</p></div>
+        </article>
+<article class="card" data-chapter="空氣、氧氣與二氧化碳" id="q18" data-answer="A">
+          <div class="q-head"><span class="num">18</span><div><span class="source">周考 14｜原作答：C</span><h2>二氧化錳的功能</h2></div></div>
+          <p class="stem">葳葳在實驗室中以二氧化錳與雙氧水製造氧氣，二氧化錳在此實驗中的功能為何？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;不加二氧化錳，雙氧水會分解嗎？&quot;, [&quot;會，只是很慢&quot;, &quot;完全不會&quot;], 0, &quot;雙氧水放久了也會慢慢冒泡變成水。&quot;, &quot;原本就會反應 → (C) 錯&quot;], [&quot;加了二氧化錳後，產生氧氣的速度？&quot;, [&quot;變快&quot;, &quot;變慢&quot;], 0, &quot;二氧化錳是催化劑。&quot;, &quot;加快分解速率 → 選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q18" value="A"><span class="letter">A</span><span>可加快雙氧水中溶質分解的速率</span></label><label class="option"><input type="radio" name="q18" value="B"><span class="letter">B</span><span>可減緩氧氣產生的速率</span></label><label class="option"><input type="radio" name="q18" value="C"><span class="letter">C</span><span>可使原本不反應的兩物質發生反應</span></label><label class="option"><input type="radio" name="q18" value="D"><span class="letter">D</span><span>可停止雙氧水中溶質的分解</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">雙氧水本身就會慢慢分解產生氧氣（不加也會反應，只是很慢）<br>二氧化錳是「催化劑」：加快反應速率<br>反應後二氧化錳本身不會被消耗<br>選 (A)。(C) 錯：雙氧水不用二氧化錳也會分解。</p><p class="key"><strong>解題關鍵：</strong>催化劑＝加快反應、本身不消耗。</p></div>
+        </article>
+<article class="card" data-chapter="空氣、氧氣與二氧化碳" id="q19" data-answer="B">
+          <div class="q-head"><span class="num">19</span><div><span class="source">周考 15｜原作答：D（原卷未批改，依課本判斷應為 B）</span><h2>氧氣產生太快時</h2></div></div>
+          <div class="figure"><img src="./img/o2-setup.svg" alt="製氧裝置與排水集氣法" loading="lazy"></div><p class="stem">若氧氣的生成量增加太快時，下列哪一種處理方法最好？（甲：薊頭漏斗、乙：錐形瓶、丙：導管）</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;要讓反應變慢，可以讓雙氧水的濃度？&quot;, [&quot;變低&quot;, &quot;變高&quot;], 0, &quot;濃度越高，反應越快。&quot;, &quot;降低濃度&quot;], [&quot;怎麼降低雙氧水的濃度？&quot;, [&quot;從甲加水稀釋&quot;, &quot;從甲加雙氧水&quot;], 0, &quot;加水就會變稀。&quot;, &quot;由甲加入更多的水 → 選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q19" value="A"><span class="letter">A</span><span>由甲加入更多的雙氧水</span></label><label class="option"><input type="radio" name="q19" value="B"><span class="letter">B</span><span>由甲加入更多的水</span></label><label class="option"><input type="radio" name="q19" value="C"><span class="letter">C</span><span>在乙中加入更多的二氧化錳</span></label><label class="option"><input type="radio" name="q19" value="D"><span class="letter">D</span><span>將丙移出水面</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">反應太快 → 要降低雙氧水的濃度<br>由薊頭漏斗（甲）加水 → 雙氧水被稀釋 → 反應變慢<br>(A) 加雙氧水會更快；(C) 加二氧化錳也會更快<br>(D) 導管移出水面，氧氣跑掉也收集不到，沒有解決問題<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>濃度越低 → 反應越慢。</p></div>
+        </article>
+<article class="card" data-chapter="空氣、氧氣與二氧化碳" id="q20" data-answer="C">
+          <div class="q-head"><span class="num">20</span><div><span class="source">周考 7（空氣單元）｜原作答：D</span><h2>製備氧氣與二氧化碳</h2></div></div>
+          <p class="stem">關於氧氣與二氧化碳的製備，下列敘述何者錯誤？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;製造氧氣用什麼藥品？&quot;, [&quot;雙氧水＋二氧化錳&quot;, &quot;大理石＋稀鹽酸&quot;], 0, &quot;&quot;, &quot;氧氣：雙氧水＋二氧化錳&quot;], [&quot;製造二氧化碳用什麼藥品？&quot;, [&quot;大理石＋稀鹽酸&quot;, &quot;雙氧水＋二氧化錳&quot;], 0, &quot;&quot;, &quot;二氧化碳：大理石＋稀鹽酸&quot;], [&quot;兩者的化學藥品相同嗎？&quot;, [&quot;不同&quot;, &quot;相同&quot;], 0, &quot;&quot;, &quot;藥品不同 → (C) 錯誤，選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q20" value="A"><span class="letter">A</span><span>可使用相同裝置製備</span></label><label class="option"><input type="radio" name="q20" value="B"><span class="letter">B</span><span>可使用相同方法收集產物</span></label><label class="option"><input type="radio" name="q20" value="C"><span class="letter">C</span><span>可使用相同化學藥品製備</span></label><label class="option"><input type="radio" name="q20" value="D"><span class="letter">D</span><span>產物均不具可燃性</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">氧氣：雙氧水＋二氧化錳；二氧化碳：大理石＋稀鹽酸<br>兩者都是「固體＋液體、不加熱」→ 可用相同裝置 ✓<br>兩者都可用排水集氣法收集 ✓<br>氧氣、二氧化碳都不可燃（氧氣是助燃）✓<br>藥品完全不同 → (C) 錯誤，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>看比較表：藥品不同、裝置相同。</p></div>
+        </article>
+<article class="card" data-chapter="空氣、氧氣與二氧化碳" id="q21" data-answer="A">
+          <div class="q-head"><span class="num">21</span><div><span class="source">周考 8（空氣單元）｜原作答：D</span><h2>懸浮微粒</h2></div></div>
+          <p class="stem">懸浮微粒是懸浮在大氣中的微小顆粒，則關於懸浮微粒的敘述，下列何者正確？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;PM2.5 的「2.5」指的是？&quot;, [&quot;粒徑 2.5 微米&quot;, &quot;質量 2.5 克&quot;], 0, &quot;PM 是用顆粒「大小」分類。&quot;, &quot;(B) 錯&quot;], [&quot;懸浮微粒多時，天空會？&quot;, [&quot;灰濛濛，看不遠&quot;, &quot;更清楚&quot;], 0, &quot;想想空汙嚴重的日子。&quot;, &quot;能見度降低 → (C) 錯&quot;], [&quot;政府發布的空氣品質資訊叫什麼？&quot;, [&quot;空氣品質指標 AQI&quot;, &quot;懸浮微粒指標&quot;], 0, &quot;新聞常說「AQI 紅色警戒」。&quot;, &quot;(D) 錯 → 正確的是 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q21" value="A"><span class="letter">A</span><span>PM2.5 進入人體後，能穿透肺泡</span></label><label class="option"><input type="radio" name="q21" value="B"><span class="letter">B</span><span>依照顆粒質量大小，可分為 PM10 和 PM2.5</span></label><label class="option"><input type="radio" name="q21" value="C"><span class="letter">C</span><span>大氣中的懸浮微粒含量高時，能見度會增加</span></label><label class="option"><input type="radio" name="q21" value="D"><span class="letter">D</span><span>政府利用「懸浮微粒指標」讓民眾了解空氣品質資訊</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">(A) PM2.5 非常小，可以穿透肺泡進入血液 ✓<br>(B) PM10、PM2.5 是依「粒徑（直徑大小，微米）」分，不是質量 ✗<br>(C) 懸浮微粒多 → 霧濛濛 → 能見度「降低」✗<br>(D) 政府用的是「空氣品質指標 AQI」✗<br>選 (A)。</p><p class="key"><strong>解題關鍵：</strong>PM 後面的數字＝粒徑（微米）。</p></div>
+        </article>
+<article class="card" data-chapter="空氣、氧氣與二氧化碳" id="q22" data-answer="B">
+          <div class="q-head"><span class="num">22</span><div><span class="source">周考 6（空氣單元）｜原作答：A</span><h2>汙水處理後的水</h2></div></div>
+          <p class="stem">我們每日使用後的廢水經汙水處理廠去除汙染物後，會形成下列何者排放到河川中，以減少環境汙染？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;題目說處理後的水要去哪裡？&quot;, [&quot;排放到河川&quot;, &quot;回收再使用&quot;], 0, &quot;&quot;, &quot;排放到河川&quot;], [&quot;「排放到河川」的水叫做？&quot;, [&quot;放流水&quot;, &quot;再生水&quot;], 0, &quot;「放」流回河川。&quot;, &quot;放流水，選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q22" value="A"><span class="letter">A</span><span>再生水</span></label><label class="option"><input type="radio" name="q22" value="B"><span class="letter">B</span><span>放流水</span></label><label class="option"><input type="radio" name="q22" value="C"><span class="letter">C</span><span>排放水</span></label><label class="option"><input type="radio" name="q22" value="D"><span class="letter">D</span><span>二次水</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">汙水處理廠處理後「排放到河川」的水 → 放流水<br>若再進一步處理、拿回來使用（澆花、沖廁）→ 再生水<br>題目說「排放到河川中」→ 選 (B)。</p><p class="key"><strong>解題關鍵：</strong>放流水→放回河川；再生水→再拿來用。</p></div>
+        </article>
+<section class="sec-head" id="ch5"><h3>5. 水溶液與濃度</h3><p>2 題</p><p class="kw">重點：飽和溶液：同溫度下濃度都一樣；重量百分率濃度＝溶質質量 ÷ 溶液質量 × 100%；體積要先換成質量：質量＝密度 × 體積</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>狀態</th><th>特徵</th></tr><tr><td>未飽和</td><td>再加溶質還能溶</td></tr><tr><td>飽和</td><td>有沉澱、再加也不溶；同溫下濃度相同</td></tr><tr><td>飽和＋加水</td><td>沉澱可再溶解</td></tr></table></div></div></section>
+<article class="card" data-chapter="水溶液與濃度" id="q23" data-answer="A">
+          <div class="q-head"><span class="num">23</span><div><span class="source">周考 9（水溶液）｜原作答：C</span><h2>飽和溶液的濃度</h2></div></div>
+          <div class="figure"><img src="./img/beakers.svg" alt="甲乙丙三杯食鹽水" loading="lazy"></div><p class="stem">室溫下，桌上有三杯食鹽水，甲杯中的食鹽完全溶解，若再加入一些食鹽，仍可繼續溶解；乙杯中有一些食鹽未溶解，攪拌後仍無法溶解；丙杯中有相當多的食鹽未溶解，攪拌後仍無法溶解。試問下列相關的敘述何者錯誤？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;乙、丙杯都有食鹽沉澱溶不了，它們是？&quot;, [&quot;飽和溶液&quot;, &quot;未飽和溶液&quot;], 0, &quot;已經溶到最多了。&quot;, &quot;乙、丙都飽和&quot;], [&quot;同溫度下兩杯飽和食鹽水，濃度？&quot;, [&quot;一樣&quot;, &quot;沉澱多的比較濃&quot;], 0, &quot;沉在杯底的食鹽沒有溶解，不算在溶液濃度裡。&quot;, &quot;乙＝丙&quot;], [&quot;所以 (A)「丙＞乙＞甲」對嗎？&quot;, [&quot;錯&quot;, &quot;對&quot;], 0, &quot;&quot;, &quot;應為乙＝丙＞甲 → 選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q23" value="A"><span class="letter">A</span><span>三杯食鹽水的濃度大小為丙＞乙＞甲</span></label><label class="option"><input type="radio" name="q23" value="B"><span class="letter">B</span><span>乙、丙兩杯為飽和溶液</span></label><label class="option"><input type="radio" name="q23" value="C"><span class="letter">C</span><span>乙杯再加足夠的水後可以將沉澱的食鹽完全溶解</span></label><label class="option"><input type="radio" name="q23" value="D"><span class="letter">D</span><span>甲杯再加入食鹽可以增加食鹽水的濃度</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">甲：還能再溶 → 未飽和<br>乙、丙：有沉澱、攪拌也不溶 → 都是飽和溶液<br>同溫度下，飽和溶液的濃度都一樣：乙＝丙<br>沉澱的食鹽沒有溶進水裡，不算在濃度內<br>正確關係：乙＝丙＞甲 → (A) 說丙＞乙，錯誤，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>飽和溶液濃度相同，沉澱多少不影響濃度。</p></div>
+        </article>
+<article class="card" data-chapter="水溶液與濃度" id="q24" data-answer="A">
+          <div class="q-head"><span class="num">24</span><div><span class="source">周考 填充 4｜原作答：1.8%</span><h2>重量百分率濃度</h2></div></div>
+          <p class="stem">將 10 mL 甲液體溶解在 92 mL 的水中，配製成 102 mL 的水溶液，已知甲液體密度為 0.8 g/cm³，水的密度為 1.0 g/cm³，則水溶液的重量百分率濃度為多少？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;重量百分率要用什麼來算？&quot;, [&quot;質量&quot;, &quot;體積&quot;], 0, &quot;名字叫「重量」百分率。&quot;, &quot;先換成質量&quot;], [&quot;10 mL 甲液體有幾公克？&quot;, [&quot;8 g&quot;, &quot;10 g&quot;, &quot;12.5 g&quot;], 0, &quot;質量＝密度 × 體積＝0.8 × 10。&quot;, &quot;溶質 8 g&quot;], [&quot;溶液總質量是？&quot;, [&quot;8＋92＝100 g&quot;, &quot;102 g&quot;], 0, &quot;102 是體積（mL），不是質量。&quot;, &quot;溶液 100 g&quot;], [&quot;濃度＝？&quot;, [&quot;8%&quot;, &quot;1.8%&quot;], 0, &quot;8 ÷ 100 × 100%。&quot;, &quot;8%，選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q24" value="A"><span class="letter">A</span><span>8%</span></label><label class="option"><input type="radio" name="q24" value="B"><span class="letter">B</span><span>1.8%</span></label><label class="option"><input type="radio" name="q24" value="C"><span class="letter">C</span><span>10%</span></label><label class="option"><input type="radio" name="q24" value="D"><span class="letter">D</span><span>9.8%</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">重量百分率要用「質量」，先把體積換成質量<br>甲（溶質）：0.8 × 10＝8 g<br>水（溶劑）：1.0 × 92＝92 g<br>溶液質量＝8＋92＝100 g（不是 102！）<br>濃度＝8 ÷ 100 × 100%＝8%，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>質量＝密度 × 體積；溶液質量＝溶質＋溶劑。</p></div>
+        </article>
+</main>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const downloadBtn=document.querySelector('#downloadDocx');
+let graded=false;
+
+function checkCard(card,revealUnanswered=false){
+  card.classList.remove('correct','incorrect','unanswered');
+  card.querySelectorAll('.option').forEach(option=>option.classList.remove('good','bad'));
+  const pick=card.querySelector('input:checked');
+  const answer=card.dataset.answer;
+  if(!pick&&!revealUnanswered)return {answered:false,correct:false};
+  card.classList.add('checked');
+  card.querySelectorAll('input').forEach(input=>{
+    const option=input.closest('.option');
+    if(input.value===answer)option.classList.add('good');
+    if(pick&&input===pick&&input.value!==answer)option.classList.add('bad');
+    input.disabled=true;
+  });
+  if(!pick)card.classList.add('unanswered');
+  else if(pick.value===answer)card.classList.add('correct');
+  else card.classList.add('incorrect');
+  return {answered:!!pick,correct:!!pick&&pick.value===answer};
+}
+
+function updateProgress(){
+  const answered=cards.filter(card=>card.querySelector('input:checked')).length;
+  const score=cards.filter(card=>card.querySelector('input:checked')?.value===card.dataset.answer).length;
+  document.querySelector('#score').textContent=`已作答 ${answered} / ${cards.length}・答對 ${score} 題`;
+  if(answered===cards.length){
+    graded=true;
+    const mistakeCount=cards.length-score;
+    downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+    downloadBtn.hidden=false;
+  }
+}
+
+cards.forEach(card=>card.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+  checkCard(card);
+  updateProgress();
+})));
+
+document.querySelector('#grade').addEventListener('click',()=>{
+  let score=0,first=null;
+  cards.forEach(c=>{
+    const result=checkCard(c,true);
+    if(!result.answered)first??=c;
+    if(result.correct)score++;
+  });
+  graded=true;
+  const mistakeCount=cards.length-score;
+  document.querySelector('#score').textContent=`得分 ${score} / ${cards.length}`;
+  downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+  downloadBtn.hidden=false;
+  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.querySelector('#reset').addEventListener('click',()=>{
+  cards.forEach(c=>{
+    c.className='card';
+    c.querySelectorAll('input').forEach(i=>{i.checked=false;i.disabled=false});
+    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
+  });
+  graded=false;
+  downloadBtn.hidden=true;
+  downloadBtn.textContent='下載錯題詳解 DOCX';
+  document.querySelector('#score').textContent=`已作答 0 / ${cards.length}`;
+  scrollTo({top:0,behavior:'smooth'});
+});
+
+function xmlEscape(value){
+  return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+}
+
+function wordParagraph(text,{bold=false,size=22,color='000000',before=0,after=100}={}){
+  const safe=xmlEscape(text);
+  return `<w:p><w:pPr><w:spacing w:before="${before}" w:after="${after}" w:line="330" w:lineRule="auto"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Microsoft JhengHei" w:hAnsi="Microsoft JhengHei" w:eastAsia="Microsoft JhengHei"/><w:sz w:val="${size}"/><w:szCs w:val="${size}"/>${bold?'<w:b/><w:bCs/>':''}${color!=='000000'?`<w:color w:val="${color}"/>`:''}<w:lang w:eastAsia="zh-TW"/></w:rPr><w:t xml:space="preserve">${safe}</w:t></w:r></w:p>`;
+}
+
+function textBlock(text,options={}){
+  return String(text??'').split(/\r?\n/).filter(Boolean).map(line=>wordParagraph(line,options)).join('');
+}
+
+function collectMistakes(){
+  return cards.filter(c=>{
+    const pick=c.querySelector('input:checked');
+    return !pick||pick.value!==c.dataset.answer;
+  }).map(c=>{
+    const picked=c.querySelector('input:checked');
+    const feedback=[...c.querySelectorAll('.feedback p')];
+    return {
+      number:c.querySelector('.num').textContent.trim(),
+      source:(c.dataset.chapter?c.dataset.chapter+'｜':'')+c.querySelector('.source').textContent.trim(),
+      topic:c.querySelector('h2').textContent.trim(),
+      context:c.querySelector('.context')?.innerText.trim()||'',
+      stem:c.querySelector('.stem').textContent.trim(),
+      options:[...c.querySelectorAll('.option')].map(o=>`${o.querySelector('.letter').textContent.trim()}　${o.querySelector('span:last-child').textContent.trim()}`),
+      selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
+      answer:c.dataset.answer,
+      explanation:feedback[1]?.innerText.trim()||'',
+      figures:[...c.querySelectorAll('.figure img')].map(i=>({src:i.getAttribute('src').replace(/\.svg$/,'.png'),alt:i.alt})),
+      key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
+    };
+  });
+}
+
+const encoder=new TextEncoder();
+function le16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function le32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function joinBytes(chunks){
+  const out=new Uint8Array(chunks.reduce((sum,c)=>sum+c.length,0));
+  let at=0;for(const c of chunks){out.set(c,at);at+=c.length}return out;
+}
+const crcTable=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(data){let c=0xffffffff;for(const b of data)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0}
+function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());return {time:(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date:((year-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate()}}
+
+function makeDocxZip(files){
+  const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
+  for(const [name,text] of files){
+    const nameBytes=encoder.encode(name),data=text instanceof Uint8Array?text:encoder.encode(text),crc=crc32(data);
+    const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
+    const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
+    locals.push(local);centrals.push(central);offset+=local.length;
+  }
+  const centralData=joinBytes(centrals);
+  const end=joinBytes([le32(0x06054b50),le16(0),le16(0),le16(files.length),le16(files.length),le32(centralData.length),le32(offset),le16(0)]);
+  return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+async function loadPng(src){
+  const res=await fetch(src);if(!res.ok)throw new Error(src);
+  const bytes=new Uint8Array(await res.arrayBuffer());
+  const dv=new DataView(bytes.buffer);
+  return {bytes,w:dv.getUint32(16),h:dv.getUint32(20)};
+}
+function imageParagraph(rid,id,w,h,alt){
+  const cx=Math.round(6.2*914400),cy=Math.round(cx*h/w);
+  return `<w:p><w:pPr><w:spacing w:after="80"/><w:jc w:val="center"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${id}" name="圖${id}" descr="${xmlEscape(alt)}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${id}" name="image${id}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+}
+async function buildMistakeDocx(){
+  const mistakes=collectMistakes();
+  const media=[],relsXml=[],cache={};
+  for(const m of mistakes){
+    m.imgs=[];
+    for(const f of m.figures||[]){
+      try{
+        if(!cache[f.src]){
+          const png=await loadPng(f.src),n=media.length+1;
+          media.push([`word/media/image${n}.png`,png.bytes]);
+          relsXml.push(`<Relationship Id="rImg${n}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/image${n}.png"/>`);
+          cache[f.src]={rid:`rImg${n}`,w:png.w,h:png.h};
+        }
+        m.imgs.push({...cache[f.src],alt:f.alt});
+      }catch(e){console.warn('圖片載入失敗',f.src)}
+    }
+  }
+  let picId=0;
+  let body=wordParagraph('理化錯題詳解',{bold:true,size:34,color:'17313A',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　錯題與未作答共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  if(!mistakes.length){
+    body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
+  }else{
+    mistakes.forEach((m,index)=>{
+      if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+      body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
+      if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      m.imgs.forEach(im=>{body+=imageParagraph(im.rid,++picId,im.w,im.h,im.alt)});
+      body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
+      m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
+      body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
+      body+=wordParagraph(`正確答案：${m.answer}`,{bold:true,size:22,color:'0B6B57',after:100});
+      body+=wordParagraph('詳解',{bold:true,size:22,after:55});
+      body+=textBlock(m.explanation,{size:21,after:90});
+      body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
+    });
+  }
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const docRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${relsXml.join('')}</Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml],['word/_rels/document.xml.rels',docRels],...media]);
+}
+
+downloadBtn.addEventListener('click',async()=>{
+  if(!graded)return;
+  downloadBtn.disabled=true;
+  let blob;try{blob=await buildMistakeDocx()}finally{downloadBtn.disabled=false}
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='理化錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+</script><script src="../shared/moe-dict.js?v=20261116" defer></script>
+<script>
+document.querySelectorAll('.gsteps').forEach(box=>{
+  const steps=JSON.parse(box.dataset.steps);let i=0;
+  const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  function show(){
+    if(i>=steps.length){box.insertAdjacentHTML('beforeend','<div class="gdone">✅ 步驟都想出來了！現在回到下面的選項作答吧。</div>');return}
+    const [ask,ch0,ok0,hint,res]=steps[i];const n=i+1;const ord=ch0.map((_,k)=>k).sort(()=>Math.random()-.5);const ch=ord.map(k=>ch0[k]);const ok=ord.indexOf(ok0);
+    const d=document.createElement('div');d.className='gstep';
+    d.innerHTML=`<div class="ask"><b>步驟 ${n}／${steps.length}</b>　${esc(ask)}</div><div class="gchoices">${ch.map((c,k)=>`<button type="button" data-k="${k}">${esc(c)}</button>`).join('')}</div><div class="ghint" hidden></div>`;
+    box.appendChild(d);
+    d.querySelector('.gchoices').addEventListener('click',ev=>{const b=ev.target.closest('button');if(!b||d.dataset.done)return;
+      if(+b.dataset.k===ok){b.classList.add('yes');d.dataset.done=1;d.querySelectorAll('.gchoices button').forEach(x=>x.disabled=true);
+        const h=d.querySelector('.ghint');h.hidden=true;
+        d.insertAdjacentHTML('beforeend',`<div class="gres">✏️ ${esc(res)}</div>`);i++;setTimeout(show,250)}
+      else{b.classList.add('no');const h=d.querySelector('.ghint');h.hidden=false;h.textContent='💡 再想想：'+(hint||'回頭看看本章的重點整理表。')}});
+  }
+  show();
+});
+</script></body></html>
+

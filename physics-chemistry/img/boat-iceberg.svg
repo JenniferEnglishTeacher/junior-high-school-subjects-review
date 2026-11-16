@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" font-family="Noto Sans CJK TC, Microsoft JhengHei, sans-serif"><rect width="640" height="240" fill="#eaf4fb"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#1f5fa8"/></marker><marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#c0392b"/></marker><marker id="g" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#2f8f6f"/></marker></defs>
+<polygon points="560,200 600,60 630,200" fill="#d6eaf8" stroke="#5d6d7e"/><text x="595" y="50" text-anchor="middle" font-size="16">冰山</text>
+<text x="40" y="215" font-size="15">鳴笛處</text><text x="150" y="215" font-size="15">聽到回聲處</text>
+<path d="M30 190 h40 l-8 12 h-24 z" fill="#566573"/><path d="M140 190 h40 l-8 12 h-24 z" fill="#566573"/>
+<line x1="50" y1="60" x2="555" y2="60" stroke="#1f5fa8" stroke-width="3" marker-end="url(#a)"/><text x="300" y="50" text-anchor="middle" font-size="16" fill="#1f5fa8">聲音去程 d</text>
+<line x1="555" y1="100" x2="165" y2="100" stroke="#c0392b" stroke-width="3" marker-end="url(#b)"/><text x="360" y="122" text-anchor="middle" font-size="16" fill="#c0392b">聲音回程 d － 204</text>
+<line x1="50" y1="165" x2="155" y2="165" stroke="#2f8f6f" stroke-width="3" marker-end="url(#g)"/><text x="100" y="155" text-anchor="middle" font-size="15" fill="#2f8f6f">船走 204 m</text>
+<text x="350" y="160" text-anchor="middle" font-size="16" font-weight="700">聲音 2022 m ＋ 船 204 m ＝ 2d</text></svg>

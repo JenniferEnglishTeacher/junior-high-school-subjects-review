@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" font-family="Noto Sans CJK TC, Microsoft JhengHei, sans-serif"><rect width="600" height="260" fill="#fff"/>
+<path d="M110 120 l-50 110 h140 l-50 -110z" fill="#fdfefe" stroke="#333" stroke-width="2"/><rect x="85" y="205" width="90" height="22" fill="#f5cba7"/><text x="130" y="221" text-anchor="middle" font-size="12">雙氧水＋MnO₂</text>
+<rect x="100" y="95" width="60" height="25" fill="#ccc" stroke="#333"/><line x1="120" y1="30" x2="120" y2="210" stroke="#333" stroke-width="3"/><path d="M105 30 h30 l-15 20z" fill="#d6eaf8" stroke="#333"/>
+<text x="95" y="25" font-size="15" font-weight="700">甲 薊頭漏斗</text><text x="30" y="250" font-size="15" font-weight="700">乙 錐形瓶</text>
+<polyline points="145,108 260,108 260,205 420,205" fill="none" stroke="#333" stroke-width="3"/><text x="270" y="100" font-size="15" font-weight="700">丙 導管</text>
+<rect x="320" y="150" width="240" height="90" fill="#aed6f1" stroke="#333"/><rect x="400" y="60" width="70" height="170" fill="#d6eaf8" stroke="#333" stroke-width="2"/>
+<g fill="#fff" stroke="#1f5fa8"><circle cx="430" cy="190" r="5"/><circle cx="440" cy="170" r="4"/><circle cx="428" cy="150" r="5"/></g>
+<text x="435" y="85" text-anchor="middle" font-size="14">集氣瓶</text><text x="435" y="103" text-anchor="middle" font-size="12">（先裝滿水倒置）</text>
+<text x="440" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#1f5fa8">排水集氣法：氧氣把水排出</text></svg>

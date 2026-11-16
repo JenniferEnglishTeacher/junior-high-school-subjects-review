@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 200" font-family="Noto Sans CJK TC, Microsoft JhengHei, sans-serif"><rect width="620" height="200" fill="#eaf4fb"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#1f5fa8"/></marker><marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#c0392b"/></marker></defs>
+<ellipse cx="70" cy="110" rx="45" ry="22" fill="#5d6d7e"/><text x="70" y="150" text-anchor="middle" font-size="16">抹香鯨</text>
+<rect x="540" y="40" width="40" height="140" fill="#7f8c8d"/><text x="560" y="30" text-anchor="middle" font-size="16">障礙物</text>
+<line x1="120" y1="90" x2="535" y2="90" stroke="#1f5fa8" stroke-width="3" marker-end="url(#a)"/><text x="330" y="80" text-anchor="middle" font-size="16" fill="#1f5fa8">去程 d</text>
+<line x1="535" y1="130" x2="120" y2="130" stroke="#c0392b" stroke-width="3" marker-end="url(#b)"/><text x="330" y="155" text-anchor="middle" font-size="16" fill="#c0392b">回程 d</text>
+<text x="330" y="188" text-anchor="middle" font-size="17" font-weight="700">聲音共走 2d ＝ 1400 m/s × 180 s</text></svg>
