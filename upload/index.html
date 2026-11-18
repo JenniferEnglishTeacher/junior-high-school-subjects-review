@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>錯題上傳・立即練習</title>
+<style>
+  :root{--bg:#f6f7fb;--card:#fff;--ink:#1f2937;--mute:#6b7280;--pri:#2563eb;--ok:#16a34a;--bad:#dc2626;--line:#e5e7eb}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--ink);font-size:17px;line-height:1.6}
+  header{background:var(--pri);color:#fff;padding:14px 16px;font-weight:700;font-size:19px}
+  main{max-width:720px;margin:0 auto;padding:12px}
+  .tabs{display:flex;gap:8px;margin:8px 0 12px}
+  .tabs button{flex:1;padding:12px;border:0;border-radius:12px;background:#e0e7ff;font-size:16px;font-weight:700;color:#3730a3}
+  .tabs button.on{background:var(--pri);color:#fff}
+  .card{background:var(--card);border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  label{display:block;font-weight:700;margin:10px 0 6px}
+  input[type=text],select{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font-size:17px}
+  .btn{display:block;width:100%;padding:14px;border:0;border-radius:12px;background:var(--pri);color:#fff;font-size:18px;font-weight:700;margin-top:14px}
+  .btn:disabled{opacity:.5}
+  .btn.sec{background:#eef2ff;color:#3730a3}
+  .thumbs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .thumbs img{width:72px;height:72px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+  .muted{color:var(--mute);font-size:14px}
+  .err{color:var(--bad);font-weight:700}
+  .group{border-left:5px solid #f59e0b;padding-left:10px;margin:6px 0 10px}
+  .tag{display:inline-block;background:#fef3c7;color:#92400e;border-radius:6px;padding:0 8px;font-size:13px;font-weight:700;margin-right:6px}
+  .q{white-space:pre-wrap;font-weight:600;margin:6px 0}
+  .opt{display:flex;gap:8px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:10px;margin:6px 0;cursor:pointer}
+  .opt input{margin-top:5px;transform:scale(1.3)}
+  .opt.sel{border-color:var(--pri);background:#eff6ff}
+  .steps{background:#f0fdf4;border-radius:10px;padding:10px;margin-top:8px}
+  .step-opt{display:block;width:100%;text-align:left;padding:10px;margin:5px 0;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:16px}
+  .step-opt.good{border-color:var(--ok);background:#dcfce7}
+  .step-opt.no{border-color:var(--bad);background:#fee2e2}
+  .report{border:3px solid var(--pri)}
+  .score{font-size:44px;font-weight:800;text-align:center;margin:6px 0}
+  .wrongnums{font-size:20px;font-weight:700;color:var(--bad);text-align:center}
+  .res{border-top:1px dashed var(--line);padding:10px 0}
+  .ok{color:var(--ok);font-weight:700}.bad{color:var(--bad);font-weight:700}
+  .spinner{width:40px;height:40px;border:4px solid #c7d2fe;border-top-color:var(--pri);border-radius:50%;animation:s 1s linear infinite;margin:10px auto}
+  @keyframes s{to{transform:rotate(360deg)}}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<header>📸 錯題上傳・立即練習</header>
+<main>
+  <div class="tabs">
+    <button id="tabUp" class="on">上傳新錯題</button>
+    <button id="tabRe">再測我的錯題</button>
+  </div>
+
+  <section id="upPane" class="card">
+    <label for="name">姓名</label>
+    <input id="name" type="text" placeholder="請輸入全名（每次都一樣）">
+    <label for="subject">科目</label>
+    <select id="subject">
+      <option value="">讓 AI 自動判斷</option>
+      <option>國文</option><option>歷史</option><option>地理</option><option>公民</option><option>自然</option><option>數學</option>
+    </select>
+    <label for="files">錯題照片（最多 5 張）</label>
+    <input id="files" type="file" accept="image/*" multiple>
+    <div class="thumbs" id="thumbs"></div>
+    <p class="muted">拍照小技巧：一張拍 1～3 題，拍正、拍清楚，看得到紅筆訂正。</p>
+    <button class="btn" id="upBtn">上傳並出題</button>
+    <div id="upMsg"></div>
+  </section>
+
+  <section id="rePane" class="card hidden">
+    <label for="name2">姓名</label>
+    <input id="name2" type="text" placeholder="跟上傳時同一個名字">
+    <button class="btn" id="reBtn">載入還沒訂正的錯題</button>
+    <div id="reMsg"></div>
+  </section>
+
+  <section id="quiz"></section>
+  <section id="report"></section>
+</main>
+
+<script>
+/* ===== 貼上你的 Apps Script 網頁應用程式網址 ===== */
+const GAS_URL = 'PASTE_YOUR_WEB_APP_URL_HERE';
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const L = 'ABCD';
+let state = { quizType: '新上傳', name: '', qs: [] };
+
+try { const n = localStorage.getItem('wq_name'); if (n) { $('#name').value = n; $('#name2').value = n; } } catch (e) {}
+function saveName(n) { try { localStorage.setItem('wq_name', n); } catch (e) {} }
+
+$('#tabUp').onclick = () => switchTab(true);
+$('#tabRe').onclick = () => switchTab(false);
+function switchTab(up) {
+  $('#tabUp').classList.toggle('on', up); $('#tabRe').classList.toggle('on', !up);
+  $('#upPane').classList.toggle('hidden', !up); $('#rePane').classList.toggle('hidden', up);
+}
+
+/* ---------- 照片壓縮 ---------- */
+let picked = [];
+$('#files').onchange = e => {
+  picked = Array.from(e.target.files).slice(0, 5);
+  $('#thumbs').innerHTML = picked.map(f => `<img src="${URL.createObjectURL(f)}" alt="">`).join('');
+  if (e.target.files.length > 5) $('#upMsg').innerHTML = '<p class="err">只會上傳前 5 張</p>';
+};
+function loadImg(file) {
+  return new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = URL.createObjectURL(file); });
+}
+async function compress(file) {
+  const img = await loadImg(file);
+  const max = 1600, s = Math.min(1, max / Math.max(img.width, img.height));
+  const c = document.createElement('canvas');
+  c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+  c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+  return { mime: 'image/jpeg', data: c.toDataURL('image/jpeg', 0.82).split(',')[1] };
+}
+
+function loading(el, text) {
+  const t0 = Date.now();
+  el.innerHTML = `<div class="spinner"></div><p style="text-align:center">${text}<br><span class="muted" id="sec">0 秒</span></p>`;
+  const h = setInterval(() => { const s = $('#sec'); if (s) s.textContent = Math.round((Date.now() - t0) / 1000) + ' 秒'; else clearInterval(h); }, 1000);
+  return () => clearInterval(h);
+}
+
+async function post(body) {
+  if (GAS_URL.indexOf('PASTE') === 0) throw new Error('系統尚未啟用，請老師設定後端網址');
+  const r = await fetch(GAS_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(body) });
+  const d = await r.json();
+  if (!d.ok) throw new Error(d.error || '伺服器錯誤');
+  return d;
+}
+
+/* ---------- 上傳 ---------- */
+$('#upBtn').onclick = async () => {
+  const name = $('#name').value.trim();
+  if (!name) return $('#upMsg').innerHTML = '<p class="err">請輸入姓名</p>';
+  if (!picked.length) return $('#upMsg').innerHTML = '<p class="err">請選擇照片</p>';
+  saveName(name); $('#name2').value = name;
+  $('#upBtn').disabled = true; $('#quiz').innerHTML = ''; $('#report').innerHTML = '';
+  const stop = loading($('#upMsg'), 'AI 正在讀題、出題、驗算中…<br>大約 30～120 秒，請不要關掉畫面');
+  try {
+    const images = [];
+    for (const f of picked) images.push(await compress(f));
+    const d = await post({ action: 'upload', name, subject: $('#subject').value, images });
+    stop(); $('#upMsg').innerHTML = `<p class="ok">✓ 已上傳 ${d.items.length} 題錯題，下面開始練習</p>`;
+    state = { quizType: '新上傳', name, qs: [] };
+    renderQuiz(d.items.map(it => ({ header: it, list: it.practice.map(p => ({ id: it.id, subject: it.subject, q: p })) })));
+  } catch (e) {
+    stop(); $('#upMsg').innerHTML = `<p class="err">上傳失敗：${esc(e.message)}</p>`;
+  } finally { $('#upBtn').disabled = false; }
+};
+
+/* ---------- 再測 ---------- */
+$('#reBtn').onclick = async () => {
+  const name = $('#name2').value.trim();
+  if (!name) return $('#reMsg').innerHTML = '<p class="err">請輸入姓名</p>';
+  saveName(name);
+  $('#reBtn').disabled = true; $('#quiz').innerHTML = ''; $('#report').innerHTML = '';
+  const stop = loading($('#reMsg'), '載入中…');
+  try {
+    if (GAS_URL.indexOf('PASTE') === 0) throw new Error('系統尚未啟用，請老師設定後端網址');
+    const r = await fetch(GAS_URL + '?action=retest&name=' + encodeURIComponent(name));
+    const d = await r.json(); stop();
+    if (!d.ok) throw new Error(d.error);
+    if (!d.items.length) { $('#reMsg').innerHTML = '<p class="ok">🎉 目前沒有還沒訂正的錯題！</p>'; return; }
+    $('#reMsg').innerHTML = `<p>共 ${d.items.length} 題還沒訂正，答對就會標記「已訂正」。</p>`;
+    state = { quizType: '再測', name, qs: [] };
+    renderQuiz([{ header: null, list: d.items.map(x => ({ id: x.id, subject: x.subject, q: x.q, times: x.times })) }]);
+  } catch (e) { stop(); $('#reMsg').innerHTML = `<p class="err">載入失敗：${esc(e.message)}</p>`; }
+  finally { $('#reBtn').disabled = false; }
+};
+
+/* ---------- 出題畫面 ---------- */
+function renderQuiz(groups) {
+  let no = 0, html = '';
+  groups.forEach(g => {
+    html += '<div class="card">';
+    if (g.header) {
+      const h = g.header;
+      html += `<div class="group"><span class="tag">${esc(h.subject)}</span><span class="muted">${esc(h.concept)}</span>
+        <div class="muted">你寫錯的原題：</div><div class="q" style="font-weight:400">${esc(h.question)}${h.options.length ? '\n' + h.options.map((o, i) => `(${L[i]}) ${esc(o)}`).join('　') : ''}</div></div>`;
+      if (!g.list.length) html += '<p class="muted">這題暫時沒有練習題，老師會再補上。</p>';
+    }
+    g.list.forEach(item => {
+      no++; item.no = no; item.chosen = -1; item.guided = false; state.qs.push(item);
+      const q = item.q;
+      html += `<div style="margin:14px 0" id="box${no}">
+        <div><b>第 ${no} 題</b> ${g.header ? '' : `<span class="tag">${esc(item.subject)}</span>`}${item.times > 1 ? `<span class="muted">已錯 ${item.times} 次</span>` : ''}</div>
+        ${q.kind === 'math' && q.verified === false ? '<div class="muted">⚠️ 此題答案 AI 驗算未通過，老師會再確認</div>' : ''}
+        <div class="q">${esc(q.q)}</div>
+        ${q.options.map((o, i) => `<label class="opt" id="o${no}_${i}"><input type="radio" name="r${no}" value="${i}" onchange="pick(${no},${i})"><span>(${L[i]}) ${esc(o)}</span></label>`).join('')}
+        ${q.kind === 'math' && q.steps && q.steps.length ? `<button class="btn sec" onclick="startSteps(${no})" id="sb${no}">不會？一步一步解 🪜</button><div id="steps${no}"></div>` : ''}
+      </div>`;
+    });
+    html += '</div>';
+  });
+  html += `<button class="btn" onclick="grade()">交卷看結果</button><div id="gradeMsg"></div>`;
+  $('#quiz').innerHTML = html;
+  $('#quiz').scrollIntoView({ behavior: 'smooth' });
+}
+
+function pick(no, i) {
+  const it = state.qs[no - 1]; it.chosen = i;
+  it.q.options.forEach((_, k) => document.getElementById(`o${no}_${k}`).classList.toggle('sel', k === i));
+}
+
+/* ---------- 數學一步一步 ---------- */
+function startSteps(no) {
+  const it = state.qs[no - 1]; it.guided = true;
+  document.getElementById('sb' + no).classList.add('hidden');
+  showStep(no, 0);
+}
+function showStep(no, s) {
+  const it = state.qs[no - 1], steps = it.q.steps, box = document.getElementById('steps' + no);
+  if (s >= steps.length) {
+    box.insertAdjacentHTML('beforeend', '<div class="steps ok">👍 步驟都完成了！回到上面選出最後答案。</div>');
+    return;
+  }
+  const st = steps[s];
+  box.insertAdjacentHTML('beforeend', `<div class="steps" id="st${no}_${s}">
+    <b>步驟 ${s + 1} / ${steps.length}</b><div class="q">${esc(st.q)}</div>
+    ${st.options.map((o, i) => `<button class="step-opt" onclick="stepPick(${no},${s},${i},this)">(${L[i]}) ${esc(o)}</button>`).join('')}
+    <div id="sf${no}_${s}"></div></div>`);
+}
+function stepPick(no, s, i, el) {
+  const st = state.qs[no - 1].q.steps[s], fb = document.getElementById(`sf${no}_${s}`);
+  if (i === st.answer) {
+    el.classList.add('good');
+    document.querySelectorAll(`#st${no}_${s} .step-opt`).forEach(b => b.disabled = true);
+    fb.innerHTML = `<p class="ok">✓ 對！${esc(st.explain)}</p>`;
+    showStep(no, s + 1);
+  } else {
+    el.classList.add('no'); el.disabled = true;
+    fb.innerHTML = '<p class="bad">再想想，換一個試試看。</p>';
+  }
+}
+
+/* ---------- 交卷 ---------- */
+async function grade() {
+  const miss = state.qs.filter(x => x.chosen < 0).map(x => x.no);
+  if (miss.length) { $('#gradeMsg').innerHTML = `<p class="err">還有第 ${miss.join('、')} 題沒作答</p>`; return; }
+  const results = state.qs.map(x => ({ no: x.no, id: x.id, subject: x.subject, q: x.q, chosen: x.chosen, ok: x.chosen === x.q.answer, guided: x.guided }));
+  const wrong = results.filter(r => !r.ok);
+  const t = new Date().toLocaleString('zh-TW', { hour12: false });
+  const subjects = [...new Set(results.map(r => r.subject))].join('、');
+  let html = `<div class="card report">
+    <div style="text-align:center;font-weight:800;font-size:20px">錯題練習成績單（${state.quizType}）</div>
+    <div style="text-align:center">${esc(state.name)}｜${esc(subjects)}｜${t}</div>
+    <div class="score">${results.length - wrong.length} / ${results.length}</div>
+    <div class="wrongnums">${wrong.length ? `錯 ${wrong.length} 題：第 ${wrong.map(r => r.no).join('、')} 題` : '全對 🎉'}</div>
+    <div class="muted" style="text-align:center" id="saveMsg">紀錄儲存中…</div>
+  </div><div class="card"><b>詳解</b>`;
+  results.forEach(r => {
+    const q = r.q;
+    html += `<div class="res"><b>第 ${r.no} 題</b> ${r.ok ? '<span class="ok">✓ 答對</span>' : '<span class="bad">✗ 答錯</span>'}${r.guided ? ' <span class="muted">（用了一步一步解）</span>' : ''}
+      <div class="q" style="font-weight:400">${esc(q.q)}</div>
+      ${r.ok ? '' : `<div>你選：(${L[r.chosen]}) ${esc(q.options[r.chosen])}</div>`}
+      <div>正確：<b>(${L[q.answer]}) ${esc(q.options[q.answer])}</b></div>
+      <div class="muted" style="white-space:pre-wrap">${esc(q.explain)}</div></div>`;
+  });
+  html += '</div>';
+  $('#report').innerHTML = html;
+  document.querySelectorAll('#quiz input, #quiz button').forEach(b => b.disabled = true);
+  $('#report').scrollIntoView({ behavior: 'smooth' });
+  try {
+    await post({ action: 'submit', name: state.name, quizType: state.quizType, results });
+    $('#saveMsg').innerHTML = '✓ 已記錄到老師的追蹤表，可以截圖這張成績單';
+  } catch (e) {
+    $('#saveMsg').innerHTML = `<span class="err">紀錄失敗（${esc(e.message)}），請截圖這張成績單給老師</span>`;
+  }
+}
+</script>
+</body>
+</html>
