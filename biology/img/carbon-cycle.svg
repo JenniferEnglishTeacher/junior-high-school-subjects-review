@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="碳循環的部分過程示意圖" font-family="Noto Sans CJK TC,Microsoft JhengHei,sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0L10,5L0,10z" fill="#17313a"/></marker></defs>
+<rect width="640" height="360" fill="#fffdf8"/>
+<rect x="150" y="30" width="340" height="56" rx="8" fill="#e4f0ee" stroke="#17313a" stroke-width="2"/><text x="320" y="66" text-anchor="middle" font-size="22" font-weight="700" fill="#17313a">大氣中的二氧化碳</text>
+<rect x="60" y="250" width="140" height="56" rx="8" fill="#e4f5ef" stroke="#17313a" stroke-width="2"/><text x="130" y="286" text-anchor="middle" font-size="22" font-weight="700" fill="#17313a">生物</text>
+<rect x="340" y="250" width="270" height="56" rx="8" fill="#fff6dc" stroke="#17313a" stroke-width="2"/><text x="475" y="285" text-anchor="middle" font-size="19" font-weight="700" fill="#17313a">古生物遺體形成化石燃料</text>
+<line x1="105" y1="86" x2="105" y2="246" stroke="#17313a" stroke-width="2.5" marker-end="url(#a)"/><text x="94" y="172" text-anchor="end" font-size="19" fill="#0b6b57" font-weight="700">甲作用</text>
+<line x1="160" y1="250" x2="160" y2="90" stroke="#17313a" stroke-width="2.5" marker-end="url(#a)"/><text x="172" y="172" font-size="19" fill="#a33a35" font-weight="700">乙作用</text>
+<line x1="200" y1="278" x2="336" y2="278" stroke="#17313a" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="475" y1="250" x2="475" y2="90" stroke="#17313a" stroke-width="2.5" marker-end="url(#a)"/><text x="488" y="172" font-size="18" fill="#17313a">燃燒化石燃料</text>
+<text x="320" y="345" text-anchor="middle" font-size="15" fill="#61727a">圖(二)　依原題示意圖重繪</text>
+</svg>

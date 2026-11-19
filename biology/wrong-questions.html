@@ -17,11 +17,12 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
 .card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
 .feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
 .unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
-@media(max-width:620px){.dashboard-link{position:static;margin:12px 16px 0}}.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}</style></head><body>
+@media(max-width:620px){.dashboard-link{position:static;margin:12px 16px 0}}.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;max-width:640px;margin:0 auto;height:auto;border:1px solid var(--line);border-radius:12px;background:#fffdf8}
+</style></head><body>
 <a class="dashboard-link" href="../../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
-<header><h1>生物錯題</h1><p>依章節概念分類，共 9 題。每題選擇答案後，會立即顯示正確答案與詳細講解；作答完可下載錯題詳解 DOCX。</p><nav class="jump"><a href="#ch1">緒論：科學方法與實驗室</a><a href="#ch2">第 2 章 養分：酵素</a></nav></header>
-<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 9</span></div>
-<main><section class="sec-head" id="ch1"><h3>1. 緒論：科學方法與實驗室</h3><p>6 題・科學方法、變因、實驗器材</p></section>
+<header><h1>生物錯題</h1><p>依章節概念分類，共 20 題。每題選擇答案後，會立即顯示正確答案與詳細講解；作答完可下載錯題詳解 DOCX。</p><nav class="jump"><a href="#ch1">緒論：科學方法與實驗室</a><a href="#ch2">第 2 章 養分：酵素</a><a href="#ch3">細胞與顯微鏡</a><a href="#ch4">植物的構造與運輸</a><a href="#ch5">生殖、遺傳與生物技術</a><a href="#ch6">生物的分類</a><a href="#ch7">生態系</a></nav></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 20</span></div>
+<main><section class="sec-head" id="ch1"><h3>1. 緒論：科學方法與實驗室</h3><p>7 題・科學方法、變因、實驗器材</p></section>
 <article class="card" data-chapter="緒論：科學方法與實驗室" id="q1" data-answer="A">
           <div class="q-head"><span class="num">01</span><div><span class="source">緒論 好題示例（會考107）</span><h2>實驗設計：變因控制</h2></div></div>
           
@@ -64,28 +65,110 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
           <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>支持，因為甲組孑孓的存活率沒有比乙組低</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>支持，因為甲、乙兩組孑孓的存活率皆低於 50%</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>不支持，因為甲組孑孓的存活率沒有比乙組低</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>不支持，因為甲、乙兩組孑孓的存活率皆低於 50%</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>假設是「一元硬幣會促使孑孓死亡」，如果假設成立，放硬幣的甲組存活率應該明顯比乙組低。結果甲組 43.3% 反而沒有比乙組 40.0% 低，所以實驗結果「不支持」假設，理由是甲組存活率沒有比乙組低，選 C。A 理由對但結論錯；B、D 用「低於 50%」判斷，沒有比較實驗組與對照組，不合理。</p><p class="key"><strong>解題關鍵：</strong>判斷是否支持假設，要比較「實驗組 vs 對照組」，不是看數字本身高低。</p></div>
         </article>
-<section class="sec-head" id="ch2"><h3>2. 第 2 章 養分：酵素</h3><p>3 題・酵素與溫度、本氏液、對照組</p></section>
+<article class="card" data-chapter="緒論：科學方法與實驗室" id="b10" data-answer="C">
+          <div class="q-head"><span class="num">07</span><div><span class="source">自然 第3回（第1～2冊）・第34題</span><h2>實驗數據判讀：發芽率</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>阿碩想探討不同水溫和將豌豆浸泡在水中的靜置時間對豌豆發芽率的影響，他將實驗結果記錄於表(四)和表(五)。</p><div class="table-wrap"><table><tr><th>表(四)</th><th colspan="5"></th></tr><tr><td>水溫(°C)</td><td>10</td><td>15</td><td>20</td><td>25</td><td>30</td></tr><tr><td>靜置時間(小時)</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr><tr><td>發芽率(%)</td><td>20</td><td>30</td><td>50</td><td>60</td><td>55</td></tr></table></div><div class="table-wrap"><table><tr><th>表(五)</th><th colspan="5"></th></tr><tr><td>水溫(°C)</td><td>25</td><td>25</td><td>25</td><td>25</td><td>25</td></tr><tr><td>靜置時間(小時)</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>發芽率(%)</td><td>60</td><td>65</td><td>70</td><td>72</td><td>73</td></tr></table></div></div>
+          <p class="stem">則根據表(四)和表(五)判斷，下列敘述何者最合理？</p>
+          <div class="options"><label class="option"><input type="radio" name="b10" value="A"><span class="letter">A</span><span>由表(四)的結果可以推論水溫越高，豌豆的發芽率必越高</span></label><label class="option"><input type="radio" name="b10" value="B"><span class="letter">B</span><span>由表(四)的結果可以得知在10°C時，豌豆的發芽率會隨靜置時間增加而上升</span></label><label class="option"><input type="radio" name="b10" value="C"><span class="letter">C</span><span>由表(五)的結果可以推論靜置時間會影響豌豆的發芽率</span></label><label class="option"><input type="radio" name="b10" value="D"><span class="letter">D</span><span>由表(五)的結果可以推論靜置時間越久，豌豆的發芽率越低</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>表(五)只改變靜置時間（水溫都是25°C），發芽率跟著改變（60→73%），所以可推論靜置時間會影響發芽率（C）。A 錯：表(四)中30°C的發芽率55%反而比25°C的60%低，「必越高」太絕對。B 錯：表(四)每組都只靜置1小時，沒有改變靜置時間，無法得知10°C時靜置時間的影響。D 錯：表(五)靜置越久發芽率越高，不是越低。</p><p class="key"><strong>解題關鍵：</strong>先看每個表「改變了什麼」（操縱變因），結論只能談那個變因；看到「必」「一定」要檢查有沒有反例。</p></div>
+        </article>
+<section class="sec-head" id="ch2"><h3>2. 第 2 章 養分：酵素</h3><p>4 題・酵素與溫度、本氏液、對照組</p></section>
 <article class="card" data-chapter="第 2 章 養分：酵素" id="n1" data-answer="A">
-          <div class="q-head"><span class="num">07</span><div><span class="source">第 2 章 養分・第 8 題</span><h2>酵素與溫度</h2></div></div>
+          <div class="q-head"><span class="num">08</span><div><span class="source">第 2 章 養分・第 8 題</span><h2>酵素與溫度</h2></div></div>
           
           <p class="stem">取一支試管放入唾液 3 毫升，加熱煮沸後，冷卻到 37°C 再加入澱粉液 3 毫升，經 30 分鐘後加入等量的本氏液隔水加熱，則試管內的液體將呈現什麼顏色？</p>
           <div class="options"><label class="option"><input type="radio" name="n1" value="A"><span class="letter">A</span><span>淡藍色</span></label><label class="option"><input type="radio" name="n1" value="B"><span class="letter">B</span><span>紅色</span></label><label class="option"><input type="radio" name="n1" value="C"><span class="letter">C</span><span>橙色</span></label><label class="option"><input type="radio" name="n1" value="D"><span class="letter">D</span><span>無色透明</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>唾液中的澱粉酶是蛋白質，「加熱煮沸」後會變性、失去活性，就算再冷卻回 37°C 也不會恢復。所以澱粉沒有被分解成糖（麥芽糖），加入本氏液隔水加熱後不會變色，維持本氏液原本的淡藍色，選 A。紅色、橙色是有糖時本氏液的顏色。</p><p class="key"><strong>解題關鍵：</strong>看到「煮沸」→ 酵素失去活性（不可逆）→ 沒有糖 → 本氏液保持藍色。</p></div>
         </article>
 <article class="card" data-chapter="第 2 章 養分：酵素" id="n2" data-answer="D">
-          <div class="q-head"><span class="num">08</span><div><span class="source">第 2 章 養分・題組第 3 題</span><h2>實驗設計：對照組</h2></div></div>
+          <div class="q-head"><span class="num">09</span><div><span class="source">第 2 章 養分・題組第 3 題</span><h2>實驗設計：對照組</h2></div></div>
           <div class="context"><strong>題組資料</strong><p>小華在實驗室中進行酵素作用實驗，將四支試管加入試液靜置（甲試管加入試液後，先加熱至 100°C，再冷卻至 40°C 靜置）。＋代表有加入，－代表沒有加入。</p><div class="table-wrap"><table><tr><th>試管</th><th>3 毫升 1% 澱粉液</th><th>3 毫升唾液</th><th>3 毫升水</th><th>放置溫度</th></tr><tr><td>甲</td><td>＋</td><td>＋</td><td>－</td><td>40°C</td></tr><tr><td>乙</td><td>＋</td><td>＋</td><td>－</td><td>40°C</td></tr><tr><td>丙</td><td>＋</td><td>＋</td><td>－</td><td>5°C</td></tr><tr><td>丁</td><td>＋</td><td>－</td><td>＋</td><td>40°C</td></tr></table></div></div>
           <p class="stem">哪一支試管是所謂的對照組？</p>
           <div class="options"><label class="option"><input type="radio" name="n2" value="A"><span class="letter">A</span><span>甲試管</span></label><label class="option"><input type="radio" name="n2" value="B"><span class="letter">B</span><span>乙試管</span></label><label class="option"><input type="radio" name="n2" value="C"><span class="letter">C</span><span>丙試管</span></label><label class="option"><input type="radio" name="n2" value="D"><span class="letter">D</span><span>丁試管</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>這個實驗要看「有沒有加唾液（口水）」對澱粉分解的影響。丁試管用 3 毫升水代替唾液，其他條件（澱粉液、40°C）和乙相同，只有一個變因不同，所以丁是對照組。甲是改變「先加熱到 100°C」、丙是改變「放置溫度 5°C」，都是實驗組。</p><p class="key"><strong>解題關鍵：</strong>對照組＝不加入要測試的東西（唾液），其他條件都相同，只差一個變因。</p></div>
         </article>
 <article class="card" data-chapter="第 2 章 養分：酵素" id="n3" data-answer="D">
-          <div class="q-head"><span class="num">09</span><div><span class="source">第 2 章 養分・歷屆經典題 1（會考108）</span><h2>酵素活性與溫度</h2></div></div>
+          <div class="q-head"><span class="num">10</span><div><span class="source">第 2 章 養分・歷屆經典題 1（會考108）</span><h2>酵素活性與溫度</h2></div></div>
           <div class="context"><strong>題組資料</strong><p>利用相同茶樹的葉片但不同的製作過程，可得綠茶及紅茶。茶葉中所含的酵素 X 在超過 70°C 後，就無法再有催化能力。製作綠茶及紅茶的四個步驟（依序由步驟 I→II→III→IV）溫度如下表（依原題示意圖整理）：</p><div class="table-wrap"><table><tr><th>步驟</th><th>I</th><th>II</th><th>III</th><th>IV</th></tr><tr><td>綠茶</td><td>高於 70°C</td><td>低於 70°C</td><td>高於 70°C</td><td>低於 70°C</td></tr><tr><td>紅茶</td><td>低於 70°C</td><td>低於 70°C</td><td>高於 70°C</td><td>低於 70°C</td></tr></table></div></div>
           <p class="stem">比較四個步驟中綠茶及紅茶的酵素 X 之活性，下列何者最合理？</p>
           <div class="options"><label class="option"><input type="radio" name="n3" value="A"><span class="letter">A</span><span>步驟 I 結束時：綠茶＞紅茶</span></label><label class="option"><input type="radio" name="n3" value="B"><span class="letter">B</span><span>步驟 II 結束時：綠茶＝紅茶</span></label><label class="option"><input type="radio" name="n3" value="C"><span class="letter">C</span><span>步驟 III 結束時：綠茶＜紅茶</span></label><label class="option"><input type="radio" name="n3" value="D"><span class="letter">D</span><span>步驟 IV 結束時：綠茶＝紅茶</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>綠茶在步驟 I 就超過 70°C，酵素 X 從此失去催化能力，之後降溫也不會恢復；紅茶到步驟 III 才超過 70°C，也失去活性。步驟 I、II 結束時：綠茶已失活、紅茶還有活性 → 綠茶＜紅茶，所以 A、B 錯。步驟 III、IV 結束時兩者都已失活，活性都是 0 → 綠茶＝紅茶，所以 C 錯、D 正確。</p><p class="key"><strong>解題關鍵：</strong>超過 70°C 就「永久」失去活性：找出每種茶「第一次」超過 70°C 的步驟，不要只看同一步驟的溫度高低。</p></div>
-        </article></main>
+        </article><article class="card" data-chapter="第 2 章 養分：酵素" id="b11" data-answer="D">
+          <div class="q-head"><span class="num">11</span><div><span class="source">自然 第3回（第1～2冊）・第27題</span><h2>酵素活性與溫度：圖表判讀</h2></div></div>
+          
+          <div class="figure"><img src="./img/enzyme-graph.svg" alt="圖(十) 蛋白質濃度的變化" loading="lazy"></div><p class="stem">已知某酵素能將蛋白質分解，溫度超過80°C會使此酵素失去活性且無法恢復。小志將裝有蛋白質溶液和此酵素的燒杯加熱，沸騰後再靜置冷卻。圖(十)為過程中蛋白質濃度的變化情形，若蛋白質濃度變化只受酵素活性影響，不考慮水分蒸發等其他因素，則推測下列哪一時間點的溫度最可能超過80°C？</p>
+          <div class="options"><label class="option"><input type="radio" name="b11" value="A"><span class="letter">A</span><span>第10分鐘</span></label><label class="option"><input type="radio" name="b11" value="B"><span class="letter">B</span><span>第15分鐘</span></label><label class="option"><input type="radio" name="b11" value="C"><span class="letter">C</span><span>第20分鐘</span></label><label class="option"><input type="radio" name="b11" value="D"><span class="letter">D</span><span>第25分鐘</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>蛋白質濃度下降＝酵素還在分解蛋白質（有活性）。圖中0～25分鐘濃度一直下降，25分鐘之後濃度不再改變，表示酵素已失去活性，也就是溫度已超過80°C。第10、15、20分鐘時濃度都還在下降，酵素仍有活性，溫度還沒超過80°C，所以選第25分鐘（D）。</p><p class="key"><strong>解題關鍵：</strong>找圖中「曲線變平」的起點：濃度不再下降＝酵素失活＝溫度已超過80°C。</p></div>
+        </article>
+<section class="sec-head" id="ch3"><h3>3. 細胞與顯微鏡</h3><p>2 題・細胞學說、顯微鏡操作</p></section>
+<article class="card" data-chapter="細胞與顯微鏡" id="b12" data-answer="B">
+          <div class="q-head"><span class="num">12</span><div><span class="source">自然 第3回（第1～2冊）・第6題</span><h2>細胞的發現與細胞學說</h2></div></div>
+          
+          <p class="stem">細胞的發現使人們對生物體的認識由外而內，更加深入且細微。關於細胞的敘述，何者錯誤？</p>
+          <div class="options"><label class="option"><input type="radio" name="b12" value="A"><span class="letter">A</span><span>細胞是構成生物體的基本單位</span></label><label class="option"><input type="radio" name="b12" value="B"><span class="letter">B</span><span>虎克因觀察到軟木塞的細胞壁而提出細胞學說</span></label><label class="option"><input type="radio" name="b12" value="C"><span class="letter">C</span><span>人體內各種不同型態的細胞具有不同的功能</span></label><label class="option"><input type="radio" name="b12" value="D"><span class="letter">D</span><span>細胞內含有各種構造，分別具有不同的功能</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>虎克用自製顯微鏡觀察軟木塞薄片，看到許多小格子（其實是死細胞留下的細胞壁），並命名為「細胞」；但「細胞學說」是後來由許來登（植物）和許旺（動物）提出的，所以 B 錯誤。C 正確：人體細胞型態不同、功能也不同（例如神經細胞細長，能傳遞訊息）。注意題目問「錯誤」。</p><p class="key"><strong>解題關鍵：</strong>虎克＝命名細胞（看到的是細胞壁）；許來登＋許旺＝提出細胞學說。</p></div>
+        </article>
+<article class="card" data-chapter="細胞與顯微鏡" id="b13" data-answer="C">
+          <div class="q-head"><span class="num">13</span><div><span class="source">自然 第3回（第1～2冊）・第45題</span><h2>顯微鏡操作：倍率與移動方向</h2></div></div>
+          
+          <p class="stem">阿國使用圖(十九)中的甲觀察花粉外型，過程中發現視野中的影像太大且偏左，導致無法觀察到完整的花粉，則阿國應進行下列哪一操作，才最可能觀察到位於視野中央且完整的花粉影像？</p>
+          <div class="options"><label class="option"><input type="radio" name="b13" value="A"><span class="letter">A</span><span>更換為鏡筒較長的物鏡，並將玻片標本向左移動</span></label><label class="option"><input type="radio" name="b13" value="B"><span class="letter">B</span><span>更換為鏡筒較長的物鏡，並將玻片標本向右移動</span></label><label class="option"><input type="radio" name="b13" value="C"><span class="letter">C</span><span>更換為鏡筒較短的物鏡，並將玻片標本向左移動</span></label><label class="option"><input type="radio" name="b13" value="D"><span class="letter">D</span><span>更換為鏡筒較短的物鏡，並將玻片標本向右移動</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>① 影像太大、看不到完整花粉 → 要降低倍率。物鏡鏡筒越長倍率越高，所以要換鏡筒較短（低倍）的物鏡。② 複式顯微鏡的影像上下左右相反，影像偏左時，玻片要「往同方向」也就是向左移，影像才會移到中央。兩者合起來選 C。</p><p class="key"><strong>解題關鍵：</strong>物鏡：長＝高倍、短＝低倍；影像偏哪裡，玻片就往哪裡移（同向移動）。</p></div>
+        </article>
+<section class="sec-head" id="ch4"><h3>4. 植物的構造與運輸</h3><p>1 題・莖的構造、木質部與韌皮部</p></section>
+<article class="card" data-chapter="植物的構造與運輸" id="b14" data-answer="D">
+          <div class="q-head"><span class="num">14</span><div><span class="source">自然 第3回（第1～2冊）・第11題</span><h2>莖的構造：木質部運輸水分</h2></div></div>
+          
+          <div class="figure"><img src="./img/stem-section.svg" alt="圖(五) 某植物莖部橫切面示意" loading="lazy"></div><p class="stem">「無根草」是一種寄生性植物，纏繞於植物體（寄主）時，會用莖上長出的吸取器刺入寄主體內，以獲取所需的養分。圖(五)是某植物的莖部剖面圖，則無根草的吸取器刺入圖中的哪一部位時，能夠在最短時間內，從寄主體內獲取到最多的水分與礦物質？</p>
+          <div class="options"><label class="option"><input type="radio" name="b14" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="b14" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="b14" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="b14" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>題目要的是「水分與礦物質」，運輸水分和礦物質的是木質部（由下往上，從根運到葉）。莖橫切面由外而內：甲為表皮（含皮層）、乙為韌皮部、丙為形成層、丁為木質部，所以選丁（D）。乙韌皮部運輸的是葉子製造的「養分（醣類）」，不是水分與礦物質。</p><p class="key"><strong>解題關鍵：</strong>水分＋礦物質 → 木質部（在形成層內側）；養分（醣類）→ 韌皮部（在形成層外側）。</p></div>
+        </article>
+<section class="sec-head" id="ch5"><h3>5. 生殖、遺傳與生物技術</h3><p>2 題・減數分裂、生物防治</p></section>
+<article class="card" data-chapter="生殖、遺傳與生物技術" id="b15" data-answer="C">
+          <div class="q-head"><span class="num">15</span><div><span class="source">自然 第3回（第1～2冊）・第40題</span><h2>減數分裂</h2></div></div>
+          
+          <div class="figure"><img src="./img/meiosis.svg" alt="圖(十七) 細胞分裂過程甲～丁" loading="lazy"></div><p class="stem">國修在實驗室利用顯微鏡觀察人體某細胞進行分裂的完整過程，此過程包含甲～丁四個階段，觀察結果如圖(十七)，試問有關此分裂的敘述，下列何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="b15" value="A"><span class="letter">A</span><span>此細胞可能為人體的肌肉細胞</span></label><label class="option"><input type="radio" name="b15" value="B"><span class="letter">B</span><span>變形蟲行分裂生殖時，即進行此種過程</span></label><label class="option"><input type="radio" name="b15" value="C"><span class="letter">C</span><span>甲階段時細胞內的遺傳物質含量為丁階段時的2倍</span></label><label class="option"><input type="radio" name="b15" value="D"><span class="letter">D</span><span>乙→丙過程中，細胞進行複製染色體分離</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>一個細胞複製染色體一次、連續分裂兩次，最後形成4個細胞，這是「減數分裂」（形成精子或卵）。甲是原本的細胞（染色體 2n），丁是生殖細胞（染色體 n），所以甲的遺傳物質含量是丁的2倍（C）。A 錯：肌肉細胞是體細胞，進行細胞分裂，不會減數分裂。B 錯：變形蟲行分裂生殖是細胞分裂（1→2）。D 錯：乙→丙是第一次分裂，分離的是「成對（同源）染色體」；複製染色體分離發生在丙→丁。</p><p class="key"><strong>解題關鍵：</strong>1個→4個、染色體減半＝減數分裂（只發生在生殖器官產生配子時）；第一次分裂分開成對染色體，第二次分開複製染色體。</p></div>
+        </article>
+<article class="card" data-chapter="生殖、遺傳與生物技術" id="b16" data-answer="B">
+          <div class="q-head"><span class="num">16</span><div><span class="source">自然 第3回（第1～2冊）・第19題</span><h2>生物防治：蘇力菌</h2></div></div>
+          
+          <p class="stem">農業上常利用生物之間的交互關係，來達到防治害蟲的目的，蘇力菌（一種桿狀細菌）便是廣為使用的生物性藥劑。當小菜蛾幼蟲吞食蘇力菌後，蘇力菌會因幼蟲體內的鹼性環境及酵素作用而釋放出毒性蛋白質，使幼蟲腸道受損而死亡。此毒性蛋白質只對蛾類幼蟲有害，對於植物本身或是其他生物完全無害。試根據上述，判斷下列何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="b16" value="A"><span class="letter">A</span><span>蘇力菌體內具有細胞核</span></label><label class="option"><input type="radio" name="b16" value="B"><span class="letter">B</span><span>蘇力菌不會經由食物鏈而使人類中毒</span></label><label class="option"><input type="radio" name="b16" value="C"><span class="letter">C</span><span>蘇力菌進入小菜蛾幼蟲體內的原理與基因轉殖相同</span></label><label class="option"><input type="radio" name="b16" value="D"><span class="letter">D</span><span>利用蘇力菌作為生物性藥劑是生物複製的應用</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>文中說毒性蛋白質「只對蛾類幼蟲有害，對植物或其他生物完全無害」，所以不會經由食物鏈累積而讓人類中毒（B）。A 錯：蘇力菌是細菌，屬於原核生物，沒有細胞核（沒有核膜）。C 錯：蘇力菌是被幼蟲「吃進去」的，並沒有把基因放進幼蟲的細胞裡，不是基因轉殖。D 錯：這是利用生物間交互關係的「生物防治」，不是複製（產生遺傳性狀相同的個體）。</p><p class="key"><strong>解題關鍵：</strong>細菌＝原核生物（無細胞核）；閱讀題的答案要回到文中找證據（只對蛾類有害）。</p></div>
+        </article>
+<section class="sec-head" id="ch6"><h3>6. 生物的分類</h3><p>2 題・維管束植物、裸子／被子植物、原生生物</p></section>
+<article class="card" data-chapter="生物的分類" id="b17" data-answer="A">
+          <div class="q-head"><span class="num">17</span><div><span class="source">自然 第3回（第1～2冊）・第36題</span><h2>植物分類：歲寒三友</h2></div></div>
+          
+          <p class="stem">松、竹、梅合稱「歲寒三友」，松和竹在嚴寒時不落葉，梅在寒冬裡開花，故古代文人將其堅韌的生命力比喻為「廉潔堅毅」的象徵，宋代趙孟堅即繪有《歲寒三友圖》。試問關於歲寒三友的敘述，下列何者正確？　甲.均為維管束植物　乙.均為裸子植物　丙.均為被子植物</p>
+          <div class="options"><label class="option"><input type="radio" name="b17" value="A"><span class="letter">A</span><span>僅甲</span></label><label class="option"><input type="radio" name="b17" value="B"><span class="letter">B</span><span>僅丙</span></label><label class="option"><input type="radio" name="b17" value="C"><span class="letter">C</span><span>僅甲乙</span></label><label class="option"><input type="radio" name="b17" value="D"><span class="letter">D</span><span>僅甲丙</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>松、竹、梅都有根、莖、葉，且有維管束 → 甲正確。松是裸子植物（毬果，種子裸露、不開花）；竹和梅是被子植物（會開花、種子包在果實內，竹是單子葉、梅是雙子葉）。三者分屬裸子與被子，所以乙、丙都錯，選「僅甲」（A）。</p><p class="key"><strong>解題關鍵：</strong>松、杉、柏、蘇鐵、銀杏＝裸子植物；竹子雖然很少開花，仍是被子植物（禾本科）。</p></div>
+        </article>
+<article class="card" data-chapter="生物的分類" id="b18" data-answer="D">
+          <div class="q-head"><span class="num">18</span><div><span class="source">自然 第3回（第1～2冊）・第46題（題組）</span><h2>生物分類：藻類（昆布）</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>阿屯到一間火鍋店用餐，看到店家對昆布的介紹如圖(二十一)：「昆布是來自大海的巨型藻類，為一種不具有維管束的植物，能透過葉綠體捕捉來自陽光的能量，生長在15°C左右的海水中，具有類似根系的固著構造，將整株昆布固著於海床上。利用乾燥昆布來熬煮的湯頭，帶有鮮美的甜味。」</p></div>
+          <p class="stem">昆布「為一種不具有維管束的植物」，這樣的說法是否正確？又原因為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="b18" value="A"><span class="letter">A</span><span>正確，昆布是一種蘚苔植物</span></label><label class="option"><input type="radio" name="b18" value="B"><span class="letter">B</span><span>正確，藻類是一種無維管束的植物</span></label><label class="option"><input type="radio" name="b18" value="C"><span class="letter">C</span><span>錯誤，昆布是具有維管束的植物</span></label><label class="option"><input type="radio" name="b18" value="D"><span class="letter">D</span><span>錯誤，藻類屬於原生生物界</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>昆布（海帶）是大型的褐藻，藻類雖然有葉綠體、能行光合作用，但在分類上屬於「原生生物界」，不是植物界，所以店家說「是一種植物」是錯的（D）。C 錯在理由：昆布並沒有維管束，它的「類似根系的固著構造」只是固著器，不是真正的根。A、B 都把藻類當成植物，錯誤。</p><p class="key"><strong>解題關鍵：</strong>會行光合作用≠植物：藻類（含昆布、紫菜、矽藻）屬原生生物界；蘚苔才是無維管束的「植物」。</p></div>
+        </article>
+<section class="sec-head" id="ch7"><h3>7. 生態系</h3><p>2 題・族群與群集、碳循環</p></section>
+<article class="card" data-chapter="生態系" id="b19" data-answer="B">
+          <div class="q-head"><span class="num">19</span><div><span class="source">自然 第3回（第1～2冊）・第2題</span><h2>生態系的組成層次：族群與群集</h2></div></div>
+          
+          <p class="stem">明方到八里的紅樹林進行野外觀察，他在觀察紀錄中寫到：「今天在紅樹林看到了一大片水筆仔，還有許多彈塗魚和招潮蟹。」試問明方在紅樹林中所看到的「一大片水筆仔」應屬於下列哪一種生態系的組成層次？</p>
+          <div class="options"><label class="option"><input type="radio" name="b19" value="A"><span class="letter">A</span><span>一個個體</span></label><label class="option"><input type="radio" name="b19" value="B"><span class="letter">B</span><span>一個族群</span></label><label class="option"><input type="radio" name="b19" value="C"><span class="letter">C</span><span>一個群集</span></label><label class="option"><input type="radio" name="b19" value="D"><span class="letter">D</span><span>一個生態系</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>族群＝同一時間、同一地區內「同一種」生物的所有個體；群集＝同一地區內「所有不同種」族群的集合。「一大片水筆仔」只有水筆仔一種植物，是一個族群（B）。如果把水筆仔、彈塗魚、招潮蟹等所有生物合起來，才是群集；再加上陽光、水、土壤等環境因子，才是生態系。</p><p class="key"><strong>解題關鍵：</strong>族群與群集的差異：族群＝一種生物（同種）；群集＝很多種生物（不同種）。層次：個體→族群→群集→生態系。</p></div>
+        </article>
+<article class="card" data-chapter="生態系" id="b20" data-answer="A">
+          <div class="q-head"><span class="num">20</span><div><span class="source">自然 第3回（第1～2冊）・第7題</span><h2>碳循環：光合作用與呼吸作用</h2></div></div>
+          
+          <div class="figure"><img src="./img/carbon-cycle.svg" alt="圖(二) 碳循環的部分過程示意圖" loading="lazy"></div><p class="stem">圖(二)為碳循環的部分過程示意圖，其中大氣中的二氧化碳會藉由甲作用進入到生物體內，而生物體內的碳元素會藉由乙作用產生二氧化碳回到大氣中，關於甲和乙作用的敘述，下列何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="b20" value="A"><span class="letter">A</span><span>甲作用可能是生產者進行的光合作用</span></label><label class="option"><input type="radio" name="b20" value="B"><span class="letter">B</span><span>甲作用可能是分解者進行的呼吸作用</span></label><label class="option"><input type="radio" name="b20" value="C"><span class="letter">C</span><span>乙作用可能是生產者進行的蒸散作用</span></label><label class="option"><input type="radio" name="b20" value="D"><span class="letter">D</span><span>乙作用可能是消費者進行的光合作用</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>甲：二氧化碳「進入」生物體 → 只有生產者（植物、藻類）的光合作用能把二氧化碳變成醣類（A 正確）。B 錯：呼吸作用是「放出」二氧化碳，方向相反。乙：碳「回到」大氣成為二氧化碳 → 應該是呼吸作用或分解作用。C 錯：蒸散作用散失的是水蒸氣，不是二氧化碳。D 錯：消費者（動物）不能行光合作用。</p><p class="key"><strong>解題關鍵：</strong>CO₂ 進入生物＝光合作用（生產者）；CO₂ 回到大氣＝呼吸作用、分解作用、燃燒。</p></div>
+        </article>
+</main>
 <script>
 const cards=[...document.querySelectorAll('.card')];
 const downloadBtn=document.querySelector('#downloadDocx');
@@ -185,6 +268,7 @@ function collectMistakes(){
       selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
       answer:c.dataset.answer,
       explanation:feedback[1]?.textContent.trim()||'',
+      figures:[...c.querySelectorAll('.figure img')].map(i=>({src:i.getAttribute('src').replace(/\.svg$/,'.png'),alt:i.alt})),
       key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
     };
   });
@@ -204,7 +288,7 @@ function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());retur
 function makeDocxZip(files){
   const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
   for(const [name,text] of files){
-    const nameBytes=encoder.encode(name),data=encoder.encode(text),crc=crc32(data);
+    const nameBytes=encoder.encode(name),data=text instanceof Uint8Array?text:encoder.encode(text),crc=crc32(data);
     const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
     const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
     locals.push(local);centrals.push(central);offset+=local.length;
@@ -214,8 +298,34 @@ function makeDocxZip(files){
   return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
 }
 
-function buildMistakeDocx(){
+async function loadPng(src){
+  const res=await fetch(src);if(!res.ok)throw new Error(src);
+  const bytes=new Uint8Array(await res.arrayBuffer());
+  const dv=new DataView(bytes.buffer);
+  return {bytes,w:dv.getUint32(16),h:dv.getUint32(20)};
+}
+function imageParagraph(rid,id,w,h,alt){
+  const cx=Math.round(6.2*914400),cy=Math.round(cx*h/w);
+  return `<w:p><w:pPr><w:spacing w:after="80"/><w:jc w:val="center"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${id}" name="圖${id}" descr="${xmlEscape(alt)}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${id}" name="image${id}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+}
+async function buildMistakeDocx(){
   const mistakes=collectMistakes();
+  const media=[],relsXml=[],cache={};
+  for(const m of mistakes){
+    m.imgs=[];
+    for(const f of m.figures||[]){
+      try{
+        if(!cache[f.src]){
+          const png=await loadPng(f.src),n=media.length+1;
+          media.push([`word/media/image${n}.png`,png.bytes]);
+          relsXml.push(`<Relationship Id="rImg${n}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/image${n}.png"/>`);
+          cache[f.src]={rid:`rImg${n}`,w:png.w,h:png.h};
+        }
+        m.imgs.push({...cache[f.src],alt:f.alt});
+      }catch(e){console.warn('圖片載入失敗',f.src)}
+    }
+  }
+  let picId=0;
   let body=wordParagraph('生物錯題詳解',{bold:true,size:34,color:'17313A',after:180});
   body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　錯題與未作答共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
   if(!mistakes.length){
@@ -225,6 +335,7 @@ function buildMistakeDocx(){
       if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
       body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
       if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      m.imgs.forEach(im=>{body+=imageParagraph(im.rid,++picId,im.w,im.h,im.alt)});
       body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
       m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
       body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
@@ -234,15 +345,17 @@ function buildMistakeDocx(){
       body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
     });
   }
-  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
-  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
   const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
-  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml]]);
+  const docRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${relsXml.join('')}</Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml],['word/_rels/document.xml.rels',docRels],...media]);
 }
 
-downloadBtn.addEventListener('click',()=>{
+downloadBtn.addEventListener('click',async()=>{
   if(!graded)return;
-  const blob=buildMistakeDocx();
+  downloadBtn.disabled=true;
+  let blob;try{blob=await buildMistakeDocx()}finally{downloadBtn.disabled=false}
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');
   a.href=url;a.download='生物錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();

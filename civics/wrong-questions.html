@@ -17,10 +17,11 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
 .card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
 .feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
 .unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
-.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}</style></head><body>
+.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;max-width:640px;margin:0 auto;height:auto;border:1px solid var(--line);border-radius:12px;background:#fffdf8}
+</style></head><body>
 <a class="dashboard-link" href="../../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
-<header><h1>公民錯題</h1><p>依章節概念分類，共 29 題。每題選擇答案後，會立即顯示正確答案與詳細講解；作答完可下載錯題詳解 DOCX。部分填充題的選項是為線上練習新增。</p><nav class="jump"><a href="#ch1">民主法治與公民德性</a><a href="#ch2">權利與國籍</a><a href="#ch3">稀少性與財貨</a><a href="#ch4">選擇與機會成本</a><a href="#ch5">市場、消費與供給</a><a href="#ch6">生產、成本與利潤</a><a href="#ch7">閱讀理解與名言</a><a href="#ch8">家庭與親屬</a></nav></header>
-<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 29</span></div>
+<header><h1>公民錯題</h1><p>依章節概念分類，共 41 題。每題選擇答案後，會立即顯示正確答案與詳細講解；作答完可下載錯題詳解 DOCX。部分填充題的選項是為線上練習新增。</p><nav class="jump"><a href="#ch1">民主法治與公民德性</a><a href="#ch2">權利與國籍</a><a href="#ch3">稀少性與財貨</a><a href="#ch4">選擇與機會成本</a><a href="#ch5">市場、消費與供給</a><a href="#ch6">生產、成本與利潤</a><a href="#ch7">閱讀理解與名言</a><a href="#ch8">家庭與親屬</a><a href="#ch9">地方自治</a><a href="#ch10">選舉與公民投票</a><a href="#ch11">中央政府：監察院與司法院</a></nav></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 41</span></div>
 <main><section class="sec-head" id="ch1"><h3>1. 民主法治與公民德性</h3><p>2 題・法治、公民德性</p></section>
 <article class="card" data-chapter="民主法治與公民德性" id="n1" data-answer="B">
           <div class="q-head"><span class="num">01</span><div><span class="source">第 5 題</span><h2>民主與法治</h2></div></div>
@@ -231,7 +232,94 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
           <p class="stem">根據圖中資料判斷，下列說法何者正確？</p>
           <div class="options"><label class="option"><input type="radio" name="q29" value="A"><span class="letter">A</span><span>法令僅允許女性申請育嬰假</span></label><label class="option"><input type="radio" name="q29" value="B"><span class="letter">B</span><span>女性的平均薪資略高於男性</span></label><label class="option"><input type="radio" name="q29" value="C"><span class="letter">C</span><span>男性申請育嬰津貼比例漸高</span></label><label class="option"><input type="radio" name="q29" value="D"><span class="letter">D</span><span>男性已成為家庭中主要照顧者</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>圖中男性的給付件數逐年上升，表示男性申請育嬰津貼的比例漸高，選 C。A 錯：圖中有男性申請，表示男女都可以申請育嬰假。B 錯：圖只呈現「件數」，沒有薪資資料，無法判斷。D 錯：女性件數仍遠多於男性，女性仍是主要照顧者。</p><p class="key"><strong>解題關鍵：</strong>圖表題只能根據圖中有的資料判斷；圖是「件數」，就不能推出「薪資」。</p></div>
-        </article></main>
+        </article><section class="sec-head" id="ch9"><h3>9. 地方自治</h3><p>4 題・均權制度、自治團體、派出單位</p></section>
+<article class="card" data-chapter="地方自治" id="c30" data-answer="A">
+          <div class="q-head"><span class="num">30</span><div><span class="source">公民⑤ 地方自治・第4題</span><h2>中央與地方的權限劃分（均權制度）</h2></div></div>
+          
+          <p class="stem">下列有關我國中央政府與地方政府權限的劃分，下列說法何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="c30" value="A"><span class="letter">A</span><span>是依事務的性質區分</span></label><label class="option"><input type="radio" name="c30" value="B"><span class="letter">B</span><span>規範範圍大的屬中央</span></label><label class="option"><input type="radio" name="c30" value="C"><span class="letter">C</span><span>全國一致的是地方職權</span></label><label class="option"><input type="radio" name="c30" value="D"><span class="letter">D</span><span>因地制宜的是中央職權</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>我國採「均權制度」：依事務的性質來劃分中央與地方的權限（A）。有全國一致性質的事務（例如國防、外交）屬中央；有因地制宜性質的事務（例如地方的社會福利、地方交通）屬地方。B 錯：不是看「規範範圍大小」；C、D 把中央與地方弄反了。</p><p class="key"><strong>解題關鍵：</strong>均權制度＝依「事務性質」劃分：全國一致→中央；因地制宜→地方。</p></div>
+        </article>
+<article class="card" data-chapter="地方自治" id="c31" data-answer="B">
+          <div class="q-head"><span class="num">31</span><div><span class="source">公民⑤ 地方自治・第7題</span><h2>直轄市政府的派出單位</h2></div></div>
+          
+          <p class="stem">若依照我國現行的地方政府組織判斷，直轄市政府的派出單位為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="c31" value="A"><span class="letter">A</span><span>鄉公所</span></label><label class="option"><input type="radio" name="c31" value="B"><span class="letter">B</span><span>區公所</span></label><label class="option"><input type="radio" name="c31" value="C"><span class="letter">C</span><span>直轄市議會</span></label><label class="option"><input type="radio" name="c31" value="D"><span class="letter">D</span><span>縣政府</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>直轄市底下的「區」（山地原住民區除外）不是自治團體，區公所是直轄市政府派出去辦事的單位，區長由市長任命（B）。鄉公所屬於縣底下的「鄉」，是自治團體的行政機關，鄉長由人民選舉；直轄市議會是直轄市的立法機關；縣政府與直轄市平行，不是它的下屬。</p><p class="key"><strong>解題關鍵：</strong>區公所＝派出單位（區長官派）；鄉（鎮、市）公所＝自治團體（鄉長民選）。</p></div>
+        </article>
+<article class="card" data-chapter="地方自治" id="c32" data-answer="A">
+          <div class="q-head"><span class="num">32</span><div><span class="source">公民 地方自治・第11題</span><h2>地方自治團體的範圍</h2></div></div>
+          
+          <p class="stem">依地方制度法規定，對轄內部分公共事務享有自治權限，也是我國的地方自治團體者，不包括下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="c32" value="A"><span class="letter">A</span><span>與縣同等級的市所管轄的區</span></label><label class="option"><input type="radio" name="c32" value="B"><span class="letter">B</span><span>縣所管轄的鄉</span></label><label class="option"><input type="radio" name="c32" value="C"><span class="letter">C</span><span>直轄市的山地原住民區</span></label><label class="option"><input type="radio" name="c32" value="D"><span class="letter">D</span><span>直轄市</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>地方自治團體包括：直轄市（市政府）、縣（市）、鄉（鎮、市）（鄉公所），以及直轄市的山地原住民區（區公所，區長民選）。「與縣同等級的市」（如新竹市、嘉義市）底下的區，和直轄市一般的區一樣，只是派出單位，不是自治團體，所以選 A。注意題目問「不包括」。</p><p class="key"><strong>解題關鍵：</strong>有「民選首長＋民意機關」的才是自治團體；一般的「區」沒有，山地原住民區是例外。</p></div>
+        </article>
+<article class="card" data-chapter="地方自治" id="c33" data-answer="C">
+          <div class="q-head"><span class="num">33</span><div><span class="source">公民 地方自治・第12題</span><h2>省不是地方自治團體</h2></div></div>
+          
+          <p class="stem">根據目前我國現行法律規定，下列何者不屬於地方自治團體？</p>
+          <div class="options"><label class="option"><input type="radio" name="c33" value="A"><span class="letter">A</span><span>直轄市</span></label><label class="option"><input type="radio" name="c33" value="B"><span class="letter">B</span><span>直轄市山地原住民區</span></label><label class="option"><input type="radio" name="c33" value="C"><span class="letter">C</span><span>省</span></label><label class="option"><input type="radio" name="c33" value="D"><span class="letter">D</span><span>鄉</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>1998年「精省」後，省已經不再是地方自治團體，省政府只是行政院的派出機關（目前業務已移撥）。直轄市（市政府）、直轄市山地原住民區（區公所）、鄉（鄉公所）都是地方自治團體，所以選 C。</p><p class="key"><strong>解題關鍵：</strong>精省後：省≠自治團體；地方自治團體只有兩級——直轄市／縣（市）→ 鄉（鎮、市）／山地原住民區。</p></div>
+        </article>
+<section class="sec-head" id="ch10"><h3>10. 選舉與公民投票</h3><p>6 題・投票原則、選舉資格、公投程序</p></section>
+<article class="card" data-chapter="選舉與公民投票" id="c34" data-answer="D">
+          <div class="q-head"><span class="num">34</span><div><span class="source">公民⑥ 選舉・第8題</span><h2>投票日領取選票的必備證件</h2></div></div>
+          
+          <p class="stem">投票日當天，選民若沒有攜帶下列何項物品前往投票所，將無法領取選票？</p>
+          <div class="options"><label class="option"><input type="radio" name="c34" value="A"><span class="letter">A</span><span>投票通知單</span></label><label class="option"><input type="radio" name="c34" value="B"><span class="letter">B</span><span>戶口名簿</span></label><label class="option"><input type="radio" name="c34" value="C"><span class="letter">C</span><span>印章</span></label><label class="option"><input type="radio" name="c34" value="D"><span class="letter">D</span><span>身分證</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>領取選票時必須出示「國民身分證」核對身分，沒有帶身分證就不能領票（D）。投票通知單只是提醒投票地點，沒帶也可以投；印章可以用按指印代替；戶口名簿不需要攜帶。</p><p class="key"><strong>解題關鍵：</strong>投票必帶：身分證（必帶）＋印章（可用指印代替）；通知單可不帶。</p></div>
+        </article>
+<article class="card" data-chapter="選舉與公民投票" id="c35" data-answer="D">
+          <div class="q-head"><span class="num">35</span><div><span class="source">公民⑥ 選舉・第15題（精熟活用）</span><h2>區域立委與市議員選舉的比較</h2></div></div>
+          
+          <p class="stem">臺北市某市議員轉選立法委員，故尋求政黨提名成為區域立委候選人，有關此兩種公職的選舉，下列哪一個選民說法正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="c35" value="A"><span class="letter">A</span><span>最低參選年齡不同，立法委員比市議員最低參選年齡大</span></label><label class="option"><input type="radio" name="c35" value="B"><span class="letter">B</span><span>市議員是民意代表，區域立委是行政首長</span></label><label class="option"><input type="radio" name="c35" value="C"><span class="letter">C</span><span>連選連任次數不同，市議員只能連任一次，立委沒有次數限制</span></label><label class="option"><input type="radio" name="c35" value="D"><span class="letter">D</span><span>區域立委一選區只有一名當選人，市議員有多位當選人</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>區域立委採「單一選區」，一個選區只選出一名；市議員採「複數選區」，一個選區選出多名（D）。A 錯：立委和市議員最低參選年齡都是23歲。B 錯：兩者都是民意代表，行政首長是市長、總統等。C 錯：民意代表（立委、議員）連選得連任，沒有次數限制；有連任一次限制的是行政首長（總統、縣市長等）。</p><p class="key"><strong>解題關鍵：</strong>立委＝單一選區（選1人）；議員＝複數選區（選多人）。民意代表無連任限制，行政首長只能連任一次。</p></div>
+        </article>
+<article class="card" data-chapter="選舉與公民投票" id="c36" data-answer="C">
+          <div class="q-head"><span class="num">36</span><div><span class="source">公民⑥ 選舉・第16題</span><h2>公民投票的程序</h2></div></div>
+          
+          <div class="figure"><img src="./img/referendum-flow.svg" alt="圖❶ 公民投票的程序" loading="lazy"></div><p class="stem">圖❶是有關公民投票的程序，其中何者錯誤？</p>
+          <div class="options"><label class="option"><input type="radio" name="c36" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="c36" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="c36" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="c36" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>2017年修正《公民投票法》後，已經廢除「公投審議委員會」，公投案改由「中央選舉委員會」審核。正確程序：提案 → 中選會審核 → 人民連署 → 中選會審核、公告 → 投票。所以「丙：公投審議委員會審查」錯誤（C）。</p><p class="key"><strong>解題關鍵：</strong>公投審議委員會已廢除，現由中選會審核；公投投票年齡為18歲（選舉投票為20歲）。</p></div>
+        </article>
+<article class="card" data-chapter="選舉與公民投票" id="c37" data-answer="D">
+          <div class="q-head"><span class="num">37</span><div><span class="source">國中社會3・第19題</span><h2>褫奪公權的影響</h2></div></div>
+          
+          <p class="stem">絡基今年30歲，因被褫奪公權，在尚未復權前，他不能從事下列何事？</p>
+          <div class="options"><label class="option"><input type="radio" name="c37" value="A"><span class="letter">A</span><span>選舉時投票給候選人</span></label><label class="option"><input type="radio" name="c37" value="B"><span class="letter">B</span><span>參加政黨</span></label><label class="option"><input type="radio" name="c37" value="C"><span class="letter">C</span><span>參加地方性公投的投票</span></label><label class="option"><input type="radio" name="c37" value="D"><span class="letter">D</span><span>擔任公職人員</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>依刑法規定，褫奪公權是剝奪「為公務員的資格」和「為公職候選人的資格」，所以他不能擔任公職人員（D）。選舉投票權（選舉權）、參加政黨、公投投票都不受褫奪公權影響，仍然可以。</p><p class="key"><strong>解題關鍵：</strong>褫奪公權＝失去「當公務員」和「當候選人（被選舉）」的資格；仍可投票。</p></div>
+        </article>
+<article class="card" data-chapter="選舉與公民投票" id="c38" data-answer="D">
+          <div class="q-head"><span class="num">38</span><div><span class="source">國中社會3・第20題</span><h2>縣市長選舉與總統選舉的比較</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>表❶　「縣市長選舉與總統選舉」的比較</p><div class="table-wrap"><table><tr><th>選項</th><th>縣市長選舉</th><th>總統選舉</th></tr><tr><td>甲</td><td>依公職人員選舉罷免法辦理</td><td>依總統副總統選舉罷免法辦理</td></tr><tr><td>乙</td><td>選舉人須年滿20歲</td><td>選舉人須為我國公民</td></tr><tr><td>丙</td><td>被選舉人須未受監護宣告</td><td>被選舉人須未受褫奪公權</td></tr><tr><td>丁</td><td>被選舉人至少須年滿26歲</td><td>被選舉人至少須年滿40歲</td></tr></table></div></div>
+          <p class="stem">表❶中有關「縣市長選舉與總統選舉」的比較，何者錯誤？</p>
+          <div class="options"><label class="option"><input type="radio" name="c38" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="c38" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="c38" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="c38" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>縣市長（含直轄市長）的被選舉人須年滿「30歲」，不是26歲，所以丁錯誤（D）。乙正確：選舉的投票年齡是年滿20歲（18歲是公民投票的投票年齡，不要搞混）。總統候選人須年滿40歲。</p><p class="key"><strong>解題關鍵：</strong>被選舉年齡：總統副總統40歲、縣市長30歲、鄉鎮市長26歲、民意代表23歲；選舉投票20歲、公投投票18歲。</p></div>
+        </article>
+<article class="card" data-chapter="選舉與公民投票" id="c39" data-answer="B">
+          <div class="q-head"><span class="num">39</span><div><span class="source">國中社會・第29題（生活題）</span><h2>選舉人的居住期間條件</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>圖❻　○○縣選舉委員會通知單</p><div class="table-wrap"><table><tr><th>選舉人姓名</th><td>XXX</td></tr><tr><th>投票所別及地點</th><td>請到第0436號投票所投票（瀰雅村活動中心）</td></tr><tr><th rowspan="3">選舉種類</th><td>✓ 總統副總統選舉</td></tr><tr><td>✓ 全國不分區及僑居國外國民立法委員</td></tr><tr><td>　 立法委員（區域、平地原住民）（未勾選）</td></tr><tr><th>戶籍地址</th><td>○○路一段786號</td></tr></table></div></div>
+          <p class="stem">圖❻為文玲在2024年選舉中拿到的投票通知單，在圖中的選舉種類中，已知她在此次選舉只能領取兩張選票，其理由最可能是下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="c39" value="A"><span class="letter">A</span><span>其年齡已滿19歲</span></label><label class="option"><input type="radio" name="c39" value="B"><span class="letter">B</span><span>在戶籍所在地設籍未滿4個月</span></label><label class="option"><input type="radio" name="c39" value="C"><span class="letter">C</span><span>尚未具備中華民國國籍</span></label><label class="option"><input type="radio" name="c39" value="D"><span class="letter">D</span><span>受褫奪公權宣告</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>要投「區域立委」，必須在該選舉區繼續居住（設籍）4個月以上。文玲可以投總統和不分區立委（全國性的選舉），卻不能投區域立委，最可能是剛搬家、在新戶籍地設籍未滿4個月（B）。A 錯：選舉投票年齡須滿20歲，19歲不能投任何一張。C 錯：沒有國籍就完全沒有選舉權。D 錯：褫奪公權不影響投票權。</p><p class="key"><strong>解題關鍵：</strong>區域選舉（區域立委、縣市長、議員）須在該選區住滿4個月；全國性選舉看的是全國範圍。</p></div>
+        </article>
+<section class="sec-head" id="ch11"><h3>11. 中央政府：監察院與司法院</h3><p>2 題・彈劾、糾舉、糾正、懲戒</p></section>
+<article class="card" data-chapter="中央政府：監察院與司法院" id="c40" data-answer="A">
+          <div class="q-head"><span class="num">40</span><div><span class="source">國中社會3・第13題</span><h2>監察院的職權</h2></div></div>
+          
+          <p class="stem">監察院發布新聞稿指出，由於年度預算遭到刪減，可能有多項業務受到影響。上述提到受到影響的業務不包括下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="c40" value="A"><span class="letter">A</span><span>對於地方民意代表的彈劾</span></label><label class="option"><input type="radio" name="c40" value="B"><span class="letter">B</span><span>對行政院轄下機關的糾正</span></label><label class="option"><input type="radio" name="c40" value="C"><span class="letter">C</span><span>對各政府機關決算的審計</span></label><label class="option"><input type="radio" name="c40" value="D"><span class="letter">D</span><span>對各地方行政官員的糾舉</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>監察院的職權有彈劾、糾舉、糾正、審計等，但彈劾、糾舉的對象是「公務人員」（含地方行政首長），不包括民意代表。民意代表（立委、議員）由人民選出，若失職應由選民罷免，監察院不能彈劾，所以 A 不是監察院的業務。B 糾正（對機關）、C 審計（由審計部審核決算）、D 糾舉（對公務人員）都是監察院的職權。</p><p class="key"><strong>解題關鍵：</strong>監察院管「公務人員」與「行政機關」，不管民意代表；民意代表由人民罷免。</p></div>
+        </article>
+<article class="card" data-chapter="中央政府：監察院與司法院" id="c41" data-answer="D">
+          <div class="q-head"><span class="num">41</span><div><span class="source">國中社會3・第21題</span><h2>彈劾權與懲戒權</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>表❹　違法或失職公務人員的彈劾權與懲戒權之比較</p><div class="table-wrap"><table><tr><th></th><th>彈劾權</th><th>懲戒權</th></tr><tr><th>所屬機關</th><td>(甲)立法院</td><td>(乙)監察院</td></tr><tr><th>程序</th><td>(丙)由立法委員行使</td><td>(丁)由懲戒法院負責</td></tr></table></div></div>
+          <p class="stem">表❹中有關違法或失職公務人員的彈劾權與懲戒權之比較，何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="c41" value="A"><span class="letter">A</span><span>(甲)</span></label><label class="option"><input type="radio" name="c41" value="B"><span class="letter">B</span><span>(乙)</span></label><label class="option"><input type="radio" name="c41" value="C"><span class="letter">C</span><span>(丙)</span></label><label class="option"><input type="radio" name="c41" value="D"><span class="letter">D</span><span>(丁)</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>彈劾權屬於監察院，由監察委員提出彈劾案，所以(甲)應改為監察院、(丙)應改為監察委員；懲戒權屬於司法院，由司法院所屬的「懲戒法院」審理，所以(乙)應改為司法院，(丁)正確（D）。</p><p class="key"><strong>解題關鍵：</strong>監察院「彈劾」（提出控訴）→ 司法院懲戒法院「懲戒」（決定處分）。</p></div>
+        </article>
+</main>
 <script>
 const cards=[...document.querySelectorAll('.card')];
 const downloadBtn=document.querySelector('#downloadDocx');
@@ -331,6 +419,7 @@ function collectMistakes(){
       selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
       answer:c.dataset.answer,
       explanation:feedback[1]?.textContent.trim()||'',
+      figures:[...c.querySelectorAll('.figure img')].map(i=>({src:i.getAttribute('src').replace(/\.svg$/,'.png'),alt:i.alt})),
       key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
     };
   });
@@ -350,7 +439,7 @@ function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());retur
 function makeDocxZip(files){
   const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
   for(const [name,text] of files){
-    const nameBytes=encoder.encode(name),data=encoder.encode(text),crc=crc32(data);
+    const nameBytes=encoder.encode(name),data=text instanceof Uint8Array?text:encoder.encode(text),crc=crc32(data);
     const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
     const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
     locals.push(local);centrals.push(central);offset+=local.length;
@@ -360,8 +449,34 @@ function makeDocxZip(files){
   return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
 }
 
-function buildMistakeDocx(){
+async function loadPng(src){
+  const res=await fetch(src);if(!res.ok)throw new Error(src);
+  const bytes=new Uint8Array(await res.arrayBuffer());
+  const dv=new DataView(bytes.buffer);
+  return {bytes,w:dv.getUint32(16),h:dv.getUint32(20)};
+}
+function imageParagraph(rid,id,w,h,alt){
+  const cx=Math.round(6.2*914400),cy=Math.round(cx*h/w);
+  return `<w:p><w:pPr><w:spacing w:after="80"/><w:jc w:val="center"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${id}" name="圖${id}" descr="${xmlEscape(alt)}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${id}" name="image${id}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+}
+async function buildMistakeDocx(){
   const mistakes=collectMistakes();
+  const media=[],relsXml=[],cache={};
+  for(const m of mistakes){
+    m.imgs=[];
+    for(const f of m.figures||[]){
+      try{
+        if(!cache[f.src]){
+          const png=await loadPng(f.src),n=media.length+1;
+          media.push([`word/media/image${n}.png`,png.bytes]);
+          relsXml.push(`<Relationship Id="rImg${n}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/image${n}.png"/>`);
+          cache[f.src]={rid:`rImg${n}`,w:png.w,h:png.h};
+        }
+        m.imgs.push({...cache[f.src],alt:f.alt});
+      }catch(e){console.warn('圖片載入失敗',f.src)}
+    }
+  }
+  let picId=0;
   let body=wordParagraph('公民錯題詳解',{bold:true,size:34,color:'17313A',after:180});
   body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　錯題與未作答共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
   if(!mistakes.length){
@@ -371,6 +486,7 @@ function buildMistakeDocx(){
       if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
       body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
       if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      m.imgs.forEach(im=>{body+=imageParagraph(im.rid,++picId,im.w,im.h,im.alt)});
       body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
       m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
       body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
@@ -380,15 +496,17 @@ function buildMistakeDocx(){
       body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
     });
   }
-  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
-  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
   const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
-  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml]]);
+  const docRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${relsXml.join('')}</Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml],['word/_rels/document.xml.rels',docRels],...media]);
 }
 
-downloadBtn.addEventListener('click',()=>{
+downloadBtn.addEventListener('click',async()=>{
   if(!graded)return;
-  const blob=buildMistakeDocx();
+  downloadBtn.disabled=true;
+  let blob;try{blob=await buildMistakeDocx()}finally{downloadBtn.disabled=false}
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');
   a.href=url;a.download='公民錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();

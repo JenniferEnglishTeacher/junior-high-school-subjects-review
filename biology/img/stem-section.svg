@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" role="img" aria-label="莖部橫切面示意圖" font-family="Noto Sans CJK TC,Microsoft JhengHei,sans-serif">
+<rect width="640" height="380" fill="#fffdf8"/>
+<g transform="translate(230,190)">
+<circle r="160" fill="#f6efe2" stroke="#17313a" stroke-width="3"/>
+<circle r="150" fill="#f6efe2" stroke="#8a7a5a" stroke-width="1"/>
+<circle r="118" fill="#cde8d9" stroke="#17313a" stroke-width="1.5"/>
+<circle r="98" fill="#fff" stroke="#17313a" stroke-width="2" stroke-dasharray="4 3"/>
+<circle r="96" fill="#b9cfe6" stroke="#17313a" stroke-width="1.5"/>
+<circle r="62" fill="#fbf7ee" stroke="#17313a" stroke-width="1.5"/>
+</g>
+<g stroke="#17313a" stroke-width="1.5"><line x1="357" y1="101" x2="470" y2="78"/><line x1="328" y1="144" x2="470" y2="132"/><line x1="324" y1="165" x2="470" y2="186"/><line x1="300" y1="186" x2="470" y2="240"/></g>
+<g font-size="20" font-weight="700" fill="#17313a"><text x="478" y="85">甲</text><text x="478" y="139">乙</text><text x="478" y="193">丙</text><text x="478" y="247">丁</text></g>
+<text x="230" y="196" text-anchor="middle" font-size="15" fill="#61727a">髓</text>
+<text x="320" y="368" text-anchor="middle" font-size="15" fill="#61727a">圖(五)　某植物莖部橫切面（示意重繪，由外而內：甲、乙、丙、丁）</text>
+</svg>

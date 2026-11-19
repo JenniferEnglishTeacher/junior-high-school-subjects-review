@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 150" role="img" aria-label="公民投票程序圖" font-family="Noto Sans CJK TC,Microsoft JhengHei,sans-serif">
+<rect width="860" height="150" fill="#fffdf8"/>
+<g font-size="22" font-weight="800" fill="#17313a"><text x="12" y="72">甲</text><text x="196" y="72">乙</text><text x="380" y="72">丙</text><text x="618" y="72">丁</text></g>
+<g fill="#4f9a73"><path d="M40,50h120l18,18l-18,18h-120z"/><path d="M224,50h120l18,18l-18,18h-120z"/><path d="M408,50h176l18,18l-18,18h-176z"/><path d="M646,50h90l18,18l-18,18h-90z"/></g>
+<g font-size="18" font-weight="700" fill="#fff" text-anchor="middle"><text x="100" y="75">提案</text><text x="284" y="75">人民連署</text><text x="496" y="75">公投審議委員會審查</text><text x="691" y="75">公告</text></g>
+<rect x="768" y="50" width="80" height="36" rx="6" fill="#2f5d8a"/><text x="808" y="75" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">投票</text>
+<text x="430" y="130" text-anchor="middle" font-size="15" fill="#61727a">圖❶　依原題程序圖重繪</text>
+</svg>
