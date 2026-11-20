@@ -17,329 +17,335 @@ main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:2
 .card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
 .feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
 .unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
-.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;max-width:640px;margin:0 auto;height:auto;border:1px solid var(--line);border-radius:12px;background:#fffdf8}
+.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.unit-head{margin-top:26px;padding:16px 22px;border-radius:18px;background:var(--ink);color:white;scroll-margin-top:70px}.unit-head h2{margin:0;font-size:1.6rem}.unit-head p{margin:2px 0 0;opacity:.85}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;max-width:640px;margin:0 auto;height:auto;border:1px solid var(--line);border-radius:12px;background:#fffdf8}
 </style></head><body>
 <a class="dashboard-link" href="../../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
-<header><h1>公民錯題</h1><p>依章節概念分類，共 44 題。每題選擇答案後，會立即顯示正確答案與詳細講解；作答完可下載錯題詳解 DOCX。部分填充題的選項是為線上練習新增。</p><nav class="jump"><a href="#ch1">民主法治與公民德性</a><a href="#ch2">權利與國籍</a><a href="#ch3">稀少性與財貨</a><a href="#ch4">選擇與機會成本</a><a href="#ch5">市場、消費與供給</a><a href="#ch6">生產、成本與利潤</a><a href="#ch7">閱讀理解與名言</a><a href="#ch8">家庭與親屬</a><a href="#ch9">地方自治</a><a href="#ch10">選舉與公民投票</a><a href="#ch11">中央政府：五院職權</a><a href="#ch12">國家、法治與權力分立</a></nav></header>
+<header><h1>公民錯題</h1><p>依國中公民四大單元・章節概念分類，共 44 題。每題選擇答案後，會立即顯示正確答案與詳細講解；作答完可下載錯題詳解 DOCX。部分填充題的選項是為線上練習新增。</p><nav class="jump"><a href="#u1">一、個人與社會生活</a><a href="#u2">二、政治與政府</a><a href="#u3">三、法律與權利</a><a href="#u4">四、經濟生活</a></nav></header>
 <div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 44</span></div>
-<main><section class="sec-head" id="ch1"><h3>1. 民主法治與公民德性</h3><p>2 題・法治、公民德性</p></section>
-<article class="card" data-chapter="民主法治與公民德性" id="n1" data-answer="B">
-          <div class="q-head"><span class="num">01</span><div><span class="source">第 5 題</span><h2>民主與法治</h2></div></div>
-          
-          <p class="stem">民主社會中，每一個成員有義務遵守法律，下列何者最能解釋之？</p>
-          <div class="options"><label class="option"><input type="radio" name="n1" value="A"><span class="letter">A</span><span>法律是由統治者決定</span></label><label class="option"><input type="radio" name="n1" value="B"><span class="letter">B</span><span>民主應以法治為基礎</span></label><label class="option"><input type="radio" name="n1" value="C"><span class="letter">C</span><span>法律無法制裁違法者</span></label><label class="option"><input type="radio" name="n1" value="D"><span class="letter">D</span><span>人民無理智思考能力</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>民主國家的法律是由人民選出的代表（立法委員）經過立法程序制定的，不是由統治者一個人決定，所以 A 錯。法律代表全體人民的共同約定，民主必須以法治為基礎，人人都要遵守，才能保障每個人的權利，選 B。C 法律可以制裁違法者；D 民主相信人民有理性思考能力，兩者都不對。</p><p class="key"><strong>解題關鍵：</strong>民主＋法治：法律由「人民選出的代表」制定 → 大家都要遵守。</p></div>
-        </article>
-<article class="card" data-chapter="民主法治與公民德性" id="n2" data-answer="C">
-          <div class="q-head"><span class="num">02</span><div><span class="source">第 12 題</span><h2>公民德性</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p><strong>投票前夕　中選會提醒：投票時應注意事項</strong><br>1 月 12 日是選舉造勢活動最後一天，所有集會活動必須在晚間 10 點前結束，自 1 月 13 日凌晨 0 時起，不能在通訊軟體 LINE、臉書等社群媒體，為任何候選人助選，違反者，最高可處 200 萬元。</p></div>
-          <p class="stem">總統大選前夕，中選會透過媒體發布上方的海報。根據海報內容判斷，是提醒哪一種公民德性的重要性？</p>
-          <div class="options"><label class="option"><input type="radio" name="n2" value="A"><span class="letter">A</span><span>和平尊重包容</span></label><label class="option"><input type="radio" name="n2" value="B"><span class="letter">B</span><span>捍衛公平正義</span></label><label class="option"><input type="radio" name="n2" value="C"><span class="letter">C</span><span>遵守法律規範</span></label><label class="option"><input type="radio" name="n2" value="D"><span class="letter">D</span><span>理性思考批判</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>海報列出具體規定（集會活動晚間 10 點前結束、投票前不能在社群媒體助選），還寫明「違反者，最高可處 200 萬元」的罰則。有規定、有處罰，就是在提醒大家「遵守法律規範」，選 C。B 公平正義雖然也和選舉有關，但海報的重點是規定與罰則。</p><p class="key"><strong>解題關鍵：</strong>看到「違反者」「最高可處○○元」＝法律規定＋罰則 → 遵守法律規範。</p></div>
-        </article>
-<section class="sec-head" id="ch2"><h3>2. 權利與國籍</h3><p>3 題・國籍取得、受教權、資料判讀</p></section>
-<article class="card" data-chapter="權利與國籍" id="n3" data-answer="B">
-          <div class="q-head"><span class="num">03</span><div><span class="source">第 16 題</span><h2>國籍的取得</h2></div></div>
-          <div class="context"><strong>題組資料</strong><div class="table-wrap"><table><tr><th>身分</th><th>丈夫</th><th>妻子</th></tr><tr><td>年齡</td><td>無限制</td><td>44 歲（含）以下</td></tr><tr><td>資格</td><td colspan="2">夫妻至少一方具中華民國國籍；經人工生殖中心診斷為不孕</td></tr></table></div></div>
-          <p class="stem">上表是國健署施行試管嬰兒補助方案的相關內容，根據內容判斷，下列何者的理解<strong>錯誤</strong>？</p>
-          <div class="options"><label class="option"><input type="radio" name="n3" value="A"><span class="letter">A</span><span>小如：「我國國民的外籍配偶可以獲得該項補助。」</span></label><label class="option"><input type="radio" name="n3" value="B"><span class="letter">B</span><span>小墨：「產下的嬰兒依出生地取得我國國籍。」</span></label><label class="option"><input type="radio" name="n3" value="C"><span class="letter">C</span><span>小明：「產下的嬰兒必定是我國的國民。」</span></label><label class="option"><input type="radio" name="n3" value="D"><span class="letter">D</span><span>小楓：「夫妻至少一方必須是我國國民。」</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>補助資格是「夫妻至少一方具中華民國國籍」，所以 A、D 正確（另一方可以是外籍配偶）。我國國籍法採「屬人主義（血統主義）」：出生時父或母為我國國民，就取得我國國籍，所以產下的嬰兒必定是我國國民，C 正確。B 說「依出生地」取得國籍是「屬地主義」，我國不是這樣規定，所以 B 錯誤。</p><p class="key"><strong>解題關鍵：</strong>我國國籍＝看「父母血統」（屬人主義），不是看「出生地」（屬地主義）。題目問「錯誤」的選項。</p></div>
-        </article>
-<article class="card" data-chapter="權利與國籍" id="q4" data-answer="D">
-          <div class="q-head"><span class="num">04</span><div><span class="source">原題 39 第 2 小題</span><h2>受教權與入學制度</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p>2018 年 3 月 8 日，法國總統馬克宏簽署《學生指導和成功》法案。過去基於人民有『自由上大學』的權利，大學原則上應接受所有具高中學歷的學生。學生在 APB 網站填寫大學志願序，系統依『地域』、其次『志願的順序』、最後『家庭考量』篩選；若報名人數超過地區名額且系統仍無法篩選，最後以抽籤決定。原圖後段文字未完整入鏡。</p></div>
-          <p class="stem">根據上文判斷，法國 APB 網站篩選學生的方式，其目的可能為何？</p>
-          <div class="options"><label class="option"><input type="radio" name="q4" value="A"><span class="letter">A</span><span>營造高度競爭的環境</span></label><label class="option"><input type="radio" name="q4" value="B"><span class="letter">B</span><span>確保公平的入學標準</span></label><label class="option"><input type="radio" name="q4" value="C"><span class="letter">C</span><span>協助學生的適性發展</span></label><label class="option"><input type="radio" name="q4" value="D"><span class="letter">D</span><span>保障人民受教育權利</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>文章先指出人民有『自由上大學』的權利，大學原則上應接受具高中學歷的學生；當名額不足、一般條件無法完成篩選時，最後以抽籤處理。整套制度是在名額有限時安排入學，以維持人民接受大學教育的機會，因此 D 最符合制度目的。A 把篩選目的誤解為競爭；B 雖與程序有關，但地域、家庭考量不代表完全一致的入學標準；C 文中沒有依興趣或能力進行適性配對。</p><p class="key"><strong>解題關鍵：</strong>先找制度背後要保障的權利，再判斷技術性篩選只是手段。</p></div>
-        </article>
-<article class="card" data-chapter="權利與國籍" id="q5" data-answer="B">
-          <div class="q-head"><span class="num">05</span><div><span class="source">原題 39 第 3 小題</span><h2>資料判讀</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p>妮妮：用抽籤方式決定入學資格，可能存在公平性的問題。<br>小新：現在申請居住地附近的大學，錄取的機率會較高。<br>正男：學生的志願序是 APB 網站的首要篩選標準。<br>阿呆：新的入學制度，可能衝擊『自由上大學』的原則。</p></div>
-          <p class="stem">看完上文後，四位同學發表了各自的意見，請問何者的敘述有誤？</p>
-          <div class="options"><label class="option"><input type="radio" name="q5" value="A"><span class="letter">A</span><span>妮妮、小新</span></label><label class="option"><input type="radio" name="q5" value="B"><span class="letter">B</span><span>小新、正男</span></label><label class="option"><input type="radio" name="q5" value="C"><span class="letter">C</span><span>正男、阿呆</span></label><label class="option"><input type="radio" name="q5" value="D"><span class="letter">D</span><span>妮妮、阿呆</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>小新的說法把『居住地』直接等同錄取優勢，但文章的地域條件還包含高中畢業學校地區，不能只由住家遠近斷定錄取率。正男說志願序是首要標準，也與文章順序不符；首要篩選標準是地域，志願序在後。因此有誤的是小新與正男，選 B。妮妮質疑抽籤的公平性，是對隨機決定入學資格可能產生的合理評價；阿呆指出篩選可能衝擊原有『自由上大學』原則，也符合文意。</p><p class="key"><strong>解題關鍵：</strong>資料排序題要照原文順序：地域 → 志願序 → 家庭考量 → 抽籤。</p></div>
-        </article>
-<section class="sec-head" id="ch3"><h3>3. 稀少性與財貨</h3><p>5 題・稀少性、經濟財、公共財</p></section>
-<article class="card" data-chapter="稀少性與財貨" id="q6" data-answer="B">
-          <div class="q-head"><span class="num">06</span><div><span class="source">原題 47</span><h2>稀少性與選擇</h2></div></div>
-          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
-          <p class="stem">資源具有稀少性，因此「必須【　】」，例如：零用錢有限，該如何花用。</p>
-          <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>生產</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>選擇</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>交換</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>競爭</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>資源有限而欲望很多，不可能同時滿足所有需要，所以必須在不同用途之間作選擇。零用錢有限時，要決定買文具、點心或存下來，就是稀少性迫使人作取捨的例子。競爭可能因稀少而發生，但題幹要表達的是個人面對有限資源時的直接反應。</p><p class="key"><strong>解題關鍵：</strong>稀少性 → 無法全部滿足 → 必須選擇與取捨。</p></div>
-        </article>
-<article class="card" data-chapter="稀少性與財貨" id="q7" data-answer="C">
-          <div class="q-head"><span class="num">07</span><div><span class="source">原題 26</span><h2>稀少性的判斷</h2></div></div>
-          
-          <p class="stem">於經濟學所討論的『稀少』，下列敘述何者不正確？</p>
-          <div class="options"><label class="option"><input type="radio" name="q7" value="A"><span class="letter">A</span><span>清潔空氣在空汙嚴重的都市中具有稀少性</span></label><label class="option"><input type="radio" name="q7" value="B"><span class="letter">B</span><span>沒代價、可任意使用的東西不具有稀少性</span></label><label class="option"><input type="radio" name="q7" value="C"><span class="letter">C</span><span>眾人爭相購買的物品一定具有稀少性</span></label><label class="option"><input type="radio" name="q7" value="D"><span class="letter">D</span><span>只要資源無法滿足人們的欲望，就具有稀少性</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>經濟學的稀少性是『可用資源相對於欲望不足』。A 符合這一定義；B 所說可無代價、任意使用，表示供給足以滿足需要；D 直接陳述稀少性的核心。C 使用『一定』過度推論：人們爭相購買可能由流行、促銷或預期心理造成，不能只憑搶購現象就確定資源相對欲望不足；仍須看取得是否需要取捨與付出代價。</p><p class="key"><strong>解題關鍵：</strong>不要把『熱門』直接等同『稀少』；稀少性要看資源與欲望的相對關係。</p></div>
-        </article>
-<article class="card" data-chapter="稀少性與財貨" id="q8" data-answer="A">
-          <div class="q-head"><span class="num">08</span><div><span class="source">原題 34 第 1 小題</span><h2>經濟財</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p>美國富翁諾克到日本富士山觀光，發現山上風景優美且空氣清新，於是把空氣裝入罐頭銷售；後來隨著空氣污染議題受重視，空氣罐頭在日本各地暢銷，甚至銷往歐美。</p></div>
-          <p class="stem">上文中的空氣罐頭屬於下列何種類型？</p>
-          <div class="options"><label class="option"><input type="radio" name="q8" value="A"><span class="letter">A</span><span>經濟財</span></label><label class="option"><input type="radio" name="q8" value="B"><span class="letter">B</span><span>自由財</span></label><label class="option"><input type="radio" name="q8" value="C"><span class="letter">C</span><span>生產財</span></label><label class="option"><input type="radio" name="q8" value="D"><span class="letter">D</span><span>消耗財</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>山上的清新空氣原本可能是可自由取得的自由財，但被裝入罐中、運送並在市場販售後，需要投入資源且有價格，消費者必須付出代價才能取得，因此成為經濟財。它的用途是直接滿足吸入清新空氣的需求，不是拿來生產其他產品，所以不能依『生產財』判斷。</p><p class="key"><strong>解題關鍵：</strong>同一種物質會因取得方式、地點與是否有代價，而改變財貨性質。</p></div>
-        </article>
-<article class="card" data-chapter="稀少性與財貨" id="q9" data-answer="C">
-          <div class="q-head"><span class="num">09</span><div><span class="source">原題 34 第 2 小題</span><h2>稀少性</h2></div></div>
-          
-          <p class="stem">像『空氣罐頭』這類的產品具備下列何種特性？</p>
-          <div class="options"><label class="option"><input type="radio" name="q9" value="A"><span class="letter">A</span><span>替代性</span></label><label class="option"><input type="radio" name="q9" value="B"><span class="letter">B</span><span>功能性</span></label><label class="option"><input type="radio" name="q9" value="C"><span class="letter">C</span><span>稀少性</span></label><label class="option"><input type="radio" name="q9" value="D"><span class="letter">D</span><span>同質性</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>能被裝罐販售的清新空氣並非隨時隨地無限可得；特定地點的清潔空氣，加上收集、包裝與運送能力都有限，而人們又有需求，因此具有稀少性。稀少性不是指極端罕見，而是可用資源相對於人的欲望有限。A、B、D 都可能描述某些商品特徵，但不是題文形成市場價格的核心。</p><p class="key"><strong>解題關鍵：</strong>經濟學的稀少性是『相對有限』，不是日常語言的罕見。</p></div>
-        </article>
-<article class="card" data-chapter="稀少性與財貨" id="q10" data-answer="B">
-          <div class="q-head"><span class="num">10</span><div><span class="source">京都題 第 1 小題</span><h2>公共財</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p>2019 年到訪日本京都的外國遊客約 800 多萬人。觀光產業帶來稅收，但也出現公車擠滿觀光客、遊客騷擾藝妓、迷路遊客闖入住宅等『觀光公害』。京都市政府預計停售『京都市巴士一日券』，希望改善觀光客擠滿公車的問題。</p></div>
-          <p class="stem">觀光資源這一類的公共自由財，容易產生社會成本讓社會大眾承擔，請問是因為此類公共自由財資源具有何種特點？</p>
-          <div class="options"><label class="option"><input type="radio" name="q10" value="A"><span class="letter">A</span><span>私有性</span></label><label class="option"><input type="radio" name="q10" value="B"><span class="letter">B</span><span>公共性</span></label><label class="option"><input type="radio" name="q10" value="C"><span class="letter">C</span><span>稀少性</span></label><label class="option"><input type="radio" name="q10" value="D"><span class="letter">D</span><span>利益性</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>觀光景點、城市環境等公共自由財具有公共性，不易排除未付費者使用，也常被許多人共同使用。個別遊客在使用時可能不必負擔全部成本，卻把擁擠、噪音、垃圾或交通干擾留給居民與社會，因而形成外部成本。A 私有性與題意相反；C 稀少性雖可能造成擁擠，但題幹問的是成本由大眾承擔的制度特點；D 不是公共財的標準特性。</p><p class="key"><strong>解題關鍵：</strong>『大家都能用、成本由大眾承擔』指向公共性與外部成本。</p></div>
-        </article>
-<section class="sec-head" id="ch4"><h3>4. 選擇與機會成本</h3><p>7 題・機會成本、誘因</p></section>
-<article class="card" data-chapter="選擇與機會成本" id="q11" data-answer="A">
-          <div class="q-head"><span class="num">11</span><div><span class="source">原題 43</span><h2>選擇與機會成本</h2></div></div>
-          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
-          <p class="stem">當我們選擇時，會考慮得到的利益和付出的代價，而有所取捨，這便有了【　】的概念。</p>
-          <div class="options"><label class="option"><input type="radio" name="q11" value="A"><span class="letter">A</span><span>機會成本</span></label><label class="option"><input type="radio" name="q11" value="B"><span class="letter">B</span><span>比較利益</span></label><label class="option"><input type="radio" name="q11" value="C"><span class="letter">C</span><span>公共財</span></label><label class="option"><input type="radio" name="q11" value="D"><span class="letter">D</span><span>外部成本</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>選擇代表必須放棄其他可能方案。被放棄選項中價值最高者，就是這項選擇的機會成本。題幹同時提到利益、代價與取捨，正是在描述機會成本。比較利益用來比較不同生產者的相對生產成本；公共財與外部成本都不是此處的選擇概念。</p><p class="key"><strong>解題關鍵：</strong>看到『選擇、代價、取捨』，先想到機會成本。</p></div>
-        </article>
-<article class="card" data-chapter="選擇與機會成本" id="q12" data-answer="D">
-          <div class="q-head"><span class="num">12</span><div><span class="source">晶片題 第 2 小題</span><h2>機會成本</h2></div></div>
-          <div class="table-wrap"><table><tr><th>公司／項目</th><th>電腦 CPU</th><th>手機 CPU</th><th>電腦 GPU</th><th>車用晶片</th></tr><tr><td>甲公司總利潤</td><td>200 萬元</td><td>750 萬元</td><td>350 萬元</td><td>200 萬元</td></tr><tr><td>乙公司總利潤</td><td>350 萬元</td><td>300 萬元</td><td>320 萬元</td><td>250 萬元</td></tr></table></div>
-          <p class="stem">根據表中資料，以機會成本來考量，下列敘述何者正確？</p>
-          <div class="options"><label class="option"><input type="radio" name="q12" value="A"><span class="letter">A</span><span>兩家公司最終將選擇生產相同的晶片</span></label><label class="option"><input type="radio" name="q12" value="B"><span class="letter">B</span><span>乙公司生產車用晶片的機會成本最低</span></label><label class="option"><input type="radio" name="q12" value="C"><span class="letter">C</span><span>乙公司生產電腦 CPU 的機會成本最高</span></label><label class="option"><input type="radio" name="q12" value="D"><span class="letter">D</span><span>兩家公司生產手機 CPU 的機會成本相同</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>甲公司各方案總利潤為 200、750、350、200 萬元；若甲生產手機 CPU，放棄方案中最高的是電腦 GPU 的 350 萬元，所以機會成本是 350 萬元。乙公司的總利潤為 350、300、320、250 萬元；若乙生產手機 CPU，放棄方案中最高的是電腦 CPU 的 350 萬元，機會成本也是 350 萬元，因此 D 正確。兩家公司追求最大利潤時分別選手機 CPU 與電腦 CPU，並不相同；乙生產車用晶片的機會成本是 350 萬元，不是最低；乙生產電腦 CPU 的機會成本是 320 萬元，反而低於其他三種方案的 350 萬元。</p><p class="key"><strong>解題關鍵：</strong>某方案的機會成本＝放棄方案中價值最高者，不是把所有放棄項目相加。</p></div>
-        </article>
-<article class="card" data-chapter="選擇與機會成本" id="q13" data-answer="B">
-          <div class="q-head"><span class="num">13</span><div><span class="source">京都題 第 2 小題</span><h2>機會成本</h2></div></div>
-          
-          <p class="stem">題文中關於停止販售『京都市巴士一日券』所帶來的影響，如果用機會成本的概念來作解釋，所指『影響』的機會成本最可能是？</p>
-          <div class="options"><label class="option"><input type="radio" name="q13" value="A"><span class="letter">A</span><span>減少的售票收益</span></label><label class="option"><input type="radio" name="q13" value="B"><span class="letter">B</span><span>減少的潛在觀光收益</span></label><label class="option"><input type="radio" name="q13" value="C"><span class="letter">C</span><span>增加的公車便利</span></label><label class="option"><input type="radio" name="q13" value="D"><span class="letter">D</span><span>增加的交通成本</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>停售一日券可能讓部分依賴公車的遊客覺得京都較不方便，甚至不再前往偏遠景點或減少旅遊。若政府選擇改善居民搭車與擁擠問題，就可能放棄原本可由這些旅客帶來的最佳替代利益，也就是潛在觀光收益，因此選 B。A 只是直接少賣票的收入，範圍較窄；C 是居民可能得到的利益，不是被放棄的利益；D 是可能增加的代價，但題目脈絡特別指向觀光產業失去遊客與收入。</p><p class="key"><strong>解題關鍵：</strong>機會成本問的是『因這個選擇而放棄的最高價值利益』。</p></div>
-        </article>
-<article class="card" data-chapter="選擇與機會成本" id="q14" data-answer="D">
-          <div class="q-head"><span class="num">14</span><div><span class="source">原題 36 第 1 小題</span><h2>薪資與選擇</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p>詠輝現在的薪水是 29,500 元。他想培養第二專長、換公司增加工作經驗，應徵甲公司月薪 29,000 元、乙公司 28,500 元；朋友新開珍珠奶茶店，希望他幫忙，月薪 28,000 元。</p></div>
-          <p class="stem">若不考慮其他因素，單以薪資為考量，則詠輝的最佳選擇應是下列何者？</p>
-          <div class="options"><label class="option"><input type="radio" name="q14" value="A"><span class="letter">A</span><span>甲公司</span></label><label class="option"><input type="radio" name="q14" value="B"><span class="letter">B</span><span>乙公司</span></label><label class="option"><input type="radio" name="q14" value="C"><span class="letter">C</span><span>朋友的店</span></label><label class="option"><input type="radio" name="q14" value="D"><span class="letter">D</span><span>不換工作</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>四個方案月薪依序是 29,000 元、28,500 元、28,000 元與目前工作的 29,500 元。題目限定只看薪資，因此直接比較金額即可；29,500 元最高，所以不換工作。題幹中培養專長、增加經驗或人情等因素，在本小題都被『不考慮其他因素』排除。</p><p class="key"><strong>解題關鍵：</strong>先遵守題目限定條件；只比較薪資，不加入喜好或發展性。</p></div>
-        </article>
-<article class="card" data-chapter="選擇與機會成本" id="q15" data-answer="D">
-          <div class="q-head"><span class="num">15</span><div><span class="source">原題 36 第 2 小題</span><h2>喜好與機會成本</h2></div></div>
-          <div class="table-wrap"><table><tr><th>選擇項目</th><th>喜好程度</th></tr><tr><td>甲公司</td><td>☆☆</td></tr><tr><td>乙公司</td><td>☆☆☆</td></tr><tr><td>朋友的店</td><td>☆☆☆☆</td></tr><tr><td>原來公司</td><td>☆</td></tr></table></div>
-          <p class="stem">假設詠輝以附表所列為考量，決定到朋友的店去上班，則下列敘述何者正確？</p>
-          <div class="options"><label class="option"><input type="radio" name="q15" value="A"><span class="letter">A</span><span>詠輝是以金錢衡量機會成本高低</span></label><label class="option"><input type="radio" name="q15" value="B"><span class="letter">B</span><span>詠輝選擇了表中機會成本最高的</span></label><label class="option"><input type="radio" name="q15" value="C"><span class="letter">C</span><span>若選擇原來公司可獲得最大利益</span></label><label class="option"><input type="radio" name="q15" value="D"><span class="letter">D</span><span>選擇另外三者的機會成本均相同</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>表中偏好由高到低為朋友的店 4 顆星、乙公司 3 顆星、甲公司 2 顆星、原來公司 1 顆星。若改選甲、乙或原公司，三種選擇都會放棄最喜歡的『朋友的店』，所以其機會成本都同樣是朋友的店，D 正確。A 錯在表格衡量的是喜好，不是金額；B 不能說選了『機會成本最高』，因為選朋友的店時，最高價值的放棄方案是乙公司；C 與偏好表相反。</p><p class="key"><strong>解題關鍵：</strong>比較偏好時，選任何非首選方案，都會放棄同一個最高價值選項。</p></div>
-        </article>
-<article class="card" data-chapter="選擇與機會成本" id="q16" data-answer="A">
-          <div class="q-head"><span class="num">16</span><div><span class="source">原題 32</span><h2>成本與機會成本</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p>昱瑋每天到文興書局工作 8 小時，書局給付 1,600 元／天。</p></div>
-          <p class="stem">附圖是昱瑋和文興書局之間的關係，根據附圖資訊判斷，下列敘述何者有誤？</p>
-          <div class="options"><label class="option"><input type="radio" name="q16" value="A"><span class="letter">A</span><span>請一天假所要支付的成本為 1,600 元</span></label><label class="option"><input type="radio" name="q16" value="B"><span class="letter">B</span><span>上一天班的機會成本是 8 個小時</span></label><label class="option"><input type="radio" name="q16" value="C"><span class="letter">C</span><span>上一個小時的班可獲取的價值為 200 元</span></label><label class="option"><input type="radio" name="q16" value="D"><span class="letter">D</span><span>上一天班的隱藏成本是 8 個小時的休息時間</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>昱瑋工作 8 小時獲得 1,600 元，因此每小時工資為 200 元，C 正確。選擇上一天班，就放棄 8 小時可自由運用或休息的時間，所以 B、D 都在描述工作的機會成本或隱藏成本。請一天假時，1,600 元是因不上班而放棄的薪資，也就是機會成本，不是昱瑋必須實際『支付』給書局的金錢，因此 A 的用語錯誤。</p><p class="key"><strong>解題關鍵：</strong>分清楚實際支出與放棄的利益；沒有付錢，也可能有機會成本。</p></div>
-        </article>
-<article class="card" data-chapter="選擇與機會成本" id="q17" data-answer="B">
-          <div class="q-head"><span class="num">17</span><div><span class="source">原題 18</span><h2>誘因與選擇</h2></div></div>
-          
-          <p class="stem">鈺華因沉迷於線上遊戲、荒廢學業，在這次段考表現一塌糊塗。為了矯正鈺華不良的行為，媽媽決定懲罰他一個月都不可以上網。根據上述，下列敘述何者有誤？</p>
-          <div class="options"><label class="option"><input type="radio" name="q17" value="A"><span class="letter">A</span><span>懲罰屬於負向誘因</span></label><label class="option"><input type="radio" name="q17" value="B"><span class="letter">B</span><span>此懲罰無法矯正鈺華不良的行為</span></label><label class="option"><input type="radio" name="q17" value="C"><span class="letter">C</span><span>媽媽的決定有衡量『上網』對鈺華的價值</span></label><label class="option"><input type="radio" name="q17" value="D"><span class="letter">D</span><span>『禁止上網』應比『禁足』更具影響效果</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>負向誘因是用不利後果降低某種行為發生的可能，禁止上網正是負向誘因，因此 A 正確。鈺華沉迷線上遊戲，表示上網對他價值很高；剝奪上網機會可能提高荒廢學業的代價，因而具有矯正作用，所以直接斷言『無法矯正』的 B 有誤。C 符合誘因設計必須考量當事人的偏好；相較禁足，禁止上網更直接對準其重視的活動，所以 D 在題幹條件下較合理。</p><p class="key"><strong>解題關鍵：</strong>誘因是否有效，要看它是否改變當事人在意的利益或代價。</p></div>
-        </article>
-<section class="sec-head" id="ch5"><h3>5. 市場、消費與供給</h3><p>3 題・商品、消費行為、供給法則</p></section>
-<article class="card" data-chapter="市場、消費與供給" id="q18" data-answer="B">
-          <div class="q-head"><span class="num">18</span><div><span class="source">原題 44</span><h2>市場與商品</h2></div></div>
-          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
-          <p class="stem">在市場中進行交易的產品，稱為【　】。</p>
-          <div class="options"><label class="option"><input type="radio" name="q18" value="A"><span class="letter">A</span><span>資源</span></label><label class="option"><input type="radio" name="q18" value="B"><span class="letter">B</span><span>商品</span></label><label class="option"><input type="radio" name="q18" value="C"><span class="letter">C</span><span>公共財</span></label><label class="option"><input type="radio" name="q18" value="D"><span class="letter">D</span><span>生產要素</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>能在市場中被買賣、交換的產品稱為商品，可能是有形物品，也可能是服務。資源與生產要素是生產過程中投入的條件；公共財則具有公共性，通常不容易只讓付費者使用，因此都不符合題幹定義。</p><p class="key"><strong>解題關鍵：</strong>市場上可供交易的產品，就是商品。</p></div>
-        </article>
-<article class="card" data-chapter="市場、消費與供給" id="q19" data-answer="C">
-          <div class="q-head"><span class="num">19</span><div><span class="source">原題 46</span><h2>消費行為</h2></div></div>
-          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
-          <p class="stem">每個人都會有食、衣、住、行、育、樂等日常需求，滿足這些需求的行為便稱為【　】行為。</p>
-          <div class="options"><label class="option"><input type="radio" name="q19" value="A"><span class="letter">A</span><span>生產</span></label><label class="option"><input type="radio" name="q19" value="B"><span class="letter">B</span><span>交換</span></label><label class="option"><input type="radio" name="q19" value="C"><span class="letter">C</span><span>消費</span></label><label class="option"><input type="radio" name="q19" value="D"><span class="letter">D</span><span>儲蓄</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>人們使用商品或服務來滿足生活需求，稱為消費行為。生產是創造商品或服務；交換是透過市場互換；儲蓄是保留所得、延後支用。題幹列出食衣住行育樂，核心是滿足需要，因此答案為消費。</p><p class="key"><strong>解題關鍵：</strong>『滿足需求』是消費的定義關鍵。</p></div>
-        </article>
-<article class="card" data-chapter="市場、消費與供給" id="q20" data-answer="B">
-          <div class="q-head"><span class="num">20</span><div><span class="source">原題 17</span><h2>供給法則</h2></div></div>
-          
-          <p class="stem">某項商品價格上漲時，生產者的生產意願會呈現何種變化？</p>
-          <div class="options"><label class="option"><input type="radio" name="q20" value="A"><span class="letter">A</span><span>減少</span></label><label class="option"><input type="radio" name="q20" value="B"><span class="letter">B</span><span>增加</span></label><label class="option"><input type="radio" name="q20" value="C"><span class="letter">C</span><span>不變</span></label><label class="option"><input type="radio" name="q20" value="D"><span class="letter">D</span><span>不一定</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>在其他條件不變下，商品價格上漲會提高生產與出售該商品可能得到的收益，生產者通常願意增加供給，因此生產意願增加。這是供給法則。若成本、技術或政策同時改變，結果可能不同，但題目沒有提供這些變動，所以應採『其他條件不變』的基本判斷。</p><p class="key"><strong>解題關鍵：</strong>價格與供給量通常同方向變動：價格上升，生產意願增加。</p></div>
-        </article>
-<section class="sec-head" id="ch6"><h3>6. 生產、成本與利潤</h3><p>4 題・生產成本、利潤</p></section>
-<article class="card" data-chapter="生產、成本與利潤" id="q21" data-answer="A">
-          <div class="q-head"><span class="num">21</span><div><span class="source">原題 45</span><h2>生產成本</h2></div></div>
-          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
-          <p class="stem">【　】是生產者使用各項生產資源來從事生產時，必須付出的成本。</p>
-          <div class="options"><label class="option"><input type="radio" name="q21" value="A"><span class="letter">A</span><span>生產成本</span></label><label class="option"><input type="radio" name="q21" value="B"><span class="letter">B</span><span>機會利益</span></label><label class="option"><input type="radio" name="q21" value="C"><span class="letter">C</span><span>消費支出</span></label><label class="option"><input type="radio" name="q21" value="D"><span class="letter">D</span><span>市場價格</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>生產者為了取得勞力、土地、資本與企業才能等生產資源所付出的代價，統稱生產成本。市場價格是交易形成的價格；消費支出是消費者購買商品的支出；『機會利益』並非此處的標準概念。</p><p class="key"><strong>解題關鍵：</strong>題幹主詞是生產者，且明說使用生產資源時的付出。</p></div>
-        </article>
-<article class="card" data-chapter="生產、成本與利潤" id="q22" data-answer="A">
-          <div class="q-head"><span class="num">22</span><div><span class="source">原題 41 第 1 小題</span><h2>生產資源與企業經營</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p>因應全球淨零排放趨勢，各國航空公司自 2025 年起被要求提升永續航空燃料（SAF）的使用比例，但 SAF 價格遠高於傳統航燃，加上全球飛機維修工程師短缺導致地勤與維修成本攀升，許多航空公司正面臨龐大的營運壓力。冠軍航空公司決定引進更節能的新型客機，並調漲熱門時段票價。每趟航班平均數據：調整前銷貨收入 300 萬元、生產成本 200 萬元；調整後銷貨收入 350 萬元、生產成本 270 萬元。</p></div>
-          <p class="stem">下列關於冠軍航空公司的敘述，何者最正確？</p>
-          <div class="options"><label class="option"><input type="radio" name="q22" value="A"><span class="letter">A</span><span>該公司購買新型節能客機，在生產資源中屬於資本的投入</span></label><label class="option"><input type="radio" name="q22" value="B"><span class="letter">B</span><span>該公司針對熱門時段調漲機票價格，這主要是透過降低生產成本來提高利潤</span></label><label class="option"><input type="radio" name="q22" value="C"><span class="letter">C</span><span>維修工程師短缺導致薪資成本攀升，這代表生產資源中的企業才能成本增加</span></label><label class="option"><input type="radio" name="q22" value="D"><span class="letter">D</span><span>對於該公司而言，決定引進節能客機並調漲票價的經營策略，屬於人力資源的發揮</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>新型客機是企業為生產運輸服務而使用的耐久設備，屬於資本，因此 A 正確。調漲票價是在銷量不變時增加銷貨收入，不是降低成本，所以 B 錯。維修工程師屬勞動或人力資源，薪資上升不是企業才能成本，因此 C 錯。整合資源、承擔風險並制定經營策略屬企業才能，不只是一般人力資源，所以 D 錯。</p><p class="key"><strong>解題關鍵：</strong>分清楚四種生產資源：自然資源、勞動、資本、企業才能。</p></div>
-        </article>
-<article class="card" data-chapter="生產、成本與利潤" id="q23" data-answer="B">
-          <div class="q-head"><span class="num">23</span><div><span class="source">晶片題 第 1 小題</span><h2>利潤最大化</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p>假設每家公司在相同時間內只能選擇一種晶片生產，且不考慮其他因素。</p><div class="table-wrap"><table><tr><th>公司／項目</th><th>電腦 CPU</th><th>手機 CPU</th><th>電腦 GPU</th><th>車用晶片</th></tr><tr><td>甲公司產量</td><td>50 片</td><td>150 片</td><td>175 片</td><td>200 片</td></tr><tr><td>甲每片利潤</td><td>4 萬元</td><td>5 萬元</td><td>2 萬元</td><td>1 萬元</td></tr><tr><td>乙公司產量</td><td>70 片</td><td>100 片</td><td>80 片</td><td>250 片</td></tr><tr><td>乙每片利潤</td><td>5 萬元</td><td>3 萬元</td><td>4 萬元</td><td>1 萬元</td></tr></table></div></div>
-          <p class="stem">根據表中資料判斷，甲公司應選擇生產下列何者？</p>
-          <div class="options"><label class="option"><input type="radio" name="q23" value="A"><span class="letter">A</span><span>電腦 CPU</span></label><label class="option"><input type="radio" name="q23" value="B"><span class="letter">B</span><span>手機 CPU</span></label><label class="option"><input type="radio" name="q23" value="C"><span class="letter">C</span><span>電腦 GPU</span></label><label class="option"><input type="radio" name="q23" value="D"><span class="letter">D</span><span>車用晶片</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>要比較總利潤，必須用『可生產數量 × 每片利潤』。甲公司四種晶片分別是：電腦 CPU 50×4＝200 萬元；手機 CPU 150×5＝750 萬元；電腦 GPU 175×2＝350 萬元；車用晶片 200×1＝200 萬元。最高為 750 萬元，所以選 B。只看單片利潤會誤選電腦 CPU；只看產量則會誤選車用晶片。</p><p class="key"><strong>解題關鍵：</strong>先把每個方案換算成總利潤，再比較，不能只看單價或產量。</p></div>
-        </article>
-<article class="card" data-chapter="生產、成本與利潤" id="q24" data-answer="C">
-          <div class="q-head"><span class="num">24</span><div><span class="source">原題 7</span><h2>利潤與銷貨收入</h2></div></div>
-          
-          <p class="stem">阿輝到廟會活動的場邊販賣小吃，活動結束後，商品全都賣完了，且利潤為 12,000 元，占銷貨收入的 60%。根據上述內容判斷，阿輝所販售的小吃，其售價與銷售數量最可能為下列何者？</p>
-          <div class="options"><label class="option"><input type="radio" name="q24" value="A"><span class="letter">A</span><span>售價 10 元，銷售數量 1,000 份</span></label><label class="option"><input type="radio" name="q24" value="B"><span class="letter">B</span><span>售價 15 元，銷售數量 2,000 份</span></label><label class="option"><input type="radio" name="q24" value="C"><span class="letter">C</span><span>售價 10 元，銷售數量 2,000 份</span></label><label class="option"><input type="radio" name="q24" value="D"><span class="letter">D</span><span>售價 15 元，銷售數量 1,000 份</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>利潤 12,000 元占銷貨收入 60%，所以銷貨收入＝12,000÷0.6＝20,000 元。再計算各選項的『售價×數量』：A 為 10,000 元，B 為 30,000 元，C 為 20,000 元，D 為 15,000 元，只有 C 符合。也可檢查成本：20,000－12,000＝8,000 元，數值合理。</p><p class="key"><strong>解題關鍵：</strong>先用『利潤＝收入×60%』倒推收入，再核對售價×數量。</p></div>
-        </article>
-<section class="sec-head" id="ch7"><h3>7. 閱讀理解與名言</h3><p>2 題・主旨判讀、名言運用</p></section>
-<article class="card" data-chapter="閱讀理解與名言" id="q25" data-answer="B">
-          <div class="q-head"><span class="num">25</span><div><span class="source">原題 1</span><h2>讚美與友誼</h2></div></div>
+<main>
+<section class="unit-head" id="u1"><h2>一、個人與社會生活</h2><p>七年級・5 題</p></section>
+<section class="sec-head" id="ch1"><h3>1-1 人際關係與溝通</h3><p>2 題・讚美與友誼、名言運用</p></section>
+<article class="card" data-chapter="個人與社會生活・人際關係與溝通" id="q25" data-answer="B">
+          <div class="q-head"><span class="num">01</span><div><span class="source">原題 1</span><h2>讚美與友誼</h2></div></div>
           
           <p class="stem">「把掌聲留給自己，你的荷包不會變多一點，但你的朋友會少一個；把掌聲留給自己的伙伴，你的荷包不會變少，但你會多一個朋友。」這段話的主旨，與下列何者最接近？</p>
           <div class="options"><label class="option"><input type="radio" name="q25" value="A"><span class="letter">A</span><span>掌聲是幸福人生不可或缺的良伴</span></label><label class="option"><input type="radio" name="q25" value="B"><span class="letter">B</span><span>友誼的手，常伸向不吝讚美的人</span></label><label class="option"><input type="radio" name="q25" value="C"><span class="letter">C</span><span>朋友的多寡可決定財富與掌聲的多寡</span></label><label class="option"><input type="radio" name="q25" value="D"><span class="letter">D</span><span>能適時鼓掌的人，最懂得奉獻的道理</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>引文比較兩種做法：只把掌聲留給自己，可能失去朋友；願意把掌聲給伙伴，雖不會增加或減少金錢，卻能增進友誼。重點是肯定、欣賞與讚美他人能帶來良好人際關係，因此最接近 B。A 把重點放在掌聲與幸福，過度延伸；C 誤把友誼、財富與掌聲說成可互相決定；D 雖提到鼓掌，卻把核心解讀為奉獻，並非文句主要意思。</p><p class="key"><strong>解題關鍵：</strong>抓住『掌聲給別人會多一個朋友』，主旨是讚美他人的正面人際意義。</p></div>
         </article>
-<article class="card" data-chapter="閱讀理解與名言" id="q26" data-answer="C">
-          <div class="q-head"><span class="num">26</span><div><span class="source">原題 4</span><h2>名言的恰當運用</h2></div></div>
+<article class="card" data-chapter="個人與社會生活・人際關係與溝通" id="q26" data-answer="C">
+          <div class="q-head"><span class="num">02</span><div><span class="source">原題 4</span><h2>名言的恰當運用</h2></div></div>
           
           <p class="stem">下列「　」中皆為胡適的名言，何者運用不恰當？</p>
           <div class="options"><label class="option"><input type="radio" name="q26" value="A"><span class="letter">A</span><span>「少說點空話，多做點實事」，行動永遠比言語更有力量</span></label><label class="option"><input type="radio" name="q26" value="B"><span class="letter">B</span><span>「要怎麼收穫，先怎麼栽」，唯有付出努力才有回報</span></label><label class="option"><input type="radio" name="q26" value="C"><span class="letter">C</span><span>「為學有如金字塔，要能廣大，要能高」，故應謹記並實踐書上學來的知識</span></label><label class="option"><input type="radio" name="q26" value="D"><span class="letter">D</span><span>「不做無益事，一日當三日，人活五十年，我活百五十」，我們應珍惜光陰，及時努力</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>「為學有如金字塔，要能廣大，要能高」用金字塔比喻學問：底座要廣，才能向上累積到一定高度，強調廣博學習與逐步累積學力。C 卻把它解釋成『謹記並實踐書上知識』，沒有對應『廣大』與『高』的比喻，所以運用不恰當。A 對應少空談、多實作；B 對應先付出才有收穫；D 對應善用時間。</p><p class="key"><strong>解題關鍵：</strong>名言題要逐一核對比喻或關鍵詞，不能只看句子是否正向。</p></div>
         </article>
-<section class="sec-head" id="ch8"><h3>8. 家庭與親屬</h3><p>3 題・姻親關係、家庭型態、育嬰留職停薪</p></section>
-<article class="card" data-chapter="家庭與親屬" id="q27" data-answer="C">
-          <div class="q-head"><span class="num">27</span><div><span class="source">第 15 題</span><h2>姻親關係</h2></div></div>
+<section class="sec-head" id="ch2"><h3>1-2 家庭與親屬</h3><p>3 題・姻親關係、家庭型態、育嬰留職停薪</p></section>
+<article class="card" data-chapter="個人與社會生活・家庭與親屬" id="q27" data-answer="C">
+          <div class="q-head"><span class="num">03</span><div><span class="source">第 15 題</span><h2>姻親關係</h2></div></div>
           <div class="context"><strong>題組資料</strong><div class="table-wrap"><table><tr><th>同學</th><th>舉例</th></tr><tr><td>大雄</td><td>爸爸與伯父之間</td></tr><tr><td>胖虎</td><td>媽媽與阿姨之間</td></tr><tr><td>靜香</td><td>舅媽與外婆之間</td></tr><tr><td>小夫</td><td>祖父與祖母之間</td></tr></table></div></div>
           <p class="stem">公民課時，老師說明「姨丈與爸爸之間」屬於姻親關係。根據上表四位同學所舉例的內容判斷，何者也是屬於姻親關係？</p>
           <div class="options"><label class="option"><input type="radio" name="q27" value="A"><span class="letter">A</span><span>大雄</span></label><label class="option"><input type="radio" name="q27" value="B"><span class="letter">B</span><span>胖虎</span></label><label class="option"><input type="radio" name="q27" value="C"><span class="letter">C</span><span>靜香</span></label><label class="option"><input type="radio" name="q27" value="D"><span class="letter">D</span><span>小夫</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>姻親是因婚姻而產生的親屬，包括血親的配偶、配偶的血親、配偶的血親的配偶。舅媽是外婆的兒子（舅舅）的配偶，屬於「血親的配偶」，所以舅媽與外婆是姻親，選 C。A 爸爸與伯父是兄弟、B 媽媽與阿姨是姊妹，都是旁系血親；D 祖父與祖母是夫妻，屬於配偶，配偶本身不算姻親。</p><p class="key"><strong>解題關鍵：</strong>先看兩人之間有沒有「隔著一段婚姻」：兄弟姊妹＝血親；夫妻＝配偶；某人的血親的老公／老婆＝姻親。</p></div>
         </article>
-<article class="card" data-chapter="家庭與親屬" id="q28" data-answer="A">
-          <div class="q-head"><span class="num">28</span><div><span class="source">第 19 題</span><h2>家庭型態</h2></div></div>
+<article class="card" data-chapter="個人與社會生活・家庭與親屬" id="q28" data-answer="A">
+          <div class="q-head"><span class="num">04</span><div><span class="source">第 19 題</span><h2>家庭型態</h2></div></div>
           <div class="context"><strong>題組資料</strong><p>1. 家庭成員單純，可以減少衝突<br>2. 成員間享有自由與獨立<br>3. 家中年幼子女可能缺乏照料，父母年老後可能面臨安養照顧問題</p></div>
           <p class="stem">老師教導同學畫家庭樹時，提到某一類型家庭具備上列的特色。老師當時所介紹的是哪一種家庭型態？</p>
           <div class="options"><label class="option"><input type="radio" name="q28" value="A"><span class="letter">A</span><span>核心家庭</span></label><label class="option"><input type="radio" name="q28" value="B"><span class="letter">B</span><span>主幹家庭</span></label><label class="option"><input type="radio" name="q28" value="C"><span class="letter">C</span><span>擴展家庭</span></label><label class="option"><input type="radio" name="q28" value="D"><span class="letter">D</span><span>隔代教養家庭</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>核心家庭由父母與未婚子女組成，成員少，所以單純、衝突少，也比較自由獨立；但父母都工作時，年幼子女可能缺乏照料，父母年老後也沒有同住的子女照顧，可能面臨安養問題，選 A。主幹家庭、擴展家庭有祖父母同住，可互相照顧；隔代教養家庭是祖父母照顧孫子女、父母不在身邊，不符合「成員單純、自由獨立」的描述。</p><p class="key"><strong>解題關鍵：</strong>「成員單純＋自由獨立＋孩子缺乏照料、老後安養問題」＝核心家庭的優點和缺點。</p></div>
         </article>
-<article class="card" data-chapter="家庭與親屬" id="q29" data-answer="C">
-          <div class="q-head"><span class="num">29</span><div><span class="source">第 23 題</span><h2>育嬰留職停薪・圖表判讀</h2></div></div>
+<article class="card" data-chapter="個人與社會生活・家庭與親屬" id="q29" data-answer="C">
+          <div class="q-head"><span class="num">05</span><div><span class="source">第 23 題</span><h2>育嬰留職停薪・圖表判讀</h2></div></div>
           <div class="context"><strong>題組資料</strong><p>勞動部 2011～2021 年男女育嬰留職停薪津貼給付件數統計圖：女生約 20 萬件，最高升到約 35 萬件，之後約 30 萬件；男生從約 3 萬件逐年上升到約 10 萬件。</p></div>
           <p class="stem">根據圖中資料判斷，下列說法何者正確？</p>
           <div class="options"><label class="option"><input type="radio" name="q29" value="A"><span class="letter">A</span><span>法令僅允許女性申請育嬰假</span></label><label class="option"><input type="radio" name="q29" value="B"><span class="letter">B</span><span>女性的平均薪資略高於男性</span></label><label class="option"><input type="radio" name="q29" value="C"><span class="letter">C</span><span>男性申請育嬰津貼比例漸高</span></label><label class="option"><input type="radio" name="q29" value="D"><span class="letter">D</span><span>男性已成為家庭中主要照顧者</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>圖中男性的給付件數逐年上升，表示男性申請育嬰津貼的比例漸高，選 C。A 錯：圖中有男性申請，表示男女都可以申請育嬰假。B 錯：圖只呈現「件數」，沒有薪資資料，無法判斷。D 錯：女性件數仍遠多於男性，女性仍是主要照顧者。</p><p class="key"><strong>解題關鍵：</strong>圖表題只能根據圖中有的資料判斷；圖是「件數」，就不能推出「薪資」。</p></div>
-        </article><section class="sec-head" id="ch9"><h3>9. 地方自治</h3><p>4 題・均權制度、自治團體、派出單位</p></section>
-<article class="card" data-chapter="地方自治" id="c30" data-answer="A">
-          <div class="q-head"><span class="num">30</span><div><span class="source">公民⑤ 地方自治・第4題</span><h2>中央與地方的權限劃分（均權制度）</h2></div></div>
-          
-          <p class="stem">下列有關我國中央政府與地方政府權限的劃分，下列說法何者正確？</p>
-          <div class="options"><label class="option"><input type="radio" name="c30" value="A"><span class="letter">A</span><span>是依事務的性質區分</span></label><label class="option"><input type="radio" name="c30" value="B"><span class="letter">B</span><span>規範範圍大的屬中央</span></label><label class="option"><input type="radio" name="c30" value="C"><span class="letter">C</span><span>全國一致的是地方職權</span></label><label class="option"><input type="radio" name="c30" value="D"><span class="letter">D</span><span>因地制宜的是中央職權</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>我國採「均權制度」：依事務的性質來劃分中央與地方的權限（A）。有全國一致性質的事務（例如國防、外交）屬中央；有因地制宜性質的事務（例如地方的社會福利、地方交通）屬地方。B 錯：不是看「規範範圍大小」；C、D 把中央與地方弄反了。</p><p class="key"><strong>解題關鍵：</strong>均權制度＝依「事務性質」劃分：全國一致→中央；因地制宜→地方。</p></div>
         </article>
-<article class="card" data-chapter="地方自治" id="c31" data-answer="B">
-          <div class="q-head"><span class="num">31</span><div><span class="source">公民⑤ 地方自治・第7題</span><h2>直轄市政府的派出單位</h2></div></div>
-          
-          <p class="stem">若依照我國現行的地方政府組織判斷，直轄市政府的派出單位為何？</p>
-          <div class="options"><label class="option"><input type="radio" name="c31" value="A"><span class="letter">A</span><span>鄉公所</span></label><label class="option"><input type="radio" name="c31" value="B"><span class="letter">B</span><span>區公所</span></label><label class="option"><input type="radio" name="c31" value="C"><span class="letter">C</span><span>直轄市議會</span></label><label class="option"><input type="radio" name="c31" value="D"><span class="letter">D</span><span>縣政府</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>直轄市底下的「區」（山地原住民區除外）不是自治團體，區公所是直轄市政府派出去辦事的單位，區長由市長任命（B）。鄉公所屬於縣底下的「鄉」，是自治團體的行政機關，鄉長由人民選舉；直轄市議會是直轄市的立法機關；縣政府與直轄市平行，不是它的下屬。</p><p class="key"><strong>解題關鍵：</strong>區公所＝派出單位（區長官派）；鄉（鎮、市）公所＝自治團體（鄉長民選）。</p></div>
-        </article>
-<article class="card" data-chapter="地方自治" id="c32" data-answer="A">
-          <div class="q-head"><span class="num">32</span><div><span class="source">公民 地方自治・第11題</span><h2>地方自治團體的範圍</h2></div></div>
-          
-          <p class="stem">依地方制度法規定，對轄內部分公共事務享有自治權限，也是我國的地方自治團體者，不包括下列何者？</p>
-          <div class="options"><label class="option"><input type="radio" name="c32" value="A"><span class="letter">A</span><span>與縣同等級的市所管轄的區</span></label><label class="option"><input type="radio" name="c32" value="B"><span class="letter">B</span><span>縣所管轄的鄉</span></label><label class="option"><input type="radio" name="c32" value="C"><span class="letter">C</span><span>直轄市的山地原住民區</span></label><label class="option"><input type="radio" name="c32" value="D"><span class="letter">D</span><span>直轄市</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>地方自治團體包括：直轄市（市政府）、縣（市）、鄉（鎮、市）（鄉公所），以及直轄市的山地原住民區（區公所，區長民選）。「與縣同等級的市」（如新竹市、嘉義市）底下的區，和直轄市一般的區一樣，只是派出單位，不是自治團體，所以選 A。注意題目問「不包括」。</p><p class="key"><strong>解題關鍵：</strong>有「民選首長＋民意機關」的才是自治團體；一般的「區」沒有，山地原住民區是例外。</p></div>
-        </article>
-<article class="card" data-chapter="地方自治" id="c33" data-answer="C">
-          <div class="q-head"><span class="num">33</span><div><span class="source">公民 地方自治・第12題</span><h2>省不是地方自治團體</h2></div></div>
-          
-          <p class="stem">根據目前我國現行法律規定，下列何者不屬於地方自治團體？</p>
-          <div class="options"><label class="option"><input type="radio" name="c33" value="A"><span class="letter">A</span><span>直轄市</span></label><label class="option"><input type="radio" name="c33" value="B"><span class="letter">B</span><span>直轄市山地原住民區</span></label><label class="option"><input type="radio" name="c33" value="C"><span class="letter">C</span><span>省</span></label><label class="option"><input type="radio" name="c33" value="D"><span class="letter">D</span><span>鄉</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>1998年「精省」後，省已經不再是地方自治團體，省政府只是行政院的派出機關（目前業務已移撥）。直轄市（市政府）、直轄市山地原住民區（區公所）、鄉（鄉公所）都是地方自治團體，所以選 C。</p><p class="key"><strong>解題關鍵：</strong>精省後：省≠自治團體；地方自治團體只有兩級——直轄市／縣（市）→ 鄉（鎮、市）／山地原住民區。</p></div>
-        </article>
-<section class="sec-head" id="ch10"><h3>10. 選舉與公民投票</h3><p>5 題・投票原則、選舉資格、褫奪公權</p></section>
-<article class="card" data-chapter="選舉與公民投票" id="c34" data-answer="D">
-          <div class="q-head"><span class="num">34</span><div><span class="source">公民⑥ 選舉・第8題</span><h2>投票日領取選票的必備證件</h2></div></div>
-          
-          <p class="stem">投票日當天，選民若沒有攜帶下列何項物品前往投票所，將無法領取選票？</p>
-          <div class="options"><label class="option"><input type="radio" name="c34" value="A"><span class="letter">A</span><span>投票通知單</span></label><label class="option"><input type="radio" name="c34" value="B"><span class="letter">B</span><span>戶口名簿</span></label><label class="option"><input type="radio" name="c34" value="C"><span class="letter">C</span><span>印章</span></label><label class="option"><input type="radio" name="c34" value="D"><span class="letter">D</span><span>身分證</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>領取選票時必須出示「國民身分證」核對身分，沒有帶身分證就不能領票（D）。投票通知單只是提醒投票地點，沒帶也可以投；印章可以用按指印代替；戶口名簿不需要攜帶。</p><p class="key"><strong>解題關鍵：</strong>投票必帶：身分證（必帶）＋印章（可用指印代替）；通知單可不帶。</p></div>
-        </article>
-<article class="card" data-chapter="選舉與公民投票" id="c35" data-answer="D">
-          <div class="q-head"><span class="num">35</span><div><span class="source">公民⑥ 選舉・第15題（精熟活用）</span><h2>區域立委與市議員選舉的比較</h2></div></div>
-          
-          <p class="stem">臺北市某市議員轉選立法委員，故尋求政黨提名成為區域立委候選人，有關此兩種公職的選舉，下列哪一個選民說法正確？</p>
-          <div class="options"><label class="option"><input type="radio" name="c35" value="A"><span class="letter">A</span><span>最低參選年齡不同，立法委員比市議員最低參選年齡大</span></label><label class="option"><input type="radio" name="c35" value="B"><span class="letter">B</span><span>市議員是民意代表，區域立委是行政首長</span></label><label class="option"><input type="radio" name="c35" value="C"><span class="letter">C</span><span>連選連任次數不同，市議員只能連任一次，立委沒有次數限制</span></label><label class="option"><input type="radio" name="c35" value="D"><span class="letter">D</span><span>區域立委一選區只有一名當選人，市議員有多位當選人</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>區域立委採「單一選區」，一個選區只選出一名；市議員採「複數選區」，一個選區選出多名（D）。A 錯：立委和市議員最低參選年齡都是23歲。B 錯：兩者都是民意代表，行政首長是市長、總統等。C 錯：民意代表（立委、議員）連選得連任，沒有次數限制；有連任一次限制的是行政首長（總統、縣市長等）。</p><p class="key"><strong>解題關鍵：</strong>立委＝單一選區（選1人）；議員＝複數選區（選多人）。民意代表無連任限制，行政首長只能連任一次。</p></div>
-        </article>
-<article class="card" data-chapter="選舉與公民投票" id="c37" data-answer="D">
-          <div class="q-head"><span class="num">36</span><div><span class="source">國中社會3・第19題</span><h2>褫奪公權的影響</h2></div></div>
-          
-          <p class="stem">絡基今年30歲，因被褫奪公權，在尚未復權前，他不能從事下列何事？</p>
-          <div class="options"><label class="option"><input type="radio" name="c37" value="A"><span class="letter">A</span><span>選舉時投票給候選人</span></label><label class="option"><input type="radio" name="c37" value="B"><span class="letter">B</span><span>參加政黨</span></label><label class="option"><input type="radio" name="c37" value="C"><span class="letter">C</span><span>參加地方性公投的投票</span></label><label class="option"><input type="radio" name="c37" value="D"><span class="letter">D</span><span>擔任公職人員</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>依刑法規定，褫奪公權是剝奪「為公務員的資格」和「為公職候選人的資格」，所以他不能擔任公職人員（D）。選舉投票權（選舉權）、參加政黨、公投投票都不受褫奪公權影響，仍然可以。</p><p class="key"><strong>解題關鍵：</strong>褫奪公權＝失去「當公務員」和「當候選人（被選舉）」的資格；仍可投票。</p></div>
-        </article>
-<article class="card" data-chapter="選舉與公民投票" id="c38" data-answer="D">
-          <div class="q-head"><span class="num">37</span><div><span class="source">國中社會3・第20題</span><h2>縣市長選舉與總統選舉的比較</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p>表❶　「縣市長選舉與總統選舉」的比較</p><div class="table-wrap"><table><tr><th>選項</th><th>縣市長選舉</th><th>總統選舉</th></tr><tr><td>甲</td><td>依公職人員選舉罷免法辦理</td><td>依總統副總統選舉罷免法辦理</td></tr><tr><td>乙</td><td>選舉人須年滿20歲</td><td>選舉人須為我國公民</td></tr><tr><td>丙</td><td>被選舉人須未受監護宣告</td><td>被選舉人須未受褫奪公權</td></tr><tr><td>丁</td><td>被選舉人至少須年滿26歲</td><td>被選舉人至少須年滿40歲</td></tr></table></div></div>
-          <p class="stem">表❶中有關「縣市長選舉與總統選舉」的比較，何者錯誤？</p>
-          <div class="options"><label class="option"><input type="radio" name="c38" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="c38" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="c38" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="c38" value="D"><span class="letter">D</span><span>丁</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>縣市長（含直轄市長）的被選舉人須年滿「30歲」，不是26歲，所以丁錯誤（D）。乙正確：選舉的投票年齡是年滿20歲（18歲是公民投票的投票年齡，不要搞混）。總統候選人須年滿40歲。</p><p class="key"><strong>解題關鍵：</strong>被選舉年齡：總統副總統40歲、縣市長30歲、鄉鎮市長26歲、民意代表23歲；選舉投票20歲、公投投票18歲。</p></div>
-        </article>
-<article class="card" data-chapter="選舉與公民投票" id="c39" data-answer="B">
-          <div class="q-head"><span class="num">38</span><div><span class="source">國中社會・第29題（生活題）</span><h2>選舉人的居住期間條件</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p>圖❻　○○縣選舉委員會通知單</p><div class="table-wrap"><table><tr><th>選舉人姓名</th><td>XXX</td></tr><tr><th>投票所別及地點</th><td>請到第0436號投票所投票（瀰雅村活動中心）</td></tr><tr><th rowspan="3">選舉種類</th><td>✓ 總統副總統選舉</td></tr><tr><td>✓ 全國不分區及僑居國外國民立法委員</td></tr><tr><td>　 立法委員（區域、平地原住民）（未勾選）</td></tr><tr><th>戶籍地址</th><td>○○路一段786號</td></tr></table></div></div>
-          <p class="stem">圖❻為文玲在2024年選舉中拿到的投票通知單，在圖中的選舉種類中，已知她在此次選舉只能領取兩張選票，其理由最可能是下列何者？</p>
-          <div class="options"><label class="option"><input type="radio" name="c39" value="A"><span class="letter">A</span><span>其年齡已滿19歲</span></label><label class="option"><input type="radio" name="c39" value="B"><span class="letter">B</span><span>在戶籍所在地設籍未滿4個月</span></label><label class="option"><input type="radio" name="c39" value="C"><span class="letter">C</span><span>尚未具備中華民國國籍</span></label><label class="option"><input type="radio" name="c39" value="D"><span class="letter">D</span><span>受褫奪公權宣告</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>要投「區域立委」，必須在該選舉區繼續居住（設籍）4個月以上。文玲可以投總統和不分區立委（全國性的選舉），卻不能投區域立委，最可能是剛搬家、在新戶籍地設籍未滿4個月（B）。A 錯：選舉投票年齡須滿20歲，19歲不能投任何一張。C 錯：沒有國籍就完全沒有選舉權。D 錯：褫奪公權不影響投票權。</p><p class="key"><strong>解題關鍵：</strong>區域選舉（區域立委、縣市長、議員）須在該選區住滿4個月；全國性選舉看的是全國範圍。</p></div>
-        </article>
-<section class="sec-head" id="ch11"><h3>11. 中央政府：五院職權</h3><p>3 題・彈劾、糾舉、懲戒、審判權</p></section>
-<article class="card" data-chapter="中央政府：五院職權" id="c40" data-answer="A">
-          <div class="q-head"><span class="num">39</span><div><span class="source">國中社會3・第13題</span><h2>監察院的職權</h2></div></div>
-          
-          <p class="stem">監察院發布新聞稿指出，由於年度預算遭到刪減，可能有多項業務受到影響。上述提到受到影響的業務不包括下列何者？</p>
-          <div class="options"><label class="option"><input type="radio" name="c40" value="A"><span class="letter">A</span><span>對於地方民意代表的彈劾</span></label><label class="option"><input type="radio" name="c40" value="B"><span class="letter">B</span><span>對行政院轄下機關的糾正</span></label><label class="option"><input type="radio" name="c40" value="C"><span class="letter">C</span><span>對各政府機關決算的審計</span></label><label class="option"><input type="radio" name="c40" value="D"><span class="letter">D</span><span>對各地方行政官員的糾舉</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>監察院的職權有彈劾、糾舉、糾正、審計等，但彈劾、糾舉的對象是「公務人員」（含地方行政首長），不包括民意代表。民意代表（立委、議員）由人民選出，若失職應由選民罷免，監察院不能彈劾，所以 A 不是監察院的業務。B 糾正（對機關）、C 審計（由審計部審核決算）、D 糾舉（對公務人員）都是監察院的職權。</p><p class="key"><strong>解題關鍵：</strong>監察院管「公務人員」與「行政機關」，不管民意代表；民意代表由人民罷免。</p></div>
-        </article>
-<article class="card" data-chapter="中央政府：五院職權" id="c41" data-answer="D">
-          <div class="q-head"><span class="num">40</span><div><span class="source">國中社會3・第21題</span><h2>彈劾權與懲戒權</h2></div></div>
-          <div class="context"><strong>題組資料</strong><p>表❹　違法或失職公務人員的彈劾權與懲戒權之比較</p><div class="table-wrap"><table><tr><th></th><th>彈劾權</th><th>懲戒權</th></tr><tr><th>所屬機關</th><td>(甲)立法院</td><td>(乙)監察院</td></tr><tr><th>程序</th><td>(丙)由立法委員行使</td><td>(丁)由懲戒法院負責</td></tr></table></div></div>
-          <p class="stem">表❹中有關違法或失職公務人員的彈劾權與懲戒權之比較，何者正確？</p>
-          <div class="options"><label class="option"><input type="radio" name="c41" value="A"><span class="letter">A</span><span>(甲)</span></label><label class="option"><input type="radio" name="c41" value="B"><span class="letter">B</span><span>(乙)</span></label><label class="option"><input type="radio" name="c41" value="C"><span class="letter">C</span><span>(丙)</span></label><label class="option"><input type="radio" name="c41" value="D"><span class="letter">D</span><span>(丁)</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>彈劾權屬於監察院，由監察委員提出彈劾案，所以(甲)應改為監察院、(丙)應改為監察委員；懲戒權屬於司法院，由司法院所屬的「懲戒法院」審理，所以(乙)應改為司法院，(丁)正確（D）。</p><p class="key"><strong>解題關鍵：</strong>監察院「彈劾」（提出控訴）→ 司法院懲戒法院「懲戒」（決定處分）。</p></div>
-        </article>
-<article class="card" data-chapter="中央政府：五院職權" id="c42" data-answer="D">
-          <div class="q-head"><span class="num">41</span><div><span class="source">公民④ 中央政府・第10題</span><h2>司法院的審判權：向法院提起訴訟</h2></div></div>
-          
-          <p class="stem">人民若對警察取締不服，認為侵害其權利時，可以到何處提起訴訟？</p>
-          <div class="options"><label class="option"><input type="radio" name="c42" value="A"><span class="letter">A</span><span>行政院</span></label><label class="option"><input type="radio" name="c42" value="B"><span class="letter">B</span><span>立法院</span></label><label class="option"><input type="radio" name="c42" value="C"><span class="letter">C</span><span>司法院</span></label><label class="option"><input type="radio" name="c42" value="D"><span class="letter">D</span><span>各級法院</span></label></div>
-          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>司法院掌理「審判權」，但實際審理案件的是司法院所屬的「各級法院」。人民認為警察（行政機關）的處分侵害權利時，可依法提起行政訴訟，由行政法院審理，所以要到各級法院提起訴訟（D）。司法院本身是最高司法機關，不直接受理一般人民的訴訟；行政院是被告的上級行政機關，不負責審判；立法院負責立法，也不審判。</p><p class="key"><strong>解題關鍵：</strong>司法→審判權→人民要「到各級法院」提起訴訟（不是到司法院本身）。</p></div>
-        </article>
-<section class="sec-head" id="ch12"><h3>12. 國家、法治與權力分立</h3><p>3 題・國家要素、權力與權利、法律位階</p></section>
-<article class="card" data-chapter="國家、法治與權力分立" id="c43" data-answer="A">
-          <div class="q-head"><span class="num">42</span><div><span class="source">國中社會・第22題（題組）</span><h2>國家要素：主權（外交與國防）</h2></div></div>
+<section class="unit-head" id="u2"><h2>二、政治與政府</h2><p>八年級上・16 題</p></section>
+<section class="sec-head" id="ch3"><h3>2-1 國家與民主政治</h3><p>3 題・國家要素、民主與法治、權力與權利</p></section>
+<article class="card" data-chapter="政治與政府・國家與民主政治" id="c43" data-answer="A">
+          <div class="q-head"><span class="num">06</span><div><span class="source">國中社會・第22題（題組）</span><h2>國家要素：主權（外交與國防）</h2></div></div>
           <div class="context"><strong>題組資料</strong><p>美國總統川普就任後，多次表示要控制格陵蘭，選舉時獨立議題也成為格陵蘭議會選舉焦點。格陵蘭於2009年獲自治權，內政由當地政府處理，而外交與國防則由丹麥負責。川普在第一次總統任期時便曾提議購買格陵蘭；2025年川普重返白宮，依舊強調該地的重要性。最終，格陵蘭議會大選結果出爐，民主黨躍升成為第一大黨，在政策方面，民主黨主張等到經濟穩定，再緩慢實現獨立。</p></div>
           <p class="stem">文中提到丹麥在格陵蘭這片土地上，最主要的功能是實現下列何者？</p>
           <div class="options"><label class="option"><input type="radio" name="c43" value="A"><span class="letter">A</span><span>維護安全</span></label><label class="option"><input type="radio" name="c43" value="B"><span class="letter">B</span><span>促進經濟</span></label><label class="option"><input type="radio" name="c43" value="C"><span class="letter">C</span><span>發展文化</span></label><label class="option"><input type="radio" name="c43" value="D"><span class="letter">D</span><span>落實福利</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>文中說格陵蘭的「外交與國防則由丹麥負責」，外交和國防都是在保護國家不受外力侵犯，屬於政府「維護安全」的功能（A）。促進經濟、發展文化、落實福利屬於內政事務，文中說內政由格陵蘭當地政府處理。也因為外交、國防由丹麥掌握，格陵蘭對外沒有完整的主權，所以還不是獨立國家（第21題答案「主權」）。</p><p class="key"><strong>解題關鍵：</strong>國防＋外交＝維護安全；內政（經濟、文化、福利）由格陵蘭自己處理。</p></div>
         </article>
-<article class="card" data-chapter="國家、法治與權力分立" id="c44" data-answer="A">
-          <div class="q-head"><span class="num">43</span><div><span class="source">公民 法治與權力分立・第15題</span><h2>權力與權利的區別</h2></div></div>
+<article class="card" data-chapter="政治與政府・國家與民主政治" id="n1" data-answer="B">
+          <div class="q-head"><span class="num">07</span><div><span class="source">第 5 題</span><h2>民主與法治</h2></div></div>
+          
+          <p class="stem">民主社會中，每一個成員有義務遵守法律，下列何者最能解釋之？</p>
+          <div class="options"><label class="option"><input type="radio" name="n1" value="A"><span class="letter">A</span><span>法律是由統治者決定</span></label><label class="option"><input type="radio" name="n1" value="B"><span class="letter">B</span><span>民主應以法治為基礎</span></label><label class="option"><input type="radio" name="n1" value="C"><span class="letter">C</span><span>法律無法制裁違法者</span></label><label class="option"><input type="radio" name="n1" value="D"><span class="letter">D</span><span>人民無理智思考能力</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>民主國家的法律是由人民選出的代表（立法委員）經過立法程序制定的，不是由統治者一個人決定，所以 A 錯。法律代表全體人民的共同約定，民主必須以法治為基礎，人人都要遵守，才能保障每個人的權利，選 B。C 法律可以制裁違法者；D 民主相信人民有理性思考能力，兩者都不對。</p><p class="key"><strong>解題關鍵：</strong>民主＋法治：法律由「人民選出的代表」制定 → 大家都要遵守。</p></div>
+        </article>
+<article class="card" data-chapter="政治與政府・國家與民主政治" id="c44" data-answer="A">
+          <div class="q-head"><span class="num">08</span><div><span class="source">公民 法治與權力分立・第15題</span><h2>權力與權利的區別</h2></div></div>
           
           <p class="stem">下列有關「權力」的敘述，何者正確？</p>
           <div class="options"><label class="option"><input type="radio" name="c44" value="A"><span class="letter">A</span><span>是一種上對下支配的力量</span></label><label class="option"><input type="radio" name="c44" value="B"><span class="letter">B</span><span>民主國家中，政府可不依法行政</span></label><label class="option"><input type="radio" name="c44" value="C"><span class="letter">C</span><span>人民有消極的權力與積極的權力</span></label><label class="option"><input type="radio" name="c44" value="D"><span class="letter">D</span><span>民主國家中，政府具強勢統治力</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>「權力」是政府對人民上對下、具有強制性的支配力量（A）。C 錯在用字：人民擁有的是「權利」，有消極的權利（例如自由權，要求國家不要干涉）和積極的權利（例如受益權，要求國家提供服務），不是「權力」。B 錯：民主國家政府必須依法行政。D 錯：民主國家的政府權力受到憲法和法律的限制，不是強勢統治。</p><p class="key"><strong>解題關鍵：</strong>權力（力）＝政府對人民的強制支配力；權利（利）＝人民享有的利益與自由。看到「人民有……」通常是「權利」。</p></div>
         </article>
-<article class="card" data-chapter="國家、法治與權力分立" id="c45" data-answer="C">
-          <div class="q-head"><span class="num">44</span><div><span class="source">公民 法治與權力分立・第19題</span><h2>法律位階：憲法、法律、命令</h2></div></div>
+<section class="sec-head" id="ch4"><h3>2-2 中央政府：五院職權</h3><p>3 題・彈劾、糾舉、懲戒、審判權</p></section>
+<article class="card" data-chapter="政治與政府・中央政府：五院職權" id="c40" data-answer="A">
+          <div class="q-head"><span class="num">09</span><div><span class="source">國中社會3・第13題</span><h2>監察院的職權</h2></div></div>
+          
+          <p class="stem">監察院發布新聞稿指出，由於年度預算遭到刪減，可能有多項業務受到影響。上述提到受到影響的業務不包括下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="c40" value="A"><span class="letter">A</span><span>對於地方民意代表的彈劾</span></label><label class="option"><input type="radio" name="c40" value="B"><span class="letter">B</span><span>對行政院轄下機關的糾正</span></label><label class="option"><input type="radio" name="c40" value="C"><span class="letter">C</span><span>對各政府機關決算的審計</span></label><label class="option"><input type="radio" name="c40" value="D"><span class="letter">D</span><span>對各地方行政官員的糾舉</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>監察院的職權有彈劾、糾舉、糾正、審計等，但彈劾、糾舉的對象是「公務人員」（含地方行政首長），不包括民意代表。民意代表（立委、議員）由人民選出，若失職應由選民罷免，監察院不能彈劾，所以 A 不是監察院的業務。B 糾正（對機關）、C 審計（由審計部審核決算）、D 糾舉（對公務人員）都是監察院的職權。</p><p class="key"><strong>解題關鍵：</strong>監察院管「公務人員」與「行政機關」，不管民意代表；民意代表由人民罷免。</p></div>
+        </article>
+<article class="card" data-chapter="政治與政府・中央政府：五院職權" id="c41" data-answer="D">
+          <div class="q-head"><span class="num">10</span><div><span class="source">國中社會3・第21題</span><h2>彈劾權與懲戒權</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>表❹　違法或失職公務人員的彈劾權與懲戒權之比較</p><div class="table-wrap"><table><tr><th></th><th>彈劾權</th><th>懲戒權</th></tr><tr><th>所屬機關</th><td>(甲)立法院</td><td>(乙)監察院</td></tr><tr><th>程序</th><td>(丙)由立法委員行使</td><td>(丁)由懲戒法院負責</td></tr></table></div></div>
+          <p class="stem">表❹中有關違法或失職公務人員的彈劾權與懲戒權之比較，何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="c41" value="A"><span class="letter">A</span><span>(甲)</span></label><label class="option"><input type="radio" name="c41" value="B"><span class="letter">B</span><span>(乙)</span></label><label class="option"><input type="radio" name="c41" value="C"><span class="letter">C</span><span>(丙)</span></label><label class="option"><input type="radio" name="c41" value="D"><span class="letter">D</span><span>(丁)</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>彈劾權屬於監察院，由監察委員提出彈劾案，所以(甲)應改為監察院、(丙)應改為監察委員；懲戒權屬於司法院，由司法院所屬的「懲戒法院」審理，所以(乙)應改為司法院，(丁)正確（D）。</p><p class="key"><strong>解題關鍵：</strong>監察院「彈劾」（提出控訴）→ 司法院懲戒法院「懲戒」（決定處分）。</p></div>
+        </article>
+<article class="card" data-chapter="政治與政府・中央政府：五院職權" id="c42" data-answer="D">
+          <div class="q-head"><span class="num">11</span><div><span class="source">公民④ 中央政府・第10題</span><h2>司法院的審判權：向法院提起訴訟</h2></div></div>
+          
+          <p class="stem">人民若對警察取締不服，認為侵害其權利時，可以到何處提起訴訟？</p>
+          <div class="options"><label class="option"><input type="radio" name="c42" value="A"><span class="letter">A</span><span>行政院</span></label><label class="option"><input type="radio" name="c42" value="B"><span class="letter">B</span><span>立法院</span></label><label class="option"><input type="radio" name="c42" value="C"><span class="letter">C</span><span>司法院</span></label><label class="option"><input type="radio" name="c42" value="D"><span class="letter">D</span><span>各級法院</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>司法院掌理「審判權」，但實際審理案件的是司法院所屬的「各級法院」。人民認為警察（行政機關）的處分侵害權利時，可依法提起行政訴訟，由行政法院審理，所以要到各級法院提起訴訟（D）。司法院本身是最高司法機關，不直接受理一般人民的訴訟；行政院是被告的上級行政機關，不負責審判；立法院負責立法，也不審判。</p><p class="key"><strong>解題關鍵：</strong>司法→審判權→人民要「到各級法院」提起訴訟（不是到司法院本身）。</p></div>
+        </article>
+<section class="sec-head" id="ch5"><h3>2-3 地方自治</h3><p>4 題・均權制度、派出單位、自治團體</p></section>
+<article class="card" data-chapter="政治與政府・地方自治" id="c30" data-answer="A">
+          <div class="q-head"><span class="num">12</span><div><span class="source">公民⑤ 地方自治・第4題</span><h2>中央與地方的權限劃分（均權制度）</h2></div></div>
+          
+          <p class="stem">下列有關我國中央政府與地方政府權限的劃分，下列說法何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="c30" value="A"><span class="letter">A</span><span>是依事務的性質區分</span></label><label class="option"><input type="radio" name="c30" value="B"><span class="letter">B</span><span>規範範圍大的屬中央</span></label><label class="option"><input type="radio" name="c30" value="C"><span class="letter">C</span><span>全國一致的是地方職權</span></label><label class="option"><input type="radio" name="c30" value="D"><span class="letter">D</span><span>因地制宜的是中央職權</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>我國採「均權制度」：依事務的性質來劃分中央與地方的權限（A）。有全國一致性質的事務（例如國防、外交）屬中央；有因地制宜性質的事務（例如地方的社會福利、地方交通）屬地方。B 錯：不是看「規範範圍大小」；C、D 把中央與地方弄反了。</p><p class="key"><strong>解題關鍵：</strong>均權制度＝依「事務性質」劃分：全國一致→中央；因地制宜→地方。</p></div>
+        </article>
+<article class="card" data-chapter="政治與政府・地方自治" id="c31" data-answer="B">
+          <div class="q-head"><span class="num">13</span><div><span class="source">公民⑤ 地方自治・第7題</span><h2>直轄市政府的派出單位</h2></div></div>
+          
+          <p class="stem">若依照我國現行的地方政府組織判斷，直轄市政府的派出單位為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="c31" value="A"><span class="letter">A</span><span>鄉公所</span></label><label class="option"><input type="radio" name="c31" value="B"><span class="letter">B</span><span>區公所</span></label><label class="option"><input type="radio" name="c31" value="C"><span class="letter">C</span><span>直轄市議會</span></label><label class="option"><input type="radio" name="c31" value="D"><span class="letter">D</span><span>縣政府</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>直轄市底下的「區」（山地原住民區除外）不是自治團體，區公所是直轄市政府派出去辦事的單位，區長由市長任命（B）。鄉公所屬於縣底下的「鄉」，是自治團體的行政機關，鄉長由人民選舉；直轄市議會是直轄市的立法機關；縣政府與直轄市平行，不是它的下屬。</p><p class="key"><strong>解題關鍵：</strong>區公所＝派出單位（區長官派）；鄉（鎮、市）公所＝自治團體（鄉長民選）。</p></div>
+        </article>
+<article class="card" data-chapter="政治與政府・地方自治" id="c32" data-answer="A">
+          <div class="q-head"><span class="num">14</span><div><span class="source">公民 地方自治・第11題</span><h2>地方自治團體的範圍</h2></div></div>
+          
+          <p class="stem">依地方制度法規定，對轄內部分公共事務享有自治權限，也是我國的地方自治團體者，不包括下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="c32" value="A"><span class="letter">A</span><span>與縣同等級的市所管轄的區</span></label><label class="option"><input type="radio" name="c32" value="B"><span class="letter">B</span><span>縣所管轄的鄉</span></label><label class="option"><input type="radio" name="c32" value="C"><span class="letter">C</span><span>直轄市的山地原住民區</span></label><label class="option"><input type="radio" name="c32" value="D"><span class="letter">D</span><span>直轄市</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>地方自治團體包括：直轄市（市政府）、縣（市）、鄉（鎮、市）（鄉公所），以及直轄市的山地原住民區（區公所，區長民選）。「與縣同等級的市」（如新竹市、嘉義市）底下的區，和直轄市一般的區一樣，只是派出單位，不是自治團體，所以選 A。注意題目問「不包括」。</p><p class="key"><strong>解題關鍵：</strong>有「民選首長＋民意機關」的才是自治團體；一般的「區」沒有，山地原住民區是例外。</p></div>
+        </article>
+<article class="card" data-chapter="政治與政府・地方自治" id="c33" data-answer="C">
+          <div class="q-head"><span class="num">15</span><div><span class="source">公民 地方自治・第12題</span><h2>省不是地方自治團體</h2></div></div>
+          
+          <p class="stem">根據目前我國現行法律規定，下列何者不屬於地方自治團體？</p>
+          <div class="options"><label class="option"><input type="radio" name="c33" value="A"><span class="letter">A</span><span>直轄市</span></label><label class="option"><input type="radio" name="c33" value="B"><span class="letter">B</span><span>直轄市山地原住民區</span></label><label class="option"><input type="radio" name="c33" value="C"><span class="letter">C</span><span>省</span></label><label class="option"><input type="radio" name="c33" value="D"><span class="letter">D</span><span>鄉</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>1998年「精省」後，省已經不再是地方自治團體，省政府只是行政院的派出機關（目前業務已移撥）。直轄市（市政府）、直轄市山地原住民區（區公所）、鄉（鄉公所）都是地方自治團體，所以選 C。</p><p class="key"><strong>解題關鍵：</strong>精省後：省≠自治團體；地方自治團體只有兩級——直轄市／縣（市）→ 鄉（鎮、市）／山地原住民區。</p></div>
+        </article>
+<section class="sec-head" id="ch6"><h3>2-4 選舉、公民投票與公民德性</h3><p>6 題・選舉資格、投票、褫奪公權、守法</p></section>
+<article class="card" data-chapter="政治與政府・選舉、公民投票與公民德性" id="c34" data-answer="D">
+          <div class="q-head"><span class="num">16</span><div><span class="source">公民⑥ 選舉・第8題</span><h2>投票日領取選票的必備證件</h2></div></div>
+          
+          <p class="stem">投票日當天，選民若沒有攜帶下列何項物品前往投票所，將無法領取選票？</p>
+          <div class="options"><label class="option"><input type="radio" name="c34" value="A"><span class="letter">A</span><span>投票通知單</span></label><label class="option"><input type="radio" name="c34" value="B"><span class="letter">B</span><span>戶口名簿</span></label><label class="option"><input type="radio" name="c34" value="C"><span class="letter">C</span><span>印章</span></label><label class="option"><input type="radio" name="c34" value="D"><span class="letter">D</span><span>身分證</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>領取選票時必須出示「國民身分證」核對身分，沒有帶身分證就不能領票（D）。投票通知單只是提醒投票地點，沒帶也可以投；印章可以用按指印代替；戶口名簿不需要攜帶。</p><p class="key"><strong>解題關鍵：</strong>投票必帶：身分證（必帶）＋印章（可用指印代替）；通知單可不帶。</p></div>
+        </article>
+<article class="card" data-chapter="政治與政府・選舉、公民投票與公民德性" id="c35" data-answer="D">
+          <div class="q-head"><span class="num">17</span><div><span class="source">公民⑥ 選舉・第15題（精熟活用）</span><h2>區域立委與市議員選舉的比較</h2></div></div>
+          
+          <p class="stem">臺北市某市議員轉選立法委員，故尋求政黨提名成為區域立委候選人，有關此兩種公職的選舉，下列哪一個選民說法正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="c35" value="A"><span class="letter">A</span><span>最低參選年齡不同，立法委員比市議員最低參選年齡大</span></label><label class="option"><input type="radio" name="c35" value="B"><span class="letter">B</span><span>市議員是民意代表，區域立委是行政首長</span></label><label class="option"><input type="radio" name="c35" value="C"><span class="letter">C</span><span>連選連任次數不同，市議員只能連任一次，立委沒有次數限制</span></label><label class="option"><input type="radio" name="c35" value="D"><span class="letter">D</span><span>區域立委一選區只有一名當選人，市議員有多位當選人</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>區域立委採「單一選區」，一個選區只選出一名；市議員採「複數選區」，一個選區選出多名（D）。A 錯：立委和市議員最低參選年齡都是23歲。B 錯：兩者都是民意代表，行政首長是市長、總統等。C 錯：民意代表（立委、議員）連選得連任，沒有次數限制；有連任一次限制的是行政首長（總統、縣市長等）。</p><p class="key"><strong>解題關鍵：</strong>立委＝單一選區（選1人）；議員＝複數選區（選多人）。民意代表無連任限制，行政首長只能連任一次。</p></div>
+        </article>
+<article class="card" data-chapter="政治與政府・選舉、公民投票與公民德性" id="c37" data-answer="D">
+          <div class="q-head"><span class="num">18</span><div><span class="source">國中社會3・第19題</span><h2>褫奪公權的影響</h2></div></div>
+          
+          <p class="stem">絡基今年30歲，因被褫奪公權，在尚未復權前，他不能從事下列何事？</p>
+          <div class="options"><label class="option"><input type="radio" name="c37" value="A"><span class="letter">A</span><span>選舉時投票給候選人</span></label><label class="option"><input type="radio" name="c37" value="B"><span class="letter">B</span><span>參加政黨</span></label><label class="option"><input type="radio" name="c37" value="C"><span class="letter">C</span><span>參加地方性公投的投票</span></label><label class="option"><input type="radio" name="c37" value="D"><span class="letter">D</span><span>擔任公職人員</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>依刑法規定，褫奪公權是剝奪「為公務員的資格」和「為公職候選人的資格」，所以他不能擔任公職人員（D）。選舉投票權（選舉權）、參加政黨、公投投票都不受褫奪公權影響，仍然可以。</p><p class="key"><strong>解題關鍵：</strong>褫奪公權＝失去「當公務員」和「當候選人（被選舉）」的資格；仍可投票。</p></div>
+        </article>
+<article class="card" data-chapter="政治與政府・選舉、公民投票與公民德性" id="c38" data-answer="D">
+          <div class="q-head"><span class="num">19</span><div><span class="source">國中社會3・第20題</span><h2>縣市長選舉與總統選舉的比較</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>表❶　「縣市長選舉與總統選舉」的比較</p><div class="table-wrap"><table><tr><th>選項</th><th>縣市長選舉</th><th>總統選舉</th></tr><tr><td>甲</td><td>依公職人員選舉罷免法辦理</td><td>依總統副總統選舉罷免法辦理</td></tr><tr><td>乙</td><td>選舉人須年滿20歲</td><td>選舉人須為我國公民</td></tr><tr><td>丙</td><td>被選舉人須未受監護宣告</td><td>被選舉人須未受褫奪公權</td></tr><tr><td>丁</td><td>被選舉人至少須年滿26歲</td><td>被選舉人至少須年滿40歲</td></tr></table></div></div>
+          <p class="stem">表❶中有關「縣市長選舉與總統選舉」的比較，何者錯誤？</p>
+          <div class="options"><label class="option"><input type="radio" name="c38" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="c38" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="c38" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="c38" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>縣市長（含直轄市長）的被選舉人須年滿「30歲」，不是26歲，所以丁錯誤（D）。乙正確：選舉的投票年齡是年滿20歲（18歲是公民投票的投票年齡，不要搞混）。總統候選人須年滿40歲。</p><p class="key"><strong>解題關鍵：</strong>被選舉年齡：總統副總統40歲、縣市長30歲、鄉鎮市長26歲、民意代表23歲；選舉投票20歲、公投投票18歲。</p></div>
+        </article>
+<article class="card" data-chapter="政治與政府・選舉、公民投票與公民德性" id="c39" data-answer="B">
+          <div class="q-head"><span class="num">20</span><div><span class="source">國中社會・第29題（生活題）</span><h2>選舉人的居住期間條件</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>圖❻　○○縣選舉委員會通知單</p><div class="table-wrap"><table><tr><th>選舉人姓名</th><td>XXX</td></tr><tr><th>投票所別及地點</th><td>請到第0436號投票所投票（瀰雅村活動中心）</td></tr><tr><th rowspan="3">選舉種類</th><td>✓ 總統副總統選舉</td></tr><tr><td>✓ 全國不分區及僑居國外國民立法委員</td></tr><tr><td>　 立法委員（區域、平地原住民）（未勾選）</td></tr><tr><th>戶籍地址</th><td>○○路一段786號</td></tr></table></div></div>
+          <p class="stem">圖❻為文玲在2024年選舉中拿到的投票通知單，在圖中的選舉種類中，已知她在此次選舉只能領取兩張選票，其理由最可能是下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="c39" value="A"><span class="letter">A</span><span>其年齡已滿19歲</span></label><label class="option"><input type="radio" name="c39" value="B"><span class="letter">B</span><span>在戶籍所在地設籍未滿4個月</span></label><label class="option"><input type="radio" name="c39" value="C"><span class="letter">C</span><span>尚未具備中華民國國籍</span></label><label class="option"><input type="radio" name="c39" value="D"><span class="letter">D</span><span>受褫奪公權宣告</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>要投「區域立委」，必須在該選舉區繼續居住（設籍）4個月以上。文玲可以投總統和不分區立委（全國性的選舉），卻不能投區域立委，最可能是剛搬家、在新戶籍地設籍未滿4個月（B）。A 錯：選舉投票年齡須滿20歲，19歲不能投任何一張。C 錯：沒有國籍就完全沒有選舉權。D 錯：褫奪公權不影響投票權。</p><p class="key"><strong>解題關鍵：</strong>區域選舉（區域立委、縣市長、議員）須在該選區住滿4個月；全國性選舉看的是全國範圍。</p></div>
+        </article>
+<article class="card" data-chapter="政治與政府・選舉、公民投票與公民德性" id="n2" data-answer="C">
+          <div class="q-head"><span class="num">21</span><div><span class="source">第 12 題</span><h2>公民德性</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p><strong>投票前夕　中選會提醒：投票時應注意事項</strong><br>1 月 12 日是選舉造勢活動最後一天，所有集會活動必須在晚間 10 點前結束，自 1 月 13 日凌晨 0 時起，不能在通訊軟體 LINE、臉書等社群媒體，為任何候選人助選，違反者，最高可處 200 萬元。</p></div>
+          <p class="stem">總統大選前夕，中選會透過媒體發布上方的海報。根據海報內容判斷，是提醒哪一種公民德性的重要性？</p>
+          <div class="options"><label class="option"><input type="radio" name="n2" value="A"><span class="letter">A</span><span>和平尊重包容</span></label><label class="option"><input type="radio" name="n2" value="B"><span class="letter">B</span><span>捍衛公平正義</span></label><label class="option"><input type="radio" name="n2" value="C"><span class="letter">C</span><span>遵守法律規範</span></label><label class="option"><input type="radio" name="n2" value="D"><span class="letter">D</span><span>理性思考批判</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>海報列出具體規定（集會活動晚間 10 點前結束、投票前不能在社群媒體助選），還寫明「違反者，最高可處 200 萬元」的罰則。有規定、有處罰，就是在提醒大家「遵守法律規範」，選 C。B 公平正義雖然也和選舉有關，但海報的重點是規定與罰則。</p><p class="key"><strong>解題關鍵：</strong>看到「違反者」「最高可處○○元」＝法律規定＋罰則 → 遵守法律規範。</p></div>
+        </article>
+<section class="unit-head" id="u3"><h2>三、法律與權利</h2><p>八年級下・4 題</p></section>
+<section class="sec-head" id="ch7"><h3>3-1 法律位階</h3><p>1 題・憲法、法律、命令</p></section>
+<article class="card" data-chapter="法律與權利・法律位階" id="c45" data-answer="C">
+          <div class="q-head"><span class="num">22</span><div><span class="source">公民 法治與權力分立・第19題</span><h2>法律位階：憲法、法律、命令</h2></div></div>
           
           <div class="figure"><img src="./img/law-pyramid.svg" alt="圖❺ 法律位階（甲：憲法、乙：法律、丙：命令）" loading="lazy"></div><p class="stem">公民課時，老師在黑板上以圖❺講解法律位階，並請同學就圖中甲、乙、丙依序各舉一例，下列哪一個人的舉例完全正確？</p>
           <div class="options"><label class="option"><input type="radio" name="c45" value="A"><span class="letter">A</span><span>憲法、勞動基準法、中小企業發展條例</span></label><label class="option"><input type="radio" name="c45" value="B"><span class="letter">B</span><span>原住民族基本法、原住民族教育法、原住民族教育法施行細則</span></label><label class="option"><input type="radio" name="c45" value="C"><span class="letter">C</span><span>憲法增修條文、道路交通管理處罰條例、道路交通安全規則</span></label><label class="option"><input type="radio" name="c45" value="D"><span class="letter">D</span><span>憲法、體育運動精英獎獎勵辦法、國民體育法施行細則</span></label></div>
           <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>甲＝憲法（含憲法增修條文）、乙＝法律、丙＝命令。法律的名稱只有四種：法、律、條例、通則；命令的名稱有規程、規則、細則、辦法、綱要、標準、準則七種。C：憲法增修條文（憲法）→ 道路交通管理處罰條例（法律）→ 道路交通安全規則（命令），完全正確。A 錯：中小企業發展條例是「條例」，屬於法律，不是命令。B 錯：原住民族基本法是法律，不是憲法。D 錯：「辦法」是命令，不是法律。</p><p class="key"><strong>解題關鍵：</strong>法律4名：法、律、條例、通則；命令7名：規程、規則、細則、辦法、綱要、標準、準則。</p></div>
+        </article>
+<section class="sec-head" id="ch8"><h3>3-2 人民的權利與國籍</h3><p>3 題・國籍取得、受教權、資料判讀</p></section>
+<article class="card" data-chapter="法律與權利・人民的權利與國籍" id="n3" data-answer="B">
+          <div class="q-head"><span class="num">23</span><div><span class="source">第 16 題</span><h2>國籍的取得</h2></div></div>
+          <div class="context"><strong>題組資料</strong><div class="table-wrap"><table><tr><th>身分</th><th>丈夫</th><th>妻子</th></tr><tr><td>年齡</td><td>無限制</td><td>44 歲（含）以下</td></tr><tr><td>資格</td><td colspan="2">夫妻至少一方具中華民國國籍；經人工生殖中心診斷為不孕</td></tr></table></div></div>
+          <p class="stem">上表是國健署施行試管嬰兒補助方案的相關內容，根據內容判斷，下列何者的理解<strong>錯誤</strong>？</p>
+          <div class="options"><label class="option"><input type="radio" name="n3" value="A"><span class="letter">A</span><span>小如：「我國國民的外籍配偶可以獲得該項補助。」</span></label><label class="option"><input type="radio" name="n3" value="B"><span class="letter">B</span><span>小墨：「產下的嬰兒依出生地取得我國國籍。」</span></label><label class="option"><input type="radio" name="n3" value="C"><span class="letter">C</span><span>小明：「產下的嬰兒必定是我國的國民。」</span></label><label class="option"><input type="radio" name="n3" value="D"><span class="letter">D</span><span>小楓：「夫妻至少一方必須是我國國民。」</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>補助資格是「夫妻至少一方具中華民國國籍」，所以 A、D 正確（另一方可以是外籍配偶）。我國國籍法採「屬人主義（血統主義）」：出生時父或母為我國國民，就取得我國國籍，所以產下的嬰兒必定是我國國民，C 正確。B 說「依出生地」取得國籍是「屬地主義」，我國不是這樣規定，所以 B 錯誤。</p><p class="key"><strong>解題關鍵：</strong>我國國籍＝看「父母血統」（屬人主義），不是看「出生地」（屬地主義）。題目問「錯誤」的選項。</p></div>
+        </article>
+<article class="card" data-chapter="法律與權利・人民的權利與國籍" id="q4" data-answer="D">
+          <div class="q-head"><span class="num">24</span><div><span class="source">原題 39 第 2 小題</span><h2>受教權與入學制度</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>2018 年 3 月 8 日，法國總統馬克宏簽署《學生指導和成功》法案。過去基於人民有『自由上大學』的權利，大學原則上應接受所有具高中學歷的學生。學生在 APB 網站填寫大學志願序，系統依『地域』、其次『志願的順序』、最後『家庭考量』篩選；若報名人數超過地區名額且系統仍無法篩選，最後以抽籤決定。原圖後段文字未完整入鏡。</p></div>
+          <p class="stem">根據上文判斷，法國 APB 網站篩選學生的方式，其目的可能為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q4" value="A"><span class="letter">A</span><span>營造高度競爭的環境</span></label><label class="option"><input type="radio" name="q4" value="B"><span class="letter">B</span><span>確保公平的入學標準</span></label><label class="option"><input type="radio" name="q4" value="C"><span class="letter">C</span><span>協助學生的適性發展</span></label><label class="option"><input type="radio" name="q4" value="D"><span class="letter">D</span><span>保障人民受教育權利</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>文章先指出人民有『自由上大學』的權利，大學原則上應接受具高中學歷的學生；當名額不足、一般條件無法完成篩選時，最後以抽籤處理。整套制度是在名額有限時安排入學，以維持人民接受大學教育的機會，因此 D 最符合制度目的。A 把篩選目的誤解為競爭；B 雖與程序有關，但地域、家庭考量不代表完全一致的入學標準；C 文中沒有依興趣或能力進行適性配對。</p><p class="key"><strong>解題關鍵：</strong>先找制度背後要保障的權利，再判斷技術性篩選只是手段。</p></div>
+        </article>
+<article class="card" data-chapter="法律與權利・人民的權利與國籍" id="q5" data-answer="B">
+          <div class="q-head"><span class="num">25</span><div><span class="source">原題 39 第 3 小題</span><h2>資料判讀</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>妮妮：用抽籤方式決定入學資格，可能存在公平性的問題。<br>小新：現在申請居住地附近的大學，錄取的機率會較高。<br>正男：學生的志願序是 APB 網站的首要篩選標準。<br>阿呆：新的入學制度，可能衝擊『自由上大學』的原則。</p></div>
+          <p class="stem">看完上文後，四位同學發表了各自的意見，請問何者的敘述有誤？</p>
+          <div class="options"><label class="option"><input type="radio" name="q5" value="A"><span class="letter">A</span><span>妮妮、小新</span></label><label class="option"><input type="radio" name="q5" value="B"><span class="letter">B</span><span>小新、正男</span></label><label class="option"><input type="radio" name="q5" value="C"><span class="letter">C</span><span>正男、阿呆</span></label><label class="option"><input type="radio" name="q5" value="D"><span class="letter">D</span><span>妮妮、阿呆</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>小新的說法把『居住地』直接等同錄取優勢，但文章的地域條件還包含高中畢業學校地區，不能只由住家遠近斷定錄取率。正男說志願序是首要標準，也與文章順序不符；首要篩選標準是地域，志願序在後。因此有誤的是小新與正男，選 B。妮妮質疑抽籤的公平性，是對隨機決定入學資格可能產生的合理評價；阿呆指出篩選可能衝擊原有『自由上大學』原則，也符合文意。</p><p class="key"><strong>解題關鍵：</strong>資料排序題要照原文順序：地域 → 志願序 → 家庭考量 → 抽籤。</p></div>
+        </article>
+<section class="unit-head" id="u4"><h2>四、經濟生活</h2><p>九年級上・19 題</p></section>
+<section class="sec-head" id="ch9"><h3>4-1 稀少性與財貨</h3><p>5 題・稀少性、經濟財、公共財</p></section>
+<article class="card" data-chapter="經濟生活・稀少性與財貨" id="q6" data-answer="B">
+          <div class="q-head"><span class="num">26</span><div><span class="source">原題 47</span><h2>稀少性與選擇</h2></div></div>
+          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
+          <p class="stem">資源具有稀少性，因此「必須【　】」，例如：零用錢有限，該如何花用。</p>
+          <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>生產</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>選擇</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>交換</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>競爭</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>資源有限而欲望很多，不可能同時滿足所有需要，所以必須在不同用途之間作選擇。零用錢有限時，要決定買文具、點心或存下來，就是稀少性迫使人作取捨的例子。競爭可能因稀少而發生，但題幹要表達的是個人面對有限資源時的直接反應。</p><p class="key"><strong>解題關鍵：</strong>稀少性 → 無法全部滿足 → 必須選擇與取捨。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・稀少性與財貨" id="q7" data-answer="C">
+          <div class="q-head"><span class="num">27</span><div><span class="source">原題 26</span><h2>稀少性的判斷</h2></div></div>
+          
+          <p class="stem">於經濟學所討論的『稀少』，下列敘述何者不正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q7" value="A"><span class="letter">A</span><span>清潔空氣在空汙嚴重的都市中具有稀少性</span></label><label class="option"><input type="radio" name="q7" value="B"><span class="letter">B</span><span>沒代價、可任意使用的東西不具有稀少性</span></label><label class="option"><input type="radio" name="q7" value="C"><span class="letter">C</span><span>眾人爭相購買的物品一定具有稀少性</span></label><label class="option"><input type="radio" name="q7" value="D"><span class="letter">D</span><span>只要資源無法滿足人們的欲望，就具有稀少性</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>經濟學的稀少性是『可用資源相對於欲望不足』。A 符合這一定義；B 所說可無代價、任意使用，表示供給足以滿足需要；D 直接陳述稀少性的核心。C 使用『一定』過度推論：人們爭相購買可能由流行、促銷或預期心理造成，不能只憑搶購現象就確定資源相對欲望不足；仍須看取得是否需要取捨與付出代價。</p><p class="key"><strong>解題關鍵：</strong>不要把『熱門』直接等同『稀少』；稀少性要看資源與欲望的相對關係。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・稀少性與財貨" id="q8" data-answer="A">
+          <div class="q-head"><span class="num">28</span><div><span class="source">原題 34 第 1 小題</span><h2>經濟財</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>美國富翁諾克到日本富士山觀光，發現山上風景優美且空氣清新，於是把空氣裝入罐頭銷售；後來隨著空氣污染議題受重視，空氣罐頭在日本各地暢銷，甚至銷往歐美。</p></div>
+          <p class="stem">上文中的空氣罐頭屬於下列何種類型？</p>
+          <div class="options"><label class="option"><input type="radio" name="q8" value="A"><span class="letter">A</span><span>經濟財</span></label><label class="option"><input type="radio" name="q8" value="B"><span class="letter">B</span><span>自由財</span></label><label class="option"><input type="radio" name="q8" value="C"><span class="letter">C</span><span>生產財</span></label><label class="option"><input type="radio" name="q8" value="D"><span class="letter">D</span><span>消耗財</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>山上的清新空氣原本可能是可自由取得的自由財，但被裝入罐中、運送並在市場販售後，需要投入資源且有價格，消費者必須付出代價才能取得，因此成為經濟財。它的用途是直接滿足吸入清新空氣的需求，不是拿來生產其他產品，所以不能依『生產財』判斷。</p><p class="key"><strong>解題關鍵：</strong>同一種物質會因取得方式、地點與是否有代價，而改變財貨性質。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・稀少性與財貨" id="q9" data-answer="C">
+          <div class="q-head"><span class="num">29</span><div><span class="source">原題 34 第 2 小題</span><h2>稀少性</h2></div></div>
+          
+          <p class="stem">像『空氣罐頭』這類的產品具備下列何種特性？</p>
+          <div class="options"><label class="option"><input type="radio" name="q9" value="A"><span class="letter">A</span><span>替代性</span></label><label class="option"><input type="radio" name="q9" value="B"><span class="letter">B</span><span>功能性</span></label><label class="option"><input type="radio" name="q9" value="C"><span class="letter">C</span><span>稀少性</span></label><label class="option"><input type="radio" name="q9" value="D"><span class="letter">D</span><span>同質性</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>能被裝罐販售的清新空氣並非隨時隨地無限可得；特定地點的清潔空氣，加上收集、包裝與運送能力都有限，而人們又有需求，因此具有稀少性。稀少性不是指極端罕見，而是可用資源相對於人的欲望有限。A、B、D 都可能描述某些商品特徵，但不是題文形成市場價格的核心。</p><p class="key"><strong>解題關鍵：</strong>經濟學的稀少性是『相對有限』，不是日常語言的罕見。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・稀少性與財貨" id="q10" data-answer="B">
+          <div class="q-head"><span class="num">30</span><div><span class="source">京都題 第 1 小題</span><h2>公共財</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>2019 年到訪日本京都的外國遊客約 800 多萬人。觀光產業帶來稅收，但也出現公車擠滿觀光客、遊客騷擾藝妓、迷路遊客闖入住宅等『觀光公害』。京都市政府預計停售『京都市巴士一日券』，希望改善觀光客擠滿公車的問題。</p></div>
+          <p class="stem">觀光資源這一類的公共自由財，容易產生社會成本讓社會大眾承擔，請問是因為此類公共自由財資源具有何種特點？</p>
+          <div class="options"><label class="option"><input type="radio" name="q10" value="A"><span class="letter">A</span><span>私有性</span></label><label class="option"><input type="radio" name="q10" value="B"><span class="letter">B</span><span>公共性</span></label><label class="option"><input type="radio" name="q10" value="C"><span class="letter">C</span><span>稀少性</span></label><label class="option"><input type="radio" name="q10" value="D"><span class="letter">D</span><span>利益性</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>觀光景點、城市環境等公共自由財具有公共性，不易排除未付費者使用，也常被許多人共同使用。個別遊客在使用時可能不必負擔全部成本，卻把擁擠、噪音、垃圾或交通干擾留給居民與社會，因而形成外部成本。A 私有性與題意相反；C 稀少性雖可能造成擁擠，但題幹問的是成本由大眾承擔的制度特點；D 不是公共財的標準特性。</p><p class="key"><strong>解題關鍵：</strong>『大家都能用、成本由大眾承擔』指向公共性與外部成本。</p></div>
+        </article>
+<section class="sec-head" id="ch10"><h3>4-2 選擇與機會成本</h3><p>7 題・機會成本、誘因</p></section>
+<article class="card" data-chapter="經濟生活・選擇與機會成本" id="q11" data-answer="A">
+          <div class="q-head"><span class="num">31</span><div><span class="source">原題 43</span><h2>選擇與機會成本</h2></div></div>
+          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
+          <p class="stem">當我們選擇時，會考慮得到的利益和付出的代價，而有所取捨，這便有了【　】的概念。</p>
+          <div class="options"><label class="option"><input type="radio" name="q11" value="A"><span class="letter">A</span><span>機會成本</span></label><label class="option"><input type="radio" name="q11" value="B"><span class="letter">B</span><span>比較利益</span></label><label class="option"><input type="radio" name="q11" value="C"><span class="letter">C</span><span>公共財</span></label><label class="option"><input type="radio" name="q11" value="D"><span class="letter">D</span><span>外部成本</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>選擇代表必須放棄其他可能方案。被放棄選項中價值最高者，就是這項選擇的機會成本。題幹同時提到利益、代價與取捨，正是在描述機會成本。比較利益用來比較不同生產者的相對生產成本；公共財與外部成本都不是此處的選擇概念。</p><p class="key"><strong>解題關鍵：</strong>看到『選擇、代價、取捨』，先想到機會成本。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・選擇與機會成本" id="q12" data-answer="D">
+          <div class="q-head"><span class="num">32</span><div><span class="source">晶片題 第 2 小題</span><h2>機會成本</h2></div></div>
+          <div class="table-wrap"><table><tr><th>公司／項目</th><th>電腦 CPU</th><th>手機 CPU</th><th>電腦 GPU</th><th>車用晶片</th></tr><tr><td>甲公司總利潤</td><td>200 萬元</td><td>750 萬元</td><td>350 萬元</td><td>200 萬元</td></tr><tr><td>乙公司總利潤</td><td>350 萬元</td><td>300 萬元</td><td>320 萬元</td><td>250 萬元</td></tr></table></div>
+          <p class="stem">根據表中資料，以機會成本來考量，下列敘述何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q12" value="A"><span class="letter">A</span><span>兩家公司最終將選擇生產相同的晶片</span></label><label class="option"><input type="radio" name="q12" value="B"><span class="letter">B</span><span>乙公司生產車用晶片的機會成本最低</span></label><label class="option"><input type="radio" name="q12" value="C"><span class="letter">C</span><span>乙公司生產電腦 CPU 的機會成本最高</span></label><label class="option"><input type="radio" name="q12" value="D"><span class="letter">D</span><span>兩家公司生產手機 CPU 的機會成本相同</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>甲公司各方案總利潤為 200、750、350、200 萬元；若甲生產手機 CPU，放棄方案中最高的是電腦 GPU 的 350 萬元，所以機會成本是 350 萬元。乙公司的總利潤為 350、300、320、250 萬元；若乙生產手機 CPU，放棄方案中最高的是電腦 CPU 的 350 萬元，機會成本也是 350 萬元，因此 D 正確。兩家公司追求最大利潤時分別選手機 CPU 與電腦 CPU，並不相同；乙生產車用晶片的機會成本是 350 萬元，不是最低；乙生產電腦 CPU 的機會成本是 320 萬元，反而低於其他三種方案的 350 萬元。</p><p class="key"><strong>解題關鍵：</strong>某方案的機會成本＝放棄方案中價值最高者，不是把所有放棄項目相加。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・選擇與機會成本" id="q13" data-answer="B">
+          <div class="q-head"><span class="num">33</span><div><span class="source">京都題 第 2 小題</span><h2>機會成本</h2></div></div>
+          
+          <p class="stem">題文中關於停止販售『京都市巴士一日券』所帶來的影響，如果用機會成本的概念來作解釋，所指『影響』的機會成本最可能是？</p>
+          <div class="options"><label class="option"><input type="radio" name="q13" value="A"><span class="letter">A</span><span>減少的售票收益</span></label><label class="option"><input type="radio" name="q13" value="B"><span class="letter">B</span><span>減少的潛在觀光收益</span></label><label class="option"><input type="radio" name="q13" value="C"><span class="letter">C</span><span>增加的公車便利</span></label><label class="option"><input type="radio" name="q13" value="D"><span class="letter">D</span><span>增加的交通成本</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>停售一日券可能讓部分依賴公車的遊客覺得京都較不方便，甚至不再前往偏遠景點或減少旅遊。若政府選擇改善居民搭車與擁擠問題，就可能放棄原本可由這些旅客帶來的最佳替代利益，也就是潛在觀光收益，因此選 B。A 只是直接少賣票的收入，範圍較窄；C 是居民可能得到的利益，不是被放棄的利益；D 是可能增加的代價，但題目脈絡特別指向觀光產業失去遊客與收入。</p><p class="key"><strong>解題關鍵：</strong>機會成本問的是『因這個選擇而放棄的最高價值利益』。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・選擇與機會成本" id="q14" data-answer="D">
+          <div class="q-head"><span class="num">34</span><div><span class="source">原題 36 第 1 小題</span><h2>薪資與選擇</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>詠輝現在的薪水是 29,500 元。他想培養第二專長、換公司增加工作經驗，應徵甲公司月薪 29,000 元、乙公司 28,500 元；朋友新開珍珠奶茶店，希望他幫忙，月薪 28,000 元。</p></div>
+          <p class="stem">若不考慮其他因素，單以薪資為考量，則詠輝的最佳選擇應是下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="q14" value="A"><span class="letter">A</span><span>甲公司</span></label><label class="option"><input type="radio" name="q14" value="B"><span class="letter">B</span><span>乙公司</span></label><label class="option"><input type="radio" name="q14" value="C"><span class="letter">C</span><span>朋友的店</span></label><label class="option"><input type="radio" name="q14" value="D"><span class="letter">D</span><span>不換工作</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>四個方案月薪依序是 29,000 元、28,500 元、28,000 元與目前工作的 29,500 元。題目限定只看薪資，因此直接比較金額即可；29,500 元最高，所以不換工作。題幹中培養專長、增加經驗或人情等因素，在本小題都被『不考慮其他因素』排除。</p><p class="key"><strong>解題關鍵：</strong>先遵守題目限定條件；只比較薪資，不加入喜好或發展性。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・選擇與機會成本" id="q15" data-answer="D">
+          <div class="q-head"><span class="num">35</span><div><span class="source">原題 36 第 2 小題</span><h2>喜好與機會成本</h2></div></div>
+          <div class="table-wrap"><table><tr><th>選擇項目</th><th>喜好程度</th></tr><tr><td>甲公司</td><td>☆☆</td></tr><tr><td>乙公司</td><td>☆☆☆</td></tr><tr><td>朋友的店</td><td>☆☆☆☆</td></tr><tr><td>原來公司</td><td>☆</td></tr></table></div>
+          <p class="stem">假設詠輝以附表所列為考量，決定到朋友的店去上班，則下列敘述何者正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q15" value="A"><span class="letter">A</span><span>詠輝是以金錢衡量機會成本高低</span></label><label class="option"><input type="radio" name="q15" value="B"><span class="letter">B</span><span>詠輝選擇了表中機會成本最高的</span></label><label class="option"><input type="radio" name="q15" value="C"><span class="letter">C</span><span>若選擇原來公司可獲得最大利益</span></label><label class="option"><input type="radio" name="q15" value="D"><span class="letter">D</span><span>選擇另外三者的機會成本均相同</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>表中偏好由高到低為朋友的店 4 顆星、乙公司 3 顆星、甲公司 2 顆星、原來公司 1 顆星。若改選甲、乙或原公司，三種選擇都會放棄最喜歡的『朋友的店』，所以其機會成本都同樣是朋友的店，D 正確。A 錯在表格衡量的是喜好，不是金額；B 不能說選了『機會成本最高』，因為選朋友的店時，最高價值的放棄方案是乙公司；C 與偏好表相反。</p><p class="key"><strong>解題關鍵：</strong>比較偏好時，選任何非首選方案，都會放棄同一個最高價值選項。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・選擇與機會成本" id="q16" data-answer="A">
+          <div class="q-head"><span class="num">36</span><div><span class="source">原題 32</span><h2>成本與機會成本</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>昱瑋每天到文興書局工作 8 小時，書局給付 1,600 元／天。</p></div>
+          <p class="stem">附圖是昱瑋和文興書局之間的關係，根據附圖資訊判斷，下列敘述何者有誤？</p>
+          <div class="options"><label class="option"><input type="radio" name="q16" value="A"><span class="letter">A</span><span>請一天假所要支付的成本為 1,600 元</span></label><label class="option"><input type="radio" name="q16" value="B"><span class="letter">B</span><span>上一天班的機會成本是 8 個小時</span></label><label class="option"><input type="radio" name="q16" value="C"><span class="letter">C</span><span>上一個小時的班可獲取的價值為 200 元</span></label><label class="option"><input type="radio" name="q16" value="D"><span class="letter">D</span><span>上一天班的隱藏成本是 8 個小時的休息時間</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>昱瑋工作 8 小時獲得 1,600 元，因此每小時工資為 200 元，C 正確。選擇上一天班，就放棄 8 小時可自由運用或休息的時間，所以 B、D 都在描述工作的機會成本或隱藏成本。請一天假時，1,600 元是因不上班而放棄的薪資，也就是機會成本，不是昱瑋必須實際『支付』給書局的金錢，因此 A 的用語錯誤。</p><p class="key"><strong>解題關鍵：</strong>分清楚實際支出與放棄的利益；沒有付錢，也可能有機會成本。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・選擇與機會成本" id="q17" data-answer="B">
+          <div class="q-head"><span class="num">37</span><div><span class="source">原題 18</span><h2>誘因與選擇</h2></div></div>
+          
+          <p class="stem">鈺華因沉迷於線上遊戲、荒廢學業，在這次段考表現一塌糊塗。為了矯正鈺華不良的行為，媽媽決定懲罰他一個月都不可以上網。根據上述，下列敘述何者有誤？</p>
+          <div class="options"><label class="option"><input type="radio" name="q17" value="A"><span class="letter">A</span><span>懲罰屬於負向誘因</span></label><label class="option"><input type="radio" name="q17" value="B"><span class="letter">B</span><span>此懲罰無法矯正鈺華不良的行為</span></label><label class="option"><input type="radio" name="q17" value="C"><span class="letter">C</span><span>媽媽的決定有衡量『上網』對鈺華的價值</span></label><label class="option"><input type="radio" name="q17" value="D"><span class="letter">D</span><span>『禁止上網』應比『禁足』更具影響效果</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>負向誘因是用不利後果降低某種行為發生的可能，禁止上網正是負向誘因，因此 A 正確。鈺華沉迷線上遊戲，表示上網對他價值很高；剝奪上網機會可能提高荒廢學業的代價，因而具有矯正作用，所以直接斷言『無法矯正』的 B 有誤。C 符合誘因設計必須考量當事人的偏好；相較禁足，禁止上網更直接對準其重視的活動，所以 D 在題幹條件下較合理。</p><p class="key"><strong>解題關鍵：</strong>誘因是否有效，要看它是否改變當事人在意的利益或代價。</p></div>
+        </article>
+<section class="sec-head" id="ch11"><h3>4-3 市場、消費與供給</h3><p>3 題・商品、消費行為、供給法則</p></section>
+<article class="card" data-chapter="經濟生活・市場、消費與供給" id="q18" data-answer="B">
+          <div class="q-head"><span class="num">38</span><div><span class="source">原題 44</span><h2>市場與商品</h2></div></div>
+          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
+          <p class="stem">在市場中進行交易的產品，稱為【　】。</p>
+          <div class="options"><label class="option"><input type="radio" name="q18" value="A"><span class="letter">A</span><span>資源</span></label><label class="option"><input type="radio" name="q18" value="B"><span class="letter">B</span><span>商品</span></label><label class="option"><input type="radio" name="q18" value="C"><span class="letter">C</span><span>公共財</span></label><label class="option"><input type="radio" name="q18" value="D"><span class="letter">D</span><span>生產要素</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>能在市場中被買賣、交換的產品稱為商品，可能是有形物品，也可能是服務。資源與生產要素是生產過程中投入的條件；公共財則具有公共性，通常不容易只讓付費者使用，因此都不符合題幹定義。</p><p class="key"><strong>解題關鍵：</strong>市場上可供交易的產品，就是商品。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・市場、消費與供給" id="q19" data-answer="C">
+          <div class="q-head"><span class="num">39</span><div><span class="source">原題 46</span><h2>消費行為</h2></div></div>
+          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
+          <p class="stem">每個人都會有食、衣、住、行、育、樂等日常需求，滿足這些需求的行為便稱為【　】行為。</p>
+          <div class="options"><label class="option"><input type="radio" name="q19" value="A"><span class="letter">A</span><span>生產</span></label><label class="option"><input type="radio" name="q19" value="B"><span class="letter">B</span><span>交換</span></label><label class="option"><input type="radio" name="q19" value="C"><span class="letter">C</span><span>消費</span></label><label class="option"><input type="radio" name="q19" value="D"><span class="letter">D</span><span>儲蓄</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>人們使用商品或服務來滿足生活需求，稱為消費行為。生產是創造商品或服務；交換是透過市場互換；儲蓄是保留所得、延後支用。題幹列出食衣住行育樂，核心是滿足需要，因此答案為消費。</p><p class="key"><strong>解題關鍵：</strong>『滿足需求』是消費的定義關鍵。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・市場、消費與供給" id="q20" data-answer="B">
+          <div class="q-head"><span class="num">40</span><div><span class="source">原題 17</span><h2>供給法則</h2></div></div>
+          
+          <p class="stem">某項商品價格上漲時，生產者的生產意願會呈現何種變化？</p>
+          <div class="options"><label class="option"><input type="radio" name="q20" value="A"><span class="letter">A</span><span>減少</span></label><label class="option"><input type="radio" name="q20" value="B"><span class="letter">B</span><span>增加</span></label><label class="option"><input type="radio" name="q20" value="C"><span class="letter">C</span><span>不變</span></label><label class="option"><input type="radio" name="q20" value="D"><span class="letter">D</span><span>不一定</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>在其他條件不變下，商品價格上漲會提高生產與出售該商品可能得到的收益，生產者通常願意增加供給，因此生產意願增加。這是供給法則。若成本、技術或政策同時改變，結果可能不同，但題目沒有提供這些變動，所以應採『其他條件不變』的基本判斷。</p><p class="key"><strong>解題關鍵：</strong>價格與供給量通常同方向變動：價格上升，生產意願增加。</p></div>
+        </article>
+<section class="sec-head" id="ch12"><h3>4-4 生產、成本與利潤</h3><p>4 題・生產成本、利潤</p></section>
+<article class="card" data-chapter="經濟生活・生產、成本與利潤" id="q21" data-answer="A">
+          <div class="q-head"><span class="num">41</span><div><span class="source">原題 45</span><h2>生產成本</h2></div></div>
+          <p class="adapted">原題為填充題；選項為本測驗新增練習內容。</p>
+          <p class="stem">【　】是生產者使用各項生產資源來從事生產時，必須付出的成本。</p>
+          <div class="options"><label class="option"><input type="radio" name="q21" value="A"><span class="letter">A</span><span>生產成本</span></label><label class="option"><input type="radio" name="q21" value="B"><span class="letter">B</span><span>機會利益</span></label><label class="option"><input type="radio" name="q21" value="C"><span class="letter">C</span><span>消費支出</span></label><label class="option"><input type="radio" name="q21" value="D"><span class="letter">D</span><span>市場價格</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>生產者為了取得勞力、土地、資本與企業才能等生產資源所付出的代價，統稱生產成本。市場價格是交易形成的價格；消費支出是消費者購買商品的支出；『機會利益』並非此處的標準概念。</p><p class="key"><strong>解題關鍵：</strong>題幹主詞是生產者，且明說使用生產資源時的付出。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・生產、成本與利潤" id="q22" data-answer="A">
+          <div class="q-head"><span class="num">42</span><div><span class="source">原題 41 第 1 小題</span><h2>生產資源與企業經營</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>因應全球淨零排放趨勢，各國航空公司自 2025 年起被要求提升永續航空燃料（SAF）的使用比例，但 SAF 價格遠高於傳統航燃，加上全球飛機維修工程師短缺導致地勤與維修成本攀升，許多航空公司正面臨龐大的營運壓力。冠軍航空公司決定引進更節能的新型客機，並調漲熱門時段票價。每趟航班平均數據：調整前銷貨收入 300 萬元、生產成本 200 萬元；調整後銷貨收入 350 萬元、生產成本 270 萬元。</p></div>
+          <p class="stem">下列關於冠軍航空公司的敘述，何者最正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q22" value="A"><span class="letter">A</span><span>該公司購買新型節能客機，在生產資源中屬於資本的投入</span></label><label class="option"><input type="radio" name="q22" value="B"><span class="letter">B</span><span>該公司針對熱門時段調漲機票價格，這主要是透過降低生產成本來提高利潤</span></label><label class="option"><input type="radio" name="q22" value="C"><span class="letter">C</span><span>維修工程師短缺導致薪資成本攀升，這代表生產資源中的企業才能成本增加</span></label><label class="option"><input type="radio" name="q22" value="D"><span class="letter">D</span><span>對於該公司而言，決定引進節能客機並調漲票價的經營策略，屬於人力資源的發揮</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>新型客機是企業為生產運輸服務而使用的耐久設備，屬於資本，因此 A 正確。調漲票價是在銷量不變時增加銷貨收入，不是降低成本，所以 B 錯。維修工程師屬勞動或人力資源，薪資上升不是企業才能成本，因此 C 錯。整合資源、承擔風險並制定經營策略屬企業才能，不只是一般人力資源，所以 D 錯。</p><p class="key"><strong>解題關鍵：</strong>分清楚四種生產資源：自然資源、勞動、資本、企業才能。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・生產、成本與利潤" id="q23" data-answer="B">
+          <div class="q-head"><span class="num">43</span><div><span class="source">晶片題 第 1 小題</span><h2>利潤最大化</h2></div></div>
+          <div class="context"><strong>題組資料</strong><p>假設每家公司在相同時間內只能選擇一種晶片生產，且不考慮其他因素。</p><div class="table-wrap"><table><tr><th>公司／項目</th><th>電腦 CPU</th><th>手機 CPU</th><th>電腦 GPU</th><th>車用晶片</th></tr><tr><td>甲公司產量</td><td>50 片</td><td>150 片</td><td>175 片</td><td>200 片</td></tr><tr><td>甲每片利潤</td><td>4 萬元</td><td>5 萬元</td><td>2 萬元</td><td>1 萬元</td></tr><tr><td>乙公司產量</td><td>70 片</td><td>100 片</td><td>80 片</td><td>250 片</td></tr><tr><td>乙每片利潤</td><td>5 萬元</td><td>3 萬元</td><td>4 萬元</td><td>1 萬元</td></tr></table></div></div>
+          <p class="stem">根據表中資料判斷，甲公司應選擇生產下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="q23" value="A"><span class="letter">A</span><span>電腦 CPU</span></label><label class="option"><input type="radio" name="q23" value="B"><span class="letter">B</span><span>手機 CPU</span></label><label class="option"><input type="radio" name="q23" value="C"><span class="letter">C</span><span>電腦 GPU</span></label><label class="option"><input type="radio" name="q23" value="D"><span class="letter">D</span><span>車用晶片</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>要比較總利潤，必須用『可生產數量 × 每片利潤』。甲公司四種晶片分別是：電腦 CPU 50×4＝200 萬元；手機 CPU 150×5＝750 萬元；電腦 GPU 175×2＝350 萬元；車用晶片 200×1＝200 萬元。最高為 750 萬元，所以選 B。只看單片利潤會誤選電腦 CPU；只看產量則會誤選車用晶片。</p><p class="key"><strong>解題關鍵：</strong>先把每個方案換算成總利潤，再比較，不能只看單價或產量。</p></div>
+        </article>
+<article class="card" data-chapter="經濟生活・生產、成本與利潤" id="q24" data-answer="C">
+          <div class="q-head"><span class="num">44</span><div><span class="source">原題 7</span><h2>利潤與銷貨收入</h2></div></div>
+          
+          <p class="stem">阿輝到廟會活動的場邊販賣小吃，活動結束後，商品全都賣完了，且利潤為 12,000 元，占銷貨收入的 60%。根據上述內容判斷，阿輝所販售的小吃，其售價與銷售數量最可能為下列何者？</p>
+          <div class="options"><label class="option"><input type="radio" name="q24" value="A"><span class="letter">A</span><span>售價 10 元，銷售數量 1,000 份</span></label><label class="option"><input type="radio" name="q24" value="B"><span class="letter">B</span><span>售價 15 元，銷售數量 2,000 份</span></label><label class="option"><input type="radio" name="q24" value="C"><span class="letter">C</span><span>售價 10 元，銷售數量 2,000 份</span></label><label class="option"><input type="radio" name="q24" value="D"><span class="letter">D</span><span>售價 15 元，銷售數量 1,000 份</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>利潤 12,000 元占銷貨收入 60%，所以銷貨收入＝12,000÷0.6＝20,000 元。再計算各選項的『售價×數量』：A 為 10,000 元，B 為 30,000 元，C 為 20,000 元，D 為 15,000 元，只有 C 符合。也可檢查成本：20,000－12,000＝8,000 元，數值合理。</p><p class="key"><strong>解題關鍵：</strong>先用『利潤＝收入×60%』倒推收入，再核對售價×數量。</p></div>
         </article>
 </main>
 <script>
@@ -427,7 +433,7 @@ function textBlock(text,options={}){
 function collectMistakes(){
   return cards.filter(c=>{
     const pick=c.querySelector('input:checked');
-    return !pick||pick.value!==c.dataset.answer;
+    return !!pick&&pick.value!==c.dataset.answer;
   }).map(c=>{
     const picked=c.querySelector('input:checked');
     const feedback=[...c.querySelectorAll('.feedback p')];
@@ -500,7 +506,7 @@ async function buildMistakeDocx(){
   }
   let picId=0;
   let body=wordParagraph('公民錯題詳解',{bold:true,size:34,color:'17313A',after:180});
-  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　錯題與未作答共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　答錯共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
   if(!mistakes.length){
     body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
   }else{

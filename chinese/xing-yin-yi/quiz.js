@@ -27,7 +27,7 @@ data.questions.forEach((q,index)=>{
 
 const dl=document.createElement('button');dl.type='button';dl.className='reset dl-all';dl.hidden=true;
 dl.addEventListener('click',()=>{const title=document.querySelector('.hero h1').textContent.trim();const type=document.querySelector('.hero .eyebrow').textContent.trim();
-  const items=data.questions.map((q,i)=>({q,i,r:results.find(x=>x.index===i)})).filter(o=>!o.r||!o.r.ok).map(o=>({source:`${o.q.source} · 第 ${o.i+1} 題`,stem:o.q.prompt,options:o.q.options,selected:o.r?o.r.selected:'未作答',answer:o.q.answer,explanation:o.q.explanation}));
+  const items=data.questions.map((q,i)=>({q,i,r:results.find(x=>x.index===i)})).filter(o=>o.r&&!o.r.ok).map(o=>({source:`${o.q.source} · 第 ${o.i+1} 題`,stem:o.q.prompt,options:o.q.options,selected:o.r?o.r.selected:'未作答',answer:o.q.answer,explanation:o.q.explanation}));
   MistakeDocx.download({title:`${title} 錯題詳解`,subtitle:`國中國文 · 形音義比較 · ${type}　｜　得分：${correct} / ${data.questions.length} 題答對`,items,filename:`形音義_${title}_錯題詳解`})});
 document.querySelector('#resetQuiz').before(dl);
 document.querySelector('#resetQuiz').addEventListener('click',()=>location.reload());

@@ -26,11 +26,12 @@ function para(inner,o={}){const sh=o.shade?`<w:shd w:val="clear" w:color="auto" 
 function table(rows){if(!rows||!rows.length)return'';const cell=(c,h)=>`<w:tc><w:tcPr><w:tcBorders>${['top','left','bottom','right'].map(s=>`<w:${s} w:val="single" w:sz="4" w:color="999999"/>`).join('')}</w:tcBorders>${h?'<w:shd w:val="clear" w:color="auto" w:fill="E6F2F1"/>':''}</w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0"/></w:pPr>${rich(c,{size:20,bold:h})}</w:p></w:tc>`;
   return `<w:tbl><w:tblPr><w:tblW w:w="0" w:type="auto"/><w:jc w:val="center"/></w:tblPr>${rows.map((r,i)=>`<w:tr>${r.map(c=>cell(c,i===0)).join('')}</w:tr>`).join('')}</w:tbl>`+para('',{after:60})}
 function build({title,subtitle,meta,items}){
+  items=(items||[]).filter(m=>m&&m.selected&&m.selected!=='未作答'); // 只收「有作答但答錯」的題目
   let b=para(run(title,{bold:true,size:34,color:'0F6E6E'}),{after:100});
   if(subtitle)b+=para(run(subtitle,{size:21,color:'555555'}),{after:60});
   (meta||[]).forEach(t=>b+=para(run(t,{bold:true,size:22,color:'1F3B3B'}),{after:40,shade:'EEF6F5'}));
-  b+=para(run(`錯題與未作答共 ${items.length} 題　｜　下載時間：${new Date().toLocaleString('zh-TW')}`,{bold:true,size:21,color:'A33A35'}),{after:200});
-  if(!items.length)b+=para(run('本次全部答對，沒有需要訂正的題目。太棒了！',{size:24}),{after:120});
+  b+=para(run(`答錯共 ${items.length} 題　｜　下載時間：${new Date().toLocaleString('zh-TW')}`,{bold:true,size:21,color:'A33A35'}),{after:200});
+  if(!items.length)b+=para(run('這次作答的題目沒有答錯，沒有需要訂正的題目。',{size:24}),{after:120});
   items.forEach((m,i)=>{
     b+=para(run(`第 ${i+1} 題　${m.source||''}`,{bold:true,size:24,color:'0F6E6E'}),{before:i?240:0,after:80,border:'0F6E6E'});
     (m.box||[]).forEach(t=>b+=para(rich(t,{size:20,color:'444444'}),{shade:'FFF6E6',after:30}));

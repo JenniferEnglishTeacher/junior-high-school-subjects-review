@@ -94,7 +94,7 @@ async function download(){
   const btn=document.getElementById('dl');btn.disabled=true;btn.textContent='產生中…';
   try{
   const nm=nameEl.value.trim()||'未填姓名';
-  const items=Q.filter(q=>state[q.id]!==q.ans&&(yearFilter==='all'||String(q.year)===yearFilter));
+  const items=Q.filter(q=>state[q.id]!==undefined&&state[q.id]!==q.ans&&(yearFilter==='all'||String(q.year)===yearFilter));
   const scope=Q.filter(q=>yearFilter==='all'||String(q.year)===yearFilter);
   const right=scope.filter(q=>state[q.id]===q.ans).length;
   const media=[],rels=[],cache={};picId=0;
@@ -103,7 +103,7 @@ async function download(){
   b+=para(run(`國中教育會考 · ${SUBJ}科歷屆試題（106～115 年）`,{size:21,color:'555555'}),{after:60});
   b+=para(run(`學生：${nm}`,{bold:true,size:22}),{after:40,shade:'F8EEF1'});
   b+=para(run(`成績：答對 ${right} / ${scope.length} 題（${scope.length?Math.round(right/scope.length*100):0} 分）`,{bold:true,size:22}),{after:40,shade:'F8EEF1'});
-  b+=para(run(`錯題與未作答共 ${items.length} 題　｜　下載時間：${new Date().toLocaleString('zh-TW')}`,{bold:true,size:21,color:'A33A35'}),{after:200});
+  b+=para(run(`答錯共 ${items.length} 題　｜　下載時間：${new Date().toLocaleString('zh-TW')}`,{bold:true,size:21,color:'A33A35'}),{after:200});
   if(!items.length)b+=para(run('全部答對，沒有需要訂正的題目。太棒了！',{size:24}));
   let lastG=null;
   for(const [i,q] of items.entries()){

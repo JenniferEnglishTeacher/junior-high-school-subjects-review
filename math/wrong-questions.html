@@ -232,7 +232,7 @@ function textBlock(text,options={}){
 function collectMistakes(){
   return cards.filter(c=>{
     const pick=c.querySelector('input:checked');
-    return !pick||pick.value!==c.dataset.answer;
+    return !!pick&&pick.value!==c.dataset.answer;
   }).map(c=>{
     const picked=c.querySelector('input:checked');
     const feedback=[...c.querySelectorAll('.feedback p')];
@@ -305,7 +305,7 @@ async function buildMistakeDocx(){
   }
   let picId=0;
   let body=wordParagraph('數學錯題詳解',{bold:true,size:34,color:'17313A',after:180});
-  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　錯題與未作答共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　答錯共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
   if(!mistakes.length){
     body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
   }else{
