@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>地理 九上第二次段考｜互動測驗</title>
+<style>
+:root{--ink:#3a2a17;--muted:#6f6455;--paper:#fffdf8;--bg:#f4efe6;--accent:#9a6b35;--accent2:#d39b36;--bad:#a33a35;--line:#d8e2df}
+*{box-sizing:border-box} body{margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e4f0ee,#f6efe2);line-height:1.65}
+.dashboard-link{position:fixed;left:16px;top:16px;z-index:10;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.95);color:var(--ink);font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(22,49,58,.12);backdrop-filter:blur(10px)}.dashboard-link:hover{border-color:var(--accent);color:var(--accent)}
+header{padding:48px 20px 30px;text-align:center} h1{margin:0;font-size:clamp(2rem,5vw,3.6rem);line-height:1.12} header p{max-width:760px;margin:14px auto;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;background:var(--accent);color:white} button.secondary{background:#dfe9e6;color:var(--ink)} button.download{background:#244b5a} button[hidden]{display:none}.score{font-weight:800;min-width:160px;text-align:center}
+main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:22px} .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08)}
+.q-head{display:flex;gap:14px;align-items:center;margin-bottom:14px} .num{display:grid;place-items:center;min-width:52px;height:52px;border-radius:15px;background:var(--ink);color:white;font-weight:900} .source{color:var(--accent);font-weight:800;font-size:.9rem} h2{margin:0;font-size:1.18rem} .stem{font-size:1.08rem;font-weight:700}
+.context{background:#f2f7f5;border-left:4px solid var(--accent);padding:14px 16px;margin:14px 0;border-radius:0 12px 12px 0} .context p{margin:.35rem 0 0} .adapted{color:#73581c;background:#fff6dc;padding:8px 12px;border-radius:10px;font-size:.92rem}
+.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .card.checked .option{cursor:default}.card.checked .option:hover{transform:none}.option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
+.card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
+.feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
+.unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
+.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.summary{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 20px;margin-top:10px}.summary h4{margin:14px 0 6px;color:var(--accent)}.summary h4:first-child{margin-top:0}.summary td{text-align:left;vertical-align:top}.summary td:first-child{font-weight:800;background:#f7efe2;white-space:nowrap}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px}.figure.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:640px){.figure.pair{grid-template-columns:1fr}}.kw{color:#73581c;background:#fff6dc;padding:6px 12px;border-radius:10px;font-size:.92rem;margin-top:8px}</style><style>.guide{margin:10px 0 12px;border:1px dashed #1f5fa8;border-radius:12px;background:#f7faff;padding:8px 12px}.guide summary{cursor:pointer;font-weight:800;color:#1f5fa8}.gstep{margin:10px 0;padding:10px 12px;background:#fff;border:1px solid #d6e2f0;border-radius:10px}.gstep .ask{font-weight:700;margin-bottom:6px}.gstep .ask b{color:#1f5fa8}.gchoices{display:flex;flex-wrap:wrap;gap:6px}.gchoices button{color:#17313a;opacity:1;border:1px solid #b9c9de;background:#fff;border-radius:999px;padding:5px 12px;cursor:pointer;font:inherit}.gchoices button.no{background:#fbe5e7;border-color:#c0392b;color:#8e2a20}.gchoices button.yes{background:#e3f4ec;border-color:#2f8f6f;color:#1e6b50;font-weight:700}.ghint{color:#a33a35;font-size:.92rem;margin-top:6px}.gres{margin-top:8px;font-family:"Cambria Math","Times New Roman","Microsoft JhengHei",serif;background:#eef6ff;border-left:4px solid #1f5fa8;padding:6px 10px;border-radius:0 8px 8px 0}.gdone{font-weight:800;color:#2f8f6f;margin:8px 0 2px}.gprog{font-size:.85rem;color:#6a7a8a;margin-top:4px}.steps{font-family:"Cambria Math","Times New Roman","Microsoft JhengHei",serif;line-height:1.95;background:#f6f9fc;border-left:4px solid #1f5fa8;padding:8px 12px;border-radius:0 10px 10px 0}.figure img{max-width:560px}</style>
+</head><body>
+<a class="dashboard-link" href="../../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
+<header><h1>地理 九上第二次段考</h1><p>仁愛國中 113 學年度第 1 學期 九年級第二次段考地理試題，共 40 題（單選 27 題＋題組 13 題），依主題分 5 區：北美洲位置地形與氣候、美國的產業與人口、美國的天然災害、中南美洲、巴西。每區開頭有重點整理表；6 題讀圖・推理題附「🧭 引導解題」；選完答案立即顯示正確答案與詳解；全部作答完可下載錯題詳解 DOCX（含圖，只收答錯的題目）。</p><nav class="jump"><a href="#ch1">北美洲：位置、地形與氣候</a><a href="#ch2">美國的產業與人口</a><a href="#ch3">美國的天然災害（題組）</a><a href="#ch4">中南美洲</a><a href="#ch5">巴西（國旗題組）</a></nav></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 40</span></div>
+<main>
+<section class="sec-head" id="ch1"><h3>1. 北美洲：位置、地形與氣候</h3><p>共 10 題（原卷第 1、2、3、5、10、22、37、38、39、40 題）</p><p class="kw">重點：西經、北緯 → 西半球、北半球；西部洛磯山系高聳年輕（火山、地熱）、東部阿帕拉契山古老多煤；西岸受西風與暖流影響溫和多雨，東南部夏雨型暖溫帶；加州是地中海型氣候（夏乾冬雨）</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>地區</th><th>氣候／特色</th></tr><tr><td>西北太平洋沿岸</td><td>溫帶海洋性：西風＋阿拉斯加暖流，全年有雨、冬季更多</td></tr><tr><td>加州</td><td>溫帶地中海型：夏乾冬雨，需大量抽地下水灌溉</td></tr><tr><td>東南部</td><td>夏雨型暖溫帶：夏季炎熱多雨，棉花帶</td></tr><tr><td>中部內陸</td><td>溫帶大陸性：冬冷夏熱，年溫差大</td></tr><tr><td>東北（拉布拉多寒流）</td><td>同緯度冬季比西岸冷</td></tr></table></div></div></section>
+<article class="card" data-chapter="北美洲：位置、地形與氣候" id="q1" data-answer="B">
+          <div class="q-head"><span class="num">01</span><div><span class="source">九上第二次段考 第 1 題</span><h2>西印度群島的半球位置</h2></div></div>
+          <p class="stem">哥倫布誤認加勒比海上的群島，是位於印度附近的島嶼，直至世人發現這些群島並不是位於東半球，才將這些群島稱作「西印度群島」。西印度群島位在哪兩個半球？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q1" value="A"><span class="letter">A</span><span>東半球、南半球</span></label><label class="option"><input type="radio" name="q1" value="B"><span class="letter">B</span><span>西半球、北半球</span></label><label class="option"><input type="radio" name="q1" value="C"><span class="letter">C</span><span>西半球、南半球</span></label><label class="option"><input type="radio" name="q1" value="D"><span class="letter">D</span><span>東半球、北半球</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">西印度群島在加勒比海，位於本初子午線以西（西經）→ 西半球<br>又在赤道以北（北緯約 10°～25°）→ 北半球<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>經度看東西半球，緯度看南北半球；整個北美洲＋中美洲都在西半球、北半球。</p></div>
+        </article>
+<article class="card" data-chapter="北美洲：位置、地形與氣候" id="q2" data-answer="B">
+          <div class="q-head"><span class="num">02</span><div><span class="source">九上第二次段考 第 2 題</span><h2>地下水抽取最嚴重地區的氣候</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q02.png" alt="第 2 題附圖" loading="lazy"></div><p class="stem">圖為美國地下水抽取量統計圖，圖中抽取最嚴重的地點主要屬於哪一種氣候類型？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q2" value="A"><span class="letter">A</span><span>寒帶氣候</span></label><label class="option"><input type="radio" name="q2" value="B"><span class="letter">B</span><span>溫帶地中海型氣候</span></label><label class="option"><input type="radio" name="q2" value="C"><span class="letter">C</span><span>溫帶海洋性氣候</span></label><label class="option"><input type="radio" name="q2" value="D"><span class="letter">D</span><span>溫帶季風氣候</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">圖中最大的圓（抽取量最多）在西岸南段的加州中央谷地。<br>加州屬溫帶地中海型氣候：夏季乾燥少雨，而夏季正是作物生長期，只好大量抽地下水灌溉。<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>夏乾的地中海型氣候，農業要靠灌溉 → 地下水抽取量大。</p></div>
+        </article>
+<article class="card" data-chapter="北美洲：位置、地形與氣候" id="q3" data-answer="A">
+          <div class="q-head"><span class="num">03</span><div><span class="source">九上第二次段考 第 3 題</span><h2>地中海型氣候的雨溫特徵</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q03.png" alt="第 3 題附圖" loading="lazy"></div><p class="stem">承上題，該氣候類型的降雨分布特徵最接近右圖中何者？（圖的橫軸是月均溫、縱軸是月降水量，每一點代表一個月）</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;地中海型氣候哪個季節多雨？&quot;, [&quot;夏季&quot;, &quot;冬季&quot;], 1, &quot;記口訣：夏乾冬雨。&quot;, &quot;冬季多雨、夏季乾燥&quot;], [&quot;在圖上，夏季代表什麼？&quot;, [&quot;月均溫高的點&quot;, &quot;月均溫低的點&quot;], 0, &quot;夏天氣溫高。&quot;, &quot;找「溫度高時雨量少」的線&quot;], [&quot;哪條線在約 27℃ 時降水接近 0？&quot;, [&quot;甲&quot;, &quot;丁&quot;], 0, &quot;看圖的右下角。&quot;, &quot;甲 → 選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q3" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q3" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q3" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q3" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">地中海型氣候：夏乾冬雨 → 氣溫高的月份雨少、氣溫低的月份雨多<br>在圖上要找「月均溫越高、降水量越低」的曲線：<br>甲：高溫（約 27℃）時降水接近 0，低溫時降水較多 ✓<br>丁：高溫時雨多（夏雨型）；乙：全年都很多雨；丙：低溫月份降水普通<br>選 (A)。</p><p class="key"><strong>解題關鍵：</strong>把「夏乾冬雨」翻譯成圖：溫度高 → 雨量低。</p></div>
+        </article>
+<article class="card" data-chapter="北美洲：位置、地形與氣候" id="q5" data-answer="B">
+          <div class="q-head"><span class="num">05</span><div><span class="source">九上第二次段考 第 5 題</span><h2>阿帕拉契山脈的位置</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q05.png" alt="第 5 題附圖" loading="lazy"></div><p class="stem">附圖為美洲簡圖，礦產豐富的阿帕拉契山脈，位於圖中何處？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q5" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q5" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q5" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q5" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">阿帕拉契山脈在北美洲「東部」，是古老褶曲山脈，煤礦豐富。<br>圖中乙位在北美洲東部 → 選 (B)。<br>（甲在中部、丙在墨西哥灣附近、丁在南美洲巴西高原。）</p><p class="key"><strong>解題關鍵：</strong>北美洲：西邊高大的洛磯山（年輕），東邊低矮的阿帕拉契山（古老、多煤）。</p></div>
+        </article>
+<article class="card" data-chapter="北美洲：位置、地形與氣候" id="q10" data-answer="C">
+          <div class="q-head"><span class="num">10</span><div><span class="source">九上第二次段考 第 10 題</span><h2>黃石國家公園的位置</h2></div></div>
+          <p class="stem">美國的黃石國家公園有特殊的地熱噴泉景觀，成為世界著名的旅遊勝地。請根據其地形作用加以判斷，該國家公園最可能位於哪個地理區？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q10" value="A"><span class="letter">A</span><span>拉布拉多高原</span></label><label class="option"><input type="radio" name="q10" value="B"><span class="letter">B</span><span>北美大平原</span></label><label class="option"><input type="radio" name="q10" value="C"><span class="letter">C</span><span>洛磯山區</span></label><label class="option"><input type="radio" name="q10" value="D"><span class="letter">D</span><span>安地斯山區</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">地熱、噴泉 → 地殼活動、火山作用旺盛 → 年輕的山系<br>美國西部的洛磯山區屬環太平洋地殼活動帶 → 選 (C)。<br>(A) 拉布拉多高原是古老穩定的地塊；(B) 大平原地勢平坦；(D) 安地斯山在南美洲。</p><p class="key"><strong>解題關鍵：</strong>地熱、溫泉、火山 → 年輕山系（洛磯山）。</p></div>
+        </article>
+<article class="card" data-chapter="北美洲：位置、地形與氣候" id="q22" data-answer="B">
+          <div class="q-head"><span class="num">22</span><div><span class="source">九上第二次段考 第 22 題</span><h2>地形剖面與人口密度</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q22.png" alt="第 22 題附圖" loading="lazy"></div><p class="stem">下圖為北美洲東西向的地形剖面示意圖和人口密度資料，其中人口密度最高的甲、乙兩地，最可能是位於下列哪一地區？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q22" value="A"><span class="letter">A</span><span>加利福尼亞州</span></label><label class="option"><input type="radio" name="q22" value="B"><span class="letter">B</span><span>五大湖地區</span></label><label class="option"><input type="radio" name="q22" value="C"><span class="letter">C</span><span>阿帕拉契山脈</span></label><label class="option"><input type="radio" name="q22" value="D"><span class="letter">D</span><span>中美地峽</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">剖面由西到東：左邊高大的山（洛磯山系，2,000～3,000 m）→ 中間低平的平原 → 右邊較低的山（阿帕拉契山，約 1,000 m）。<br>甲、乙在阿帕拉契山西側的低地，人口密度＞200 人/km² → 工商業發達、都市密集的五大湖地區。<br>(A) 加州在剖面的最西邊；(C) 阿帕拉契山是右邊的山地，甲、乙不在山上；(D) 中美地峽不在東西向剖面上。<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>剖面圖先找出兩側的山（西洛磯、東阿帕拉契），再定位甲、乙。</p></div>
+        </article>
+<article class="card" data-chapter="北美洲：位置、地形與氣候" id="q37" data-answer="D">
+          <div class="q-head"><span class="num">37</span><div><span class="source">九上第二次段考 第 37 題</span><h2>戊地多雨與行星風系</h2></div></div>
+          <div class="context"><strong>題組（第 37～40 題）</strong><p>圖(一)為北美洲簡圖，圖(二)為行星風系簡圖。</p></div><div class="figure"><img src="./img/renai113-m2/g37.png" alt="第 37 題附圖" loading="lazy"></div><p class="stem">圖(一)中「戊」地的雨量多，與圖(二)中，行星風系中的哪一個行星風帶，關係最為密切？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;戊大約在什麼緯度帶？&quot;, [&quot;低緯（0～30°）&quot;, &quot;中緯（30～60°）&quot;], 1, &quot;戊在加拿大西岸。&quot;, &quot;中緯度&quot;], [&quot;北半球中緯度盛行什麼風？&quot;, [&quot;東北信風&quot;, &quot;西風&quot;], 1, &quot;在 30° 高壓和 60° 低壓之間。&quot;, &quot;盛行西風&quot;], [&quot;圖(二)北半球的西風帶標示是？&quot;, [&quot;乙&quot;, &quot;丁&quot;], 1, &quot;找 30° 高氣壓到 60° 低氣壓之間、北半球那一帶。&quot;, &quot;丁 → 選 (D)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q37" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q37" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q37" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q37" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">戊在北美洲西北岸（約 50°N），位於中緯度。<br>中緯度盛行「西風」，西風從太平洋帶來水氣，在西岸迎風坡降下大量雨水。<br>圖(二)北半球 30°高氣壓與 60°低氣壓之間的風帶是西風帶，標示為丁 → 選 (D)。</p><p class="key"><strong>解題關鍵：</strong>中緯度西岸多雨 → 盛行西風。</p></div>
+        </article>
+<article class="card" data-chapter="北美洲：位置、地形與氣候" id="q38" data-answer="D">
+          <div class="q-head"><span class="num">38</span><div><span class="source">九上第二次段考 第 38 題</span><h2>乙地的氣候圖</h2></div></div>
+          <div class="context"><strong>題組（第 37～40 題）</strong><p>圖(一)為北美洲簡圖，圖(二)為行星風系簡圖。</p></div><div class="figure"><img src="./img/renai113-m2/g37.png" alt="第 38 題附圖" loading="lazy"></div><div class="figure"><img src="./img/renai113-m2/q38.png" alt="第 38 題附圖" loading="lazy"></div><p class="stem">圖(一)中，「乙」的自然景觀帶特色是「天然植被為溫帶常綠闊葉林，氣候條件好，適合農業發展；氣候潮溼，棉花栽種的商業性農業特色顯著。」請問上述的「乙」，可用下列哪一張氣候圖，來表現其氣候類型？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q38" value="A"><span class="letter">A</span><span>氣候圖(A)：43.7°N，冬季在 0℃ 以下，年溫差大</span></label><label class="option"><input type="radio" name="q38" value="B"><span class="letter">B</span><span>氣候圖(B)：37.6°N，夏季幾乎無雨</span></label><label class="option"><input type="radio" name="q38" value="C"><span class="letter">C</span><span>氣候圖(C)：49.2°N，冬季多雨、夏季少雨</span></label><label class="option"><input type="radio" name="q38" value="D"><span class="letter">D</span><span>氣候圖(D)：25.8°N，全年溫暖，夏季雨量最多</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">乙在美國東南部（棉花帶）→ 夏雨型暖溫帶：冬季溫和、夏季炎熱多雨。<br>(A) 冬季低於 0℃、年溫差大 → 溫帶大陸性（五大湖區一帶）<br>(B) 夏乾冬雨 → 地中海型（舊金山）<br>(C) 冬雨較多、夏涼 → 溫帶海洋性（溫哥華）<br>(D) 緯度低、全年溫暖、夏季雨多 → 美國東南部 ✓<br>選 (D)。</p><p class="key"><strong>解題關鍵：</strong>讀氣候圖：先看最冷月氣溫，再看雨集中在冬季還是夏季。</p></div>
+        </article>
+<article class="card" data-chapter="北美洲：位置、地形與氣候" id="q39" data-answer="C">
+          <div class="q-head"><span class="num">39</span><div><span class="source">九上第二次段考 第 39 題</span><h2>甲、戊冬季溫度差異的原因</h2></div></div>
+          <div class="context"><strong>題組（第 37～40 題）</strong><p>圖(一)為北美洲簡圖，圖(二)為行星風系簡圖。</p></div><div class="figure"><img src="./img/renai113-m2/g37.png" alt="第 39 題附圖" loading="lazy"></div><p class="stem">圖(一)中「甲、戊」兩地的冬季溫度有所差異，主要是因為哪一項因素導致？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;甲、戊兩地的緯度差很多嗎？&quot;, [&quot;差不多&quot;, &quot;差很多&quot;], 0, &quot;在圖上兩地高度相近。&quot;, &quot;緯度不是主因&quot;], [&quot;兩地都靠海嗎？&quot;, [&quot;都靠海&quot;, &quot;一個在內陸&quot;], 0, &quot;甲在東岸、戊在西岸。&quot;, &quot;距海遠近也不是主因&quot;], [&quot;西岸有暖流，東岸北邊有寒流，所以主因是？&quot;, [&quot;地形&quot;, &quot;洋流&quot;], 1, &quot;阿拉斯加暖流 vs. 拉布拉多寒流。&quot;, &quot;洋流 → 選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q39" value="A"><span class="letter">A</span><span>緯度</span></label><label class="option"><input type="radio" name="q39" value="B"><span class="letter">B</span><span>地形</span></label><label class="option"><input type="radio" name="q39" value="C"><span class="letter">C</span><span>洋流</span></label><label class="option"><input type="radio" name="q39" value="D"><span class="letter">D</span><span>距海遠近</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">甲（東岸紐芬蘭一帶）與戊（西岸）緯度相近，又都在沿海。<br>戊：受阿拉斯加暖流影響 → 冬季較溫暖<br>甲：受拉布拉多寒流影響 → 冬季寒冷<br>造成差異的主因是洋流，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>同緯度、都在沿海，溫度不同 → 看洋流。</p></div>
+        </article>
+<article class="card" data-chapter="北美洲：位置、地形與氣候" id="q40" data-answer="C">
+          <div class="q-head"><span class="num">40</span><div><span class="source">九上第二次段考 第 40 題</span><h2>比較北美各地的氣候特徵</h2></div></div>
+          <div class="context"><strong>題組（第 37～40 題）</strong><p>圖(一)為北美洲簡圖，圖(二)為行星風系簡圖。</p></div><div class="figure"><img src="./img/renai113-m2/g37.png" alt="第 40 題附圖" loading="lazy"></div><p class="stem">不同氣候類型有各自的氣候特徵，請根據圖(一)中的代號及氣候特徵，在下列敘述中，選出合理的選項？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q40" value="A"><span class="letter">A</span><span>乙、戊兩地的都市都是冬季降雨量較多</span></label><label class="option"><input type="radio" name="q40" value="B"><span class="letter">B</span><span>丁、乙兩地都是全年有雨</span></label><label class="option"><input type="radio" name="q40" value="C"><span class="letter">C</span><span>乙、戊兩個地區的氣候潮濕多雨，都是有受到暖流的影響</span></label><label class="option"><input type="radio" name="q40" value="D"><span class="letter">D</span><span>戊區年溫差大於丙地區</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">(A) ✗：乙（東南部）是夏季多雨；戊（西北岸）才是冬季雨多。<br>(B) ✗：丁在西部內陸，屬乾燥氣候，雨量少。<br>(C) ✓：乙受墨西哥灣流（暖流）影響、戊受阿拉斯加暖流影響，暖流增溫增濕，都潮濕多雨。<br>(D) ✗：戊在沿海，受海洋調節，年溫差小；丙在內陸（溫帶大陸性），年溫差大。<br>選 (C)。</p><p class="key"><strong>解題關鍵：</strong>沿海＋暖流 → 潮濕、年溫差小；內陸 → 年溫差大。</p></div>
+        </article>
+<section class="sec-head" id="ch2"><h3>2. 美國的產業與人口</h3><p>共 10 題（原卷第 4、6、7、9、12、15、18、21、24、27 題）</p><p class="kw">重點：美國商業性農業＝地廣、機械化、專業化、商品化、總產量高；工業從東北（近煤鐵）往南部、西部「陽光帶」移動；拉丁美洲裔人口比例持續上升</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>主題</th><th>重點</th></tr><tr><td>農業帶</td><td>酪農帶（五大湖東北）、玉米帶、小麥帶、棉花帶（東南）、畜牧帶（西部乾燥區）</td></tr><tr><td>工業區</td><td>東北五大湖（鋼鐵，近煤鐵）、墨西哥灣（石化）、加州（電子、電影）、西雅圖（航太）</td></tr><tr><td>族群</td><td>非洲裔多在東南（棉花帶）、拉丁美洲裔多在西南（近墨西哥）</td></tr><tr><td>新移民</td><td>亞裔科技移民集中在太平洋沿岸（矽谷）</td></tr></table></div></div></section>
+<article class="card" data-chapter="美國的產業與人口" id="q4" data-answer="D">
+          <div class="q-head"><span class="num">04</span><div><span class="source">九上第二次段考 第 4 題</span><h2>美國商業性農業的特徵</h2></div></div>
+          <p class="stem">美國的農業一向有「精準的商業性農業」之稱，下列關於美國農業的特徵，何者正確？(甲)農業耕作方式集約　(乙)耕作機械化　(丙)每塊農田的作物種類多樣化　(丁)作物商品化　(戊)總產量高</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q4" value="A"><span class="letter">A</span><span>(甲)(乙)(丙)</span></label><label class="option"><input type="radio" name="q4" value="B"><span class="letter">B</span><span>(乙)(丙)(丁)</span></label><label class="option"><input type="radio" name="q4" value="C"><span class="letter">C</span><span>(丙)(丁)(戊)</span></label><label class="option"><input type="radio" name="q4" value="D"><span class="letter">D</span><span>(乙)(丁)(戊)</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">美國地廣人稀，農業特色是：<br>大規模「粗放」經營，不是精耕細作的集約農業 →(甲)✗<br>高度機械化 →(乙)✓<br>專業化（一塊田只種一種作物），不是多樣化 →(丙)✗<br>作物拿去賣，高度商品化 →(丁)✓<br>總產量高、大量出口 →(戊)✓<br>選 (D)。</p><p class="key"><strong>解題關鍵：</strong>美國農業關鍵字：地廣、機械化、專業化、商品化、高產量。</p></div>
+        </article>
+<article class="card" data-chapter="美國的產業與人口" id="q6" data-answer="A">
+          <div class="q-head"><span class="num">06</span><div><span class="source">九上第二次段考 第 6 題</span><h2>波音罷工的城市</h2></div></div>
+          <p class="stem">據 2024/10/20 報載：「美國航太巨擘波音公司（Boeing）已與『甲地區』勞工的工會達成初步協議，長達 1 個多月的停工將落幕，協議內容包括 4 年內加薪 35% 以及簽約獎金。」請問：根據美國航空工業的分布推論，甲地區應該為哪一個城市？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>西雅圖</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>溫哥華</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>芝加哥</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>休士頓</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">波音公司的主要飛機製造基地在美國西北部太平洋沿岸的西雅圖。<br>(B) 溫哥華在加拿大，不是美國城市。<br>選 (A)。</p><p class="key"><strong>解題關鍵：</strong>西雅圖＝航太工業（波音）。</p></div>
+        </article>
+<article class="card" data-chapter="美國的產業與人口" id="q7" data-answer="B">
+          <div class="q-head"><span class="num">07</span><div><span class="source">九上第二次段考 第 7 題</span><h2>西雅圖秋冬的天氣</h2></div></div>
+          <p class="stem">承上題，該市區罷工遊行活動進行的季節，較容易遇到的天氣與氣候狀態為下列何者？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q7" value="A"><span class="letter">A</span><span>乾季</span></label><label class="option"><input type="radio" name="q7" value="B"><span class="letter">B</span><span>雨季</span></label><label class="option"><input type="radio" name="q7" value="C"><span class="letter">C</span><span>龍捲風危害</span></label><label class="option"><input type="radio" name="q7" value="D"><span class="letter">D</span><span>颶風侵襲</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">罷工在 9～10 月的秋季進行。<br>西雅圖屬溫帶海洋性氣候，受西風與阿拉斯加暖流影響，秋冬盛行西風更強，降雨特別多 → 雨季。<br>龍捲風在中部大平原、颶風在墨西哥灣與東南沿岸，都不在西雅圖。<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>美國西北岸：秋冬是雨季。</p></div>
+        </article>
+<article class="card" data-chapter="美國的產業與人口" id="q9" data-answer="C">
+          <div class="q-head"><span class="num">09</span><div><span class="source">九上第二次段考 第 9 題</span><h2>非洲裔美國人的分布</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q09.png" alt="第 9 題附圖" loading="lazy"></div><p class="stem">下列四張圖為美國四種少數族群的分布圖，請問哪一張圖為非洲裔美國人的分布圖，此區同時也是美國棉花帶主要分布的地區？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q9" value="A"><span class="letter">A</span><span>圖(A)</span></label><label class="option"><input type="radio" name="q9" value="B"><span class="letter">B</span><span>圖(B)</span></label><label class="option"><input type="radio" name="q9" value="C"><span class="letter">C</span><span>圖(C)</span></label><label class="option"><input type="radio" name="q9" value="D"><span class="letter">D</span><span>圖(D)</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">非洲裔美國人的祖先多是早期被帶到南方棉花田工作的黑奴，所以集中在東南部（棉花帶）。<br>圖(C) 深色區集中在東南部 → 選 (C)。<br>（圖(B) 集中在西南、靠近墨西哥 → 拉丁美洲裔。）</p><p class="key"><strong>解題關鍵：</strong>非洲裔＝東南（棉花帶）；拉丁美洲裔＝西南（近墨西哥）。</p></div>
+        </article>
+<article class="card" data-chapter="美國的產業與人口" id="q12" data-answer="D">
+          <div class="q-head"><span class="num">12</span><div><span class="source">九上第二次段考 第 12 題</span><h2>美國工業區位（找錯誤）</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q12.png" alt="第 12 題附圖" loading="lazy"></div><p class="stem">圖為美國主要工業都市與礦產分布，兩者相互搭配便可解釋某些工業區位。請問下列相關敘述何者錯誤？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q12" value="A"><span class="letter">A</span><span>「戊」區工業的興起主要是因為原料區位因素</span></label><label class="option"><input type="radio" name="q12" value="B"><span class="letter">B</span><span>「壬」區有電影工業，吸引遊客</span></label><label class="option"><input type="radio" name="q12" value="C"><span class="letter">C</span><span>「己」因為氣候良好，發展太空產業而迅速崛起</span></label><label class="option"><input type="radio" name="q12" value="D"><span class="letter">D</span><span>「辛」區石化工業發達</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">(A) 戊在五大湖附近，靠近阿帕拉契山的煤與蘇必略湖的鐵 → 鋼鐵工業屬原料區位 ✓<br>(B) 壬是洛杉磯，有好萊塢電影工業 ✓<br>(C) 己在墨西哥灣沿岸（休士頓），有太空中心，屬陽光帶新興工業 ✓<br>(D) 辛在西北太平洋沿岸（西雅圖），以航太工業為主；石化工業集中在墨西哥灣沿岸產油區 ✗<br>本題選錯誤的 → (D)。</p><p class="key"><strong>解題關鍵：</strong>石化工業在墨西哥灣（近油田）；西雅圖是航太。</p></div>
+        </article>
+<article class="card" data-chapter="美國的產業與人口" id="q15" data-answer="A">
+          <div class="q-head"><span class="num">15</span><div><span class="source">九上第二次段考 第 15 題</span><h2>判斷農業類型</h2></div></div>
+          <p class="stem">「農場面積在 400 公頃以上，地形平坦，土壤肥沃。農田只種植小麥，而不栽培其他作物，耕作高度機械化。小麥收成後，全部運往市場銷售。」請問此為何種農業類型？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q15" value="A"><span class="letter">A</span><span>商業性穀物農業</span></label><label class="option"><input type="radio" name="q15" value="B"><span class="letter">B</span><span>地中海型農業</span></label><label class="option"><input type="radio" name="q15" value="C"><span class="letter">C</span><span>熱帶栽培業</span></label><label class="option"><input type="radio" name="q15" value="D"><span class="letter">D</span><span>酪農業</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">面積大、只種小麥（單一穀物）、機械化、全部賣到市場 → 商業性穀物農業<br>選 (A)。</p><p class="key"><strong>解題關鍵：</strong>大面積＋單一穀物＋全部出售＝商業性穀物農業。</p></div>
+        </article>
+<article class="card" data-chapter="美國的產業與人口" id="q18" data-answer="C">
+          <div class="q-head"><span class="num">18</span><div><span class="source">九上第二次段考 第 18 題</span><h2>從棉花產銷判斷美國</h2></div></div>
+          <div class="context"><div class="table-wrap"><table><tr><th>國家</th><th>國內棉花生產量</th><th>國內棉花消費量</th></tr><tr><td>甲</td><td>713.1</td><td>751.2</td></tr><tr><td>乙</td><td>675.0</td><td>508.4</td></tr><tr><td>丙</td><td>281.1</td><td>77.3</td></tr><tr><td>丁</td><td>206.8</td><td>226.4</td></tr></table></div></div><p class="stem">附表為 2014 年中國、美國、印度和巴基斯坦的棉花生產與消費資料（單位：萬噸）。已知棉花的消費主要用在製造紡織產品，而棉紡織工廠多設置在勞力較為低廉的地方。根據表中資料判斷，何者應是美國？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;美國的工資比中國、印度高還是低？&quot;, [&quot;高&quot;, &quot;低&quot;], 0, &quot;美國是已開發國家。&quot;, &quot;美國工資高&quot;], [&quot;棉紡織廠設在勞力便宜的地方，美國國內棉花消費量會？&quot;, [&quot;很多&quot;, &quot;很少&quot;], 1, &quot;美國紡織廠少。&quot;, &quot;美國消費量少&quot;], [&quot;哪一國「生產遠大於消費」？&quot;, [&quot;甲&quot;, &quot;丙&quot;], 1, &quot;比較兩欄數字的差距。&quot;, &quot;丙 281.1 ≫ 77.3 → 選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q18" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q18" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q18" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q18" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">美國工資高 → 棉紡織廠少 → 國內棉花消費量很少<br>美國又是棉花生產大國 → 生產量遠大於消費量，大量出口<br>丙：生產 281.1、消費只有 77.3，消費約只占生產的 ¼ → 美國<br>（甲消費＞生產是中國；乙、丁是印度、巴基斯坦，勞力便宜、紡織業多。）<br>選 (C)。</p><p class="key"><strong>解題關鍵：</strong>工資高的國家紡織業少 → 消費量遠小於生產量。</p></div>
+        </article>
+<article class="card" data-chapter="美國的產業與人口" id="q21" data-answer="D">
+          <div class="q-head"><span class="num">21</span><div><span class="source">九上第二次段考 第 21 題</span><h2>北美洲農業帶與氣候</h2></div></div>
+          <p class="stem">北美洲的氣候會影響農作物分布，下列哪個農業帶與氣候帶配對正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q21" value="A"><span class="letter">A</span><span>酪農帶－高地氣候</span></label><label class="option"><input type="radio" name="q21" value="B"><span class="letter">B</span><span>畜牧帶－溫帶地中海型氣候</span></label><label class="option"><input type="radio" name="q21" value="C"><span class="letter">C</span><span>玉米帶－溫帶海洋性氣候</span></label><label class="option"><input type="radio" name="q21" value="D"><span class="letter">D</span><span>棉花帶－夏雨型暖溫帶氣候</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">(A) 酪農帶在五大湖東北，屬溫帶大陸性氣候 ✗<br>(B) 畜牧帶在西部乾燥的大平原與高原，屬乾燥氣候 ✗<br>(C) 玉米帶在中部，屬溫帶大陸性氣候 ✗<br>(D) 棉花帶在東南部，夏季炎熱多雨、生長季長，屬夏雨型暖溫帶 ✓<br>選 (D)。</p><p class="key"><strong>解題關鍵：</strong>棉花需要高溫多雨、生長季長 → 東南部夏雨型暖溫帶。</p></div>
+        </article>
+<article class="card" data-chapter="美國的產業與人口" id="q24" data-answer="B">
+          <div class="q-head"><span class="num">24</span><div><span class="source">九上第二次段考 第 24 題</span><h2>美墨邊境牆與族群</h2></div></div>
+          <p class="stem">2024 美國總統大選，川普成為新任總統，預估將驅逐至少 1 千萬已經待在美國境內的非法移民，並且執行他之前未完成的美墨邊境牆政策，在此之前，美國與墨西哥邊境已經加建邊境界牆與阻止車輛通過的藩籬。此與美國某一族裔的族群比例日益攀高，衍生的種種社會、經濟、政治、選舉、語言與文化問題有關。請問上述某一族裔是指哪一個族群？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q24" value="A"><span class="letter">A</span><span>亞裔</span></label><label class="option"><input type="radio" name="q24" value="B"><span class="letter">B</span><span>拉丁美洲裔</span></label><label class="option"><input type="radio" name="q24" value="C"><span class="letter">C</span><span>太平洋島民</span></label><label class="option"><input type="radio" name="q24" value="D"><span class="letter">D</span><span>猶太裔</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">經由美墨邊境進入美國的移民，主要來自墨西哥與中南美洲 → 拉丁美洲裔（西語裔）<br>拉丁美洲裔已是美國最大的少數族群，比例持續上升。<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>美墨邊境 → 拉丁美洲裔。</p></div>
+        </article>
+<article class="card" data-chapter="美國的產業與人口" id="q27" data-answer="B">
+          <div class="q-head"><span class="num">27</span><div><span class="source">九上第二次段考 第 27 題</span><h2>科技新移民的去處</h2></div></div>
+          <p class="stem">根據美國 2010 年的全國人口普查，人口數量比十年前增加了 9.7%，其中人口數量增加的 60% 是因為自然增加，40% 是移民流入的社會增加，移民主要來自印度、以色列和臺灣，在這些移民移入的主要地區之中，大多數是由移民創建或合辦的電子資訊新創公司，主要位於科技業重鎮。請問這些移民最有可能移到美國的哪一個地區？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q27" value="A"><span class="letter">A</span><span>五大湖區</span></label><label class="option"><input type="radio" name="q27" value="B"><span class="letter">B</span><span>太平洋沿岸</span></label><label class="option"><input type="radio" name="q27" value="C"><span class="letter">C</span><span>墨西哥灣地區</span></label><label class="option"><input type="radio" name="q27" value="D"><span class="letter">D</span><span>東北部沿海地區</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">電子資訊新創公司的重鎮 → 加州舊金山灣區的矽谷，位於太平洋沿岸。<br>五大湖區以鋼鐵、汽車為主；墨西哥灣以石化為主。<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>電子資訊、新創 → 矽谷（加州，太平洋沿岸）。</p></div>
+        </article>
+<section class="sec-head" id="ch3"><h3>3. 美國的天然災害（題組）</h3><p>共 4 題（原卷第 28、29、30、31 題）</p><p class="kw">重點：地震 → 西岸板塊交界；颶風 → 熱帶海洋低氣壓，侵襲墨西哥灣與東南沿岸；龍捲風 → 中部大平原，冷暖氣團交會，春末夏初最多</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>災害</th><th>分布</th><th>成因</th></tr><tr><td>地震</td><td>太平洋沿岸（加州、阿拉斯加）</td><td>板塊交界</td></tr><tr><td>颶風</td><td>墨西哥灣、東南沿海</td><td>熱帶海面低氣壓</td></tr><tr><td>龍捲風</td><td>中部大平原（龍捲風走廊）</td><td>冷暖氣團交會，4～6 月最多</td></tr><tr><td>水患</td><td>大河流域</td><td>豪雨、融雪</td></tr></table></div></div></section>
+<article class="card" data-chapter="美國的天然災害（題組）" id="q28" data-answer="B">
+          <div class="q-head"><span class="num">28</span><div><span class="source">九上第二次段考 第 28 題</span><h2>依月份統計判斷災害</h2></div></div>
+          <div class="context"><strong>題組（第 28～31 題）</strong><p>下圖中甲～丙是美國龍捲風、地震、颶風、水患等四種天然災害的分布圖，但未依照順序排列，丁是美國水患分布圖，請根據其分布地區與自然環境特徵加以判斷。</p></div><div class="figure"><img src="./img/renai113-m2/g28map.png" alt="第 28 題附圖" loading="lazy"></div><div class="figure"><img src="./img/renai113-m2/g28bar.png" alt="第 28 題附圖" loading="lazy"></div><p class="stem">下表為美國某年的某一種天然災害的年統計圖表（各月發生數量）。上面的年統計圖表，最有可能是災害分布圖中哪一種天然災害的統計圖表？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;統計表哪幾個月最多？&quot;, [&quot;4～6 月&quot;, &quot;8～10 月&quot;, &quot;沒有規律&quot;], 0, &quot;看最長的長條。&quot;, &quot;春末夏初最多&quot;], [&quot;春末夏初最多的是哪種災害？&quot;, [&quot;地震&quot;, &quot;颶風&quot;, &quot;龍捲風&quot;], 2, &quot;地震沒有季節，颶風在夏末秋初。&quot;, &quot;龍捲風&quot;], [&quot;龍捲風主要分布在哪裡？&quot;, [&quot;中部大平原&quot;, &quot;西岸&quot;], 0, &quot;冷暖氣團在平原交會。&quot;, &quot;圖乙 → 選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q28" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q28" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q28" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q28" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">統計表 4～6 月最多（524、505、451）→ 春末夏初<br>春末夏初中部大平原冷暖氣團交會頻繁 → 龍捲風<br>地震沒有季節性；颶風集中在夏末秋初（8～10 月）<br>龍捲風分布在中部大平原 → 圖乙，選 (B)。</p><p class="key"><strong>解題關鍵：</strong>有季節高峰、4～6 月最多 → 龍捲風。</p></div>
+        </article>
+<article class="card" data-chapter="美國的天然災害（題組）" id="q29" data-answer="A">
+          <div class="q-head"><span class="num">29</span><div><span class="source">九上第二次段考 第 29 題</span><h2>與板塊交界有關的災害</h2></div></div>
+          <div class="context"><strong>題組（第 28～31 題）</strong><p>下圖中甲～丙是美國龍捲風、地震、颶風、水患等四種天然災害的分布圖，但未依照順序排列，丁是美國水患分布圖，請根據其分布地區與自然環境特徵加以判斷。</p></div><div class="figure"><img src="./img/renai113-m2/g28map.png" alt="第 29 題附圖" loading="lazy"></div><p class="stem">天然災害分布圖中，何者與板塊的交界帶有高度相關？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q29" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q29" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q29" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q29" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">與板塊交界有關的災害是地震。<br>美國西岸（加州、阿拉斯加）位於環太平洋板塊交界帶。<br>圖甲深色集中在西岸與阿拉斯加、夏威夷 → 地震，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>地震 → 西岸板塊交界。</p></div>
+        </article>
+<article class="card" data-chapter="美國的天然災害（題組）" id="q30" data-answer="C">
+          <div class="q-head"><span class="num">30</span><div><span class="source">九上第二次段考 第 30 題</span><h2>熱帶低氣壓造成的災害</h2></div></div>
+          <div class="context"><strong>題組（第 28～31 題）</strong><p>下圖中甲～丙是美國龍捲風、地震、颶風、水患等四種天然災害的分布圖，但未依照順序排列，丁是美國水患分布圖，請根據其分布地區與自然環境特徵加以判斷。</p></div><div class="figure"><img src="./img/renai113-m2/g28map.png" alt="第 30 題附圖" loading="lazy"></div><p class="stem">天然災害分布圖中，何者的形成原因是因為熱帶海面上的低氣壓造成的？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q30" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q30" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q30" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q30" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">熱帶海面上的低氣壓發展成颶風（和颱風同類）。<br>颶風從大西洋、墨西哥灣登陸，侵襲墨西哥灣沿岸與東南沿海。<br>圖丙深色集中在東南沿海與佛羅里達 → 選 (C)。</p><p class="key"><strong>解題關鍵：</strong>颶風＝熱帶低氣壓，侵襲墨西哥灣與東南沿岸。</p></div>
+        </article>
+<article class="card" data-chapter="美國的天然災害（題組）" id="q31" data-answer="B">
+          <div class="q-head"><span class="num">31</span><div><span class="source">九上第二次段考 第 31 題</span><h2>奧克拉荷馬的超級龍捲風</h2></div></div>
+          <div class="context"><strong>題組（第 28～31 題）</strong><p>下圖中甲～丙是美國龍捲風、地震、颶風、水患等四種天然災害的分布圖，但未依照順序排列，丁是美國水患分布圖，請根據其分布地區與自然環境特徵加以判斷。</p></div><div class="figure"><img src="./img/renai113-m2/g28map.png" alt="第 31 題附圖" loading="lazy"></div><p class="stem">報導：「美國才剛進入龍捲風季節，就傳出重大災情，奧克拉荷馬州一連兩天遭到龍捲風重創，20 日一個直徑 3.2 公里的超級龍捲風，迎頭直擊位於首府奧克拉荷馬市西南部郊區的摩爾鎮，好幾個街區的民宅被夷為平地，其中兩間小學慘遭滅校，現場宛如災難片，目前至少已經有 51 人死亡。」上述報導所指稱的災害，最接近天然災害分布圖中的哪一種災害類型分布？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q31" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q31" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q31" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q31" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">報導的災害是龍捲風，奧克拉荷馬州位於中部大平原的「龍捲風走廊」。<br>龍捲風分布圖是乙 → 選 (B)。</p><p class="key"><strong>解題關鍵：</strong>龍捲風走廊：中部大平原（德州、奧克拉荷馬、堪薩斯）。</p></div>
+        </article>
+<section class="sec-head" id="ch4"><h3>4. 中南美洲</h3><p>共 11 題（原卷第 8、11、13、14、16、17、19、20、23、25、26 題）</p><p class="kw">重點：中美洲＝中美地峽＋西印度群島；安地斯山區人口集中在涼爽的山間盆地；殖民式經濟依賴單一原料出口；大莊園制度造成貧富差距與都市貧民窟</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>主題</th><th>重點</th></tr><tr><td>自然景觀垂直分布</td><td>熱帶高山（秘魯）由低到高：熱帶 → 暖溫帶 → 涼溫帶 → 寒帶 → 雪線</td></tr><tr><td>巴西經濟史</td><td>巴西木 → 砂糖 → 黃金 → 咖啡（橡膠）→ 工業</td></tr><tr><td>社會問題</td><td>土地分配不均（大莊園）＋鄉村推力 → 人口湧入都市、貧民窟</td></tr><tr><td>巴拿馬</td><td>中美地峽最窄處，運河約 80°W、9°N</td></tr><tr><td>環境</td><td>砍伐熱帶雨林 → 棲地減少、CO₂ 增加、土壤侵蝕</td></tr></table></div></div></section>
+<article class="card" data-chapter="中南美洲" id="q8" data-answer="D">
+          <div class="q-head"><span class="num">08</span><div><span class="source">九上第二次段考 第 8 題</span><h2>南美洲倒三角形的影響</h2></div></div>
+          <p class="stem">南美洲的形狀呈「倒三角形」，與下列何種現象的產生最相關？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q8" value="A"><span class="letter">A</span><span>安地斯山南段有冰河地形</span></label><label class="option"><input type="radio" name="q8" value="B"><span class="letter">B</span><span>熱帶沙漠占地廣大</span></label><label class="option"><input type="radio" name="q8" value="C"><span class="letter">C</span><span>熱帶地區人口聚集於山間盆地</span></label><label class="option"><input type="radio" name="q8" value="D"><span class="letter">D</span><span>缺乏溫帶大陸性氣候</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">倒三角形 → 北邊（熱帶）寬，南邊（溫帶）窄<br>溫帶地區陸地狹窄，各地都離海不遠，受海洋調節 → 沒有冬冷夏熱的「溫帶大陸性氣候」<br>選 (D)。</p><p class="key"><strong>解題關鍵：</strong>陸地窄 → 離海近 → 沒有大陸性氣候。</p></div>
+        </article>
+<article class="card" data-chapter="中南美洲" id="q11" data-answer="A">
+          <div class="q-head"><span class="num">11</span><div><span class="source">九上第二次段考 第 11 題</span><h2>美墨邊境工業區</h2></div></div>
+          <p class="stem">1960 年代以來，墨西哥的北部邊境工業區，吸引了數千家外商投資，創造近百萬的工作機會，墨西哥對外商提供基礎設施及稅務等優惠，並允許免稅出口。此合作模式吸引大量人口移入，卻突顯出邊境都市設施匱乏，環境問題與流行疾病接踵而來，請問促成美墨邊界區成為重要工業所在地，其最重要的原因為何？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q11" value="A"><span class="letter">A</span><span>勞力資源豐富</span></label><label class="option"><input type="radio" name="q11" value="B"><span class="letter">B</span><span>原料資源豐富</span></label><label class="option"><input type="radio" name="q11" value="C"><span class="letter">C</span><span>電力價格低廉</span></label><label class="option"><input type="radio" name="q11" value="D"><span class="letter">D</span><span>接近歐盟會員國的消費市場</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">外商（多為美國企業）到墨西哥設廠，主要是看中墨西哥大量且便宜的勞力，再把產品免稅運回美國。<br>(D) 美墨邊境靠近的是「美國」市場，不是歐盟。<br>選 (A)。</p><p class="key"><strong>解題關鍵：</strong>美墨邊境加工區＝美國的資金技術＋墨西哥的廉價勞力。</p></div>
+        </article>
+<article class="card" data-chapter="中南美洲" id="q13" data-answer="B">
+          <div class="q-head"><span class="num">13</span><div><span class="source">九上第二次段考 第 13 題</span><h2>中南美洲某國的經濟發展歷程</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q13.png" alt="第 13 題附圖" loading="lazy"></div><p class="stem">下圖為中南美洲某國經濟發展歷程。根據該國的農業發展特徵，以及各時期主要產業判斷，此國應為哪一個國家？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q13" value="A"><span class="letter">A</span><span>阿根廷</span></label><label class="option"><input type="radio" name="q13" value="B"><span class="letter">B</span><span>巴西</span></label><label class="option"><input type="radio" name="q13" value="C"><span class="letter">C</span><span>加拿大</span></label><label class="option"><input type="radio" name="q13" value="D"><span class="letter">D</span><span>智利</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">砂糖時期 → 黃金時期 → 咖啡時期（加上天然橡膠、棉花、椰子）→ 工業時期<br>這是巴西殖民時代以來的經濟發展順序：東北沿海種甘蔗、米納斯吉拉斯產金、東南部種咖啡、亞馬孫採橡膠。<br>(C) 加拿大不在中南美洲。選 (B)。</p><p class="key"><strong>解題關鍵：</strong>甘蔗、黃金、咖啡、橡膠 → 巴西。</p></div>
+        </article>
+<article class="card" data-chapter="中南美洲" id="q14" data-answer="C">
+          <div class="q-head"><span class="num">14</span><div><span class="source">九上第二次段考 第 14 題</span><h2>安地斯山北部人口集中山間谷地</h2></div></div>
+          <p class="stem">安地斯山脈位於太平洋板塊及美洲板塊的接觸地帶，所以地勢高聳崎嶇。人口分布密集區則位於山脈北部的山間谷地，成為重要的聚落所在，這現象和下列哪一個因素的關係最大？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q14" value="A"><span class="letter">A</span><span>火山作用、礦藏豐富</span></label><label class="option"><input type="radio" name="q14" value="B"><span class="letter">B</span><span>山間谷地、降水充足</span></label><label class="option"><input type="radio" name="q14" value="C"><span class="letter">C</span><span>熱帶高山、氣候涼爽</span></label><label class="option"><input type="radio" name="q14" value="D"><span class="letter">D</span><span>地勢高聳、景色優美</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">安地斯山北部在低緯度熱帶，平地終年炎熱潮濕。<br>海拔升高氣溫下降 → 山間盆地氣候涼爽宜人，適合居住，所以人口集中。<br>選 (C)。</p><p class="key"><strong>解題關鍵：</strong>熱帶地區「高地涼爽」→ 人口往高處住。</p></div>
+        </article>
+<article class="card" data-chapter="中南美洲" id="q16" data-answer="D">
+          <div class="q-head"><span class="num">16</span><div><span class="source">九上第二次段考 第 16 題</span><h2>自然景觀垂直變化</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q16.png" alt="第 16 題附圖" loading="lazy"></div><p class="stem">右圖為南美洲某處的自然景觀垂直變化，該地最有可能位於何國境內？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q16" value="A"><span class="letter">A</span><span>巴西</span></label><label class="option"><input type="radio" name="q16" value="B"><span class="letter">B</span><span>巴拿馬</span></label><label class="option"><input type="radio" name="q16" value="C"><span class="letter">C</span><span>墨西哥</span></label><label class="option"><input type="radio" name="q16" value="D"><span class="letter">D</span><span>秘魯</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">山腳是熱帶（甘蔗、香蕉）→ 低緯度<br>雪線高達 5,000 公尺 → 必須是非常高的山<br>南美洲低緯度又有高山的是安地斯山區 → 秘魯<br>(A) 巴西以高原、盆地為主，沒有這麼高的山；(B) 巴拿馬地峽沒有 5,000 公尺高山；(C) 墨西哥不在南美洲。<br>選 (D)。</p><p class="key"><strong>解題關鍵：</strong>熱帶＋5000 公尺高山 → 安地斯山（秘魯、厄瓜多等）。</p></div>
+        </article>
+<article class="card" data-chapter="中南美洲" id="q17" data-answer="B">
+          <div class="q-head"><span class="num">17</span><div><span class="source">九上第二次段考 第 17 題</span><h2>巴西東南沿海溫和溼潤的原因</h2></div></div>
+          <p class="stem">巴西高原東南沿海地區，氣候溫和溼潤，人口聚集，為巴西的精華地區。請問形成該地氣候類型的主要原因為何？(甲)涼流經過　(乙)暖流經過　(丙)寒流經過　(丁)信風吹拂　(戊)處於盛行風背風側　(己)副熱帶高壓籠罩</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q17" value="A"><span class="letter">A</span><span>(甲)(己)</span></label><label class="option"><input type="radio" name="q17" value="B"><span class="letter">B</span><span>(乙)(丁)</span></label><label class="option"><input type="radio" name="q17" value="C"><span class="letter">C</span><span>(丙)(丁)</span></label><label class="option"><input type="radio" name="q17" value="D"><span class="letter">D</span><span>(丙)(己)</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">巴西東南沿海：<br>沿岸有巴西暖流經過 → 增溫增濕 (乙)✓<br>東南信風從海上吹來，在高原迎風坡降雨 (丁)✓<br>涼流、寒流、背風側、副熱帶高壓都會讓氣候乾燥，不符合「溼潤」。<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>溼潤多雨的條件：暖流＋迎風。</p></div>
+        </article>
+<article class="card" data-chapter="中南美洲" id="q19" data-answer="A">
+          <div class="q-head"><span class="num">19</span><div><span class="source">九上第二次段考 第 19 題</span><h2>雨林開發的環境危害（找並非）</h2></div></div>
+          <p class="stem">巴西每年都有數千至數萬平方公里的雨林消失在農業和土地開發之中。砍伐下來的熱帶硬木銷售至美國、歐洲及亞洲各國，而新開闢的土地種植大豆與飼養牛隻，亦外銷全世界。請問下列何者「並非」其經濟發展所造成的環境危害？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q19" value="A"><span class="letter">A</span><span>增加動植物棲地</span></label><label class="option"><input type="radio" name="q19" value="B"><span class="letter">B</span><span>二氧化碳濃度增加</span></label><label class="option"><input type="radio" name="q19" value="C"><span class="letter">C</span><span>土壤侵蝕加劇</span></label><label class="option"><input type="radio" name="q19" value="D"><span class="letter">D</span><span>生物多樣性降低</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">砍伐雨林會造成：<br>樹木減少，吸收的 CO₂ 變少 → 二氧化碳濃度增加 (B)<br>地表失去植被保護 → 土壤侵蝕加劇 (C)<br>動植物失去家園 → 生物多樣性降低 (D)<br>棲地是「減少」不是增加 → (A) 並非危害，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>題目問「並非」，要找和事實相反的選項。</p></div>
+        </article>
+<article class="card" data-chapter="中南美洲" id="q20" data-answer="A">
+          <div class="q-head"><span class="num">20</span><div><span class="source">九上第二次段考 第 20 題</span><h2>切‧格瓦拉的摩托車之旅</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q20.png" alt="第 20 題附圖" loading="lazy"></div><p class="stem">切‧格瓦拉（1928∼1967 年），出生於阿根廷，為著名的革命者。他大學攻讀醫學系時，與友人騎著摩托車遊歷中南美洲。兩人從故鄉阿根廷出發，途經智利、秘魯、哥倫比亞與委內瑞拉等國，騎車路線如附圖所示。以下敘述何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q20" value="A"><span class="letter">A</span><span>古巴屬中美洲的一部分</span></label><label class="option"><input type="radio" name="q20" value="B"><span class="letter">B</span><span>切‧格瓦拉可從阿根廷騎摩托車到古巴</span></label><label class="option"><input type="radio" name="q20" value="C"><span class="letter">C</span><span>古巴位於熱帶的高地氣候，盛產甘蔗</span></label><label class="option"><input type="radio" name="q20" value="D"><span class="letter">D</span><span>切‧格瓦拉發現古巴降雨量較多的季節，與故鄉（布宜諾斯艾利斯）降雨量較多的季節不一致</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">(A) ✓：中美洲＝中美地峽＋西印度群島，古巴是西印度群島中最大的島。<br>(B) ✗：古巴是島國，摩托車騎不過加勒比海。<br>(C) ✗：古巴地勢低平，屬熱帶莽原氣候，不是高地氣候。<br>(D) ✗：兩地都是「夏季」多雨；只是南北半球月份相反（古巴 5～10 月、布宜諾斯艾利斯 12～2 月），季節是一致的。<br>選 (A)。</p><p class="key"><strong>解題關鍵：</strong>中美洲包含西印度群島；南北半球季節相反要分清楚「月份」和「季節」。</p></div>
+        </article>
+<article class="card" data-chapter="中南美洲" id="q23" data-answer="B">
+          <div class="q-head"><span class="num">23</span><div><span class="source">九上第二次段考 第 23 題</span><h2>連接南北美洲的國家</h2></div></div>
+          <p class="stem">「以 1,000 英里的加勒比海和太平洋海岸線，以及數以百計的島嶼，成為海釣的天堂，以及著名的避寒勝地。其為連接北美與南美兩大陸塊的天然陸橋，又擁有北美、中美及南美的各種野生動植物，是美洲生態觀光最理想的據點。」請問以上敘述，最可能是指哪一個國家？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q23" value="A"><span class="letter">A</span><span>巴西</span></label><label class="option"><input type="radio" name="q23" value="B"><span class="letter">B</span><span>巴拿馬</span></label><label class="option"><input type="radio" name="q23" value="C"><span class="letter">C</span><span>古巴</span></label><label class="option"><input type="radio" name="q23" value="D"><span class="letter">D</span><span>秘魯</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">同時面臨加勒比海和太平洋 → 中美地峽<br>連接北美與南美的陸橋 → 中美地峽最南端、緊鄰南美洲的巴拿馬<br>古巴是島國，不是陸橋；巴西、秘魯在南美洲。<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>「陸橋」＋「兩洋海岸」→ 巴拿馬。</p></div>
+        </article>
+<article class="card" data-chapter="中南美洲" id="q25" data-answer="D">
+          <div class="q-head"><span class="num">25</span><div><span class="source">九上第二次段考 第 25 題</span><h2>里約貧富差距的根本原因</h2></div></div>
+          <p class="stem">巴西的里約熱內盧為著名觀光勝地，鄰近的山丘上有著名的基督像，沿海的狹長海灣更吸引了全世界的遊客前來，然而在極為繁榮的市街中，卻有著為數眾多的貧民區，這種現象在中南美洲相當常見。請問形成當地貧富差距懸殊及人口過度集中的根本原因為下列何者？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q25" value="A"><span class="letter">A</span><span>種姓制度的限制</span></label><label class="option"><input type="radio" name="q25" value="B"><span class="letter">B</span><span>缺乏礦產，工業發展落後</span></label><label class="option"><input type="radio" name="q25" value="C"><span class="letter">C</span><span>人口老化快速，出生率低</span></label><label class="option"><input type="radio" name="q25" value="D"><span class="letter">D</span><span>土地分配不均及鄉村的推力</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">殖民時代留下的大莊園制度 → 土地集中在少數地主手中，多數農民沒有土地<br>鄉村生活困難（推力）→ 大量人口湧入大都市 → 都市無法容納，形成貧民窟<br>(A) 種姓制度是印度；(B) 巴西礦產豐富；(C) 中南美洲出生率高、人口年輕。<br>選 (D)。</p><p class="key"><strong>解題關鍵：</strong>中南美洲貧富差距＝大莊園（土地分配不均）＋鄉村推力。</p></div>
+        </article>
+<article class="card" data-chapter="中南美洲" id="q26" data-answer="C">
+          <div class="q-head"><span class="num">26</span><div><span class="source">九上第二次段考 第 26 題</span><h2>巴拿馬運河的經緯度位置</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q26.png" alt="第 26 題附圖" loading="lazy"></div><p class="stem">巴拿馬運河總長度 80 公里，其開通使美國東岸到西岸的航程，比繞道麥哲倫海峽，縮短了 5,000～13,757 公里。請問巴拿馬運河位於下圖中哪一個經緯度位置？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;巴拿馬運河大約在什麼經度？&quot;, [&quot;80°W&quot;, &quot;30°E&quot;, &quot;100°E&quot;], 0, &quot;美洲在西經。&quot;, &quot;約 80°W&quot;], [&quot;大約在什麼緯度？&quot;, [&quot;約 9°N&quot;, &quot;約 30°N&quot;, &quot;約 50°N&quot;], 0, &quot;中美地峽在熱帶、靠近赤道。&quot;, &quot;約 9°N → 圖(C) 有 80° 與 10° → 選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q26" value="A"><span class="letter">A</span><span>圖(A)</span></label><label class="option"><input type="radio" name="q26" value="B"><span class="letter">B</span><span>圖(B)</span></label><label class="option"><input type="radio" name="q26" value="C"><span class="letter">C</span><span>圖(C)</span></label><label class="option"><input type="radio" name="q26" value="D"><span class="letter">D</span><span>圖(D)</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">巴拿馬運河在中美地峽最窄處，約 80°W、9°N。<br>圖(C) 經線 80°、緯線 10° 附近，細長的地峽上有運河 → 選 (C)。<br>圖(A) 約 100°E、0° 附近是麻六甲海峽一帶；圖(B) 約 30°E、30°N 是蘇伊士運河。</p><p class="key"><strong>解題關鍵：</strong>巴拿馬運河：約 80°W、9°N；蘇伊士運河：約 32°E、30°N。</p></div>
+        </article>
+<section class="sec-head" id="ch5"><h3>5. 巴西（國旗題組）</h3><p>共 5 題（原卷第 32、33、34、35、36 題）</p><p class="kw">重點：綠色＝亞馬孫熱帶雨林，黃色菱形＝礦產（鐵礦），首都巴西利亞位於內陸高原；巴西是依賴式、殖民地式經濟</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>主題</th><th>重點</th></tr><tr><td>亞馬孫盆地</td><td>熱帶雨林：樹高 40～50 m，垂直分層多</td></tr><tr><td>礦產</td><td>巴西高原鐵礦，產量與出口量世界前茅</td></tr><tr><td>首都</td><td>1960 年遷到內陸的巴西利亞，帶動內陸開發</td></tr><tr><td>依賴式經濟</td><td>單一作物大規模生產、受國際價格影響、結構失衡</td></tr></table></div></div></section>
+<article class="card" data-chapter="巴西（國旗題組）" id="q32" data-answer="C">
+          <div class="q-head"><span class="num">32</span><div><span class="source">九上第二次段考 第 32 題</span><h2>國旗綠色代表的森林</h2></div></div>
+          <div class="context"><strong>題組（第 32～36 題）</strong><p>右圖為南美洲某國家的國旗，由綠色底作為背景，中間有一個黃色菱形，菱形上有一個藍色的圓形，圓形上有 27 顆以南十字星座為中心的白色星星，中央的文字為 Ordem E Progresso，解釋為「秩序與進步」。</p></div><div class="figure"><img src="./img/renai113-m2/flag.png" alt="第 32 題附圖" loading="lazy"></div><p class="stem">國旗中綠底代表覆蓋國土的茂密森林。請問該森林位於哪一個地理區內？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q32" value="A"><span class="letter">A</span><span>墨西哥高原</span></label><label class="option"><input type="radio" name="q32" value="B"><span class="letter">B</span><span>中美地峽</span></label><label class="option"><input type="radio" name="q32" value="C"><span class="letter">C</span><span>亞馬孫盆地</span></label><label class="option"><input type="radio" name="q32" value="D"><span class="letter">D</span><span>巴塔哥尼亞高原</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">這是巴西國旗。巴西國土廣大的茂密森林是亞馬孫盆地的熱帶雨林。<br>(A)、(B) 不在巴西；(D) 巴塔哥尼亞高原在阿根廷南部，屬乾燥氣候。<br>選 (C)。</p><p class="key"><strong>解題關鍵：</strong>巴西國旗綠色＝亞馬孫熱帶雨林。</p></div>
+        </article>
+<article class="card" data-chapter="巴西（國旗題組）" id="q33" data-answer="D">
+          <div class="q-head"><span class="num">33</span><div><span class="source">九上第二次段考 第 33 題</span><h2>熱帶雨林的景觀</h2></div></div>
+          <div class="context"><strong>題組（第 32～36 題）</strong><p>右圖為南美洲某國家的國旗，由綠色底作為背景，中間有一個黃色菱形，菱形上有一個藍色的圓形，圓形上有 27 顆以南十字星座為中心的白色星星，中央的文字為 Ordem E Progresso，解釋為「秩序與進步」。</p></div><div class="figure"><img src="./img/renai113-m2/flag.png" alt="第 33 題附圖" loading="lazy"></div><div class="figure"><img src="./img/renai113-m2/q33.png" alt="第 33 題附圖" loading="lazy"></div><p class="stem">請問該國當地原始的自然景觀與森林覆蓋，較符合下列哪一種類型？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q33" value="A"><span class="letter">A</span><span>圖(A)：高約 50 公尺、樹種單一的針葉林</span></label><label class="option"><input type="radio" name="q33" value="B"><span class="letter">B</span><span>圖(B)：高約 3～4 公尺的矮樹林</span></label><label class="option"><input type="radio" name="q33" value="C"><span class="letter">C</span><span>圖(C)：草原中散生零星樹木</span></label><label class="option"><input type="radio" name="q33" value="D"><span class="letter">D</span><span>圖(D)：高達 50 公尺、多層次的闊葉林</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">亞馬孫熱帶雨林：終年高溫多雨，樹木高大（40～50 公尺），常綠闊葉、樹種多、垂直分層複雜。<br>(A) 針葉林是寒帶／涼溫帶；(B) 矮樹林像地中海型的灌木林；(C) 草原散生樹木是熱帶莽原。<br>選 (D)。</p><p class="key"><strong>解題關鍵：</strong>熱帶雨林＝高、密、多層、闊葉、樹種多。</p></div>
+        </article>
+<article class="card" data-chapter="巴西（國旗題組）" id="q34" data-answer="A">
+          <div class="q-head"><span class="num">34</span><div><span class="source">九上第二次段考 第 34 題</span><h2>黃色菱形代表的礦產</h2></div></div>
+          <div class="context"><strong>題組（第 32～36 題）</strong><p>右圖為南美洲某國家的國旗，由綠色底作為背景，中間有一個黃色菱形，菱形上有一個藍色的圓形，圓形上有 27 顆以南十字星座為中心的白色星星，中央的文字為 Ordem E Progresso，解釋為「秩序與進步」。</p></div><div class="figure"><img src="./img/renai113-m2/flag.png" alt="第 34 題附圖" loading="lazy"></div><p class="stem">題組敘述的國旗中，黃色菱形象徵豐富的礦產。請問該國以何項礦產資源最為著名？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q34" value="A"><span class="letter">A</span><span>鐵礦</span></label><label class="option"><input type="radio" name="q34" value="B"><span class="letter">B</span><span>銅礦</span></label><label class="option"><input type="radio" name="q34" value="C"><span class="letter">C</span><span>石油</span></label><label class="option"><input type="radio" name="q34" value="D"><span class="letter">D</span><span>天然氣</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">巴西高原是古老地塊，蘊藏大量高品質鐵礦，產量與出口量都名列世界前茅。<br>(B) 銅礦最有名的是智利。<br>選 (A)。</p><p class="key"><strong>解題關鍵：</strong>巴西＝鐵礦；智利＝銅礦；委內瑞拉＝石油。</p></div>
+        </article>
+<article class="card" data-chapter="巴西（國旗題組）" id="q35" data-answer="D">
+          <div class="q-head"><span class="num">35</span><div><span class="source">九上第二次段考 第 35 題</span><h2>巴西的首都</h2></div></div>
+          <div class="context"><strong>題組（第 32～36 題）</strong><p>右圖為南美洲某國家的國旗，由綠色底作為背景，中間有一個黃色菱形，菱形上有一個藍色的圓形，圓形上有 27 顆以南十字星座為中心的白色星星，中央的文字為 Ordem E Progresso，解釋為「秩序與進步」。</p></div><div class="figure"><img src="./img/renai113-m2/flag.png" alt="第 35 題附圖" loading="lazy"></div><p class="stem">國旗中，圓形中以南十字星為中心的 27 顆星，代表首都與 26 個州。請問該國首都為下列哪一個城市？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q35" value="A"><span class="letter">A</span><span>墨西哥</span></label><label class="option"><input type="radio" name="q35" value="B"><span class="letter">B</span><span>巴拿馬</span></label><label class="option"><input type="radio" name="q35" value="C"><span class="letter">C</span><span>里約</span></label><label class="option"><input type="radio" name="q35" value="D"><span class="letter">D</span><span>巴西利亞</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">巴西為了開發內陸、平衡區域發展，1960 年把首都從沿海的里約熱內盧遷到內陸高原新建的巴西利亞。<br>選 (D)。（里約是舊首都，陷阱選項。）</p><p class="key"><strong>解題關鍵：</strong>巴西首都：巴西利亞（不是里約）。</p></div>
+        </article>
+<article class="card" data-chapter="巴西（國旗題組）" id="q36" data-answer="C">
+          <div class="q-head"><span class="num">36</span><div><span class="source">九上第二次段考 第 36 題</span><h2>依賴式經濟（找無關）</h2></div></div>
+          <div class="context"><strong>題組（第 32～36 題）</strong><p>右圖為南美洲某國家的國旗，由綠色底作為背景，中間有一個黃色菱形，菱形上有一個藍色的圓形，圓形上有 27 顆以南十字星座為中心的白色星星，中央的文字為 Ordem E Progresso，解釋為「秩序與進步」。</p></div><div class="figure"><img src="./img/renai113-m2/flag.png" alt="第 36 題附圖" loading="lazy"></div><p class="stem">該國採行依賴式、殖民地式的經濟型態，有許多缺點，下列敘述何者與此種經濟發展特色「無關」？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q36" value="A"><span class="letter">A</span><span>容易受國際市場價格波動影響</span></label><label class="option"><input type="radio" name="q36" value="B"><span class="letter">B</span><span>國內經濟結構失衡</span></label><label class="option"><input type="radio" name="q36" value="C"><span class="letter">C</span><span>沙漠化問題嚴重，乾燥氣候不利於農業生產</span></label><label class="option"><input type="radio" name="q36" value="D"><span class="letter">D</span><span>大規模生產的商業性農業</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">依賴式、殖民地式經濟：大規模種植單一經濟作物或開採原料出口（D）→ 價格由國際市場決定、容易波動（A）→ 產業偏重原料、結構失衡（B）。<br>(C) 沙漠化、乾燥氣候是自然環境問題，與經濟型態無關，而且巴西大部分地區濕潤多雨。<br>選 (C)。</p><p class="key"><strong>解題關鍵：</strong>題目問「無關」，找出不是「經濟型態」造成的選項。</p></div>
+        </article>
+<p class="hint" style="text-align:center;color:var(--muted)">試題來源：臺北市立仁愛國中 113 學年度第 1 學期第二次段考九年級地理科；答案依學校公布答案卷，詳解為重新整理撰寫。</p>
+</main>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const downloadBtn=document.querySelector('#downloadDocx');
+let graded=false;
+
+function checkCard(card,revealUnanswered=false){
+  card.classList.remove('correct','incorrect','unanswered');
+  card.querySelectorAll('.option').forEach(option=>option.classList.remove('good','bad'));
+  const pick=card.querySelector('input:checked');
+  const answer=card.dataset.answer;
+  if(!pick&&!revealUnanswered)return {answered:false,correct:false};
+  card.classList.add('checked');
+  card.querySelectorAll('input').forEach(input=>{
+    const option=input.closest('.option');
+    if(input.value===answer)option.classList.add('good');
+    if(pick&&input===pick&&input.value!==answer)option.classList.add('bad');
+    input.disabled=true;
+  });
+  if(!pick)card.classList.add('unanswered');
+  else if(pick.value===answer)card.classList.add('correct');
+  else card.classList.add('incorrect');
+  return {answered:!!pick,correct:!!pick&&pick.value===answer};
+}
+
+function updateProgress(){
+  const answered=cards.filter(card=>card.querySelector('input:checked')).length;
+  const score=cards.filter(card=>card.querySelector('input:checked')?.value===card.dataset.answer).length;
+  document.querySelector('#score').textContent=`已作答 ${answered} / ${cards.length}・答對 ${score} 題`;
+  if(answered===cards.length){
+    graded=true;
+    const mistakeCount=cards.length-score;
+    downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+    downloadBtn.hidden=false;
+  }
+}
+
+cards.forEach(card=>card.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+  checkCard(card);
+  updateProgress();
+})));
+
+document.querySelector('#grade').addEventListener('click',()=>{
+  let score=0,first=null;
+  cards.forEach(c=>{
+    const result=checkCard(c,true);
+    if(!result.answered)first??=c;
+    if(result.correct)score++;
+  });
+  graded=true;
+  const mistakeCount=cards.length-score;
+  document.querySelector('#score').textContent=`得分 ${score} / ${cards.length}`;
+  downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+  downloadBtn.hidden=false;
+  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.querySelector('#reset').addEventListener('click',()=>{
+  cards.forEach(c=>{
+    c.className='card';
+    c.querySelectorAll('input').forEach(i=>{i.checked=false;i.disabled=false});
+    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
+  });
+  graded=false;
+  downloadBtn.hidden=true;
+  downloadBtn.textContent='下載錯題詳解 DOCX';
+  document.querySelector('#score').textContent=`已作答 0 / ${cards.length}`;
+  scrollTo({top:0,behavior:'smooth'});
+});
+
+function xmlEscape(value){
+  return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+}
+
+function wordParagraph(text,{bold=false,size=22,color='000000',before=0,after=100}={}){
+  const safe=xmlEscape(text);
+  return `<w:p><w:pPr><w:spacing w:before="${before}" w:after="${after}" w:line="330" w:lineRule="auto"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Microsoft JhengHei" w:hAnsi="Microsoft JhengHei" w:eastAsia="Microsoft JhengHei"/><w:sz w:val="${size}"/><w:szCs w:val="${size}"/>${bold?'<w:b/><w:bCs/>':''}${color!=='000000'?`<w:color w:val="${color}"/>`:''}<w:lang w:eastAsia="zh-TW"/></w:rPr><w:t xml:space="preserve">${safe}</w:t></w:r></w:p>`;
+}
+
+function textBlock(text,options={}){
+  return String(text??'').split(/\r?\n/).filter(Boolean).map(line=>wordParagraph(line,options)).join('');
+}
+
+function collectMistakes(){
+  return cards.filter(c=>{
+    const pick=c.querySelector('input:checked');
+    return !!pick&&pick.value!==c.dataset.answer;
+  }).map(c=>{
+    const picked=c.querySelector('input:checked');
+    const feedback=[...c.querySelectorAll('.feedback p')];
+    return {
+      number:c.querySelector('.num').textContent.trim(),
+      source:(c.dataset.chapter?c.dataset.chapter+'｜':'')+c.querySelector('.source').textContent.trim(),
+      topic:c.querySelector('h2').textContent.trim(),
+      context:c.querySelector('.context')?.innerText.trim()||'',
+      stem:c.querySelector('.stem').textContent.trim(),
+      options:[...c.querySelectorAll('.option')].map(o=>`${o.querySelector('.letter').textContent.trim()}　${o.querySelector('span:last-child').textContent.trim()}`),
+      selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
+      answer:c.dataset.answer,
+      explanation:feedback[1]?.innerText.trim()||'',
+      figures:[...c.querySelectorAll('.figure img')].map(i=>({src:i.getAttribute('src').replace(/\.svg$/,'.png'),alt:i.alt})),
+      key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
+    };
+  });
+}
+
+const encoder=new TextEncoder();
+function le16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function le32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function joinBytes(chunks){
+  const out=new Uint8Array(chunks.reduce((sum,c)=>sum+c.length,0));
+  let at=0;for(const c of chunks){out.set(c,at);at+=c.length}return out;
+}
+const crcTable=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(data){let c=0xffffffff;for(const b of data)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0}
+function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());return {time:(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date:((year-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate()}}
+
+function makeDocxZip(files){
+  const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
+  for(const [name,text] of files){
+    const nameBytes=encoder.encode(name),data=text instanceof Uint8Array?text:encoder.encode(text),crc=crc32(data);
+    const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
+    const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
+    locals.push(local);centrals.push(central);offset+=local.length;
+  }
+  const centralData=joinBytes(centrals);
+  const end=joinBytes([le32(0x06054b50),le16(0),le16(0),le16(files.length),le16(files.length),le32(centralData.length),le32(offset),le16(0)]);
+  return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+async function loadPng(src){
+  const res=await fetch(src);if(!res.ok)throw new Error(src);
+  const bytes=new Uint8Array(await res.arrayBuffer());
+  const dv=new DataView(bytes.buffer);
+  return {bytes,w:dv.getUint32(16),h:dv.getUint32(20)};
+}
+function imageParagraph(rid,id,w,h,alt){
+  const cx=Math.round(6.2*914400),cy=Math.round(cx*h/w);
+  return `<w:p><w:pPr><w:spacing w:after="80"/><w:jc w:val="center"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${id}" name="圖${id}" descr="${xmlEscape(alt)}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${id}" name="image${id}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+}
+async function buildMistakeDocx(){
+  const mistakes=collectMistakes();
+  const media=[],relsXml=[],cache={};
+  for(const m of mistakes){
+    m.imgs=[];
+    for(const f of m.figures||[]){
+      try{
+        if(!cache[f.src]){
+          const png=await loadPng(f.src),n=media.length+1;
+          media.push([`word/media/image${n}.png`,png.bytes]);
+          relsXml.push(`<Relationship Id="rImg${n}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/image${n}.png"/>`);
+          cache[f.src]={rid:`rImg${n}`,w:png.w,h:png.h};
+        }
+        m.imgs.push({...cache[f.src],alt:f.alt});
+      }catch(e){console.warn('圖片載入失敗',f.src)}
+    }
+  }
+  let picId=0;
+  let body=wordParagraph('地理九上第二次段考 錯題詳解',{bold:true,size:34,color:'17313A',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　答錯共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  if(!mistakes.length){
+    body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
+  }else{
+    mistakes.forEach((m,index)=>{
+      if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+      body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
+      if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      m.imgs.forEach(im=>{body+=imageParagraph(im.rid,++picId,im.w,im.h,im.alt)});
+      body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
+      m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
+      body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
+      body+=wordParagraph(`正確答案：${m.answer}`,{bold:true,size:22,color:'0B6B57',after:100});
+      body+=wordParagraph('詳解',{bold:true,size:22,after:55});
+      body+=textBlock(m.explanation,{size:21,after:90});
+      body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
+    });
+  }
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const docRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${relsXml.join('')}</Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml],['word/_rels/document.xml.rels',docRels],...media]);
+}
+
+downloadBtn.addEventListener('click',async()=>{
+  if(!graded)return;
+  downloadBtn.disabled=true;
+  let blob;try{blob=await buildMistakeDocx()}finally{downloadBtn.disabled=false}
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='地理九上第二次段考_錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+</script><script src="../../shared/moe-dict.js?v=20261116" defer></script>
+<script>
+document.querySelectorAll('.gsteps').forEach(box=>{
+  const steps=JSON.parse(box.dataset.steps);let i=0;
+  const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  function show(){
+    if(i>=steps.length){box.insertAdjacentHTML('beforeend','<div class="gdone">✅ 步驟都想出來了！現在回到下面的選項作答吧。</div>');return}
+    const [ask,ch0,ok0,hint,res]=steps[i];const n=i+1;const ord=ch0.map((_,k)=>k).sort(()=>Math.random()-.5);const ch=ord.map(k=>ch0[k]);const ok=ord.indexOf(ok0);
+    const d=document.createElement('div');d.className='gstep';
+    d.innerHTML=`<div class="ask"><b>步驟 ${n}／${steps.length}</b>　${esc(ask)}</div><div class="gchoices">${ch.map((c,k)=>`<button type="button" data-k="${k}">${esc(c)}</button>`).join('')}</div><div class="ghint" hidden></div>`;
+    box.appendChild(d);
+    d.querySelector('.gchoices').addEventListener('click',ev=>{const b=ev.target.closest('button');if(!b||d.dataset.done)return;
+      if(+b.dataset.k===ok){b.classList.add('yes');d.dataset.done=1;d.querySelectorAll('.gchoices button').forEach(x=>x.disabled=true);
+        const h=d.querySelector('.ghint');h.hidden=true;
+        d.insertAdjacentHTML('beforeend',`<div class="gres">✏️ ${esc(res)}</div>`);i++;setTimeout(show,250)}
+      else{b.classList.add('no');const h=d.querySelector('.ghint');h.hidden=false;h.textContent='💡 再想想：'+(hint||'回頭看看本章的重點整理表。')}});
+  }
+  show();
+});
+</script></body></html>
+

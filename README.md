@@ -16,6 +16,7 @@
 - 生物（自然）｜生物錯題，依章節概念分類（9 題：緒論、第 2 章 養分）：`biology/wrong-questions.html`
 - 歷史｜歷史錯題，依時代分章（51 題，6 章：先秦、秦漢、魏晉南北朝・隋唐、宋元、明清前期、清末；每章附重點整理與事件比較表）：`history/wrong-questions.html`
 - 理化｜九上第二次段考（仁愛國中 113 上，35 題，依章節分 5 區，附引導解題與含圖錯題 DOCX）：`physics-chemistry/grade-9/second-midterm-renai113.html`
+- 地理｜九上第二次段考（仁愛國中 113 上，40 題，依主題分 5 區，附引導解題與含圖錯題 DOCX）：`geography/grade-9/second-midterm-renai113.html`
 - 公民｜公民錯題，依章節概念分類（29 題，8 個概念）：`civics/wrong-questions.html`
 
 學生可在完成測驗後下載個人錯題、答案與詳解 DOCX（形音義每個小單元、書本單元的每一區做完後皆可下載；共用程式：`shared/mistake-docx.js`）。
