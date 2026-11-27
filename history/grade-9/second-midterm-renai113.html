@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>仁愛國中 113上 九年級 歷史段考二</title>
+<style>
+:root{--ink:#3a2a17;--muted:#6f6455;--paper:#fffdf8;--bg:#f4efe6;--accent:#9a6b35;--accent2:#d39b36;--bad:#a33a35;--line:#d8e2df}
+*{box-sizing:border-box} body{margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e4f0ee,#f6efe2);line-height:1.65}
+.dashboard-link{position:fixed;left:16px;top:16px;z-index:10;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.95);color:var(--ink);font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(22,49,58,.12);backdrop-filter:blur(10px)}.dashboard-link:hover{border-color:var(--accent);color:var(--accent)}
+header{padding:48px 20px 30px;text-align:center} h1{margin:0;font-size:clamp(2rem,5vw,3.6rem);line-height:1.12} header p{max-width:760px;margin:14px auto;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;background:var(--accent);color:white} button.secondary{background:#dfe9e6;color:var(--ink)} button.download{background:#244b5a} button[hidden]{display:none}.score{font-weight:800;min-width:160px;text-align:center}
+main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:22px} .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08)}
+.q-head{display:flex;gap:14px;align-items:center;margin-bottom:14px} .num{display:grid;place-items:center;min-width:52px;height:52px;border-radius:15px;background:var(--ink);color:white;font-weight:900} .source{color:var(--accent);font-weight:800;font-size:.9rem} h2{margin:0;font-size:1.18rem} .stem{font-size:1.08rem;font-weight:700}
+.context{background:#f2f7f5;border-left:4px solid var(--accent);padding:14px 16px;margin:14px 0;border-radius:0 12px 12px 0} .context p{margin:.35rem 0 0} .adapted{color:#73581c;background:#fff6dc;padding:8px 12px;border-radius:10px;font-size:.92rem}
+.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .card.checked .option{cursor:default}.card.checked .option:hover{transform:none}.option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
+.card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
+.feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
+.unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
+.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.summary{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 20px;margin-top:10px}.summary h4{margin:14px 0 6px;color:var(--accent)}.summary h4:first-child{margin-top:0}.summary td{text-align:left;vertical-align:top}.summary td:first-child{font-weight:800;background:#f7efe2;white-space:nowrap}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px}.figure.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:640px){.figure.pair{grid-template-columns:1fr}}.kw{color:#73581c;background:#fff6dc;padding:6px 12px;border-radius:10px;font-size:.92rem;margin-top:8px}.figure img{width:auto;max-width:100%;max-height:440px;margin:0 auto}</style></head><body>
+<a class="dashboard-link" href="../../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
+<header><h1>仁愛國中 113上<br>九年級歷史 段考二</h1><p>臺北市立仁愛國中 113 學年度第 1 學期第二次段考，共 40 題（每題 2.5 分）。範圍：中世紀西歐與基督教、拜占庭、伊斯蘭世界、文藝復興、宗教改革。依主題分 6 章，每章附重點整理表；地圖與圖片題附原卷圖。選完答案立即看詳解，作答完可下載只含答錯題目的錯題詳解 DOCX（含圖）。</p><p class="adapted">答案依學校答案卷；詳解經老師整理，題號為原卷題號。</p><nav class="jump"><a href="#ch1">中世紀西歐與基督教</a><a href="#ch2">聖地、十字軍與三大宗教</a><a href="#ch3">拜占庭帝國</a><a href="#ch4">伊斯蘭世界與阿拉伯文明</a><a href="#ch5">文藝復興</a><a href="#ch6">宗教改革</a></nav></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 40</span></div>
+<main>
+<section class="sec-head" id="ch1"><h3>一、中世紀西歐與基督教</h3><p>6 題（原卷第 1、6、8、9、10、11 題）</p><p class="kw">關鍵字：羅馬帝國迫害→米蘭詔令→國教→中世紀教會→東西分裂</p><div class="summary"><h4>📊 基督教發展時間軸</h4><div class="table-wrap"><table><tr><th>時間</th><th>事件</th><th>重點</th></tr><tr><td>1世紀</td><td>耶穌創立基督教</td><td>羅馬帝國初期；神愛世人、人人平等；拒拜羅馬皇帝而遭迫害</td></tr><tr><td>313年</td><td>君士坦丁頒布米蘭詔令</td><td>基督教合法化</td></tr><tr><td>4世紀末</td><td>狄奧多西定為國教</td><td>基督教成為羅馬帝國國教</td></tr><tr><td>476年後</td><td>中世紀西歐</td><td>教會維持秩序、日耳曼人改信；修道院抄寫古籍；使用拉丁文；教權與王權並立</td></tr><tr><td>1054年</td><td>第一次分裂</td><td>爭奪領導權→羅馬公教（西歐）vs 希臘正教（東歐）</td></tr><tr><td>1096年起</td><td>十字軍東征</td><td>教宗號召收復聖地耶路撒冷</td></tr><tr><td>16世紀</td><td>第二次分裂（宗教改革）</td><td>出現新教：路德派、喀爾文派、英國國教</td></tr></table></div></div></section>
+<article class="card" id="q1" data-answer="D" data-chapter="中世紀西歐與基督教">
+          <div class="q-head"><span class="num">01</span><div><span class="source">仁愛國中 113上 九年級 段考二 第1題</span><h2>中世紀西歐的形象</h2></div></div>
+          <p class="stem">這個時期經常被誇大成「野蠻、無知和迷信的時代」，「經濟回歸自給自足商業活動幾乎停頓」，將「宗教權威置於個人經驗和理性活動之上」。關於上述情況最可能是在形容何時何地？</p>
+          <div class="options"><label class="option"><input type="radio" name="q1" value="A"><span class="letter">A</span><span>希臘化時期的北非地區</span></label><label class="option"><input type="radio" name="q1" value="B"><span class="letter">B</span><span>羅馬共和時期的地中海沿岸</span></label><label class="option"><input type="radio" name="q1" value="C"><span class="letter">C</span><span>八世紀的阿拉伯半島</span></label><label class="option"><input type="radio" name="q1" value="D"><span class="letter">D</span><span>中世紀的西歐</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>西羅馬帝國滅亡（476年）後，西歐進入中世紀：日耳曼人建國、戰亂頻繁，城市與商業衰退，以莊園自給自足；羅馬公教會掌握思想與文化，常被後人（文藝復興時期學者）稱為「黑暗時代」。</p><p class="key"><strong>解題關鍵：</strong>關鍵字「自給自足、商業停頓」＝莊園經濟；「宗教權威高於理性」＝教會主導。(C)八世紀阿拉伯帝國商業繁榮、學術發達，正好相反。</p></div>
+        </article>
+<article class="card" id="q6" data-answer="D" data-chapter="中世紀西歐與基督教">
+          <div class="q-head"><span class="num">06</span><div><span class="source">仁愛國中 113上 九年級 段考二 第6題</span><h2>早期基督教遭迫害</h2></div></div>
+          <p class="stem">基督教在創立初期遭到政府迫害，下面哪一敘述符合史實？</p>
+          <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>基督教創立於羅馬共和時期</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>基督教與當時統治者希臘人的多神信仰不合</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>耶穌及其信徒批評羅馬社會的腐敗且拒絕向當時的猶太祭司畫像膜拜</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>主張神愛世人，雖遭迫害仍視死如歸</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>早期基督徒宣揚「神愛世人、人人平等」，堅持一神信仰，拒絕崇拜羅馬皇帝，因而遭羅馬政府迫害，但信徒仍堅守信仰、視死如歸。</p><p class="key"><strong>解題關鍵：</strong>(A)基督教創立於羅馬「帝國」初期（1世紀）。(B)當時統治者是羅馬人。(C)基督徒拒絕膜拜的是「羅馬皇帝」，不是猶太祭司。</p></div>
+        </article>
+<article class="card" id="q8" data-answer="B" data-chapter="中世紀西歐與基督教">
+          <div class="q-head"><span class="num">08</span><div><span class="source">仁愛國中 113上 九年級 段考二 第8題</span><h2>基督教對中世紀西歐的影響</h2></div></div>
+          <p class="stem">基督教在中世紀時對西歐的影響，下列敘述正確有幾項？甲.有位君王頒布米蘭詔令，正式承認基督教為合法宗教，基督教的教堂財產一律發還。乙.基督教擔負起維護社會秩序的任務，許多日耳曼人改信基督教。丙.基督教會是人們生活的中心，各處可見路德教派教堂、喀爾文教派教堂，百花齊放。丁.「政教合一」是當時普遍的現象。戊.教士除了傳教外，也抄寫古籍，對保存希臘羅馬古典文化有重要貢獻。</p>
+          <div class="options"><label class="option"><input type="radio" name="q8" value="A"><span class="letter">A</span><span>一項</span></label><label class="option"><input type="radio" name="q8" value="B"><span class="letter">B</span><span>二項</span></label><label class="option"><input type="radio" name="q8" value="C"><span class="letter">C</span><span>三項</span></label><label class="option"><input type="radio" name="q8" value="D"><span class="letter">D</span><span>四項</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>正確的是乙、戊共二項。西羅馬滅亡後，教會維持社會秩序，日耳曼人陸續改信基督教；修道院教士抄寫古籍，保存了希臘羅馬古典文化。</p><p class="key"><strong>解題關鍵：</strong>甲：米蘭詔令（313年）是羅馬帝國時期，不是中世紀。丙：路德派、喀爾文派是16世紀宗教改革後才出現。丁：中世紀西歐是「教權與王權並立、互相爭雄」，政教合一是拜占庭的特色。</p></div>
+        </article>
+<article class="card" id="q9" data-answer="A" data-chapter="中世紀西歐與基督教">
+          <div class="q-head"><span class="num">09</span><div><span class="source">仁愛國中 113上 九年級 段考二 第9題</span><h2>四位信徒的時間排序</h2></div></div>
+          <p class="stem">這四個信徒若按其時間順序排列，正確為何？盧尚：我被徵召去興建聖索菲亞大教堂感到十分光榮。路易：因為信仰的關係被舉報，明日我即將被送到圓形競技場與獅子血腥搏鬥。彼得：跟隨君主在戰場上廝殺，天邊降下十字光輝，而後我方贏得戰役，皇帝也正式將我信仰的宗教合法化。約翰：我接受號召，下個月即將跟隨大軍前往東方與異教徒作戰收復我們的宗教聖地。</p>
+          <div class="options"><label class="option"><input type="radio" name="q9" value="A"><span class="letter">A</span><span>路易-彼得-盧尚-約翰</span></label><label class="option"><input type="radio" name="q9" value="B"><span class="letter">B</span><span>彼得-路易-盧尚-約翰</span></label><label class="option"><input type="radio" name="q9" value="C"><span class="letter">C</span><span>路易-盧尚-彼得-約翰</span></label><label class="option"><input type="radio" name="q9" value="D"><span class="letter">D</span><span>盧尚-彼得-路易-約翰</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>路易：羅馬帝國初期迫害基督徒（1–4世紀初）→彼得：君士坦丁頒布米蘭詔令，基督教合法（313年）→盧尚：查士丁尼興建聖索菲亞大教堂（6世紀）→約翰：參加十字軍東征（11世紀末起）。</p><p class="key"><strong>解題關鍵：</strong>先抓每人的關鍵事件：被迫害→合法化→聖索菲亞→十字軍，依世紀排列即可。</p></div>
+        </article>
+<article class="card" id="q10" data-answer="B" data-chapter="中世紀西歐與基督教">
+          <div class="q-head"><span class="num">10</span><div><span class="source">仁愛國中 113上 九年級 段考二 第10題</span><h2>中世紀教士的工作</h2></div></div>
+          <p class="stem">若望是中世紀時，服務於西歐某地教會的傳教士，下列哪些會是他的工作內容？甲.用希臘文抄寫《聖經》、古籍。乙.替信徒舉行受洗、婚禮、喪禮等儀式。丙.在教會附屬學校教書。丁.宣揚平等博愛理念捍衛信仰，鼓吹將基督教信仰定為國教。</p>
+          <div class="options"><label class="option"><input type="radio" name="q10" value="A"><span class="letter">A</span><span>甲乙</span></label><label class="option"><input type="radio" name="q10" value="B"><span class="letter">B</span><span>乙丙</span></label><label class="option"><input type="radio" name="q10" value="C"><span class="letter">C</span><span>乙丙丁</span></label><label class="option"><input type="radio" name="q10" value="D"><span class="letter">D</span><span>甲乙丙</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>中世紀西歐教會的神職人員主持信徒一生的重要儀式（受洗、婚禮、喪禮），並在教會附屬學校教書，教會是知識與教育的中心。</p><p class="key"><strong>解題關鍵：</strong>甲：西歐羅馬公教使用「拉丁文」，用希臘文的是東歐的希臘正教。丁：基督教早在4世紀末就由狄奧多西定為羅馬國教，中世紀不需再鼓吹。</p></div>
+        </article>
+<article class="card" id="q11" data-answer="B" data-chapter="中世紀西歐與基督教">
+          <div class="q-head"><span class="num">11</span><div><span class="source">仁愛國中 113上 九年級 段考二 第11題</span><h2>基督宗教的兩次分裂</h2></div></div>
+          <p class="stem">關於基督宗教在歷史上的分裂，請同學根據所學選出正確答案。</p>
+          <div class="options"><label class="option"><input type="radio" name="q11" value="A"><span class="letter">A</span><span>第一次分裂在11世紀第二次分裂在15世紀</span></label><label class="option"><input type="radio" name="q11" value="B"><span class="letter">B</span><span>第一次分裂的原因為爭奪基督教世界的領導權</span></label><label class="option"><input type="radio" name="q11" value="C"><span class="letter">C</span><span>第一次分裂為天主教與基督教</span></label><label class="option"><input type="radio" name="q11" value="D"><span class="letter">D</span><span>第二次分裂後出現希臘正教</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>1054年羅馬教宗與君士坦丁堡大主教爭奪基督教世界最高領導權、教義也有分歧，基督教第一次分裂為西歐的羅馬公教（天主教）與東歐的希臘正教（東正教）；16世紀宗教改革為第二次分裂，出現新教。</p><p class="key"><strong>解題關鍵：</strong>(A)第二次分裂在16世紀。(C)第一次分裂為羅馬公教與「希臘正教」。(D)希臘正教是第一次分裂出現的，第二次分裂出現的是新教。</p></div>
+        </article>
+<section class="sec-head" id="ch2"><h3>二、聖地、十字軍與三大宗教</h3><p>5 題（原卷第 2、3、4、5、16 題）</p><p class="kw">關鍵字：耶路撒冷、十字軍、塞爾柱、普世宗教</p><div class="summary"><h4>📊 地中海地圖代號（第2–5題）</h4><div class="table-wrap"><table><tr><th>代號</th><th>城市</th><th>意義</th></tr><tr><td>甲</td><td>羅馬</td><td>教宗所在，號召十字軍</td></tr><tr><td>乙</td><td>君士坦丁堡</td><td>拜占庭首都；1453年被鄂圖曼攻陷→伊斯坦堡</td></tr><tr><td>丙</td><td>耶路撒冷</td><td>猶太教、基督教、伊斯蘭教共同聖地</td></tr><tr><td>丁</td><td>巴格達</td><td>阿拔斯王朝首都</td></tr></table></div><h4>📊 三大普世宗教比較</h4><div class="table-wrap"><table><tr><th>宗教</th><th>創立者・時間</th><th>經典</th><th>重點</th></tr><tr><td>佛教</td><td>釋迦牟尼・前6世紀（最早）</td><td>佛經</td><td>北傳（中日韓）、南傳（東南亞）</td></tr><tr><td>基督教</td><td>耶穌・1世紀</td><td>聖經</td><td>信仰人口最多</td></tr><tr><td>伊斯蘭教</td><td>穆罕默德・7世紀</td><td>古蘭經</td><td>一神、禁偶像、齋戒月、朝聖麥加</td></tr></table></div></div></section>
+<article class="card" id="q2" data-answer="A" data-chapter="聖地、十字軍與三大宗教">
+          <div class="q-head"><span class="num">02</span><div><span class="source">仁愛國中 113上 九年級 段考二 第2題</span><h2>三大一神教的共同聖地</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/map-mediterranean-religions.png" alt="地中海與西亞地圖（甲乙丙丁）" loading="lazy"></div><p class="stem">圖中丙這個地方是三個宗教的共同的聖地，前往該地朝聖的路徑若被阻撓，往往會引發衝突。請問三個宗教指的應為哪三教？（壹.基督教，貳.伊斯蘭教，叁.猶太教，肆.佛教，伍.希臘正教，陸.路德教派）</p>
+          <div class="options"><label class="option"><input type="radio" name="q2" value="A"><span class="letter">A</span><span>壹貳叁</span></label><label class="option"><input type="radio" name="q2" value="B"><span class="letter">B</span><span>貳叁肆</span></label><label class="option"><input type="radio" name="q2" value="C"><span class="letter">C</span><span>貳肆伍</span></label><label class="option"><input type="radio" name="q2" value="D"><span class="letter">D</span><span>壹貳陸</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>丙地是耶路撒冷，同時是猶太教（聖殿所在）、基督教（耶穌受難與復活之地）、伊斯蘭教（穆罕默德夜行登霄之地）三大一神教的聖地。</p><p class="key"><strong>解題關鍵：</strong>耶路撒冷＝猶太教＋基督教＋伊斯蘭教。佛教的聖地在印度；希臘正教、路德教派都屬基督宗教的分支，不會和「基督教」另外並列成三教。</p></div>
+        </article>
+<article class="card" id="q3" data-answer="A" data-chapter="聖地、十字軍與三大宗教">
+          <div class="q-head"><span class="num">03</span><div><span class="source">仁愛國中 113上 九年級 段考二 第3題</span><h2>十字軍東征的發起者</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/map-mediterranean-religions.png" alt="地中海與西亞地圖（甲乙丙丁）" loading="lazy"></div><p class="stem">十字軍東征是在何地的宗教領袖允許下所發起的戰事？</p>
+          <div class="options"><label class="option"><input type="radio" name="q3" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q3" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q3" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q3" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>1095年羅馬教宗烏爾班二世號召西歐基督徒組成十字軍，收復聖地耶路撒冷。教宗所在的羅馬位於義大利半島，即圖中甲處。</p><p class="key"><strong>解題關鍵：</strong>甲＝羅馬（教宗）、乙＝君士坦丁堡（拜占庭）、丙＝耶路撒冷（聖地）、丁＝巴格達（阿拔斯王朝）。</p></div>
+        </article>
+<article class="card" id="q4" data-answer="C" data-chapter="聖地、十字軍與三大宗教">
+          <div class="q-head"><span class="num">04</span><div><span class="source">仁愛國中 113上 九年級 段考二 第4題</span><h2>十字軍東征時的耶路撒冷</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/map-mediterranean-religions.png" alt="地中海與西亞地圖（甲乙丙丁）" loading="lazy"></div><p class="stem">十字軍東征發生時，丙地是屬於哪一個帝國的屬地？</p>
+          <div class="options"><label class="option"><input type="radio" name="q4" value="A"><span class="letter">A</span><span>拜占庭帝國</span></label><label class="option"><input type="radio" name="q4" value="B"><span class="letter">B</span><span>阿拉伯帝國</span></label><label class="option"><input type="radio" name="q4" value="C"><span class="letter">C</span><span>塞爾柱帝國</span></label><label class="option"><input type="radio" name="q4" value="D"><span class="letter">D</span><span>鄂圖曼帝國</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>11世紀塞爾柱土耳其人攻佔耶路撒冷，阻撓基督徒朝聖，並威脅拜占庭帝國；拜占庭向教宗求援，因而促成十字軍東征（1096年起）。</p><p class="key"><strong>解題關鍵：</strong>時間順序：阿拉伯帝國（7–8世紀擴張）→塞爾柱土耳其（11世紀，引發十字軍）→鄂圖曼土耳其（1453年滅拜占庭）。</p></div>
+        </article>
+<article class="card" id="q5" data-answer="B" data-chapter="聖地、十字軍與三大宗教">
+          <div class="q-head"><span class="num">05</span><div><span class="source">仁愛國中 113上 九年級 段考二 第5題</span><h2>宗教比較</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/map-mediterranean-religions.png" alt="地中海與西亞地圖（甲乙丙丁）" loading="lazy"></div><p class="stem">關於上述幾個宗教請選出正確的答案？</p>
+          <div class="options"><label class="option"><input type="radio" name="q5" value="A"><span class="letter">A</span><span>全屬於一神信仰</span></label><label class="option"><input type="radio" name="q5" value="B"><span class="letter">B</span><span>最晚出現的教派是「陸」</span></label><label class="option"><input type="radio" name="q5" value="C"><span class="letter">C</span><span>「肆」傳至中南半島一帶是為北傳佛教</span></label><label class="option"><input type="radio" name="q5" value="D"><span class="letter">D</span><span>乙地在歷史上從未被伊斯蘭勢力佔領</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>路德教派是16世紀宗教改革後才建立的新教教派，是所列宗教與教派中最晚出現的。</p><p class="key"><strong>解題關鍵：</strong>(A)佛教不是一神信仰。(C)傳到中南半島、斯里蘭卡的是「南傳佛教」；北傳佛教傳到中國、朝鮮、日本。(D)乙地君士坦丁堡在1453年被鄂圖曼土耳其（伊斯蘭）攻佔，改名伊斯坦堡。</p></div>
+        </article>
+<article class="card" id="q16" data-answer="C" data-chapter="聖地、十字軍與三大宗教">
+          <div class="q-head"><span class="num">16</span><div><span class="source">仁愛國中 113上 九年級 段考二 第16題</span><h2>世界三大普世宗教</h2></div></div>
+          <p class="stem">關於現今世界三大普世宗教的敘述何者完全正確？</p>
+          <div class="options"><label class="option"><input type="radio" name="q16" value="A"><span class="letter">A</span><span>指的是佛教、猶太教、基督教</span></label><label class="option"><input type="radio" name="q16" value="B"><span class="letter">B</span><span>三大普世宗教出現最早的是基督教</span></label><label class="option"><input type="radio" name="q16" value="C"><span class="letter">C</span><span>三大普世宗教的創立者分別是耶穌、釋迦摩尼、穆罕默德</span></label><label class="option"><input type="radio" name="q16" value="D"><span class="letter">D</span><span>三大普世宗教信仰人口最多的是佛教</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>世界三大普世宗教是基督教（耶穌創立）、佛教（釋迦牟尼創立）、伊斯蘭教（穆罕默德創立）。</p><p class="key"><strong>解題關鍵：</strong>(A)猶太教只屬猶太民族，不是普世宗教，應為伊斯蘭教。(B)最早出現的是佛教（西元前6世紀）。(D)信仰人口最多的是基督教。</p></div>
+        </article>
+<section class="sec-head" id="ch3"><h3>三、拜占庭帝國</h3><p>4 題（原卷第 7、17、18、22 題）</p><p class="kw">關鍵字：查士丁尼、政教合一、聖索菲亞大教堂</p><div class="summary"><h4>📊 拜占庭帝國重點</h4><div class="table-wrap"><table><tr><th>項目</th><th>內容</th></tr><tr><td>首都</td><td>君士坦丁堡（今伊斯坦堡）</td></tr><tr><td>查士丁尼（6世紀）</td><td>收復西羅馬舊地、《查士丁尼法典》、興建聖索菲亞大教堂、政教合一</td></tr><tr><td>宗教</td><td>1054年後為希臘正教中心，使用希臘文</td></tr><tr><td>滅亡</td><td>1453年被鄂圖曼土耳其攻陷，教堂改清真寺並加建宣禮塔</td></tr></table></div><h4>⚠️ 三個「土耳其／阿拉伯」帝國別搞混</h4><div class="table-wrap"><table><tr><th>帝國</th><th>時間</th><th>代表事件</th></tr><tr><td>阿拉伯帝國</td><td>7–13世紀</td><td>伊斯蘭擴張、怛羅斯之役、巴格達繁榮</td></tr><tr><td>塞爾柱土耳其</td><td>11世紀</td><td>佔耶路撒冷→引發十字軍</td></tr><tr><td>鄂圖曼土耳其</td><td>13–20世紀</td><td>1453年滅拜占庭</td></tr></table></div></div></section>
+<article class="card" id="q7" data-answer="D" data-chapter="拜占庭帝國">
+          <div class="q-head"><span class="num">07</span><div><span class="source">仁愛國中 113上 九年級 段考二 第7題</span><h2>查士丁尼大帝</h2></div></div>
+          <p class="stem">「這個強盛的帝國，在六世紀時皇帝致力恢復古羅馬時期疆域，皇帝除了在政治上有至高無上的絕對權力，在宗教上也有主導權。他可以指揮教會行事，任命教會的主教，甚至頒布與宗教相關的條文規定。」請問這個最有可能指誰？</p>
+          <div class="options"><label class="option"><input type="radio" name="q7" value="A"><span class="letter">A</span><span>奧古斯都</span></label><label class="option"><input type="radio" name="q7" value="B"><span class="letter">B</span><span>君士坦丁</span></label><label class="option"><input type="radio" name="q7" value="C"><span class="letter">C</span><span>狄奧多西</span></label><label class="option"><input type="radio" name="q7" value="D"><span class="letter">D</span><span>查士丁尼</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>6世紀拜占庭帝國皇帝查士丁尼收復義大利、北非等西羅馬舊地，編纂《查士丁尼法典》、興建聖索菲亞大教堂，並實行「政教合一」，皇帝兼掌政治與宗教大權。</p><p class="key"><strong>解題關鍵：</strong>人物時間：奧古斯都（羅馬帝國第一位皇帝）→君士坦丁（4世紀，米蘭詔令承認基督教合法）→狄奧多西（4世紀末，定基督教為國教）→查士丁尼（6世紀，拜占庭）。</p></div>
+        </article>
+<article class="card" id="q17" data-answer="C" data-chapter="拜占庭帝國">
+          <div class="q-head"><span class="num">17</span><div><span class="source">仁愛國中 113上 九年級 段考二 第17題</span><h2>聖索菲亞大教堂的宣禮塔</h2></div></div>
+          <p class="stem">伊斯坦堡的聖索菲亞大教堂，宏偉莊嚴，內部裝飾的金碧輝煌，四周的尖塔（宣禮塔又叫喚拜樓）是另一民族攻佔該城後所增建的，請問這些宣禮塔是由哪一個民族加上去的？</p>
+          <div class="options"><label class="option"><input type="radio" name="q17" value="A"><span class="letter">A</span><span>阿拉伯人</span></label><label class="option"><input type="radio" name="q17" value="B"><span class="letter">B</span><span>塞爾柱土耳其人</span></label><label class="option"><input type="radio" name="q17" value="C"><span class="letter">C</span><span>鄂圖曼土耳其人</span></label><label class="option"><input type="radio" name="q17" value="D"><span class="letter">D</span><span>迦太基人</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>1453年鄂圖曼土耳其人攻陷君士坦丁堡，拜占庭帝國滅亡，城市改名伊斯坦堡；聖索菲亞大教堂被改為清真寺，並在四周加建宣禮塔。</p><p class="key"><strong>解題關鍵：</strong>「攻佔君士坦丁堡」＝1453年＝鄂圖曼土耳其。塞爾柱土耳其佔領的是耶路撒冷與小亞細亞，沒有攻下君士坦丁堡。</p></div>
+        </article>
+<article class="card" id="q18" data-answer="A" data-chapter="拜占庭帝國">
+          <div class="q-head"><span class="num">18</span><div><span class="source">仁愛國中 113上 九年級 段考二 第18題</span><h2>聖索菲亞大教堂</h2></div></div>
+          <p class="stem">關於聖索菲亞大教堂的敘述何者正確？甲.教堂外觀為圓頂造型，內部有許多馬賽克鑲嵌畫，充滿基督宗教色彩。乙.11世紀後成為東正教信徒的信仰中心。丙.聖索菲亞大教堂為東歐地區君主政教合一地位的象徵。丁.西元六世紀，君士坦丁大帝下令修建聖索菲亞大教堂。戊.聖索菲亞大教堂所在地是聖城，引發了日後的十字軍戰爭。</p>
+          <div class="options"><label class="option"><input type="radio" name="q18" value="A"><span class="letter">A</span><span>甲乙丙</span></label><label class="option"><input type="radio" name="q18" value="B"><span class="letter">B</span><span>甲乙丙丁</span></label><label class="option"><input type="radio" name="q18" value="C"><span class="letter">C</span><span>乙丙戊</span></label><label class="option"><input type="radio" name="q18" value="D"><span class="letter">D</span><span>丙丁戊</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>甲、乙、丙正確：聖索菲亞大教堂為圓頂建築、內有馬賽克鑲嵌畫；1054年東西教會分裂後成為希臘正教（東正教）的中心；象徵拜占庭皇帝政教合一的權威。</p><p class="key"><strong>解題關鍵：</strong>丁：6世紀下令修建的是「查士丁尼」，君士坦丁是4世紀。戊：引發十字軍的聖城是「耶路撒冷」，不是君士坦丁堡。</p></div>
+        </article>
+<article class="card" id="q22" data-answer="A" data-chapter="拜占庭帝國">
+          <div class="q-head"><span class="num">22</span><div><span class="source">仁愛國中 113上 九年級 段考二 第22題</span><h2>查士丁尼時期的拜占庭版圖</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/map-byzantine-justinian.png" alt="深色區塊帝國版圖" loading="lazy"></div><p class="stem">請問此圖中深色區塊為哪一個帝國的版圖？</p>
+          <div class="options"><label class="option"><input type="radio" name="q22" value="A"><span class="letter">A</span><span>拜占庭帝國</span></label><label class="option"><input type="radio" name="q22" value="B"><span class="letter">B</span><span>阿拉伯帝國</span></label><label class="option"><input type="radio" name="q22" value="C"><span class="letter">C</span><span>塞爾柱帝國</span></label><label class="option"><input type="radio" name="q22" value="D"><span class="letter">D</span><span>鄂圖曼帝國</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>深色區塊以君士坦丁堡為中心，橫跨巴爾幹半島、小亞細亞、義大利半島、埃及及北非沿岸，是6世紀查士丁尼統治下的拜占庭帝國全盛版圖。</p><p class="key"><strong>解題關鍵：</strong>看地圖找「首都」：圖中標示君士坦丁堡，且包含義大利半島（收復西羅馬舊地）＝查士丁尼的拜占庭。阿拉伯帝國的中心在阿拉伯半島與兩河流域。</p></div>
+        </article>
+<section class="sec-head" id="ch4"><h3>四、伊斯蘭世界與阿拉伯文明</h3><p>7 題（原卷第 12、13、14、15、19、36、37 題）</p><p class="kw">關鍵字：麥加、巴格達、哥多華、東西文明橋樑</p><div class="summary"><h4>📊 阿拉伯人：東西文明的橋樑</h4><div class="table-wrap"><table><tr><th>方向</th><th>傳遞／保存的內容</th></tr><tr><td>東→西</td><td>中國造紙術（怛羅斯之役後西傳）、印度數字（阿拉伯數字）</td></tr><tr><td>古典保存</td><td>翻譯古希臘羅馬典籍為阿拉伯文，日後傳回歐洲，促成文藝復興</td></tr><tr><td>自身成就</td><td>醫學、天文、數學、《一千零一夜》</td></tr></table></div><h4>📊 重要城市</h4><div class="table-wrap"><table><tr><th>城市</th><th>位置</th><th>重點</th></tr><tr><td>麥加</td><td>阿拉伯半島西側</td><td>穆罕默德出生地、第一聖地</td></tr><tr><td>巴格達</td><td>兩河流域</td><td>8世紀阿拔斯王朝首都，最繁榮</td></tr><tr><td>哥多華</td><td>西班牙</td><td>古羅馬＋伊斯蘭＋基督教遺蹟</td></tr></table></div></div></section>
+<article class="card" id="q12" data-answer="A" data-chapter="伊斯蘭世界與阿拉伯文明">
+          <div class="q-head"><span class="num">12</span><div><span class="source">仁愛國中 113上 九年級 段考二 第12題</span><h2>伊斯蘭聖地麥加</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/map-arabia.png" alt="阿拉伯半島地圖（甲乙丙丁）" loading="lazy"></div><p class="stem">它位於阿拉伯半島，是一個四面環山的城鎮，土地貧瘠，然而對全世界的伊斯蘭教徒而言，它是穆罕默德的出生地，也是教徒們日夜憧憬，一生必去的聖地。「它」指的是：</p>
+          <div class="options"><label class="option"><input type="radio" name="q12" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q12" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q12" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q12" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>麥加是穆罕默德的出生地、伊斯蘭教第一聖地，位於阿拉伯半島西側、靠近紅海沿岸，即圖中甲處。</p><p class="key"><strong>解題關鍵：</strong>麥加在半島「西側紅海邊」；丙在北方兩河流域一帶（巴格達）。</p></div>
+        </article>
+<article class="card" id="q13" data-answer="C" data-chapter="伊斯蘭世界與阿拉伯文明">
+          <div class="q-head"><span class="num">13</span><div><span class="source">仁愛國中 113上 九年級 段考二 第13題</span><h2>阿拔斯王朝首都巴格達</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/map-arabia.png" alt="阿拉伯半島地圖（甲乙丙丁）" loading="lazy"></div><p class="stem">承12題地圖，八世紀時伊斯蘭世界最繁榮重要的城市是：</p>
+          <div class="options"><label class="option"><input type="radio" name="q13" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q13" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q13" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q13" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>8世紀阿拔斯王朝建立，定都兩河流域的巴格達（圖中丙處），發展為當時伊斯蘭世界政治、經濟與文化的中心，「智慧宮」翻譯了大量古希臘典籍。</p><p class="key"><strong>解題關鍵：</strong>巴格達＝兩河流域＝阿拉伯半島的「北方」。</p></div>
+        </article>
+<article class="card" id="q14" data-answer="C" data-chapter="伊斯蘭世界與阿拉伯文明">
+          <div class="q-head"><span class="num">14</span><div><span class="source">仁愛國中 113上 九年級 段考二 第14題</span><h2>穆斯林的宗教生活</h2></div></div>
+          <p class="stem">阿里馬拉每年會守一個月的齋戒，禁偶像崇拜，也曾排除萬難到聖地朝聖，嚴格奉守不飲酒的戒律。請問下列哪一選項會存在於阿里馬拉的宗教生活中？</p>
+          <div class="options"><label class="option"><input type="radio" name="q14" value="A"><span class="letter">A</span><span>平日靜坐禪修參加法會，經由苦行，超脫輪迴之苦</span></label><label class="option"><input type="radio" name="q14" value="B"><span class="letter">B</span><span>週末固定上教堂，讀《聖經》、做禮拜，服務教會</span></label><label class="option"><input type="radio" name="q14" value="C"><span class="letter">C</span><span>遵奉誦讀《古蘭經》，每日定時向聖地方向膜拜</span></label><label class="option"><input type="radio" name="q14" value="D"><span class="letter">D</span><span>到寺廟求神問卜，頂禮神像，相信奉獻能獲得庇佑</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>齋戒月、禁偶像崇拜、朝聖、不飲酒都是伊斯蘭教的戒律。穆斯林誦讀《古蘭經》，每日五次朝聖地麥加的方向禮拜。</p><p class="key"><strong>解題關鍵：</strong>(A)佛教。(B)基督教。(D)民間信仰拜神像，伊斯蘭教嚴禁偶像崇拜。</p></div>
+        </article>
+<article class="card" id="q15" data-answer="C" data-chapter="伊斯蘭世界與阿拉伯文明">
+          <div class="q-head"><span class="num">15</span><div><span class="source">仁愛國中 113上 九年級 段考二 第15題</span><h2>哥多華的多元文化遺產</h2></div></div>
+          <p class="stem">此地在近代以前曾被不同政權統治，不同的統治者留存下古羅馬時期、伊斯蘭和基督教時代的眾多歷史文化遺蹟。請問此地最有可能是下列哪一座城市：</p>
+          <div class="options"><label class="option"><input type="radio" name="q15" value="A"><span class="letter">A</span><span>義大利羅馬</span></label><label class="option"><input type="radio" name="q15" value="B"><span class="letter">B</span><span>英國巴斯</span></label><label class="option"><input type="radio" name="q15" value="C"><span class="letter">C</span><span>西班牙哥多華</span></label><label class="option"><input type="radio" name="q15" value="D"><span class="letter">D</span><span>法國巴黎</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>西班牙的哥多華曾受羅馬帝國統治；8世紀成為後倭馬亞王朝的伊斯蘭政權首都；中世紀末期再由天主教王國收復，因此兼具古羅馬、伊斯蘭與基督教文化遺蹟。</p><p class="key"><strong>解題關鍵：</strong>伊比利半島（西班牙）是歐洲唯一長期被伊斯蘭統治的地區，看到「伊斯蘭＋基督教」就想到西班牙。</p></div>
+        </article>
+<article class="card" id="q19" data-answer="C" data-chapter="伊斯蘭世界與阿拉伯文明">
+          <div class="q-head"><span class="num">19</span><div><span class="source">仁愛國中 113上 九年級 段考二 第19題</span><h2>阿拉伯文明的貢獻</h2></div></div>
+          <p class="stem">阿里是位虔誠的穆斯林，也是一位教授阿拉伯通史的教授。何者是他「不可能」會講出來的內容？</p>
+          <div class="options"><label class="option"><input type="radio" name="q19" value="A"><span class="letter">A</span><span>伊斯蘭教於七世紀興起</span></label><label class="option"><input type="radio" name="q19" value="B"><span class="letter">B</span><span>透過名著天方夜譚可以了解中世紀阿拉伯世界的繁盛</span></label><label class="option"><input type="radio" name="q19" value="C"><span class="letter">C</span><span>阿拉伯人發明了造紙術和指南針，透過貿易之便傳到西方</span></label><label class="option"><input type="radio" name="q19" value="D"><span class="letter">D</span><span>阿拉伯人重視教育，翻譯多個地區與民族的典籍為阿拉伯文保存下來</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>造紙術、指南針都是中國人發明的；阿拉伯人扮演「傳遞者」的角色，經貿易把它們傳到西方，並不是發明者。</p><p class="key"><strong>解題關鍵：</strong>題目問「不可能」。阿拉伯人＝東西文明的橋樑：保存希臘典籍、傳遞中國技術、引進印度數字（阿拉伯數字）。</p></div>
+        </article>
+<article class="card" id="q36" data-answer="B" data-chapter="伊斯蘭世界與阿拉伯文明">
+          <div class="q-head"><span class="num">36</span><div><span class="source">仁愛國中 113上 九年級 段考二 第36題</span><h2>13世紀阿拉伯學者的活動</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/arab-scholars-library.png" alt="13世紀阿拉伯學者在圖書館" loading="lazy"></div><p class="stem">此為13世紀阿拉伯學者在圖書館的圖像，其中的學者可能從事哪些活動？甲、研究天文學；乙、研究解剖學；丙、計算圓周率；丁、誦讀新約聖經；戊、翻譯古希臘典籍</p>
+          <div class="options"><label class="option"><input type="radio" name="q36" value="A"><span class="letter">A</span><span>甲乙丙丁</span></label><label class="option"><input type="radio" name="q36" value="B"><span class="letter">B</span><span>甲乙丙戊</span></label><label class="option"><input type="radio" name="q36" value="C"><span class="letter">C</span><span>甲丙丁戊</span></label><label class="option"><input type="radio" name="q36" value="D"><span class="letter">D</span><span>乙丙丁戊</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>中世紀阿拉伯學者在醫學（含解剖）、天文學、數學計算及翻譯古希臘哲學典籍等方面都有卓越成就，故甲、乙、丙、戊皆可能。</p><p class="key"><strong>解題關鍵：</strong>丁：《新約聖經》是基督教經典；穆斯林學者研讀的是《古蘭經》。四個選項都有甲丙，只要刪掉「丁」就選得出來。</p></div>
+        </article>
+<article class="card" id="q37" data-answer="D" data-chapter="伊斯蘭世界與阿拉伯文明">
+          <div class="q-head"><span class="num">37</span><div><span class="source">仁愛國中 113上 九年級 段考二 第37題</span><h2>阿拉伯文明的橋樑角色</h2></div></div>
+          <p class="stem">在歷史上，阿拉伯人接受並傳播伊斯蘭的信仰，且長期扮演東西方文明橋樑的角色。下列有關阿拉伯文明的論述，何者正確？甲、將拉丁文傳至各地；乙、保存古希臘與羅馬的文化遺產；丙、曾與大唐發生怛羅斯之役將中國的指南針技術西傳；丁、建立跨越歐、亞、非三大洲的帝國。</p>
+          <div class="options"><label class="option"><input type="radio" name="q37" value="A"><span class="letter">A</span><span>甲乙丙</span></label><label class="option"><input type="radio" name="q37" value="B"><span class="letter">B</span><span>甲丁</span></label><label class="option"><input type="radio" name="q37" value="C"><span class="letter">C</span><span>乙丙</span></label><label class="option"><input type="radio" name="q37" value="D"><span class="letter">D</span><span>乙丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>乙、丁正確：阿拉伯人翻譯、保存古希臘羅馬典籍；阿拉伯帝國版圖橫跨歐、亞、非三洲。</p><p class="key"><strong>解題關鍵：</strong>甲：阿拉伯人傳播的是「阿拉伯文」，拉丁文是羅馬公教的語言。丙：怛羅斯之役西傳的是「造紙術」，不是指南針。</p></div>
+        </article>
+<section class="sec-head" id="ch5"><h3>五、文藝復興</h3><p>9 題（原卷第 20、21、23、24、26、27、28、29、38 題）</p><p class="kw">關鍵字：人文主義、義大利、文學家與藝術家</p><div class="summary"><h4>📊 文藝復興人物與作品配對</h4><div class="table-wrap"><table><tr><th>人物</th><th>國家</th><th>代表作・稱號</th></tr><tr><td>但丁</td><td>義大利</td><td>《神曲》（方言文學）</td></tr><tr><td>佩脫拉克</td><td>義大利</td><td>人文主義之父</td></tr><tr><td>薄伽丘</td><td>義大利</td><td>《十日談》（黑死病背景）</td></tr><tr><td>達文西</td><td>義大利</td><td>最後的晚餐、蒙娜麗莎；發明家</td></tr><tr><td>米開朗基羅</td><td>義大利</td><td>大衛像、創世紀</td></tr><tr><td>拉斐爾</td><td>義大利</td><td>草地上的聖母、雅典學院</td></tr><tr><td>莎士比亞</td><td>英國</td><td>哈姆雷特、羅密歐與茱麗葉</td></tr></table></div><h4>📊 興起背景</h4><div class="table-wrap"><table><tr><th>背景</th><th>說明</th></tr><tr><td>經濟</td><td>佛羅倫斯、威尼斯商業繁榮，富商（梅迪奇家族）贊助</td></tr><tr><td>文化</td><td>義大利保有古羅馬遺產；拜占庭學者攜典籍西遷</td></tr><tr><td>技術</td><td>造紙術（經阿拉伯傳入）＋印刷術普及</td></tr></table></div></div></section>
+<article class="card" id="q20" data-answer="B" data-chapter="文藝復興">
+          <div class="q-head"><span class="num">20</span><div><span class="source">仁愛國中 113上 九年級 段考二 第20題</span><h2>達文西</h2></div></div>
+          <p class="stem">此人被譽為天才，除了在藝術表現上成就非凡，同時也是個發明家。「最後的晚餐」與「蒙娜麗莎的微笑」是其不朽的名作，此人指的是：</p>
+          <div class="options"><label class="option"><input type="radio" name="q20" value="A"><span class="letter">A</span><span>米開朗基羅</span></label><label class="option"><input type="radio" name="q20" value="B"><span class="letter">B</span><span>達文西</span></label><label class="option"><input type="radio" name="q20" value="C"><span class="letter">C</span><span>拉斐爾</span></label><label class="option"><input type="radio" name="q20" value="D"><span class="letter">D</span><span>波堤切利</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>達文西是文藝復興三傑之一，兼具藝術家、工程師與發明家身分，代表作《最後的晚餐》、《蒙娜麗莎》。</p><p class="key"><strong>解題關鍵：</strong>三傑配對：達文西—最後的晚餐、蒙娜麗莎；米開朗基羅—大衛像、創世紀（西斯汀禮拜堂）；拉斐爾—聖母像、雅典學院。波堤切利—維納斯的誕生。</p></div>
+        </article>
+<article class="card" id="q21" data-answer="C" data-chapter="文藝復興">
+          <div class="q-head"><span class="num">21</span><div><span class="source">仁愛國中 113上 九年級 段考二 第21題</span><h2>人文主義</h2></div></div>
+          <p class="stem">文藝復興的學者佩脫拉克曾表示：「我是個凡人，我只追求凡人的幸福。」請問從上述文句最可以看出文藝復興時期的哪項特色？</p>
+          <div class="options"><label class="option"><input type="radio" name="q21" value="A"><span class="letter">A</span><span>藝術創作的發展</span></label><label class="option"><input type="radio" name="q21" value="B"><span class="letter">B</span><span>方言文學的興起</span></label><label class="option"><input type="radio" name="q21" value="C"><span class="letter">C</span><span>以人為本的概念</span></label><label class="option"><input type="radio" name="q21" value="D"><span class="letter">D</span><span>民族認同的強化</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>佩脫拉克被稱為「人文主義之父」，強調人的現世幸福與情感，體現文藝復興「以人為本」的人文主義精神，擺脫中世紀以神為中心的思想。</p><p class="key"><strong>解題關鍵：</strong>「凡人、凡人的幸福」＝重視人、重視現世＝人文主義。</p></div>
+        </article>
+<article class="card" id="q23" data-answer="B" data-chapter="文藝復興">
+          <div class="q-head"><span class="num">23</span><div><span class="source">仁愛國中 113上 九年級 段考二 第23題</span><h2>文藝復興的起源地</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/map-europe-renaissance.png" alt="歐洲地圖（甲～癸）" loading="lazy"></div><p class="stem">請問文藝復興的起源地為何地？</p>
+          <div class="options"><label class="option"><input type="radio" name="q23" value="A"><span class="letter">A</span><span>乙</span></label><label class="option"><input type="radio" name="q23" value="B"><span class="letter">B</span><span>丙</span></label><label class="option"><input type="radio" name="q23" value="C"><span class="letter">C</span><span>丁</span></label><label class="option"><input type="radio" name="q23" value="D"><span class="letter">D</span><span>戊</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>文藝復興14世紀起源於義大利半島（圖中丙處）：佛羅倫斯、威尼斯等城市商業繁榮，富商贊助藝文，又保有大量古羅馬文化遺產。</p><p class="key"><strong>解題關鍵：</strong>地圖代號：甲＝西班牙、乙＝法國、丙＝義大利、丁＝巴爾幹、戊＝小亞細亞、癸＝英國。</p></div>
+        </article>
+<article class="card" id="q24" data-answer="D" data-chapter="文藝復興">
+          <div class="q-head"><span class="num">24</span><div><span class="source">仁愛國中 113上 九年級 段考二 第24題</span><h2>莎士比亞的故鄉</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/map-europe-renaissance.png" alt="歐洲地圖（甲～癸）" loading="lazy"></div><p class="stem">他寫過《哈姆雷特》、《羅密歐與茱麗葉》、《凱撒大帝》、《馬克白》、《李爾王》、《暴風雨》等雋永名著，亦是文藝復興時代的大文豪。請問這位大文豪的故鄉位於圖中何處？</p>
+          <div class="options"><label class="option"><input type="radio" name="q24" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q24" value="B"><span class="letter">B</span><span>丙</span></label><label class="option"><input type="radio" name="q24" value="C"><span class="letter">C</span><span>丁</span></label><label class="option"><input type="radio" name="q24" value="D"><span class="letter">D</span><span>癸</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>這些作品的作者是英國劇作家莎士比亞，用英語（方言）創作，故鄉在英國（圖中癸處）。</p><p class="key"><strong>解題關鍵：</strong>文藝復興文學家配對：但丁、佩脫拉克、薄伽丘（義大利）；莎士比亞（英國）。</p></div>
+        </article>
+<article class="card" id="q26" data-answer="C" data-chapter="文藝復興">
+          <div class="q-head"><span class="num">26</span><div><span class="source">仁愛國中 113上 九年級 段考二 第26題</span><h2>文藝復興運動的特色</h2></div></div>
+          <p class="stem">請同學挑出關於文藝復興運動的正確敘述有幾項。甲.文藝復興時期方言文學興盛，這些方言創作強化歐洲各國民族的認同感。乙.此時期的創作完全脫離了宗教題材。丙.文藝復興的原意是再生，完全拷貝模仿古希臘羅馬的文學和藝術缺少新意。丁.造紙術和印刷術的盛行有助於該運動的開展。戊.此時期的文學及藝術家輩出，肯定人追求現世的幸福。</p>
+          <div class="options"><label class="option"><input type="radio" name="q26" value="A"><span class="letter">A</span><span>一項</span></label><label class="option"><input type="radio" name="q26" value="B"><span class="letter">B</span><span>二項</span></label><label class="option"><input type="radio" name="q26" value="C"><span class="letter">C</span><span>三項</span></label><label class="option"><input type="radio" name="q26" value="D"><span class="letter">D</span><span>四項</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>甲、丁、戊正確，共三項。方言文學強化民族認同；造紙與印刷術使知識快速傳播；作品肯定人追求現世幸福。</p><p class="key"><strong>解題關鍵：</strong>乙：此時期仍大量取材宗教（如最後的晚餐、聖母像），只是畫得更有人性。丙：文藝復興是以古典文化為基礎「再創新」，並非完全模仿。</p></div>
+        </article>
+<article class="card" id="q27" data-answer="D" data-chapter="文藝復興">
+          <div class="q-head"><span class="num">27</span><div><span class="source">仁愛國中 113上 九年級 段考二 第27題</span><h2>了解文藝復興的書籍</h2></div></div>
+          <p class="stem">凱文想要更了解歷史老師上課講解的文藝復興運動內容，他可以去圖書館借閱哪一本書籍？</p>
+          <div class="options"><label class="option"><input type="radio" name="q27" value="A"><span class="letter">A</span><span>一千零一夜</span></label><label class="option"><input type="radio" name="q27" value="B"><span class="letter">B</span><span>波斯王與巴比倫之囚</span></label><label class="option"><input type="radio" name="q27" value="C"><span class="letter">C</span><span>羅馬帝國興亡史</span></label><label class="option"><input type="radio" name="q27" value="D"><span class="letter">D</span><span>佛羅倫斯之歌</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>義大利的佛羅倫斯是文藝復興運動的發源與核心城市，《佛羅倫斯之歌》最能幫助了解文藝復興的背景與內容。</p><p class="key"><strong>解題關鍵：</strong>(A)一千零一夜＝阿拉伯。(B)巴比倫之囚＝古代西亞猶太人。(C)羅馬帝國＝古代。</p></div>
+        </article>
+<article class="card" id="q28" data-answer="B" data-chapter="文藝復興">
+          <div class="q-head"><span class="num">28</span><div><span class="source">仁愛國中 113上 九年級 段考二 第28題</span><h2>薄伽丘《十日談》</h2></div></div>
+          <p class="stem">中世紀後期歐洲瘟疫盛行期間，流傳下來關於當時黑死病的記載並沒有很多，而這本書正是以黑死病的流行為背景，描寫當時社會的百態。它也讓我們看到作者對愛情的謳歌，也犀利的用諷刺的筆法批判當時的權貴和教會。請問此書的作者為何人？</p>
+          <div class="options"><label class="option"><input type="radio" name="q28" value="A"><span class="letter">A</span><span>佩脫拉克</span></label><label class="option"><input type="radio" name="q28" value="B"><span class="letter">B</span><span>薄伽丘</span></label><label class="option"><input type="radio" name="q28" value="C"><span class="letter">C</span><span>但丁</span></label><label class="option"><input type="radio" name="q28" value="D"><span class="letter">D</span><span>莎士比亞</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>薄伽丘的《十日談》以黑死病流行為背景，描寫世俗男女的故事，諷刺教會腐敗、宣揚人性自由。</p><p class="key"><strong>解題關鍵：</strong>配對：但丁—神曲；佩脫拉克—十四行詩（人文主義之父）；薄伽丘—十日談；莎士比亞—四大悲劇。</p></div>
+        </article>
+<article class="card" id="q29" data-answer="C" data-chapter="文藝復興">
+          <div class="q-head"><span class="num">29</span><div><span class="source">仁愛國中 113上 九年級 段考二 第29題</span><h2>文藝復興興起的背景</h2></div></div>
+          <p class="stem">幾位同學在探討文藝復興興起的背景，其中誰的說法需要修正？</p>
+          <div class="options"><label class="option"><input type="radio" name="q29" value="A"><span class="letter">A</span><span>興起於14~16世紀</span></label><label class="option"><input type="radio" name="q29" value="B"><span class="letter">B</span><span>拜占庭學者為了避禍而帶著珍貴的典籍西遷</span></label><label class="option"><input type="radio" name="q29" value="C"><span class="letter">C</span><span>蒙古西征將造紙術帶進歐洲促進知識傳布</span></label><label class="option"><input type="radio" name="q29" value="D"><span class="letter">D</span><span>佛羅倫斯威尼斯等地的商人經常贊助文藝活動</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>造紙術是8世紀怛羅斯之役後，由阿拉伯人經西亞傳入西方，不是13世紀蒙古西征帶進歐洲。</p><p class="key"><strong>解題關鍵：</strong>題目問「需要修正」。怛羅斯之役（751年，唐 vs 阿拉伯）→造紙術西傳。</p></div>
+        </article>
+<article class="card" id="q38" data-answer="B" data-chapter="文藝復興">
+          <div class="q-head"><span class="num">38</span><div><span class="source">仁愛國中 113上 九年級 段考二 第38題</span><h2>作品與作者配對</h2></div></div>
+          <p class="stem">以下文藝復興時期的作品和作者的配對正確的有哪幾項？甲.神曲：但丁。乙.歐幾里德：幾何原本。丙.理想國：柏拉圖。丁.草地上的聖母：拉斐爾。戊.大衛像：米開朗基羅。</p>
+          <div class="options"><label class="option"><input type="radio" name="q38" value="A"><span class="letter">A</span><span>甲乙丙丁戊</span></label><label class="option"><input type="radio" name="q38" value="B"><span class="letter">B</span><span>甲丁戊</span></label><label class="option"><input type="radio" name="q38" value="C"><span class="letter">C</span><span>甲乙戊</span></label><label class="option"><input type="radio" name="q38" value="D"><span class="letter">D</span><span>甲丙丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>甲但丁《神曲》、丁拉斐爾《草地上的聖母》、戊米開朗基羅《大衛像》都是文藝復興時期作品。</p><p class="key"><strong>解題關鍵：</strong>陷阱在「文藝復興時期」：乙歐幾里德是希臘化時期、丙柏拉圖是古希臘時期，配對雖對但不屬文藝復興。</p></div>
+        </article>
+<section class="sec-head" id="ch6"><h3>六、宗教改革</h3><p>9 題（原卷第 25、30、31、32、33、34、35、39、40 題）</p><p class="kw">關鍵字：馬丁路德、新教、英國國教、耶穌會、三十年戰爭</p><div class="summary"><h4>📊 宗教改革各派比較</h4><div class="table-wrap"><table><tr><th>派別</th><th>人物・地區</th><th>原因／主張</th></tr><tr><td>路德派</td><td>馬丁路德・德意志（1517）</td><td>反贖罪券、九十五條論綱、因信稱義、唯獨聖經</td></tr><tr><td>喀爾文派</td><td>喀爾文・瑞士</td><td>預選說、長老治會（長老教會）</td></tr><tr><td>英國國教</td><td>亨利八世・英國（1534）</td><td>離婚問題與教宗決裂，國王為教會領袖</td></tr><tr><td>耶穌會（羅馬公教）</td><td>羅耀拉・西班牙</td><td>天主教內部改革、海外傳教（利瑪竇來華）</td></tr></table></div><h4>📊 影響</h4><div class="table-wrap"><table><tr><th>影響</th><th>說明</th></tr><tr><td>教育</td><td>唯獨聖經→人人讀經→識字率提升</td></tr><tr><td>宣傳</td><td>印刷品互相攻訐（如魔鬼風笛版畫＝天主教攻擊路德）</td></tr><tr><td>政治</td><td>三十年戰爭→1648年威斯特伐利亞條約：宗教寬容、國家主權</td></tr></table></div></div></section>
+<article class="card" id="q25" data-answer="A" data-chapter="宗教改革">
+          <div class="q-head"><span class="num">25</span><div><span class="source">仁愛國中 113上 九年級 段考二 第25題</span><h2>羅耀拉與耶穌會</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/map-europe-renaissance.png" alt="歐洲地圖（甲～癸）" loading="lazy"></div><div class="figure"><img src="./img/renai113-m2/jesuit-ihs.png" alt="IHS 徽章" loading="lazy"></div><p class="stem">羅耀拉創立了該教會，在宗教改革新教教派大為盛行的年代，該教派擔負起改革的重要角色。請問羅耀拉是哪國人，創立的教派為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="q25" value="A"><span class="letter">A</span><span>甲-耶穌會</span></label><label class="option"><input type="radio" name="q25" value="B"><span class="letter">B</span><span>乙-長老教會</span></label><label class="option"><input type="radio" name="q25" value="C"><span class="letter">C</span><span>丙-耶穌會</span></label><label class="option"><input type="radio" name="q25" value="D"><span class="letter">D</span><span>癸-聖公會</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>羅耀拉是西班牙人（圖中甲處），創立耶穌會，紀律嚴明、致力宣教與教育，推動羅馬公教內部改革（反宗教改革）。圖中「IHS」徽章即耶穌會的會徽。</p><p class="key"><strong>解題關鍵：</strong>羅耀拉＝西班牙＋耶穌會（屬羅馬公教）。長老教會屬喀爾文派；聖公會即英國國教。</p></div>
+        </article>
+<article class="card" id="q30" data-answer="B" data-chapter="宗教改革">
+          <div class="q-head"><span class="num">30</span><div><span class="source">仁愛國中 113上 九年級 段考二 第30題</span><h2>新教的共同主張</h2></div></div>
+          <p class="stem">十六世紀宗教改革後，新教教派教義主張各有不同，但仍有一些共同的理念，請問下列何者為新教的共同主張？</p>
+          <div class="options"><label class="option"><input type="radio" name="q30" value="A"><span class="letter">A</span><span>強化贖罪券的功能</span></label><label class="option"><input type="radio" name="q30" value="B"><span class="letter">B</span><span>聖經是信仰唯一依歸</span></label><label class="option"><input type="radio" name="q30" value="C"><span class="letter">C</span><span>反對君主權力高於教會權力</span></label><label class="option"><input type="radio" name="q30" value="D"><span class="letter">D</span><span>主張預選說，以長老來帶領教會</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>新教各派都反對教宗權威與繁瑣儀式，共同主張「唯獨聖經」，把《聖經》視為信仰與真理的唯一依歸。</p><p class="key"><strong>解題關鍵：</strong>(A)新教正是反對贖罪券。(C)英國國教就是國王為教會領袖。(D)預選說、長老治會只是喀爾文派的主張，不是共同主張。</p></div>
+        </article>
+<article class="card" id="q31" data-answer="D" data-chapter="宗教改革">
+          <div class="q-head"><span class="num">31</span><div><span class="source">仁愛國中 113上 九年級 段考二 第31題</span><h2>馬丁路德九十五條論綱</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/luther-95-theses.png" alt="教堂門口張貼文字的畫作" loading="lazy"></div><p class="stem">十六世紀某年萬聖節前夕，德國威丁堡教堂前有著不尋常的騷動。教堂前竟然有人張貼了一張寫滿指責教會的文字，內容大意為教會欺瞞民眾等等。從這張紙開始到後來掀起歷史的滔天巨浪。請問這在當時被視為狂徒好事者的人是誰？</p>
+          <div class="options"><label class="option"><input type="radio" name="q31" value="A"><span class="letter">A</span><span>喀爾文</span></label><label class="option"><input type="radio" name="q31" value="B"><span class="letter">B</span><span>利瑪竇</span></label><label class="option"><input type="radio" name="q31" value="C"><span class="letter">C</span><span>羅耀拉</span></label><label class="option"><input type="radio" name="q31" value="D"><span class="letter">D</span><span>馬丁路德</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>1517年馬丁路德在德意志威丁堡教堂門口張貼《九十五條論綱》，質疑教宗販賣贖罪券，點燃宗教改革。</p><p class="key"><strong>解題關鍵：</strong>德國＋1517＋教堂門口張貼＝馬丁路德。喀爾文在瑞士；利瑪竇、羅耀拉都屬耶穌會（羅馬公教）。</p></div>
+        </article>
+<article class="card" id="q32" data-answer="D" data-chapter="宗教改革">
+          <div class="q-head"><span class="num">32</span><div><span class="source">仁愛國中 113上 九年級 段考二 第32題</span><h2>英國國教的成立</h2></div></div>
+          <p class="stem">英王亨利八世原本反對新教，後因何事與教宗決裂，自創英國國教？</p>
+          <div class="options"><label class="option"><input type="radio" name="q32" value="A"><span class="letter">A</span><span>英國支持九十五條論綱批評教會</span></label><label class="option"><input type="radio" name="q32" value="B"><span class="letter">B</span><span>英王禁止販售贖罪券</span></label><label class="option"><input type="radio" name="q32" value="C"><span class="letter">C</span><span>禁止羅馬公教神職人員赴海外傳教</span></label><label class="option"><input type="radio" name="q32" value="D"><span class="letter">D</span><span>教宗不准英王離婚</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>亨利八世因無男性繼承人想與王后離婚，遭教宗反對；1534年國會通過《至尊法案》，國王成為英國教會最高領袖，脫離羅馬教廷，成立英國國教（安立甘宗、聖公會）。</p><p class="key"><strong>解題關鍵：</strong>英國國教＝政治因素（離婚問題），不是教義爭論。</p></div>
+        </article>
+<article class="card" id="q33" data-answer="B" data-chapter="宗教改革">
+          <div class="q-head"><span class="num">33</span><div><span class="source">仁愛國中 113上 九年級 段考二 第33題</span><h2>靈醫會與羅東聖母醫院</h2></div></div>
+          <div class="context"><p>1.新冠狀病毒重創義大利，2020年義大利籍神父呂若瑟為疫情告急的家鄉募款，活動僅花6天就募到1.5億元。善款交付義大利靈醫會與梵蒂岡教廷彈性運用。</p><p>2.這次的募款會引起各界高度關注，背後與羅東聖母醫院在宜蘭當地默默奉獻半世紀的背景有關。</p><p>3.「哪有需要就去哪服務」，靈醫會秉持這樣的精神，1952年到台灣創辦羅東聖母醫院；即使在醫院看病付不出錢，神父們規定醫院不准追討。</p></div><p class="stem">根據下文，請問呂若瑟神父是屬於哪一個教派的神職人員？</p>
+          <div class="options"><label class="option"><input type="radio" name="q33" value="A"><span class="letter">A</span><span>路德教派</span></label><label class="option"><input type="radio" name="q33" value="B"><span class="letter">B</span><span>天主教</span></label><label class="option"><input type="radio" name="q33" value="C"><span class="letter">C</span><span>英國國教</span></label><label class="option"><input type="radio" name="q33" value="D"><span class="letter">D</span><span>長老教會</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>稱為「神父」，善款交給義大利靈醫會與「梵蒂岡教廷」統籌運用，都顯示呂若瑟神父隸屬天主教（羅馬公教）。</p><p class="key"><strong>解題關鍵：</strong>天主教神職人員稱「神父」、聽命梵蒂岡教宗；新教多稱「牧師」。</p></div>
+        </article>
+<article class="card" id="q34" data-answer="C" data-chapter="宗教改革">
+          <div class="q-head"><span class="num">34</span><div><span class="source">仁愛國中 113上 九年級 段考二 第34題</span><h2>宗教改革與識字率</h2></div></div>
+          <p class="stem">宗教改革後，歐洲人民的識字率有所提升，這與新教提倡的哪一個概念最相關？</p>
+          <div class="options"><label class="option"><input type="radio" name="q34" value="A"><span class="letter">A</span><span>重視人文主義</span></label><label class="option"><input type="radio" name="q34" value="B"><span class="letter">B</span><span>讀書識字是光榮神的具體表現</span></label><label class="option"><input type="radio" name="q34" value="C"><span class="letter">C</span><span>信徒應自己有閱讀聖經的能力</span></label><label class="option"><input type="radio" name="q34" value="D"><span class="letter">D</span><span>信徒必須受過高等教育才夠虔誠</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>新教主張「唯獨聖經」，信徒不需透過神職人員，應自行閱讀並理解《聖經》；馬丁路德還把聖經譯成德文。因此新教地區大力推廣教育，識字率提升。</p><p class="key"><strong>解題關鍵：</strong>因果鏈：唯獨聖經→人人要讀聖經→要識字→推廣教育。</p></div>
+        </article>
+<article class="card" id="q35" data-answer="C" data-chapter="宗教改革">
+          <div class="q-head"><span class="num">35</span><div><span class="source">仁愛國中 113上 九年級 段考二 第35題</span><h2>三十年戰爭與威斯特伐利亞條約</h2></div></div>
+          <div class="context"><p>三十年戰爭（1618-1648）是歐洲歷史上持續三十年的宗教與政治衝突，主要發生在神聖羅馬帝國境內，涉及大部分歐洲強國。戰爭由德意志新教諸侯反對哈布斯堡王朝的天主教統治開始，後來演變成為歐洲列強爭奪霸權的全面戰爭。1648年簽訂的《威斯特伐利亞條約》結束了戰爭，確立了國家主權和平衡政策，深刻影響了歐洲政治格局。（神聖羅馬帝國為今日西歐和中歐地區，版圖以德國一帶為核心）</p></div><p class="stem">根據上文及所學，請同學推論三十年戰爭後歐洲各國的局勢應該呈現何種樣貌？</p>
+          <div class="options"><label class="option"><input type="radio" name="q35" value="A"><span class="letter">A</span><span>導致基督教首次分裂</span></label><label class="option"><input type="radio" name="q35" value="B"><span class="letter">B</span><span>歐洲形成大一統帝國</span></label><label class="option"><input type="radio" name="q35" value="C"><span class="letter">C</span><span>近代國家興起確立宗教寬容原則</span></label><label class="option"><input type="radio" name="q35" value="D"><span class="letter">D</span><span>三十年戰爭後歐洲仍時常發生政教衝突羅馬公教掌握優勢</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>1648年《威斯特伐利亞條約》承認各國有權選擇宗教信仰，確立宗教寬容與國家主權原則，近代主權國家體系形成。</p><p class="key"><strong>解題關鍵：</strong>(A)首次分裂是1054年。(B)條約確立各國主權、勢力平衡，歐洲並未統一。(D)宗教戰爭從此告一段落，羅馬公教也不再獨大。</p></div>
+        </article>
+<article class="card" id="q39" data-answer="D" data-chapter="宗教改革">
+          <div class="q-head"><span class="num">39</span><div><span class="source">仁愛國中 113上 九年級 段考二 第39題</span><h2>宗教改革的宣傳戰</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/luther-bagpipe-cartoon.png" alt="馬丁路德被畫成魔鬼手中的風笛" loading="lazy"></div><p class="stem">此種文宣品的刊印發行與流傳，與當時哪一歷史事件發展的關係最為密切？</p>
+          <div class="options"><label class="option"><input type="radio" name="q39" value="A"><span class="letter">A</span><span>基督教的合法化</span></label><label class="option"><input type="radio" name="q39" value="B"><span class="letter">B</span><span>中世紀時日耳曼人大量改信基督教</span></label><label class="option"><input type="radio" name="q39" value="C"><span class="letter">C</span><span>耶穌會在東亞傳教</span></label><label class="option"><input type="radio" name="q39" value="D"><span class="letter">D</span><span>宗教改革的發起</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p>版畫把馬丁路德醜化為魔鬼手中的風笛，是16世紀宗教改革爆發後，天主教與新教利用印刷品互相宣傳攻訐的文宣。</p><p class="key"><strong>解題關鍵：</strong>看到「馬丁路德」＋「印刷宣傳品」＝宗教改革時期的宣傳戰；印刷術讓雙方觀點快速傳播。</p></div>
+        </article>
+<article class="card" id="q40" data-answer="A" data-chapter="宗教改革">
+          <div class="q-head"><span class="num">40</span><div><span class="source">仁愛國中 113上 九年級 段考二 第40題</span><h2>版畫屬於哪一派的宣傳品</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/luther-bagpipe-cartoon.png" alt="馬丁路德被畫成魔鬼手中的風笛" loading="lazy"></div><p class="stem">這幅畫作應是哪一宗派的宣傳品？</p>
+          <div class="options"><label class="option"><input type="radio" name="q40" value="A"><span class="letter">A</span><span>羅馬公教</span></label><label class="option"><input type="radio" name="q40" value="B"><span class="letter">B</span><span>喀爾文教派</span></label><label class="option"><input type="radio" name="q40" value="C"><span class="letter">C</span><span>英國國教派</span></label><label class="option"><input type="radio" name="q40" value="D"><span class="letter">D</span><span>希臘正教</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p>畫作把發起宗教改革的馬丁路德描繪成魔鬼的工具，目的在攻擊新教、維護教廷立場，因此是羅馬公教（天主教）的反新教宣傳品。</p><p class="key"><strong>解題關鍵：</strong>誰最討厭馬丁路德？＝被他批評的羅馬公教。喀爾文派、英國國教都屬反對教宗的一方；希臘正教不在西歐這場爭論中心。</p></div>
+        </article>
+</main>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const downloadBtn=document.querySelector('#downloadDocx');
+let graded=false;
+
+function checkCard(card,revealUnanswered=false){
+  card.classList.remove('correct','incorrect','unanswered');
+  card.querySelectorAll('.option').forEach(option=>option.classList.remove('good','bad'));
+  const pick=card.querySelector('input:checked');
+  const answer=card.dataset.answer;
+  if(!pick&&!revealUnanswered)return {answered:false,correct:false};
+  card.classList.add('checked');
+  card.querySelectorAll('input').forEach(input=>{
+    const option=input.closest('.option');
+    if(input.value===answer)option.classList.add('good');
+    if(pick&&input===pick&&input.value!==answer)option.classList.add('bad');
+    input.disabled=true;
+  });
+  if(!pick)card.classList.add('unanswered');
+  else if(pick.value===answer)card.classList.add('correct');
+  else card.classList.add('incorrect');
+  return {answered:!!pick,correct:!!pick&&pick.value===answer};
+}
+
+function updateProgress(){
+  const answered=cards.filter(card=>card.querySelector('input:checked')).length;
+  const score=cards.filter(card=>card.querySelector('input:checked')?.value===card.dataset.answer).length;
+  document.querySelector('#score').textContent=`已作答 ${answered} / ${cards.length}・答對 ${score} 題`;
+  if(answered===cards.length){
+    graded=true;
+    const mistakeCount=cards.length-score;
+    downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+    downloadBtn.hidden=false;
+  }
+}
+
+cards.forEach(card=>card.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+  checkCard(card);
+  updateProgress();
+})));
+
+document.querySelector('#grade').addEventListener('click',()=>{
+  let score=0,first=null;
+  cards.forEach(c=>{
+    const result=checkCard(c,true);
+    if(!result.answered)first??=c;
+    if(result.correct)score++;
+  });
+  graded=true;
+  const mistakeCount=cards.length-score;
+  document.querySelector('#score').textContent=`得分 ${score} / ${cards.length}`;
+  downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+  downloadBtn.hidden=false;
+  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.querySelector('#reset').addEventListener('click',()=>{
+  cards.forEach(c=>{
+    c.className='card';
+    c.querySelectorAll('input').forEach(i=>{i.checked=false;i.disabled=false});
+    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
+  });
+  graded=false;
+  downloadBtn.hidden=true;
+  downloadBtn.textContent='下載錯題詳解 DOCX';
+  document.querySelector('#score').textContent=`已作答 0 / ${cards.length}`;
+  scrollTo({top:0,behavior:'smooth'});
+});
+
+function xmlEscape(value){
+  return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+}
+
+function wordParagraph(text,{bold=false,size=22,color='000000',before=0,after=100}={}){
+  const safe=xmlEscape(text);
+  return `<w:p><w:pPr><w:spacing w:before="${before}" w:after="${after}" w:line="330" w:lineRule="auto"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Microsoft JhengHei" w:hAnsi="Microsoft JhengHei" w:eastAsia="Microsoft JhengHei"/><w:sz w:val="${size}"/><w:szCs w:val="${size}"/>${bold?'<w:b/><w:bCs/>':''}${color!=='000000'?`<w:color w:val="${color}"/>`:''}<w:lang w:eastAsia="zh-TW"/></w:rPr><w:t xml:space="preserve">${safe}</w:t></w:r></w:p>`;
+}
+
+function textBlock(text,options={}){
+  return String(text??'').split(/\r?\n/).filter(Boolean).map(line=>wordParagraph(line,options)).join('');
+}
+
+function collectMistakes(){
+  return cards.filter(c=>{
+    const pick=c.querySelector('input:checked');
+    return !!pick&&pick.value!==c.dataset.answer;
+  }).map(c=>{
+    const picked=c.querySelector('input:checked');
+    const feedback=[...c.querySelectorAll('.feedback p')];
+    return {
+      number:c.querySelector('.num').textContent.trim(),
+      source:(c.dataset.chapter?c.dataset.chapter+'｜':'')+c.querySelector('.source').textContent.trim(),
+      topic:c.querySelector('h2').textContent.trim(),
+      context:c.querySelector('.context')?.innerText.trim()||'',
+      stem:c.querySelector('.stem').textContent.trim(),
+      options:[...c.querySelectorAll('.option')].map(o=>`${o.querySelector('.letter').textContent.trim()}　${o.querySelector('span:last-child').textContent.trim()}`),
+      selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
+      answer:c.dataset.answer,
+      explanation:feedback[1]?.textContent.trim()||'',
+      figures:[...c.querySelectorAll('.figure img')].map(i=>({src:i.getAttribute('src').replace(/\.svg$/,'.png'),alt:i.alt})),
+      key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
+    };
+  });
+}
+
+const encoder=new TextEncoder();
+function le16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function le32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function joinBytes(chunks){
+  const out=new Uint8Array(chunks.reduce((sum,c)=>sum+c.length,0));
+  let at=0;for(const c of chunks){out.set(c,at);at+=c.length}return out;
+}
+const crcTable=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(data){let c=0xffffffff;for(const b of data)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0}
+function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());return {time:(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date:((year-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate()}}
+
+function makeDocxZip(files){
+  const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
+  for(const [name,text] of files){
+    const nameBytes=encoder.encode(name),data=text instanceof Uint8Array?text:encoder.encode(text),crc=crc32(data);
+    const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
+    const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
+    locals.push(local);centrals.push(central);offset+=local.length;
+  }
+  const centralData=joinBytes(centrals);
+  const end=joinBytes([le32(0x06054b50),le16(0),le16(0),le16(files.length),le16(files.length),le32(centralData.length),le32(offset),le16(0)]);
+  return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+async function loadPng(src){
+  const res=await fetch(src);if(!res.ok)throw new Error(src);
+  const bytes=new Uint8Array(await res.arrayBuffer());
+  const dv=new DataView(bytes.buffer);
+  return {bytes,w:dv.getUint32(16),h:dv.getUint32(20)};
+}
+function imageParagraph(rid,id,w,h,alt){
+  const cx=Math.round(6.2*914400),cy=Math.round(cx*h/w);
+  return `<w:p><w:pPr><w:spacing w:after="80"/><w:jc w:val="center"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${id}" name="圖${id}" descr="${xmlEscape(alt)}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${id}" name="image${id}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+}
+async function buildMistakeDocx(){
+  const mistakes=collectMistakes();
+  const media=[],relsXml=[],cache={};
+  for(const m of mistakes){
+    m.imgs=[];
+    for(const f of m.figures||[]){
+      try{
+        if(!cache[f.src]){
+          const png=await loadPng(f.src),n=media.length+1;
+          media.push([`word/media/image${n}.png`,png.bytes]);
+          relsXml.push(`<Relationship Id="rImg${n}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/image${n}.png"/>`);
+          cache[f.src]={rid:`rImg${n}`,w:png.w,h:png.h};
+        }
+        m.imgs.push({...cache[f.src],alt:f.alt});
+      }catch(e){console.warn('圖片載入失敗',f.src)}
+    }
+  }
+  let picId=0;
+  let body=wordParagraph('仁愛國中113上 九年級歷史段考二 錯題詳解',{bold:true,size:30,color:'17313A',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　答錯共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  if(!mistakes.length){
+    body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
+  }else{
+    mistakes.forEach((m,index)=>{
+      if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+      body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
+      if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      m.imgs.forEach(im=>{body+=imageParagraph(im.rid,++picId,im.w,im.h,im.alt)});
+      body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
+      m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
+      body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
+      body+=wordParagraph(`正確答案：${m.answer}`,{bold:true,size:22,color:'0B6B57',after:100});
+      body+=wordParagraph('詳解',{bold:true,size:22,after:55});
+      body+=textBlock(m.explanation,{size:21,after:90});
+      body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
+    });
+  }
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const docRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${relsXml.join('')}</Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml],['word/_rels/document.xml.rels',docRels],...media]);
+}
+
+downloadBtn.addEventListener('click',async()=>{
+  if(!graded)return;
+  downloadBtn.disabled=true;
+  let blob;try{blob=await buildMistakeDocx()}finally{downloadBtn.disabled=false}
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='仁愛113上九年級歷史段考二_錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+</script><script src="../../shared/moe-dict.js?v=20261116" defer></script>
+</body></html>
+
