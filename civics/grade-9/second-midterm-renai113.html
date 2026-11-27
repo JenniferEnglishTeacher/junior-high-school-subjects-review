@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>公民 九上第二次段考｜互動測驗</title>
+<style>
+:root{--ink:#3a2a17;--muted:#6f6455;--paper:#fffdf8;--bg:#f4efe6;--accent:#9a6b35;--accent2:#d39b36;--bad:#a33a35;--line:#d8e2df}
+*{box-sizing:border-box} body{margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e4f0ee,#f6efe2);line-height:1.65}
+.dashboard-link{position:fixed;left:16px;top:16px;z-index:10;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.95);color:var(--ink);font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(22,49,58,.12);backdrop-filter:blur(10px)}.dashboard-link:hover{border-color:var(--accent);color:var(--accent)}
+header{padding:48px 20px 30px;text-align:center} h1{margin:0;font-size:clamp(2rem,5vw,3.6rem);line-height:1.12} header p{max-width:760px;margin:14px auto;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;background:var(--accent);color:white} button.secondary{background:#dfe9e6;color:var(--ink)} button.download{background:#244b5a} button[hidden]{display:none}.score{font-weight:800;min-width:160px;text-align:center}
+main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:22px} .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08)}
+.q-head{display:flex;gap:14px;align-items:center;margin-bottom:14px} .num{display:grid;place-items:center;min-width:52px;height:52px;border-radius:15px;background:var(--ink);color:white;font-weight:900} .source{color:var(--accent);font-weight:800;font-size:.9rem} h2{margin:0;font-size:1.18rem} .stem{font-size:1.08rem;font-weight:700}
+.context{background:#f2f7f5;border-left:4px solid var(--accent);padding:14px 16px;margin:14px 0;border-radius:0 12px 12px 0} .context p{margin:.35rem 0 0} .adapted{color:#73581c;background:#fff6dc;padding:8px 12px;border-radius:10px;font-size:.92rem}
+.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .card.checked .option{cursor:default}.card.checked .option:hover{transform:none}.option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
+.card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
+.feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
+.unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
+.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.summary{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 20px;margin-top:10px}.summary h4{margin:14px 0 6px;color:var(--accent)}.summary h4:first-child{margin-top:0}.summary td{text-align:left;vertical-align:top}.summary td:first-child{font-weight:800;background:#f7efe2;white-space:nowrap}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px}.figure.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:640px){.figure.pair{grid-template-columns:1fr}}.kw{color:#73581c;background:#fff6dc;padding:6px 12px;border-radius:10px;font-size:.92rem;margin-top:8px}</style><style>.guide{margin:10px 0 12px;border:1px dashed #1f5fa8;border-radius:12px;background:#f7faff;padding:8px 12px}.guide summary{cursor:pointer;font-weight:800;color:#1f5fa8}.gstep{margin:10px 0;padding:10px 12px;background:#fff;border:1px solid #d6e2f0;border-radius:10px}.gstep .ask{font-weight:700;margin-bottom:6px}.gstep .ask b{color:#1f5fa8}.gchoices{display:flex;flex-wrap:wrap;gap:6px}.gchoices button{color:#17313a;opacity:1;border:1px solid #b9c9de;background:#fff;border-radius:999px;padding:5px 12px;cursor:pointer;font:inherit}.gchoices button.no{background:#fbe5e7;border-color:#c0392b;color:#8e2a20}.gchoices button.yes{background:#e3f4ec;border-color:#2f8f6f;color:#1e6b50;font-weight:700}.ghint{color:#a33a35;font-size:.92rem;margin-top:6px}.gres{margin-top:8px;font-family:"Cambria Math","Times New Roman","Microsoft JhengHei",serif;background:#eef6ff;border-left:4px solid #1f5fa8;padding:6px 10px;border-radius:0 8px 8px 0}.gdone{font-weight:800;color:#2f8f6f;margin:8px 0 2px}.gprog{font-size:.85rem;color:#6a7a8a;margin-top:4px}.steps{font-family:"Cambria Math","Times New Roman","Microsoft JhengHei",serif;line-height:1.95;background:#f6f9fc;border-left:4px solid #1f5fa8;padding:8px 12px;border-radius:0 10px 10px 0}.figure img{max-width:520px}.context u{text-underline-offset:3px}.context .table-wrap{margin-top:10px}</style>
+</head><body>
+<a class="dashboard-link" href="../../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
+<header><h1>公民 九上第二次段考</h1><p>仁愛國中 113 學年度第 1 學期 九年級第二次段考公民試題，共 45 題，依概念分 5 區：選擇與機會成本、經濟活動循環與市場、市場競爭、分工與國際貿易、消費者保護與公平交易。每區開頭有重點整理表；計算題附「🧭 引導解題」；選完答案立即顯示正確答案與詳解；全部作答完可下載錯題詳解 DOCX（含圖，只收答錯的題目）。</p><nav class="jump"><a href="#ch1">選擇與機會成本</a><a href="#ch2">經濟活動循環與市場</a><a href="#ch3">市場競爭：價格與非價格競爭</a><a href="#ch4">分工與國際貿易</a><a href="#ch5">消費者保護與公平交易</a></nav></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 45</span></div>
+<main>
+<section class="sec-head" id="ch1"><h3>1. 選擇與機會成本</h3><p>第 1、2 題，共 2 題</p><p class="kw">重點：機會成本＝做選擇時所放棄的選項中「價值最高」的那一個；計算總成本＝外顯成本（實際花的錢）＋隱藏成本（放棄的收入）</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>概念</th><th>說明</th><th>例子</th></tr><tr><td>外顯成本</td><td>實際付出的金錢</td><td>食材 750 元</td></tr><tr><td>隱藏成本</td><td>放棄其他機會的最高價值</td><td>去家教可賺 600 元</td></tr><tr><td>機會成本</td><td>外顯＋隱藏</td><td>750＋600＝1350 元</td></tr><tr><td>理性選擇</td><td>比較成本與效益後再決定</td><td>自製 90 元／個 ＞ 買現成 35 元／個</td></tr></table></div></div></section>
+<article class="card" data-chapter="選擇與機會成本" id="q1" data-answer="D">
+  <div class="q-head"><span class="num">01</span><div><span class="source">九上第二次段考 第 1 題</span><h2>蛋黃酥的機會成本</h2></div></div>
+  <div class="context"><strong>題組（第 1～2 題）</strong><p>旻哲從國中畢業已經 5 年了，今年他想在中秋節舉辦同學會。以下是旻哲和同學間的對話：<br>旻哲：各位國中畢業以後好幾年沒見了，難得聚會又適逢中秋，我想自己製作低糖少油的蛋黃酥給大家吃。<br>旻哲：我之前做過一次，食材需要麵粉、奶油、砂糖、蛋黃及內餡，製作 15 個蛋黃酥約 750 元。<br>譽碩：我覺得划不來，而且有些成本你沒計算到吧？你製作的時間拿去家教也可以賺 600 元。<br>雅萱：第二次製作，也沒有辦法太熟練，應該會搞得手忙腳亂。附近店家賣的蛋黃酥一顆才 35 元。口味選擇也較多。我們可以買不同的口味吃吃看。<br>旻哲：好吧！你們說得有道理。我們還是買現成的比較划算。</p></div>
+  <p class="stem">請問：旻哲自行製作蛋黃酥，平均每個蛋黃酥的機會成本為何？</p>
+  <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;自製的外顯成本（實際花的錢）是？&quot;, [&quot;600 元&quot;, &quot;750 元&quot;, &quot;35 元&quot;], 1, &quot;看旻哲說的食材費。&quot;, &quot;外顯成本＝750 元&quot;], [&quot;自製的隱藏成本是？&quot;, [&quot;600 元&quot;, &quot;525 元&quot;], 0, &quot;做蛋黃酥的時間原本可以去家教。&quot;, &quot;隱藏成本＝600 元&quot;], [&quot;總成本 ÷ 15 個＝？&quot;, [&quot;50 元&quot;, &quot;90 元&quot;], 1, &quot;(750＋600) ÷ 15。&quot;, &quot;1350 ÷ 15＝90 元 → 選 (D)&quot;]]"></div></details>
+  <div class="options"><label class="option"><input type="radio" name="q1" value="A"><span class="letter">A</span><span>40 元</span></label><label class="option"><input type="radio" name="q1" value="B"><span class="letter">B</span><span>50 元</span></label><label class="option"><input type="radio" name="q1" value="C"><span class="letter">C</span><span>80 元</span></label><label class="option"><input type="radio" name="q1" value="D"><span class="letter">D</span><span>90 元</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">外顯成本：食材 750 元<br>隱藏成本：放棄家教可賺的 600 元<br>總機會成本＝750＋600＝1350 元<br>平均每個＝1350 ÷ 15＝90 元，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>機會成本要把「花掉的錢」和「放棄的收入」加起來。</p></div>
+</article>
+<article class="card" data-chapter="選擇與機會成本" id="q2" data-answer="D">
+  <div class="q-head"><span class="num">02</span><div><span class="source">九上第二次段考 第 2 題</span><h2>對話內容判讀</h2></div></div>
+  <div class="context"><strong>題組（第 1～2 題）</strong><p>旻哲從國中畢業已經 5 年了，今年他想在中秋節舉辦同學會。以下是旻哲和同學間的對話：<br>旻哲：各位國中畢業以後好幾年沒見了，難得聚會又適逢中秋，我想自己製作低糖少油的蛋黃酥給大家吃。<br>旻哲：我之前做過一次，食材需要麵粉、奶油、砂糖、蛋黃及內餡，製作 15 個蛋黃酥約 750 元。<br>譽碩：我覺得划不來，而且有些成本你沒計算到吧？你製作的時間拿去家教也可以賺 600 元。<br>雅萱：第二次製作，也沒有辦法太熟練，應該會搞得手忙腳亂。附近店家賣的蛋黃酥一顆才 35 元。口味選擇也較多。我們可以買不同的口味吃吃看。<br>旻哲：好吧！你們說得有道理。我們還是買現成的比較划算。</p></div>
+  <p class="stem">從以上對話來看，下列敘述何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q2" value="A"><span class="letter">A</span><span>雅萱認為旻哲自己做蛋黃酥的機會成本太低</span></label><label class="option"><input type="radio" name="q2" value="B"><span class="letter">B</span><span>譽碩幫旻哲計算隱藏成本的費用是 1350 元</span></label><label class="option"><input type="radio" name="q2" value="C"><span class="letter">C</span><span>雅萱認為旻哲購買蛋黃酥，口味較單一性</span></label><label class="option"><input type="radio" name="q2" value="D"><span class="letter">D</span><span>旻哲想要自己製作蛋黃酥的主因為益於身體健康</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">(A) 雅萱是說自製會手忙腳亂、買的較便宜，意思是自製成本「太高」，錯。<br>(B) 隱藏成本是 600 元，1350 元是總成本，錯。<br>(C) 雅萱說店家口味選擇較多，錯。<br>(D) 旻哲想做「低糖少油」的蛋黃酥 → 考量健康 ✓</p><p class="key"><strong>解題關鍵：</strong>隱藏成本只算放棄的收入（600 元），不含食材。</p></div>
+</article>
+<section class="sec-head" id="ch2"><h3>2. 經濟活動循環與市場</h3><p>第 5、6、12、13、16、21、29、32、33、35、39、41、42 題，共 13 題</p><p class="kw">重點：消費者在商品市場買、在勞動（生產要素）市場賣勞力；生產者在商品市場賣、在勞動市場僱人。市場分有形／無形；價格由供需（看不見的手）決定</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>循環圖</th><th>箭頭方向</th><th>意義</th></tr><tr><td>甲</td><td>商品市場 → 消費者</td><td>消費者得到商品與勞務</td></tr><tr><td>乙</td><td>消費者 → 勞動市場</td><td>消費者提供勞動力（生產要素）</td></tr><tr><td>丙</td><td>勞動市場 → 生產者</td><td>生產者僱用員工、取得生產要素</td></tr><tr><td>丁</td><td>生產者 → 商品市場</td><td>生產者提供商品與勞務</td></tr><tr><td>有形市場</td><td>有固定交易場所</td><td>魚市場、便利商店、百貨公司</td></tr><tr><td>無形市場</td><td>沒有固定實體場所</td><td>網購、電視購物</td></tr><tr><td>銷貨收入</td><td>價格 × 銷售量</td><td>促銷讓銷售量增加</td></tr></table></div></div></section>
+<article class="card" data-chapter="經濟活動循環與市場" id="q5" data-answer="B">
+  <div class="q-head"><span class="num">05</span><div><span class="source">九上第二次段考 第 5 題</span><h2>魚市場拍賣</h2></div></div>
+  <div class="context"><strong>閱讀題（第 5 題）</strong><p>清晨時分，多數人正在夢鄉時，位在基隆的崁仔頂魚市才揭開序幕。剛從漁港載滿漁獲的卡車陸續駛進，將新鮮的漁獲一籃籃擺上攤位；北臺灣地區的魚販、海鮮餐廳經營者，或是喜愛生鮮漁獲的饕客們也魚貫進入，整個魚市場裡熱鬧滾滾，讓人見識到傳統叫賣市場的震撼力。這裡的交易方式，是採拍賣方式，以前一日的成交價格為底價，再漸漸往上加價，直到有買主決定購買為止。</p></div>
+  <p class="stem">根據上文敘述，下列何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q5" value="A"><span class="letter">A</span><span>依據交易的對象與內容，魚市場是有形的市場</span></label><label class="option"><input type="radio" name="q5" value="B"><span class="letter">B</span><span>價格是由「看不見的手」決定</span></label><label class="option"><input type="radio" name="q5" value="C"><span class="letter">C</span><span>此種交易方式所耗費的時間較少</span></label><label class="option"><input type="radio" name="q5" value="D"><span class="letter">D</span><span>價格並非該魚市消費者考量的因素</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">(A) 有形／無形是依「有沒有固定交易場所」分類，不是依交易對象與內容，錯。<br>(B) 買賣雙方喊價、依供需決定成交價 → 看不見的手 ✓<br>(C) 拍賣要一路加價，耗時較多，錯。<br>(D) 買主會比較價格才決定，錯。</p><p class="key"><strong>解題關鍵：</strong>有形／無形市場的分類依據是「交易場所」，商品／勞動市場的分類依據才是「交易內容」。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q6" data-answer="C">
+  <div class="q-head"><span class="num">06</span><div><span class="source">九上第二次段考 第 6 題</span><h2>無形市場</h2></div></div>
+  <div class="context"><strong>閱讀題（第 6 題）</strong><p>李江下班回來，大廈管理員親切的說：「李先生，你的網購包裹送來了。這個月住戶買得特別多，你看管理室堆了滿滿的包裹！」李江尷尬的說：「雙十一購物很划算，而且一天內就會送到，所以就多買了。」</p></div>
+  <p class="stem">根據以上的對話內容，其進行交易的市場型態，與下列何者相同？</p>
+  <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>周日早晨，小哲到巷口早餐店購買一份漢堡回家享用</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>小鈞在網路上看周年慶廣告，決定到百貨公司購買玩具</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>阿介透過電視購物頻道，購買母親節要送給媽媽的鍋具</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>阿勳傍晚補習結束後，到住家附近的便利商店購買洋芋片</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">網購沒有固定實體交易場所 → 無形市場。<br>(A)(B)(D) 都在實體店面交易（(B) 只是在網路看廣告，實際去百貨公司買）→ 有形市場。<br>(C) 電視購物 → 無形市場 ✓</p><p class="key"><strong>解題關鍵：</strong>看「在哪裡完成交易」，不是在哪裡看到廣告。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q12" data-answer="D">
+  <div class="q-head"><span class="num">12</span><div><span class="source">九上第二次段考 第 12 題</span><h2>戲劇臺詞：市場經濟</h2></div></div>
+  <p class="stem">九年十五班的同學以戲劇演出方式解釋市場經濟，根據以下角色判斷，下列何人的臺詞完全正確？</p>
+  <div class="context"><div class="table-wrap"><table><tr><th>角色</th><th>臺詞</th></tr><tr><td>(A) 臭豆腐店老闆─曉華</td><td>我的目的是賺取利潤，即使虧錢也能接受。</td></tr><tr><td>(B) 蚵仔煎店老闆─彩俊</td><td>我只要自行調高價格，必能增加銷貨收入。</td></tr><tr><td>(C) 顧客─怡蘭</td><td>當市場競爭激烈的時候，我的選擇並不多。</td></tr><tr><td>(D) 顧客─華靖</td><td>我在市場進行交易，是為了滿足生活所需。</td></tr></table></div></div>
+  <div class="options"><label class="option"><input type="radio" name="q12" value="A"><span class="letter">A</span><span>臭豆腐店老闆─曉華</span></label><label class="option"><input type="radio" name="q12" value="B"><span class="letter">B</span><span>蚵仔煎店老闆─彩俊</span></label><label class="option"><input type="radio" name="q12" value="C"><span class="letter">C</span><span>顧客─怡蘭</span></label><label class="option"><input type="radio" name="q12" value="D"><span class="letter">D</span><span>顧客─華靖</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">(A) 廠商追求利潤，不會接受虧錢，錯。<br>(B) 調高價格可能讓銷售量下降，銷貨收入不一定增加，錯。<br>(C) 競爭激烈時消費者選擇「變多」，錯。<br>(D) 消費者交易是為了滿足生活所需 ✓</p><p class="key"><strong>解題關鍵：</strong>銷貨收入＝價格 × 銷售量，漲價不保證收入增加。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q13" data-answer="B">
+  <div class="q-head"><span class="num">13</span><div><span class="source">九上第二次段考 第 13 題</span><h2>機場接送服務</h2></div></div>
+  <p class="stem">以下為陳小姐看到的一則消費新知，她計算自行開車的停車費用後，選擇使用訊息中的服務。根據內容判斷，下列敘述何者正確？</p>
+  <div class="context"><p><strong>好康報報：</strong>隨著疫情趨緩，各國觀光禁令的解除，國人出國旅遊意願大增，機場車輛接送服務業者搶攻商機，有需求的消費者可透過線上預約，購買機場接送防疫服務。</p></div>
+  <div class="options"><label class="option"><input type="radio" name="q13" value="A"><span class="letter">A</span><span>自行開車的費用低於購買接送服務的費用</span></label><label class="option"><input type="radio" name="q13" value="B"><span class="letter">B</span><span>價格是買賣雙方做出最有利選擇的考量因素</span></label><label class="option"><input type="radio" name="q13" value="C"><span class="letter">C</span><span>由交易內容可知，此交易市場為勞動市場</span></label><label class="option"><input type="radio" name="q13" value="D"><span class="letter">D</span><span>陳小姐與業者雙方透過有形市場進行交易</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">陳小姐比較了停車費和接送費後才選接送 → 價格是做選擇的考量，選 (B)。<br>(A) 她選了接送，代表自行開車較貴；(C) 她購買的是「服務」→ 商品市場；(D) 線上預約 → 無形市場。</p><p class="key"><strong>解題關鍵：</strong>消費者購買勞務（服務）屬於商品市場，不是勞動市場。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q16" data-answer="A">
+  <div class="q-head"><span class="num">16</span><div><span class="source">九上第二次段考 第 16 題</span><h2>下單買電子書</h2></div></div>
+  <div class="context"><strong>閱讀題（第 16 題）</strong><p>現代人想購買書籍，已經不受限於走入實體書店。受惠於數位資料儲存技術的發展，<u style="text-decoration-style:double">消費者可以在網路商城訂購電子書，透過電腦、手機、平板電腦、電子書閱讀器等 3C 產品不同介面閱讀</u>。電子書在網路書店上架，世界各地的消費者隨時能夠購買，即時閱讀。不管是通勤中、旅行在外或是夜深人靜時，只需動動手指下單，國內外的著作都能飛快呈現在我們眼前。</p></div>
+  <div class="figure"><img src="../img/renai113-m2/cycle.png" alt="第 16 題附圖" loading="lazy"></div>
+  <p class="stem">請問：上文中畫雙線應指右圖中哪一部分？</p>
+  <div class="options"><label class="option"><input type="radio" name="q16" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q16" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q16" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q16" value="D"><span class="letter">D</span><span>丁</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">消費者「購買、閱讀電子書」→ 消費者從商品市場得到商品，是「商品市場 → 消費者」的箭頭甲，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>甲：商品到消費者；乙：消費者提供勞動；丙：生產者僱人；丁：生產者提供商品。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q21" data-answer="C">
+  <div class="q-head"><span class="num">21</span><div><span class="source">九上第二次段考 第 21 題</span><h2>生產者扮演的角色</h2></div></div>
+  <div class="figure"><img src="../img/renai113-m2/cycle.png" alt="第 21 題附圖" loading="lazy"></div>
+  <p class="stem">在經濟活動循環體系中，對於「生產者」在市場中所扮演的角色，下列敘述何者正確？　(甲)商品市場中需求者　(乙)勞動市場中需求者　(丙)勞動市場中的提供者　(丁)商品市場中的提供者</p>
+  <div class="options"><label class="option"><input type="radio" name="q21" value="A"><span class="letter">A</span><span>甲乙</span></label><label class="option"><input type="radio" name="q21" value="B"><span class="letter">B</span><span>乙丙</span></label><label class="option"><input type="radio" name="q21" value="C"><span class="letter">C</span><span>乙丁</span></label><label class="option"><input type="radio" name="q21" value="D"><span class="letter">D</span><span>甲丙</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">生產者在勞動市場「僱用」員工 → 勞動市場的需求者（乙）<br>生產者在商品市場「銷售」產品 → 商品市場的提供者（丁）<br>選 (C) 乙丁。</p><p class="key"><strong>解題關鍵：</strong>生產者：買勞力、賣商品；消費者：賣勞力、買商品。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q29" data-answer="A">
+  <div class="q-head"><span class="num">29</span><div><span class="source">九上第二次段考 第 29 題</span><h2>增加銷貨收入</h2></div></div>
+  <p class="stem">下列何種行為可以增加廠商的「銷貨收入」？</p>
+  <div class="options"><label class="option"><input type="radio" name="q29" value="A"><span class="letter">A</span><span>夜市關東煮今天推出促銷活動，通通一個 10 元</span></label><label class="option"><input type="radio" name="q29" value="B"><span class="letter">B</span><span>廠商透過 1111 人力銀行雇用工讀生</span></label><label class="option"><input type="radio" name="q29" value="C"><span class="letter">C</span><span>今年業績長紅，老闆發給員工紅利獎金</span></label><label class="option"><input type="radio" name="q29" value="D"><span class="letter">D</span><span>小奎把今年的壓歲錢拿去銀行存起來</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">銷貨收入＝售價 × 銷售量，是廠商「賣商品」得到的收入。<br>(A) 促銷吸引顧客、增加銷售量 → 可能增加銷貨收入 ✓<br>(B)(C) 是廠商的支出（薪資、獎金）；(D) 是個人儲蓄。</p><p class="key"><strong>解題關鍵：</strong>銷貨收入來自「賣東西」。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q32" data-answer="D">
+  <div class="q-head"><span class="num">32</span><div><span class="source">九上第二次段考 第 32 題</span><h2>電腦公司的經濟循環</h2></div></div>
+  <p class="stem">宥婷是一家電腦公司的老闆，恩宇是公司員工，月薪 4 萬元，恩宇近日推銷一部電腦給其好友庭宣，以 5 萬元成交。就經濟循環活動而言，下列敘述何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q32" value="A"><span class="letter">A</span><span>宥婷是老闆，她是勞動市場提供者</span></label><label class="option"><input type="radio" name="q32" value="B"><span class="letter">B</span><span>恩宇是公司員工，他是勞動市場需求者</span></label><label class="option"><input type="radio" name="q32" value="C"><span class="letter">C</span><span>5 萬元是宥婷的利潤</span></label><label class="option"><input type="radio" name="q32" value="D"><span class="letter">D</span><span>4 萬元是恩宇的所得</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">(A) 老闆僱用員工 → 勞動市場「需求者」，錯。<br>(B) 員工提供勞力 → 勞動市場「提供者」，錯。<br>(C) 5 萬元是銷貨收入，扣掉成本後才是利潤，錯。<br>(D) 月薪是恩宇提供勞動力得到的報酬（薪資所得）✓</p><p class="key"><strong>解題關鍵：</strong>利潤＝銷貨收入－成本，不等於售價。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q33" data-answer="C">
+  <div class="q-head"><span class="num">33</span><div><span class="source">九上第二次段考 第 33 題</span><h2>職棒季周邊商店</h2></div></div>
+  <div class="figure"><img src="../img/renai113-m2/cycle.png" alt="第 33 題附圖" loading="lazy"></div>
+  <p class="stem">職棒球季開打，為應付蜂擁而至的人潮，周邊商店比平常準備多三成的商品，並加僱人手幫忙。請問：「增加商品量」、「加僱人手」分別是屬於附圖中的哪兩部分？</p>
+  <div class="options"><label class="option"><input type="radio" name="q33" value="A"><span class="letter">A</span><span>甲、乙</span></label><label class="option"><input type="radio" name="q33" value="B"><span class="letter">B</span><span>乙、丙</span></label><label class="option"><input type="radio" name="q33" value="C"><span class="letter">C</span><span>丁、丙</span></label><label class="option"><input type="radio" name="q33" value="D"><span class="letter">D</span><span>甲、丁</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">增加商品量：生產者向商品市場提供商品 → 丁<br>加僱人手：生產者從勞動市場僱用員工 → 丙<br>依序是丁、丙，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>注意題目問的順序：先「商品量」再「人手」。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q41" data-answer="D">
+  <div class="q-head"><span class="num">41</span><div><span class="source">九上第二次段考 第 41 題</span><h2>畫雙線處對應循環圖</h2></div></div>
+  <div class="context"><strong>題組一（第 40～42 題）</strong><p>斯里蘭卡從 2019 年起面臨自 1948 年獨立以後最嚴重的經濟危機，造成危機的主要原因包括轉向有機農業的政策、債務危機及新冠疫情等因素。<br>茶葉是斯里蘭卡最主要的出口產品，每年可帶來超過 12.5 億美元的外匯收入，但是因為政府推行 100% 有機肥種植的政策，全面禁止化學肥料進口，農民將面臨無化肥可用的情況，<u style="text-decoration-style:double">少了化肥，茶芽和綠葉生長受影響，每年平均 3 億公斤的茶葉產量將大減</u>；此外有機茶生產成本高出 10 倍，而且市場有限，茶商收入勢必也跟著銳減，最後虧損過大，只能倒閉收場，茶園關閉，受影響的人數將達 300 萬人，也重創斯里蘭卡經濟。<br>除了有機肥種植的政策，新冠疫情也重挫國家經濟，物價上漲比率高達 11.1%，並欠下伊朗 2.5 億美元石油債務，斯里蘭卡與伊朗達成協議，每月運送價值 500 萬美元茶葉的方式償還債務。為了因應不斷上漲的食物、乳製品成本，許多民眾一日三餐減到一日兩餐，晚餐餐桌上的奶茶變成了只加了點糖的「甜茶」，改變了消費模式。【註：「外匯」是指外國的貨幣。】</p></div>
+  <div class="figure"><img src="../img/renai113-m2/cycle.png" alt="第 41 題附圖" loading="lazy"></div>
+  <p class="stem">根據文章中畫雙線處，應指附圖經濟活動圖中哪個部分？</p>
+  <div class="options"><label class="option"><input type="radio" name="q41" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q41" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q41" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q41" value="D"><span class="letter">D</span><span>丁</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">雙線處：少了化肥，茶葉生長受影響，每年平均 3 億公斤的茶葉產量將大減。<br>茶葉是茶農、茶商（生產者）生產後拿到商品市場賣的商品 → 「生產者 → 商品市場」的箭頭丁。<br>茶葉產量大減＝生產者能提供到商品市場的商品變少，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>生產者「提供商品」到商品市場＝丁。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q42" data-answer="B">
+  <div class="q-head"><span class="num">42</span><div><span class="source">九上第二次段考 第 42 題</span><h2>茶園關閉的影響</h2></div></div>
+  <div class="context"><strong>題組一（第 40～42 題）</strong><p>斯里蘭卡從 2019 年起面臨自 1948 年獨立以後最嚴重的經濟危機，造成危機的主要原因包括轉向有機農業的政策、債務危機及新冠疫情等因素。<br>茶葉是斯里蘭卡最主要的出口產品，每年可帶來超過 12.5 億美元的外匯收入，但是因為政府推行 100% 有機肥種植的政策，全面禁止化學肥料進口，農民將面臨無化肥可用的情況，<u style="text-decoration-style:double">少了化肥，茶芽和綠葉生長受影響，每年平均 3 億公斤的茶葉產量將大減</u>；此外有機茶生產成本高出 10 倍，而且市場有限，茶商收入勢必也跟著銳減，最後虧損過大，只能倒閉收場，茶園關閉，受影響的人數將達 300 萬人，也重創斯里蘭卡經濟。<br>除了有機肥種植的政策，新冠疫情也重挫國家經濟，物價上漲比率高達 11.1%，並欠下伊朗 2.5 億美元石油債務，斯里蘭卡與伊朗達成協議，每月運送價值 500 萬美元茶葉的方式償還債務。為了因應不斷上漲的食物、乳製品成本，許多民眾一日三餐減到一日兩餐，晚餐餐桌上的奶茶變成了只加了點糖的「甜茶」，改變了消費模式。【註：「外匯」是指外國的貨幣。】</p></div>
+  <div class="figure"><img src="../img/renai113-m2/cycle.png" alt="第 42 題附圖" loading="lazy"></div>
+  <p class="stem">承上題，茶商虧損過大，只能關閉茶園，員工失去工作，沒有收入，上述現象與附圖經濟活動哪些部分有關？</p>
+  <div class="options"><label class="option"><input type="radio" name="q42" value="A"><span class="letter">A</span><span>甲、乙</span></label><label class="option"><input type="radio" name="q42" value="B"><span class="letter">B</span><span>乙、丙</span></label><label class="option"><input type="radio" name="q42" value="C"><span class="letter">C</span><span>丙、丁</span></label><label class="option"><input type="radio" name="q42" value="D"><span class="letter">D</span><span>甲、丁</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">員工失去工作 → 消費者無法再向勞動市場提供勞動力（乙）<br>茶商不再僱人、不再付薪資 → 生產者不再從勞動市場取得勞動力（丙）<br>都是勞動市場的環節，選 (B) 乙、丙。</p><p class="key"><strong>解題關鍵：</strong>失業、薪資 → 都和勞動市場有關（乙、丙）。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q35" data-answer="A">
+  <div class="q-head"><span class="num">35</span><div><span class="source">九上第二次段考 第 35 題</span><h2>颱風後平抑菜價</h2></div></div>
+  <p class="stem">某國受風災影響，有些種類的蔬菜產量減少導致價格飆漲，故該國政府採取下列措施以調節菜價，其中何者最可能是為了直接影響「供給」層面而提出的對策？</p>
+  <div class="context"><p>甲：增加國外進口蔬菜的數量<br>乙：相關單位釋出庫存的蔬菜<br>丙：獎勵農民儘速復耕農作<br>丁：呼籲民眾改吃其他蔬菜</p></div>
+  <div class="options"><label class="option"><input type="radio" name="q35" value="A"><span class="letter">A</span><span>甲乙丙</span></label><label class="option"><input type="radio" name="q35" value="B"><span class="letter">B</span><span>乙丙丁</span></label><label class="option"><input type="radio" name="q35" value="C"><span class="letter">C</span><span>甲丙丁</span></label><label class="option"><input type="radio" name="q35" value="D"><span class="letter">D</span><span>甲乙丙丁</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">甲 增加進口、乙 釋出庫存、丙 鼓勵復耕 → 都是增加市場上的蔬菜「供給量」。<br>丁 呼籲民眾改吃其他蔬菜 → 減少「需求」。<br>選 (A) 甲乙丙。</p><p class="key"><strong>解題關鍵：</strong>增加東西的量＝供給面；改變買的人＝需求面。</p></div>
+</article>
+<article class="card" data-chapter="經濟活動循環與市場" id="q39" data-answer="A">
+  <div class="q-head"><span class="num">39</span><div><span class="source">九上第二次段考 第 39 題</span><h2>看不見的手</h2></div></div>
+  <p class="stem">目前世界各國市場的運作模式有如一隻「看不見的手」，引導買賣雙方做出對自己最有利的選擇。請問：下列敘述何者「不」符合「看不見的手」介入干預的情形？</p>
+  <div class="options"><label class="option"><input type="radio" name="q39" value="A"><span class="letter">A</span><span>制定政策限制進口商品數量</span></label><label class="option"><input type="radio" name="q39" value="B"><span class="letter">B</span><span>民眾利用百貨公司換季特價多購買新衣</span></label><label class="option"><input type="radio" name="q39" value="C"><span class="letter">C</span><span>便利商店飲料促銷買二送一</span></label><label class="option"><input type="radio" name="q39" value="D"><span class="letter">D</span><span>高麗菜價格漲價菜農多種植</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">看不見的手＝市場價格與供需自行調節。<br>(B)(C)(D) 都是買賣雙方依價格自行做選擇 ✓<br>(A) 政府用公權力限制進口 → 人為干預（看得見的手），不符合，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>政府介入＝看得見的手。</p></div>
+</article>
+<section class="sec-head" id="ch3"><h3>3. 市場競爭：價格與非價格競爭</h3><p>第 7、9、10、11、14、15、26、27、36 題，共 9 題</p><p class="kw">重點：廠商愈多、市場競爭程度愈高，消費者選擇愈多；價格競爭＝降價促銷；非價格競爭＝品質、服務、形象、特色、行銷手法</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>類型</th><th>做法</th><th>例子</th></tr><tr><td>價格競爭</td><td>降價、優惠組合、買一送一</td><td>雞排店推優惠組合</td></tr><tr><td>非價格競爭：品質</td><td>提升品質、特色</td><td>ND 無農藥檸檬、酪蛋白鮮乳</td></tr><tr><td>非價格競爭：服務</td><td>增加服務項目</td><td>快時尚服裝租賃、穿搭建議</td></tr><tr><td>非價格競爭：形象</td><td>建立良好企業形象</td><td>自然農法、捐助偏鄉</td></tr><tr><td>非價格競爭：行銷</td><td>營造話題、稀有感</td><td>飢餓行銷、排隊炒作</td></tr><tr><td>競爭程度</td><td>廠商數量愈多 → 競爭愈高</td><td>每平方公里店家愈少 → 競爭愈低</td></tr></table></div></div></section>
+<article class="card" data-chapter="市場競爭：價格與非價格競爭" id="q7" data-answer="C">
+  <div class="q-head"><span class="num">07</span><div><span class="source">九上第二次段考 第 7 題</span><h2>ND 檸檬</h2></div></div>
+  <div class="context"><strong>閱讀題（第 7 題）</strong><p>2020 年受疫情影響，各種商品價格連帶受挫，而栽種檸檬的果農也受到影響。國內有對夫妻對生態環境相當重視，返鄉務農後申請產銷履歷驗證，以無農藥殘留方式種植，成功栽培出符合市場需求的「ND」（未檢出農藥）的檸檬。「ND」檸檬果皮外觀翠綠，只要手一搓就有一股檸檬香飄出來，因此該對夫妻成功和廠商訂定好的價格，以及建立穩定的銷售通路，不怕受疫情影響。</p></div>
+  <p class="stem">請問，根據上文內容，下列敘述何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q7" value="A"><span class="letter">A</span><span>這對夫妻考量的生產課題是「生產什麼」</span></label><label class="option"><input type="radio" name="q7" value="B"><span class="letter">B</span><span>受疫情影響，檸檬市場的需求量隨之降低</span></label><label class="option"><input type="radio" name="q7" value="C"><span class="letter">C</span><span>「ND」檸檬採重視生態的非價格競爭</span></label><label class="option"><input type="radio" name="q7" value="D"><span class="letter">D</span><span>「ND」檸檬是以市場最低價賣出的檸檬</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">夫妻以無農藥、產銷履歷提升品質與特色來吸引消費者，不是靠降價 → 非價格競爭，選 (C)。<br>(A) 他們早就決定種檸檬，著重的是「如何生產」；(B) 文中說的是價格受挫，不是需求量；(D) 他們和廠商訂了「好的價格」。</p><p class="key"><strong>解題關鍵：</strong>用品質、特色吸引顧客＝非價格競爭。</p></div>
+</article>
+<article class="card" data-chapter="市場競爭：價格與非價格競爭" id="q9" data-answer="C">
+  <div class="q-head"><span class="num">09</span><div><span class="source">九上第二次段考 第 9 題</span><h2>小農鮮乳公司</h2></div></div>
+  <div class="context"><strong>閱讀題（第 9～10 題）</strong><p>市面上有多種牛奶品牌，鮮乳市場廠商眾多的情況下，有一家小農公司秉持著無成分調整、獸醫現場把關和公平交易的初衷，致力成為消費者與酪農間的橋梁。同時藉消費者的力量，形成各種「善的循環」，除了支持一個產業的改革，該公司更進行獸醫培訓、送愛至偏鄉等計畫。自 2015 年，該公司總計捐贈了 20 多間育幼院，並長期資助鮮乳補給品給宜蘭、花蓮和臺東等地的棒球隊。在銷貨通路上，不僅上架各賣場與超商等知名連鎖店，更於 2020 年推出臺灣首支更容易被人體吸收「酪蛋白鮮乳」。</p></div>
+  <p class="stem">有關小農公司的敘述，下列何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q9" value="A"><span class="letter">A</span><span>所屬商品市場的加入門檻較高</span></label><label class="option"><input type="radio" name="q9" value="B"><span class="letter">B</span><span>市場競爭程度與手搖飲店不同</span></label><label class="option"><input type="radio" name="q9" value="C"><span class="letter">C</span><span>小農公司使用的競爭方式與降低售價來吸引顧客的方式不同</span></label><label class="option"><input type="radio" name="q9" value="D"><span class="letter">D</span><span>酪蛋白鮮乳是普遍常見的產品</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">小農公司靠品質把關、公益形象、產品創新吸引顧客 → 非價格競爭，和「降價」的價格競爭不同，選 (C)。<br>(A)(B) 鮮乳市場廠商眾多，和手搖飲一樣競爭激烈、門檻不高；(D) 是「臺灣首支」，不普遍。</p><p class="key"><strong>解題關鍵：</strong>降價＝價格競爭；品質、形象、創新＝非價格競爭。</p></div>
+</article>
+<article class="card" data-chapter="市場競爭：價格與非價格競爭" id="q10" data-answer="A">
+  <div class="q-head"><span class="num">10</span><div><span class="source">九上第二次段考 第 10 題</span><h2>鮮乳市場的競爭程度</h2></div></div>
+  <div class="context"><strong>閱讀題（第 9～10 題）</strong><p>市面上有多種牛奶品牌，鮮乳市場廠商眾多的情況下，有一家小農公司秉持著無成分調整、獸醫現場把關和公平交易的初衷，致力成為消費者與酪農間的橋梁。同時藉消費者的力量，形成各種「善的循環」，除了支持一個產業的改革，該公司更進行獸醫培訓、送愛至偏鄉等計畫。自 2015 年，該公司總計捐贈了 20 多間育幼院，並長期資助鮮乳補給品給宜蘭、花蓮和臺東等地的棒球隊。在銷貨通路上，不僅上架各賣場與超商等知名連鎖店，更於 2020 年推出臺灣首支更容易被人體吸收「酪蛋白鮮乳」。</p></div>
+  <p class="stem">承上題，小農公司的作法，最主要是因為鮮乳市場的情況為何？</p>
+  <div class="options"><label class="option"><input type="radio" name="q10" value="A"><span class="letter">A</span><span>廠商多，市場競爭程度高</span></label><label class="option"><input type="radio" name="q10" value="B"><span class="letter">B</span><span>對手少，市場競爭程度低</span></label><label class="option"><input type="radio" name="q10" value="C"><span class="letter">C</span><span>補助多，市場競爭程度高</span></label><label class="option"><input type="radio" name="q10" value="D"><span class="letter">D</span><span>成本高，市場競爭程度低</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">文中第一句：「鮮乳市場廠商眾多」→ 廠商多、競爭程度高，業者必須做出差異化，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>廠商數量多寡決定市場競爭程度。</p></div>
+</article>
+<article class="card" data-chapter="市場競爭：價格與非價格競爭" id="q11" data-answer="B">
+  <div class="q-head"><span class="num">11</span><div><span class="source">九上第二次段考 第 11 題</span><h2>通訊行開在哪裡</h2></div></div>
+  <p class="stem">阿硯與阿寬打算合夥開設一家通訊行，他們實地調查當地店家資料如附表，想在四個地區中擇一開店。在不考慮其他因素下，只以市場上的廠商數量做考量，選擇在競爭程度最低的地區開店。請問：他們開店的地點應為下列何者？</p>
+  <div class="context"><div class="table-wrap"><table><tr><th>地區</th><th>甲地區</th><th>乙地區</th><th>丙地區</th><th>丁地區</th></tr><tr><td>每平方公里店家數量</td><td>15</td><td>2</td><td>7</td><td>12</td></tr></table></div></div>
+  <div class="options"><label class="option"><input type="radio" name="q11" value="A"><span class="letter">A</span><span>甲地區</span></label><label class="option"><input type="radio" name="q11" value="B"><span class="letter">B</span><span>乙地區</span></label><label class="option"><input type="radio" name="q11" value="C"><span class="letter">C</span><span>丙地區</span></label><label class="option"><input type="radio" name="q11" value="D"><span class="letter">D</span><span>丁地區</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">廠商愈少 → 競爭程度愈低。<br>乙地區每平方公里只有 2 家，最少 → 選 (B)。</p><p class="key"><strong>解題關鍵：</strong>競爭程度最低＝廠商數量最少。</p></div>
+</article>
+<article class="card" data-chapter="市場競爭：價格與非價格競爭" id="q14" data-answer="D">
+  <div class="q-head"><span class="num">14</span><div><span class="source">九上第二次段考 第 14 題</span><h2>霧峰雞排商圈</h2></div></div>
+  <div class="context"><strong>閱讀題（第 14 題）</strong><p>根據農委會調查，國人一天吃掉 25 萬片炸雞排，疊起來可以超過 10 座臺北 101。某雞排連鎖店老闆表示，臺中霧峰商圈，一條街就有 10 間以上雞排店，消費者喜歡貨比三家，不但比 CP 值更要比美味，如果特色不夠強，不容易被看見。</p></div>
+  <p class="stem">若豪豪週末來到霧峰商圈，欲購買雞排。請問：他「最不可能」遇到下列何種狀況？</p>
+  <div class="options"><label class="option"><input type="radio" name="q14" value="A"><span class="letter">A</span><span>店家推出優惠組合</span></label><label class="option"><input type="radio" name="q14" value="B"><span class="letter">B</span><span>消費者有多種選擇</span></label><label class="option"><input type="radio" name="q14" value="C"><span class="letter">C</span><span>店家推出打卡送點心活動</span></label><label class="option"><input type="radio" name="q14" value="D"><span class="letter">D</span><span>售價一家比一家高</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">一條街 10 間以上 → 競爭激烈，店家會降價、促銷、搶客人。<br>(A)(C) 是競爭手法，(B) 是競爭帶來的結果。<br>(D) 競爭激烈時不太可能一家比一家貴 → 最不可能，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>注意題目問「最不可能」。</p></div>
+</article>
+<article class="card" data-chapter="市場競爭：價格與非價格競爭" id="q15" data-answer="C">
+  <div class="q-head"><span class="num">15</span><div><span class="source">九上第二次段考 第 15 題</span><h2>快時尚轉型</h2></div></div>
+  <div class="context"><strong>閱讀題（第 15 題）</strong><p>快時尚是指可以在很短的時間將時裝周中展出的潮流服飾推出的商業模式。<u style="text-decoration-style:double">快速方便、款式多樣性、便宜、流行是快時尚的優點，以平價路線吸引消費大眾</u>，其代表有 H&amp;M、無印良品。但這幾年因為遇到市場競爭程度高的影響，「轉型」成了快時尚品牌眼前最迫切的課題，很多品牌推出服裝租賃服務，消費者可以在店內試穿，也可以在網路上提前預訂，店內設計師還會提供穿搭建議。</p></div>
+  <p class="stem">請問：關於上述報導內容，下列敘述何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q15" value="A"><span class="letter">A</span><span>文章中畫雙線處提及快時尚吸引消費者的競爭優勢是企業形象</span></label><label class="option"><input type="radio" name="q15" value="B"><span class="letter">B</span><span>快時尚交易的市場依型態來區分是商品市場</span></label><label class="option"><input type="radio" name="q15" value="C"><span class="letter">C</span><span>文末強調「轉型」是指非價格競爭的銷售策略</span></label><label class="option"><input type="radio" name="q15" value="D"><span class="letter">D</span><span>快時尚產業競爭程度高讓消費者的選擇變少</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">(A) 雙線處強調「平價、便宜」→ 價格優勢，不是企業形象，錯。<br>(B) 依「型態」分是有形／無形市場；商品市場是依交易內容分，錯。<br>(C) 租賃、預訂、穿搭建議 → 提升服務的非價格競爭 ✓<br>(D) 競爭程度高，消費者選擇變多，錯。</p><p class="key"><strong>解題關鍵：</strong>「依型態」→ 有形／無形；「依內容」→ 商品／勞動。</p></div>
+</article>
+<article class="card" data-chapter="市場競爭：價格與非價格競爭" id="q26" data-answer="A">
+  <div class="q-head"><span class="num">26</span><div><span class="source">九上第二次段考 第 26 題</span><h2>香草精油廣告</h2></div></div>
+  <p class="stem">小琪在電視上看到一則企業宣傳產品的廣告，廣告內容如下，請問：業者採取的銷售策略為何？</p>
+  <div class="context"><p><strong>我們的產品思考農藥傷害環境問題，堅持以自然農法方式植栽香草，製作精油與其衍生相關產品如洗劑、保養品、香草茶…等，同時復育土地及避免環境荷爾蒙汙染。讓我們找回最美麗的福爾摩沙島！</strong></p></div>
+  <div class="options"><label class="option"><input type="radio" name="q26" value="A"><span class="letter">A</span><span>建立企業形象以增加銷售量</span></label><label class="option"><input type="radio" name="q26" value="B"><span class="letter">B</span><span>與其他廠商聯盟設計商品</span></label><label class="option"><input type="radio" name="q26" value="C"><span class="letter">C</span><span>運用低成本的資源生產產品</span></label><label class="option"><input type="radio" name="q26" value="D"><span class="letter">D</span><span>削價競爭吸引消費者</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">廣告強調友善環境、自然農法、復育土地 → 打造綠色、愛護環境的企業形象，吸引認同理念的消費者，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>強調理念、環保、公益＝建立企業形象（非價格競爭）。</p></div>
+</article>
+<article class="card" data-chapter="市場競爭：價格與非價格競爭" id="q27" data-answer="A">
+  <div class="q-head"><span class="num">27</span><div><span class="source">九上第二次段考 第 27 題</span><h2>飢餓行銷</h2></div></div>
+  <p class="stem">「飢餓行銷」是一種常見的行銷手法，指的是業者在短時間內利用各種管道宣傳大批民眾排隊購買的熱潮，營造該項商品都會很快被搶購一空的情況，透過媒體將商品炒作成為時下流行的話題，進而引起民眾的消費欲望。關於上述行銷手法對於消費市場的影響，下列敘述何者最適當？</p>
+  <div class="options"><label class="option"><input type="radio" name="q27" value="A"><span class="letter">A</span><span>廠商運用非價格競爭策略增加消費欲望</span></label><label class="option"><input type="radio" name="q27" value="B"><span class="letter">B</span><span>業者的行銷手法將提高市場競爭程度</span></label><label class="option"><input type="radio" name="q27" value="C"><span class="letter">C</span><span>廠商間的競爭使消費者的選擇增加</span></label><label class="option"><input type="radio" name="q27" value="D"><span class="letter">D</span><span>民眾的購物意願受金錢誘因影響而提高</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">飢餓行銷靠排隊、稀有感、話題吸引消費者，沒有降價 → 非價格競爭，選 (A)。<br>(B)(C) 競爭程度看廠商數量，與行銷手法無關；(D) 沒有提供金錢誘因。</p><p class="key"><strong>解題關鍵：</strong>沒降價的行銷手法都屬於非價格競爭。</p></div>
+</article>
+<article class="card" data-chapter="市場競爭：價格與非價格競爭" id="q36" data-answer="B">
+  <div class="q-head"><span class="num">36</span><div><span class="source">九上第二次段考 第 36 題</span><h2>信用卡看電影優惠</h2></div></div>
+  <p class="stem">以下是某家銀行推出刷信用卡看電影的優惠活動，依據活動內容，請選出最適宜的選項？</p>
+  <div class="context"><p>適用信用卡：鈦金／御璽／晶緻卡（含）以上<br>◆平日：週一～週四 2D 全票 7 折<br>◆天天：小爆米花＋中杯可樂優惠價 80 元<br>◆影城現場櫃台刷信用卡購買電影票，天天享「小爆米花＋中杯可樂」套餐加購 35 元</p></div>
+  <div class="options"><label class="option"><input type="radio" name="q36" value="A"><span class="letter">A</span><span>銀行採取非價格競爭的方式吸引消費者</span></label><label class="option"><input type="radio" name="q36" value="B"><span class="letter">B</span><span>銀行利用正向誘因影響消費者消費</span></label><label class="option"><input type="radio" name="q36" value="C"><span class="letter">C</span><span>銀行依「如何生產」的課題提供不同的優惠</span></label><label class="option"><input type="radio" name="q36" value="D"><span class="letter">D</span><span>電影票的價格是由生產者決定</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">票價打 7 折、套餐優惠價 → 提供好處（正向誘因）吸引民眾刷卡消費，選 (B)。<br>(A) 打折是價格上的優惠；(C) 與「如何生產」無關；(D) 價格由市場供需決定。</p><p class="key"><strong>解題關鍵：</strong>給好處鼓勵某行為＝正向誘因。</p></div>
+</article>
+<section class="sec-head" id="ch4"><h3>4. 分工與國際貿易</h3><p>第 3、4、8、17、18、19、20、23、24、25、28、30、31、34、38、40 題，共 16 題</p><p class="kw">重點：誰的機會成本較低，誰就有比較利益，就該專門生產那項產品，再透過貿易交換，雙方福祉都提升。出超＝收入＞支出；入超＝支出＞收入</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>概念</th><th>說明</th><th>判斷方法</th></tr><tr><td>比較利益</td><td>生產某產品的機會成本較低</td><td>比較「生產 1 單位要放棄多少另一產品」</td></tr><tr><td>國際分工</td><td>各國依比較利益分別負責不同的生產環節</td><td>研發在臺灣、組裝在印度</td></tr><tr><td>產業聚落／產業鏈</td><td>上下游廠商聚集、分工合作</td><td>離岸風電聚落、電子零組件</td></tr><tr><td>貿易收入</td><td>出口商品賺的錢</td><td>斯里蘭卡出口茶葉</td></tr><tr><td>貿易支出</td><td>進口商品付的錢</td><td>臺灣向莫三比克買原料</td></tr><tr><td>出超／入超</td><td>收入＞支出／支出＞收入</td><td>貿易順差／貿易逆差</td></tr><tr><td>開放進口的影響</td><td>供給增加 → 價格下降、本土產業受競爭壓力</td><td>美豬、外國牛肉、加入 WTO</td></tr></table></div></div></section>
+<article class="card" data-chapter="分工與國際貿易" id="q3" data-answer="C">
+  <div class="q-head"><span class="num">03</span><div><span class="source">九上第二次段考 第 3 題</span><h2>國際分工</h2></div></div>
+  <div class="context"><strong>閱讀題（第 3～4 題）</strong><p>為達成非核家園願景，能源轉型是政府重點政策之一。為此，行政院推動離岸風電設置和發電。過去，風電生產聚落都在歐洲，為了讓歐洲廠商願意來臺灣設廠，行政院副院長參訪德國時，專程造訪波蘭，促成全球機電系統供應商 KK Wind Solutions 在臺灣設立工廠。目前離岸風電已分別於臺北港、臺中港、興達港形成產業聚落，也吸引國際風力機系統商在臺灣設廠，除了大幅降低業者的運輸風險及時間成本，更帶動周邊各項零組件製造商機。經濟部表示，政策推動迄今已創造產值超過新臺幣 600 億元、近兩年新增 1,300 個就業機會。</p></div>
+  <p class="stem">歐洲廠商──全球機電系統供應商 KK Wind Solutions 在臺灣設立工廠，生產一部分的零件，此現象屬於下列何者？</p>
+  <div class="options"><label class="option"><input type="radio" name="q3" value="A"><span class="letter">A</span><span>國際貿易</span></label><label class="option"><input type="radio" name="q3" value="B"><span class="letter">B</span><span>國際交流</span></label><label class="option"><input type="radio" name="q3" value="C"><span class="letter">C</span><span>國際分工</span></label><label class="option"><input type="radio" name="q3" value="D"><span class="letter">D</span><span>價格競爭</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">外國廠商到臺灣設廠，只負責「一部分零件」的生產 → 不同國家分別負責不同生產環節，屬於「國際分工」，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>一項產品由不同國家各做一部分＝國際分工。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q4" data-answer="B">
+  <div class="q-head"><span class="num">04</span><div><span class="source">九上第二次段考 第 4 題</span><h2>產業聚落與產業鏈</h2></div></div>
+  <div class="context"><strong>閱讀題（第 3～4 題）</strong><p>為達成非核家園願景，能源轉型是政府重點政策之一。為此，行政院推動離岸風電設置和發電。過去，風電生產聚落都在歐洲，為了讓歐洲廠商願意來臺灣設廠，行政院副院長參訪德國時，專程造訪波蘭，促成全球機電系統供應商 KK Wind Solutions 在臺灣設立工廠。目前離岸風電已分別於臺北港、臺中港、興達港形成產業聚落，也吸引國際風力機系統商在臺灣設廠，除了大幅降低業者的運輸風險及時間成本，更帶動周邊各項零組件製造商機。經濟部表示，政策推動迄今已創造產值超過新臺幣 600 億元、近兩年新增 1,300 個就業機會。</p></div>
+  <p class="stem">根據文末關於產業聚落的形成，可知在這些商品的生產上，具有何種現象？</p>
+  <div class="options"><label class="option"><input type="radio" name="q4" value="A"><span class="letter">A</span><span>在臺生產機會成本較高</span></label><label class="option"><input type="radio" name="q4" value="B"><span class="letter">B</span><span>產業分工形成產業鏈</span></label><label class="option"><input type="radio" name="q4" value="C"><span class="letter">C</span><span>政府可藉此增加關稅</span></label><label class="option"><input type="radio" name="q4" value="D"><span class="letter">D</span><span>由單一廠商完成產品</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">產業聚落「帶動周邊各項零組件製造商機」→ 上下游廠商聚集、各自分工，串成完整的產業鏈，選 (B)。<br>(A) 降低運輸風險與時間成本，代表在臺生產成本較低；(D) 是多家廠商分工，不是單一廠商。</p><p class="key"><strong>解題關鍵：</strong>產業聚落＝上下游廠商聚在一起分工合作。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q8" data-answer="D">
+  <div class="q-head"><span class="num">08</span><div><span class="source">九上第二次段考 第 8 題</span><h2>開放美豬進口</h2></div></div>
+  <div class="context"><strong>閱讀題（第 8 題）</strong><p>2020 年中，總統宣布自 2021 年起開放含「萊克多巴胺」的美國豬肉。政府表示：在國際互動上，強調國家間的互惠，我國若欲與美國建立更良好的關係，禁止美豬、美牛進口的貿易障礙，是不可迴避的問題，並列舉日本與南韓均已依照國際標準予以開放，臺灣若堅守禁令，恐將面臨全球孤立的處境。<br>此政策引發民眾反彈，本土豬農擔憂豬肉市場受到便宜的進口豬肉衝擊，影響銷售，而多數民眾則擔心食品安全問題。對此，農委會表示：進口豬肉因口感與新鮮度不佳，火腿、香腸、肉鬆等加工肉類業者可能採用，但一般消費者的購買意願應該不高。豬肉業者也表示願意清楚標示產地，減少消費者在購買上的疑慮。</p></div>
+  <p class="stem">根據上文，下列何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q8" value="A"><span class="letter">A</span><span>我國進口美國豬肉，將增加我國的國際貿易收入</span></label><label class="option"><input type="radio" name="q8" value="B"><span class="letter">B</span><span>開放美豬進口後，多數民眾因為美豬價格高，購買意願不高</span></label><label class="option"><input type="radio" name="q8" value="C"><span class="letter">C</span><span>開放美豬進口，是為了滿足國內消費者飲食需求</span></label><label class="option"><input type="radio" name="q8" value="D"><span class="letter">D</span><span>國際關係也是國際貿易政策所需考量的因素之一</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">(A) 進口是「貿易支出」，錯。<br>(B) 文中說進口豬肉便宜，民眾擔心的是食安，錯。<br>(C) 政府理由是與美國的關係、避免孤立，錯。<br>(D) 為深化台美關係、避免被孤立 → 國際關係是考量因素 ✓</p><p class="key"><strong>解題關鍵：</strong>進口＝支出、出口＝收入；政策理由看文章明寫的內容。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q17" data-answer="B">
+  <div class="q-head"><span class="num">17</span><div><span class="source">九上第二次段考 第 17 題</span><h2>臺灣成衣出口下滑</h2></div></div>
+  <div class="figure"><img src="../img/renai113-m2/q17.png" alt="第 17 題附圖" loading="lazy"></div>
+  <p class="stem">附圖為 1991 至 2010 年臺灣成衣出口產值的變化情形，造成該變化趨勢的主要原因為何？</p>
+  <div class="options"><label class="option"><input type="radio" name="q17" value="A"><span class="letter">A</span><span>我國政府開放其它國家成衣進口</span></label><label class="option"><input type="radio" name="q17" value="B"><span class="letter">B</span><span>國內生產成本提高</span></label><label class="option"><input type="radio" name="q17" value="C"><span class="letter">C</span><span>國外市場規模擴大</span></label><label class="option"><input type="radio" name="q17" value="D"><span class="letter">D</span><span>產品附加價值提升</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">成衣是勞力密集產業，臺灣工資與土地成本上升 → 在國內生產不再具比較利益 → 工廠外移，出口產值下滑，選 (B)。<br>(A) 進口與「出口」產值無直接關係；(C)(D) 會讓出口增加。</p><p class="key"><strong>解題關鍵：</strong>生產成本上升 → 失去比較利益 → 產業外移。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q18" data-answer="B">
+  <div class="q-head"><span class="num">18</span><div><span class="source">九上第二次段考 第 18 題</span><h2>臺灣製造世足用品</h2></div></div>
+  <p class="stem">「我國紡織業、製鞋等產業經過多年技術研發，在國際占有重要地位。2022 年世足賽中，不僅球衣、球鞋，甚至連晶片足球也由臺灣製造。」關於上述內容，下列何項說明正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q18" value="A"><span class="letter">A</span><span>我國紡織業、製鞋業技術卓越，以低生產成本聞名</span></label><label class="option"><input type="radio" name="q18" value="B"><span class="letter">B</span><span>我國紡織業、製鞋業提升產品品質，獲得市場肯定</span></label><label class="option"><input type="radio" name="q18" value="C"><span class="letter">C</span><span>由於關稅減免，臺灣紡織品、鞋品具有價格優勢</span></label><label class="option"><input type="radio" name="q18" value="D"><span class="letter">D</span><span>紡織品、鞋品出口國數量極少，無法與我國競爭</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">關鍵字「多年技術研發」→ 提升品質與附加價值，因而獲得國際市場肯定，選 (B)。<br>文中沒提到低成本、關稅或出口國數量。</p><p class="key"><strong>解題關鍵：</strong>技術研發 → 品質提升 → 高附加價值。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q19" data-answer="C">
+  <div class="q-head"><span class="num">19</span><div><span class="source">九上第二次段考 第 19 題</span><h2>研發在本國、組裝在印度</h2></div></div>
+  <div class="figure"><img src="../img/renai113-m2/q19.png" alt="第 19 題附圖" loading="lazy"></div>
+  <p class="stem">某科技公司的員工會議中，經理宣布未來公司的規畫如附圖，由圖中內容判斷，下列說明何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q19" value="A"><span class="letter">A</span><span>新建工廠的目的為提高生產成本</span></label><label class="option"><input type="radio" name="q19" value="B"><span class="letter">B</span><span>該公司在外國進行組裝的成本較高</span></label><label class="option"><input type="radio" name="q19" value="C"><span class="letter">C</span><span>該公司在本國研發設計機會成本較低</span></label><label class="option"><input type="radio" name="q19" value="D"><span class="letter">D</span><span>在印度進行設計可創造較高的利潤</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">公司把「組裝」移到印度、「研發設計」留在本國 → 依比較利益分工：<br>本國研發設計的機會成本較低（有比較利益）→ (C) ✓<br>印度組裝成本較低，(B) 錯；設計在本國，(D) 錯；設廠是為了降低成本，(A) 錯。</p><p class="key"><strong>解題關鍵：</strong>留在哪裡做，就代表在那裡做的機會成本較低。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q20" data-answer="A">
+  <div class="q-head"><span class="num">20</span><div><span class="source">九上第二次段考 第 20 題</span><h2>外國牛肉開放進口</h2></div></div>
+  <div class="figure"><img src="../img/renai113-m2/q20.png" alt="第 20 題附圖" loading="lazy"></div>
+  <p class="stem">淳棋正在和朋友討論最近的購物經驗，根據附圖對話判斷，下列哪一項解讀正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q20" value="A"><span class="letter">A</span><span>因外國牛肉進口，國產牛肉價格下跌</span></label><label class="option"><input type="radio" name="q20" value="B"><span class="letter">B</span><span>我國市場上的牛肉全部仰賴外國進口</span></label><label class="option"><input type="radio" name="q20" value="C"><span class="letter">C</span><span>我國輸出牛肉至外國較之前急遽減少</span></label><label class="option"><input type="radio" name="q20" value="D"><span class="letter">D</span><span>市場價格偏低，廠商不願意生產牛肉</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">「外國牛肉沒有開放進口前價格更高」→ 開放進口後市場供給增加，牛肉價格下降，消費者能用較低價格購買，選 (A)。<br>(B)「全部」太絕對（仍有國產牛肉）；(C)(D) 對話沒提到。</p><p class="key"><strong>解題關鍵：</strong>開放進口 → 供給增加 → 價格下降。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q23" data-answer="A">
+  <div class="q-head"><span class="num">23</span><div><span class="source">九上第二次段考 第 23 題</span><h2>酪梨油公司部門配置</h2></div></div>
+  <div class="figure"><img src="../img/renai113-m2/q23.png" alt="第 23 題附圖" loading="lazy"></div>
+  <p class="stem">雨萱與友人成立一家公司，主要商品是有機酪梨油，附圖為公司各部門的配置，這樣的安排能讓公司賺取最大的利潤。由圖中資料判斷，下列說明何者最為「有誤」？</p>
+  <div class="options"><label class="option"><input type="radio" name="q23" value="A"><span class="letter">A</span><span>臺灣是商品的主要銷售市場</span></label><label class="option"><input type="radio" name="q23" value="B"><span class="letter">B</span><span>將設計部設在英國生產成本較低</span></label><label class="option"><input type="radio" name="q23" value="C"><span class="letter">C</span><span>透過國際分工降低生產成本</span></label><label class="option"><input type="radio" name="q23" value="D"><span class="letter">D</span><span>臺灣向莫三比克買原料，形成貿易支出</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">圖中臺灣是「總部」，商品銷售到 32 個國家 → 看不出臺灣是主要銷售市場，(A) 有誤 ✓<br>(B)(C) 各部門設在成本最低的國家 → 國際分工，正確。<br>(D) 向外國買原料＝進口＝貿易支出，正確。</p><p class="key"><strong>解題關鍵：</strong>注意題目問「有誤」；總部所在地≠主要銷售市場。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q24" data-answer="C">
+  <div class="q-head"><span class="num">24</span><div><span class="source">九上第二次段考 第 24 題</span><h2>長條蛋糕漲價</h2></div></div>
+  <div class="figure"><img src="../img/renai113-m2/q24.png" alt="第 24 題附圖" loading="lazy"></div>
+  <p class="stem">由於國際貿易的發展，商品跨國流通，頻繁進行交易。依照附圖對話內容判斷，下列何者說明正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q24" value="A"><span class="letter">A</span><span>進口原料較國內原料價格高</span></label><label class="option"><input type="radio" name="q24" value="B"><span class="letter">B</span><span>外國原料進口導致原料的市場價格高漲</span></label><label class="option"><input type="radio" name="q24" value="C"><span class="letter">C</span><span>外國原料讓店家能有低價選擇</span></label><label class="option"><input type="radio" name="q24" value="D"><span class="letter">D</span><span>店家為降低成本選擇國內原料</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">老闆說改買國內原料「成本提高」→ 原本進口的外國原料比較便宜。<br>國際貿易讓店家多了低價原料的選擇，選 (C)。<br>(A) 相反；(B) 漲價是因為進口不來；(D) 改用國內原料是不得已，成本反而提高。</p><p class="key"><strong>解題關鍵：</strong>改用國內原料後成本變高 → 進口原料較便宜。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q25" data-answer="D">
+  <div class="q-head"><span class="num">25</span><div><span class="source">九上第二次段考 第 25 題</span><h2>丁國的貿易收入</h2></div></div>
+  <p class="stem">以樂整理某四個國家一年的進出口資料，如附表所示，當中有兩個國家呈現貿易順差（出超），兩個國家為貿易逆差（入超）。請問：丁國的貿易收入最可能是下列何者？</p>
+  <div class="context"><div class="table-wrap"><table><tr><th>國家</th><th>貿易支出（千萬元）</th><th>貿易收入（千萬元）</th></tr><tr><td>甲國</td><td>41,343</td><td>46,546</td></tr><tr><td>乙國</td><td>7,422</td><td>5,944</td></tr><tr><td>丙國</td><td>196,365</td><td>185,313</td></tr><tr><td>丁國</td><td>64,537</td><td>？</td></tr></table></div></div>
+  <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;甲國：收入 46,546、支出 41,343，是？&quot;, [&quot;出超&quot;, &quot;入超&quot;], 0, &quot;收入比支出多。&quot;, &quot;甲＝出超&quot;], [&quot;乙、丙兩國是？&quot;, [&quot;都出超&quot;, &quot;都入超&quot;], 1, &quot;兩國都是支出比收入多。&quot;, &quot;乙、丙＝入超&quot;], [&quot;要「兩出超、兩入超」，丁的收入要？&quot;, [&quot;小於 64,537&quot;, &quot;大於 64,537&quot;], 1, &quot;丁必須是出超。&quot;, &quot;收入＞64,537 → 74,212，選 (D)&quot;]]"></div></details>
+  <div class="options"><label class="option"><input type="radio" name="q25" value="A"><span class="letter">A</span><span>12,452 千萬元</span></label><label class="option"><input type="radio" name="q25" value="B"><span class="letter">B</span><span>43,258 千萬元</span></label><label class="option"><input type="radio" name="q25" value="C"><span class="letter">C</span><span>64,408 千萬元</span></label><label class="option"><input type="radio" name="q25" value="D"><span class="letter">D</span><span>74,212 千萬元</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">甲：收入 46,546 ＞ 支出 41,343 → 出超<br>乙：收入 5,944 ＜ 支出 7,422 → 入超<br>丙：收入 185,313 ＜ 支出 196,365 → 入超<br>兩國出超、兩國入超 → 丁必須是出超：收入 ＞ 64,537<br>只有 74,212 符合，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>出超＝收入＞支出；先判斷甲乙丙，再推丁。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q28" data-answer="D">
+  <div class="q-head"><span class="num">28</span><div><span class="source">九上第二次段考 第 28 題</span><h2>汽車與自行車的比較利益</h2></div></div>
+  <p class="stem">附表是甲、乙兩國生產汽車或自行車的機會成本表，請問：甲、乙兩國應如何進行國際貿易才能各取所需，互蒙其利？</p>
+  <div class="context"><div class="table-wrap"><table><tr><th>項目＼國名</th><th>甲國</th><th>乙國</th></tr><tr><td>1 輛汽車</td><td>7/3 輛自行車</td><td>3/2 輛自行車</td></tr><tr><td>1 輛自行車</td><td>3/7 輛汽車</td><td>2/3 輛汽車＊</td></tr></table></div><p class="adapted">＊原卷印「3/2 輛汽車」，依 1 ÷ 3/2 應為 2/3 輛汽車，此處已更正。</p></div>
+  <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;生產 1 輛汽車，哪一國放棄的自行車較少？&quot;, [&quot;甲國（7/3）&quot;, &quot;乙國（3/2）&quot;], 1, &quot;7/3≈2.33，3/2＝1.5。&quot;, &quot;乙國汽車機會成本較低&quot;], [&quot;生產 1 輛自行車，哪一國放棄的汽車較少？&quot;, [&quot;甲國（3/7）&quot;, &quot;乙國（2/3）&quot;], 0, &quot;3/7≈0.43，2/3≈0.67。&quot;, &quot;甲國自行車機會成本較低&quot;], [&quot;所以應該？&quot;, [&quot;甲出口汽車、乙出口自行車&quot;, &quot;甲出口自行車、乙出口汽車&quot;], 1, &quot;機會成本低的就出口那項產品。&quot;, &quot;選 (D)&quot;]]"></div></details>
+  <div class="options"><label class="option"><input type="radio" name="q28" value="A"><span class="letter">A</span><span>甲國出口汽車，乙國出口自行車</span></label><label class="option"><input type="radio" name="q28" value="B"><span class="letter">B</span><span>甲國出口汽車，從乙國進口自行車</span></label><label class="option"><input type="radio" name="q28" value="C"><span class="letter">C</span><span>乙國出口自行車，從甲國進口汽車</span></label><label class="option"><input type="radio" name="q28" value="D"><span class="letter">D</span><span>甲國出口自行車，乙國出口汽車</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">生產 1 輛汽車要放棄：甲 7/3 輛、乙 3/2 輛自行車 → 乙較低 → 乙有汽車的比較利益<br>生產 1 輛自行車要放棄：甲 3/7 輛、乙 2/3 輛汽車 → 甲較低 → 甲有自行車的比較利益<br>甲出口自行車、乙出口汽車，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>比的是「機會成本」，誰低誰就生產並出口。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q30" data-answer="B">
+  <div class="q-head"><span class="num">30</span><div><span class="source">九上第二次段考 第 30 題</span><h2>日本與臺灣的分工</h2></div></div>
+  <p class="stem">日本在製造電玩主機 Switch 機會成本較低，臺灣則在製造 TFT 液晶面板上機會成本較低。依此資料判斷，下列敘述何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q30" value="A"><span class="letter">A</span><span>日本與臺灣擅長之生產項目不同，彼此無合作空間</span></label><label class="option"><input type="radio" name="q30" value="B"><span class="letter">B</span><span>日本與臺灣透過國際貿易可以增進彼此福祉</span></label><label class="option"><input type="radio" name="q30" value="C"><span class="letter">C</span><span>日本應投入更多資源以製造 TFT 液晶面板</span></label><label class="option"><input type="radio" name="q30" value="D"><span class="letter">D</span><span>臺灣在製造電玩主機 Switch 上應積極擴大投資</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">兩國各自生產機會成本較低的產品，再透過貿易交換 → 雙方福祉都提升，選 (B)。<br>(A) 擅長項目不同正是合作的理由；(C)(D) 剛好顛倒。</p><p class="key"><strong>解題關鍵：</strong>專業分工＋貿易＝互蒙其利。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q31" data-answer="D">
+  <div class="q-head"><span class="num">31</span><div><span class="source">九上第二次段考 第 31 題</span><h2>整理資料的分工</h2></div></div>
+  <div class="figure"><img src="../img/renai113-m2/q31.png" alt="第 31 題附圖" loading="lazy"></div>
+  <p class="stem">信澄和貴鈴在進行整理勞工與性別兩個主題資料的分工，依照附圖對話內容，下列敘述何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q31" value="A"><span class="letter">A</span><span>信澄整理性別主題資料機會成本較低</span></label><label class="option"><input type="radio" name="q31" value="B"><span class="letter">B</span><span>貴鈴整理性別主題資料機會成本較高</span></label><label class="option"><input type="radio" name="q31" value="C"><span class="letter">C</span><span>信澄在整理性別主題資料較有效率</span></label><label class="option"><input type="radio" name="q31" value="D"><span class="letter">D</span><span>貴鈴在整理性別主題資料可以將資源做最有效率的使用</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">兩人依比較利益分工：信澄負責勞工主題、貴鈴負責性別主題。<br>貴鈴整理性別主題的機會成本較低（有比較利益）→ 由她負責，能讓資源做最有效率的運用，選 (D)。<br>(A)(B) 說反了；(C) 信澄並沒有負責性別主題。</p><p class="key"><strong>解題關鍵：</strong>依比較利益分工，能讓每個人發揮最大效益。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q34" data-answer="D">
+  <div class="q-head"><span class="num">34</span><div><span class="source">九上第二次段考 第 34 題</span><h2>打入電動車供應鏈</h2></div></div>
+  <p class="stem">過去，我國廠商很難切入 BMW、賓士等傳統一線車廠供應鏈，但是當受惠於電動車市場崛起，我國廠商也開始打入汽車產業，因為我國廠商可以少量多樣化為其特別量身打造，再加上電動車的生產須涉及電子零組件，這些都是我國廠商的優勢項目。如今，我國許多廠商已成為智慧電動車市場的重要供應商。根據上文敘述，我國廠商可加入電動車市場，是受惠於下列何者原因？</p>
+  <div class="options"><label class="option"><input type="radio" name="q34" value="A"><span class="letter">A</span><span>我國盛產關於汽車製造的相關原料</span></label><label class="option"><input type="radio" name="q34" value="B"><span class="letter">B</span><span>我國汽車廠牌受到他國消費者喜愛</span></label><label class="option"><input type="radio" name="q34" value="C"><span class="letter">C</span><span>我國政府在汽車業上採取補助措施</span></label><label class="option"><input type="radio" name="q34" value="D"><span class="letter">D</span><span>我國在電子零組件生產具相對優勢</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">文中明寫：電動車需要電子零組件，「這些都是我國廠商的優勢項目」→ 具相對優勢（比較利益），選 (D)。</p><p class="key"><strong>解題關鍵：</strong>找文章中的「優勢」關鍵句。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q38" data-answer="D">
+  <div class="q-head"><span class="num">38</span><div><span class="source">九上第二次段考 第 38 題</span><h2>反對加入 WTO 海報</h2></div></div>
+  <div class="figure"><img src="../img/renai113-m2/q38.png" alt="第 38 題附圖" loading="lazy"></div>
+  <p class="stem">裴崙看到一張將近 20 年前的遊行舊海報，如附圖所示。根據海報內容判斷，當時政府的決定加入「世界貿易組織後，開放農產品進口」，此決定可能讓農民面臨何種衝擊？</p>
+  <div class="options"><label class="option"><input type="radio" name="q38" value="A"><span class="letter">A</span><span>國內勞動力被機器生產取代</span></label><label class="option"><input type="radio" name="q38" value="B"><span class="letter">B</span><span>民眾對於進口農產品安全有疑慮</span></label><label class="option"><input type="radio" name="q38" value="C"><span class="letter">C</span><span>從事農業轉型使得成本增加</span></label><label class="option"><input type="radio" name="q38" value="D"><span class="letter">D</span><span>外國商品進口帶來競爭壓力</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">開放外國農產品進口 → 市場上同類商品變多、價格可能更低 → 本土農民面臨外國商品的競爭壓力，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>開放進口對本土產業最直接的影響＝競爭壓力。</p></div>
+</article>
+<article class="card" data-chapter="分工與國際貿易" id="q40" data-answer="B">
+  <div class="q-head"><span class="num">40</span><div><span class="source">九上第二次段考 第 40 題</span><h2>斯里蘭卡的茶葉</h2></div></div>
+  <div class="context"><strong>題組一（第 40～42 題）</strong><p>斯里蘭卡從 2019 年起面臨自 1948 年獨立以後最嚴重的經濟危機，造成危機的主要原因包括轉向有機農業的政策、債務危機及新冠疫情等因素。<br>茶葉是斯里蘭卡最主要的出口產品，每年可帶來超過 12.5 億美元的外匯收入，但是因為政府推行 100% 有機肥種植的政策，全面禁止化學肥料進口，農民將面臨無化肥可用的情況，<u style="text-decoration-style:double">少了化肥，茶芽和綠葉生長受影響，每年平均 3 億公斤的茶葉產量將大減</u>；此外有機茶生產成本高出 10 倍，而且市場有限，茶商收入勢必也跟著銳減，最後虧損過大，只能倒閉收場，茶園關閉，受影響的人數將達 300 萬人，也重創斯里蘭卡經濟。<br>除了有機肥種植的政策，新冠疫情也重挫國家經濟，物價上漲比率高達 11.1%，並欠下伊朗 2.5 億美元石油債務，斯里蘭卡與伊朗達成協議，每月運送價值 500 萬美元茶葉的方式償還債務。為了因應不斷上漲的食物、乳製品成本，許多民眾一日三餐減到一日兩餐，晚餐餐桌上的奶茶變成了只加了點糖的「甜茶」，改變了消費模式。【註：「外匯」是指外國的貨幣。】</p></div>
+  <p class="stem">依上述內容判斷，下列敘述何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q40" value="A"><span class="letter">A</span><span>斯里蘭卡出口茶葉是一種國際分工的現象</span></label><label class="option"><input type="radio" name="q40" value="B"><span class="letter">B</span><span>斯里蘭卡茶葉的貿易收入大於貿易支出</span></label><label class="option"><input type="radio" name="q40" value="C"><span class="letter">C</span><span>民眾消費模式的改變是因為正向的誘因</span></label><label class="option"><input type="radio" name="q40" value="D"><span class="letter">D</span><span>民眾一日三餐的飲食方式機會成本較低</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">茶葉是斯里蘭卡最主要出口品，帶來 12.5 億美元外匯 → 出口茶葉的貿易收入遠大於相關支出，選 (B)。<br>(A) 單純出口商品是國際貿易；(C) 物價上漲是「負向」誘因；(D) 物價上漲讓三餐的成本變高。</p><p class="key"><strong>解題關鍵：</strong>出口賺外匯＝貿易收入。</p></div>
+</article>
+<section class="sec-head" id="ch5"><h3>5. 消費者保護與公平交易</h3><p>第 22、37、43、44、45 題，共 5 題</p><p class="kw">重點：消保法──網購有 7 天猶豫期，但客製化、易腐敗等屬合理例外；公平交易法──公平會審查企業結合（看市占率是否形成獨占）；不服行政處分 → 行政法院</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>法律／機關</th><th>重點</th><th>常考陷阱</th></tr><tr><td>消費者保護法</td><td>通訊交易（網購、電視購物）享 7 天猶豫期</td><td>客製化商品、易腐敗商品不適用</td></tr><tr><td>行政院消費者保護處</td><td>政府機關</td><td>民間的消保團體（如消基會）不是它</td></tr><tr><td>民事責任</td><td>消費者要求賠償、退換貨</td><td>刑事責任才是罰金、有期徒刑</td></tr><tr><td>行政罰</td><td>政府對業者罰鍰</td><td>罰鍰≠罰金</td></tr><tr><td>公平交易委員會</td><td>審查企業結合、防止獨占</td><td>依「結合後市占率」判斷</td></tr><tr><td>行政法院</td><td>審理行政訴訟（不服行政處分）</td><td>不是地方法院、檢察署</td></tr><tr><td>職業工會</td><td>同職業者組成的志願結社團體</td><td>以維護會員工作權益為取向</td></tr></table></div></div></section>
+<article class="card" data-chapter="消費者保護與公平交易" id="q22" data-answer="C">
+  <div class="q-head"><span class="num">22</span><div><span class="source">九上第二次段考 第 22 題</span><h2>客製化馬克杯</h2></div></div>
+  <div class="figure"><img src="../img/renai113-m2/q22.png" alt="第 22 題附圖" loading="lazy"></div>
+  <p class="stem">好友 Anna 的生日即將到來，Peter 於網路商店訂製了馬克杯準備作為禮物，如附圖。請問：若 Peter 收到商品後不滿意，他可以怎麼做？</p>
+  <div class="options"><label class="option"><input type="radio" name="q22" value="A"><span class="letter">A</span><span>依《公平交易法》保障的猶豫期向商家退貨</span></label><label class="option"><input type="radio" name="q22" value="B"><span class="letter">B</span><span>在實體店面購買所以無猶豫期</span></label><label class="option"><input type="radio" name="q22" value="C"><span class="letter">C</span><span>屬於客製化的商品，無法退換貨</span></label><label class="option"><input type="radio" name="q22" value="D"><span class="letter">D</span><span>此商品易腐敗，故不在猶豫期的保障內</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">印上名字的馬克杯是「依消費者要求所為之客製化給付」→ 屬《消費者保護法》7 天猶豫期的合理例外，不能無條件退貨，選 (C)。<br>(A) 猶豫期規定在《消保法》不是《公平法》；(B) 是網購；(D) 馬克杯不會腐敗。</p><p class="key"><strong>解題關鍵：</strong>猶豫期＝消保法；客製化商品是例外。</p></div>
+</article>
+<article class="card" data-chapter="消費者保護與公平交易" id="q37" data-answer="C">
+  <div class="q-head"><span class="num">37</span><div><span class="source">九上第二次段考 第 37 題</span><h2>消費者權益與法律責任</h2></div></div>
+  <p class="stem">新聞報導：「民間消費者保護團體主張，不肖廠商為謀利而製造問題商品，且以不實的廣告行銷宣傳，政府應加重對企業經營者的行政罰責；此外，消費者若覺得自己的權益受損，則可要求廠商負起<u>法律上的責任</u>」根據上述內容，下列敘述何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q37" value="A"><span class="letter">A</span><span>文中的消費者保護團體為行政院消費者保護處</span></label><label class="option"><input type="radio" name="q37" value="B"><span class="letter">B</span><span>消費者和廠商的糾紛可透過行政訴訟處理</span></label><label class="option"><input type="radio" name="q37" value="C"><span class="letter">C</span><span>畫線部分為民事責任為主</span></label><label class="option"><input type="radio" name="q37" value="D"><span class="letter">D</span><span>罰金是政府對企業經營者的行政罰責之一</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">(A) 「民間」團體（如消基會）不是政府機關，錯。<br>(B) 消費糾紛是私人間的糾紛 → 民事訴訟，錯。<br>(C) 消費者要求賠償、退換貨 → 民事責任 ✓<br>(D) 行政罰是「罰鍰」；「罰金」是刑罰，錯。</p><p class="key"><strong>解題關鍵：</strong>罰鍰（行政罰）≠ 罰金（刑罰）。</p></div>
+</article>
+<article class="card" data-chapter="消費者保護與公平交易" id="q43" data-answer="D">
+  <div class="q-head"><span class="num">43</span><div><span class="source">九上第二次段考 第 43 題</span><h2>公平會審查合併案</h2></div></div>
+  <div class="context"><strong>題組二（第 43～45 題）</strong><p>臺灣目前有三家主要的外送平台，平台資料如《資料一》所列。今年 5 月，優食公司（Uber Eats）的母公司 Uber Technology Inc. 宣布，購併 Delivery Hero 旗下的 Foodpanda 台灣業務。目前此案子送公平會審查中，部長回應此案子必須先開公聽會再審查。<br>公平會判斷兩家企業能否合併的重點在於：「各自在市場中所佔的份額為多少，再來檢視兩者結合後的市占率，是否會形成獨佔或優勢地位，進而影響消費者的利益。」<br>相較錢櫃與好樂迪 KTV 的合併案。公平會指出兩者市占率相加超過 45%，且互為主要競爭對手，結合後對消費者弊大於利，因此禁止合併。錢櫃因為此決定甚至狀告公平會，但在西元 2020 年遭（甲）單位判決敗訴。<div class="table-wrap"><table><tr><th>資料一</th><th>foodpanda</th><th>Uber Eats</th><th>foodomo</th></tr><tr><td>母公司</td><td>德商 Delivery Hero</td><td>美商 Uber</td><td>統一超商</td></tr><tr><td>外送員人數</td><td>約 10 萬</td><td>約 6 萬</td><td>0</td></tr><tr><td>會員年費</td><td>1079 元</td><td>1200 元</td><td>839 元</td></tr></table></div></p></div>
+  <p class="stem">依據文章內容，下列何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q43" value="A"><span class="letter">A</span><span>併購案不需要遵守《公平交易法》的規定</span></label><label class="option"><input type="radio" name="q43" value="B"><span class="letter">B</span><span>Uber Eats 和 Foodpanda 是運用非價格競爭吸引會員加入</span></label><label class="option"><input type="radio" name="q43" value="C"><span class="letter">C</span><span>市占率愈高則愈有利新進業者參與競爭</span></label><label class="option"><input type="radio" name="q43" value="D"><span class="letter">D</span><span>公平會會依市占率高低考量企業間是否能合併</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">文中：公平會判斷重點是「各自的市占率」及「結合後的市占率」是否形成獨占 → (D) ✓<br>(A) 併購需送公平會審查，要遵守《公平法》；(B) 文中沒提；(C) 市占率愈高愈容易形成獨占，不利新業者。</p><p class="key"><strong>解題關鍵：</strong>公平會看「結合後市占率」。</p></div>
+</article>
+<article class="card" data-chapter="消費者保護與公平交易" id="q44" data-answer="C">
+  <div class="q-head"><span class="num">44</span><div><span class="source">九上第二次段考 第 44 題</span><h2>（甲）單位是誰</h2></div></div>
+  <div class="context"><strong>題組二（第 43～45 題）</strong><p>臺灣目前有三家主要的外送平台，平台資料如《資料一》所列。今年 5 月，優食公司（Uber Eats）的母公司 Uber Technology Inc. 宣布，購併 Delivery Hero 旗下的 Foodpanda 台灣業務。目前此案子送公平會審查中，部長回應此案子必須先開公聽會再審查。<br>公平會判斷兩家企業能否合併的重點在於：「各自在市場中所佔的份額為多少，再來檢視兩者結合後的市占率，是否會形成獨佔或優勢地位，進而影響消費者的利益。」<br>相較錢櫃與好樂迪 KTV 的合併案。公平會指出兩者市占率相加超過 45%，且互為主要競爭對手，結合後對消費者弊大於利，因此禁止合併。錢櫃因為此決定甚至狀告公平會，但在西元 2020 年遭（甲）單位判決敗訴。<div class="table-wrap"><table><tr><th>資料一</th><th>foodpanda</th><th>Uber Eats</th><th>foodomo</th></tr><tr><td>母公司</td><td>德商 Delivery Hero</td><td>美商 Uber</td><td>統一超商</td></tr><tr><td>外送員人數</td><td>約 10 萬</td><td>約 6 萬</td><td>0</td></tr><tr><td>會員年費</td><td>1079 元</td><td>1200 元</td><td>839 元</td></tr></table></div></p></div>
+  <p class="stem">錢櫃提告公平會，但遭（甲）單位判決敗訴，請問：（甲）是下列哪一個單位？</p>
+  <div class="options"><label class="option"><input type="radio" name="q44" value="A"><span class="letter">A</span><span>消費者保護處</span></label><label class="option"><input type="radio" name="q44" value="B"><span class="letter">B</span><span>行政院</span></label><label class="option"><input type="radio" name="q44" value="C"><span class="letter">C</span><span>行政法院</span></label><label class="option"><input type="radio" name="q44" value="D"><span class="letter">D</span><span>檢察署</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">公平會禁止合併是「行政處分」；企業不服行政處分而提起行政訴訟 → 由「行政法院」審理判決，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>告政府機關（不服行政處分）→ 行政法院。</p></div>
+</article>
+<article class="card" data-chapter="消費者保護與公平交易" id="q45" data-answer="C">
+  <div class="q-head"><span class="num">45</span><div><span class="source">九上第二次段考 第 45 題</span><h2>外送產業工會</h2></div></div>
+  <div class="context"><strong>題組二（第 43～45 題）</strong><p>臺灣目前有三家主要的外送平台，平台資料如《資料一》所列。今年 5 月，優食公司（Uber Eats）的母公司 Uber Technology Inc. 宣布，購併 Delivery Hero 旗下的 Foodpanda 台灣業務。目前此案子送公平會審查中，部長回應此案子必須先開公聽會再審查。<br>公平會判斷兩家企業能否合併的重點在於：「各自在市場中所佔的份額為多少，再來檢視兩者結合後的市占率，是否會形成獨佔或優勢地位，進而影響消費者的利益。」<br>相較錢櫃與好樂迪 KTV 的合併案。公平會指出兩者市占率相加超過 45%，且互為主要競爭對手，結合後對消費者弊大於利，因此禁止合併。錢櫃因為此決定甚至狀告公平會，但在西元 2020 年遭（甲）單位判決敗訴。<div class="table-wrap"><table><tr><th>資料一</th><th>foodpanda</th><th>Uber Eats</th><th>foodomo</th></tr><tr><td>母公司</td><td>德商 Delivery Hero</td><td>美商 Uber</td><td>統一超商</td></tr><tr><td>外送員人數</td><td>約 10 萬</td><td>約 6 萬</td><td>0</td></tr><tr><td>會員年費</td><td>1079 元</td><td>1200 元</td><td>839 元</td></tr></table></div></p></div>
+  <p class="stem">勞動部部長認為因為外送勞工的勞動權益，例如：定型化契約、全時段保險等權益，外送工會和業者均未達成共識，所以對公平會表態並不支持此併購案。對於勞工的勞動權益，全國外送產業工會一直希望政府趕快制定法律規範，但遲遲沒有回應，與外送平台業者溝通時，業者又以「無法源依據」為由不願回應。請問：下列敘述何者正確？</p>
+  <div class="options"><label class="option"><input type="radio" name="q45" value="A"><span class="letter">A</span><span>從勞動部立場來看公平會通過併購案的機會成本太低</span></label><label class="option"><input type="radio" name="q45" value="B"><span class="letter">B</span><span>制定法律的機關也有提出公務人員彈劾案的職權</span></label><label class="option"><input type="radio" name="q45" value="C"><span class="letter">C</span><span>全國外送產業工會是具有工作取向的志願結社團體</span></label><label class="option"><input type="radio" name="q45" value="D"><span class="letter">D</span><span>政府規定業者要與外送員訂定工作契約，是保障外送員的自由權</span></label></div>
+  <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">(A) 勞動部擔心勞工權益受損，表示通過併購的代價（機會成本）太高，錯。<br>(B) 制定法律的是立法院；彈劾公務人員是監察院，錯。<br>(C) 工會由同職業的外送員自願組成，維護工作權益 → 工作取向的志願結社團體 ✓<br>(D) 保障工作權益屬於社會權（工作權），不是自由權，錯。</p><p class="key"><strong>解題關鍵：</strong>立法院立法、監察院彈劾；工會＝志願結社團體。</p></div>
+</article>
+<p class="hint" style="text-align:center;color:var(--muted)">試題來源：臺北市立仁愛國中 113 學年度第 1 學期第二次段考九年級公民科；答案依學校公布答案卷，詳解為重新整理撰寫。</p>
+</main>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const downloadBtn=document.querySelector('#downloadDocx');
+let graded=false;
+
+function checkCard(card,revealUnanswered=false){
+  card.classList.remove('correct','incorrect','unanswered');
+  card.querySelectorAll('.option').forEach(option=>option.classList.remove('good','bad'));
+  const pick=card.querySelector('input:checked');
+  const answer=card.dataset.answer;
+  if(!pick&&!revealUnanswered)return {answered:false,correct:false};
+  card.classList.add('checked');
+  card.querySelectorAll('input').forEach(input=>{
+    const option=input.closest('.option');
+    if(input.value===answer)option.classList.add('good');
+    if(pick&&input===pick&&input.value!==answer)option.classList.add('bad');
+    input.disabled=true;
+  });
+  if(!pick)card.classList.add('unanswered');
+  else if(pick.value===answer)card.classList.add('correct');
+  else card.classList.add('incorrect');
+  return {answered:!!pick,correct:!!pick&&pick.value===answer};
+}
+
+function updateProgress(){
+  const answered=cards.filter(card=>card.querySelector('input:checked')).length;
+  const score=cards.filter(card=>card.querySelector('input:checked')?.value===card.dataset.answer).length;
+  document.querySelector('#score').textContent=`已作答 ${answered} / ${cards.length}・答對 ${score} 題`;
+  if(answered===cards.length){
+    graded=true;
+    const mistakeCount=cards.length-score;
+    downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+    downloadBtn.hidden=false;
+  }
+}
+
+cards.forEach(card=>card.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+  checkCard(card);
+  updateProgress();
+})));
+
+document.querySelector('#grade').addEventListener('click',()=>{
+  let score=0,first=null;
+  cards.forEach(c=>{
+    const result=checkCard(c,true);
+    if(!result.answered)first??=c;
+    if(result.correct)score++;
+  });
+  graded=true;
+  const mistakeCount=cards.length-score;
+  document.querySelector('#score').textContent=`得分 ${score} / ${cards.length}`;
+  downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+  downloadBtn.hidden=false;
+  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.querySelector('#reset').addEventListener('click',()=>{
+  cards.forEach(c=>{
+    c.className='card';
+    c.querySelectorAll('input').forEach(i=>{i.checked=false;i.disabled=false});
+    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
+  });
+  graded=false;
+  downloadBtn.hidden=true;
+  downloadBtn.textContent='下載錯題詳解 DOCX';
+  document.querySelector('#score').textContent=`已作答 0 / ${cards.length}`;
+  scrollTo({top:0,behavior:'smooth'});
+});
+
+function xmlEscape(value){
+  return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+}
+
+function wordParagraph(text,{bold=false,size=22,color='000000',before=0,after=100}={}){
+  const safe=xmlEscape(text);
+  return `<w:p><w:pPr><w:spacing w:before="${before}" w:after="${after}" w:line="330" w:lineRule="auto"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Microsoft JhengHei" w:hAnsi="Microsoft JhengHei" w:eastAsia="Microsoft JhengHei"/><w:sz w:val="${size}"/><w:szCs w:val="${size}"/>${bold?'<w:b/><w:bCs/>':''}${color!=='000000'?`<w:color w:val="${color}"/>`:''}<w:lang w:eastAsia="zh-TW"/></w:rPr><w:t xml:space="preserve">${safe}</w:t></w:r></w:p>`;
+}
+
+function textBlock(text,options={}){
+  return String(text??'').split(/\r?\n/).filter(Boolean).map(line=>wordParagraph(line,options)).join('');
+}
+
+function collectMistakes(){
+  return cards.filter(c=>{
+    const pick=c.querySelector('input:checked');
+    return !!pick&&pick.value!==c.dataset.answer;
+  }).map(c=>{
+    const picked=c.querySelector('input:checked');
+    const feedback=[...c.querySelectorAll('.feedback p')];
+    return {
+      number:c.querySelector('.num').textContent.trim(),
+      source:(c.dataset.chapter?c.dataset.chapter+'｜':'')+c.querySelector('.source').textContent.trim(),
+      topic:c.querySelector('h2').textContent.trim(),
+      context:c.querySelector('.context')?.innerText.trim()||'',
+      stem:c.querySelector('.stem').textContent.trim(),
+      options:[...c.querySelectorAll('.option')].map(o=>`${o.querySelector('.letter').textContent.trim()}　${o.querySelector('span:last-child').textContent.trim()}`),
+      selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
+      answer:c.dataset.answer,
+      explanation:feedback[1]?.innerText.trim()||'',
+      figures:[...c.querySelectorAll('.figure img')].map(i=>({src:i.getAttribute('src').replace(/\.svg$/,'.png'),alt:i.alt})),
+      key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
+    };
+  });
+}
+
+const encoder=new TextEncoder();
+function le16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function le32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function joinBytes(chunks){
+  const out=new Uint8Array(chunks.reduce((sum,c)=>sum+c.length,0));
+  let at=0;for(const c of chunks){out.set(c,at);at+=c.length}return out;
+}
+const crcTable=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(data){let c=0xffffffff;for(const b of data)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0}
+function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());return {time:(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date:((year-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate()}}
+
+function makeDocxZip(files){
+  const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
+  for(const [name,text] of files){
+    const nameBytes=encoder.encode(name),data=text instanceof Uint8Array?text:encoder.encode(text),crc=crc32(data);
+    const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
+    const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
+    locals.push(local);centrals.push(central);offset+=local.length;
+  }
+  const centralData=joinBytes(centrals);
+  const end=joinBytes([le32(0x06054b50),le16(0),le16(0),le16(files.length),le16(files.length),le32(centralData.length),le32(offset),le16(0)]);
+  return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+async function loadPng(src){
+  const res=await fetch(src);if(!res.ok)throw new Error(src);
+  const bytes=new Uint8Array(await res.arrayBuffer());
+  const dv=new DataView(bytes.buffer);
+  return {bytes,w:dv.getUint32(16),h:dv.getUint32(20)};
+}
+function imageParagraph(rid,id,w,h,alt){
+  const cx=Math.round(6.2*914400),cy=Math.round(cx*h/w);
+  return `<w:p><w:pPr><w:spacing w:after="80"/><w:jc w:val="center"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${id}" name="圖${id}" descr="${xmlEscape(alt)}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${id}" name="image${id}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+}
+async function buildMistakeDocx(){
+  const mistakes=collectMistakes();
+  const media=[],relsXml=[],cache={};
+  for(const m of mistakes){
+    m.imgs=[];
+    for(const f of m.figures||[]){
+      try{
+        if(!cache[f.src]){
+          const png=await loadPng(f.src),n=media.length+1;
+          media.push([`word/media/image${n}.png`,png.bytes]);
+          relsXml.push(`<Relationship Id="rImg${n}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/image${n}.png"/>`);
+          cache[f.src]={rid:`rImg${n}`,w:png.w,h:png.h};
+        }
+        m.imgs.push({...cache[f.src],alt:f.alt});
+      }catch(e){console.warn('圖片載入失敗',f.src)}
+    }
+  }
+  let picId=0;
+  let body=wordParagraph('公民九上第二次段考 錯題詳解',{bold:true,size:34,color:'17313A',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　答錯共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  if(!mistakes.length){
+    body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
+  }else{
+    mistakes.forEach((m,index)=>{
+      if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+      body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
+      if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      m.imgs.forEach(im=>{body+=imageParagraph(im.rid,++picId,im.w,im.h,im.alt)});
+      body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
+      m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
+      body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
+      body+=wordParagraph(`正確答案：${m.answer}`,{bold:true,size:22,color:'0B6B57',after:100});
+      body+=wordParagraph('詳解',{bold:true,size:22,after:55});
+      body+=textBlock(m.explanation,{size:21,after:90});
+      body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
+    });
+  }
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const docRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${relsXml.join('')}</Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml],['word/_rels/document.xml.rels',docRels],...media]);
+}
+
+downloadBtn.addEventListener('click',async()=>{
+  if(!graded)return;
+  downloadBtn.disabled=true;
+  let blob;try{blob=await buildMistakeDocx()}finally{downloadBtn.disabled=false}
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='公民九上第二次段考_錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+</script><script src="../../shared/moe-dict.js?v=20261116" defer></script>
+<script>
+document.querySelectorAll('.gsteps').forEach(box=>{
+  const steps=JSON.parse(box.dataset.steps);let i=0;
+  const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  function show(){
+    if(i>=steps.length){box.insertAdjacentHTML('beforeend','<div class="gdone">✅ 步驟都想出來了！現在回到下面的選項作答吧。</div>');return}
+    const [ask,ch0,ok0,hint,res]=steps[i];const n=i+1;const ord=ch0.map((_,k)=>k).sort(()=>Math.random()-.5);const ch=ord.map(k=>ch0[k]);const ok=ord.indexOf(ok0);
+    const d=document.createElement('div');d.className='gstep';
+    d.innerHTML=`<div class="ask"><b>步驟 ${n}／${steps.length}</b>　${esc(ask)}</div><div class="gchoices">${ch.map((c,k)=>`<button type="button" data-k="${k}">${esc(c)}</button>`).join('')}</div><div class="ghint" hidden></div>`;
+    box.appendChild(d);
+    d.querySelector('.gchoices').addEventListener('click',ev=>{const b=ev.target.closest('button');if(!b||d.dataset.done)return;
+      if(+b.dataset.k===ok){b.classList.add('yes');d.dataset.done=1;d.querySelectorAll('.gchoices button').forEach(x=>x.disabled=true);
+        const h=d.querySelector('.ghint');h.hidden=true;
+        d.insertAdjacentHTML('beforeend',`<div class="gres">✏️ ${esc(res)}</div>`);i++;setTimeout(show,250)}
+      else{b.classList.add('no');const h=d.querySelector('.ghint');h.hidden=false;h.textContent='💡 再想想：'+(hint||'回頭看看本章的重點整理表。')}});
+  }
+  show();
+});
+</script></body></html>
+
