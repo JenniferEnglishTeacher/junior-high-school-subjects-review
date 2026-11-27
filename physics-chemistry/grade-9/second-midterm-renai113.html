@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>理化 九上第二次段考｜互動測驗</title>
+<style>
+:root{--ink:#3a2a17;--muted:#6f6455;--paper:#fffdf8;--bg:#f4efe6;--accent:#9a6b35;--accent2:#d39b36;--bad:#a33a35;--line:#d8e2df}
+*{box-sizing:border-box} body{margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e4f0ee,#f6efe2);line-height:1.65}
+.dashboard-link{position:fixed;left:16px;top:16px;z-index:10;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.95);color:var(--ink);font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(22,49,58,.12);backdrop-filter:blur(10px)}.dashboard-link:hover{border-color:var(--accent);color:var(--accent)}
+header{padding:48px 20px 30px;text-align:center} h1{margin:0;font-size:clamp(2rem,5vw,3.6rem);line-height:1.12} header p{max-width:760px;margin:14px auto;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;background:var(--accent);color:white} button.secondary{background:#dfe9e6;color:var(--ink)} button.download{background:#244b5a} button[hidden]{display:none}.score{font-weight:800;min-width:160px;text-align:center}
+main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:22px} .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08)}
+.q-head{display:flex;gap:14px;align-items:center;margin-bottom:14px} .num{display:grid;place-items:center;min-width:52px;height:52px;border-radius:15px;background:var(--ink);color:white;font-weight:900} .source{color:var(--accent);font-weight:800;font-size:.9rem} h2{margin:0;font-size:1.18rem} .stem{font-size:1.08rem;font-weight:700}
+.context{background:#f2f7f5;border-left:4px solid var(--accent);padding:14px 16px;margin:14px 0;border-radius:0 12px 12px 0} .context p{margin:.35rem 0 0} .adapted{color:#73581c;background:#fff6dc;padding:8px 12px;border-radius:10px;font-size:.92rem}
+.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .card.checked .option{cursor:default}.card.checked .option:hover{transform:none}.option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
+.card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
+.feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
+.unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
+.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.summary{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 20px;margin-top:10px}.summary h4{margin:14px 0 6px;color:var(--accent)}.summary h4:first-child{margin-top:0}.summary td{text-align:left;vertical-align:top}.summary td:first-child{font-weight:800;background:#f7efe2;white-space:nowrap}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px}.figure.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:640px){.figure.pair{grid-template-columns:1fr}}.kw{color:#73581c;background:#fff6dc;padding:6px 12px;border-radius:10px;font-size:.92rem;margin-top:8px}</style><style>.guide{margin:10px 0 12px;border:1px dashed #1f5fa8;border-radius:12px;background:#f7faff;padding:8px 12px}.guide summary{cursor:pointer;font-weight:800;color:#1f5fa8}.gstep{margin:10px 0;padding:10px 12px;background:#fff;border:1px solid #d6e2f0;border-radius:10px}.gstep .ask{font-weight:700;margin-bottom:6px}.gstep .ask b{color:#1f5fa8}.gchoices{display:flex;flex-wrap:wrap;gap:6px}.gchoices button{color:#17313a;opacity:1;border:1px solid #b9c9de;background:#fff;border-radius:999px;padding:5px 12px;cursor:pointer;font:inherit}.gchoices button.no{background:#fbe5e7;border-color:#c0392b;color:#8e2a20}.gchoices button.yes{background:#e3f4ec;border-color:#2f8f6f;color:#1e6b50;font-weight:700}.ghint{color:#a33a35;font-size:.92rem;margin-top:6px}.gres{margin-top:8px;font-family:"Cambria Math","Times New Roman","Microsoft JhengHei",serif;background:#eef6ff;border-left:4px solid #1f5fa8;padding:6px 10px;border-radius:0 8px 8px 0}.gdone{font-weight:800;color:#2f8f6f;margin:8px 0 2px}.gprog{font-size:.85rem;color:#6a7a8a;margin-top:4px}.steps{font-family:"Cambria Math","Times New Roman","Microsoft JhengHei",serif;line-height:1.95;background:#f6f9fc;border-left:4px solid #1f5fa8;padding:8px 12px;border-radius:0 10px 10px 0}.figure img{max-width:560px}</style>
+</head><body>
+<a class="dashboard-link" href="../../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
+<header><h1>理化 九上第二次段考</h1><p>仁愛國中 113 學年度第 1 學期 九年級第二次段考理化試題，共 35 題（選擇 30 題＋題組 5 題），依章節分 5 區：力與運動、萬有引力、力矩、功與能量、能源。每區開頭有重點整理表；16 題計算・推理題附「🧭 引導解題」一步一步提問；選完答案立即顯示正確答案與詳解；全部作答完可下載錯題詳解 DOCX（含圖，只收答錯的題目）。</p><nav class="jump"><a href="#ch1">力與運動：牛頓運動定律、圓周運動</a><a href="#ch2">萬有引力</a><a href="#ch3">力矩與槓桿</a><a href="#ch4">功與能量</a><a href="#ch5">能源（題組）</a></nav></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 35</span></div>
+<main>
+<section class="sec-head" id="ch1"><h3>1. 力與運動：牛頓運動定律、圓周運動</h3><p>第 1～12 題，共 12 題</p><p class="kw">重點：合力＝ma（第二定律）；作用力與反作用力大小相等、方向相反、作用在不同物體上（第三定律）；等速率圓周運動速度方向一直變，屬於變加速度運動，加速度（向心力）指向圓心</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>定律</th><th>內容</th><th>常考陷阱</th></tr><tr><td>第一定律（慣性）</td><td>不受力或合力＝0 → 靜止或等速度</td><td>急煞車人向前傾是慣性</td></tr><tr><td>第二定律</td><td>F合＝m × a，a 和 F合 同方向</td><td>合力方向≠運動方向（減速時相反）</td></tr><tr><td>第三定律</td><td>作用力＝反作用力，方向相反</td><td>作用在不同物體，不能互相抵消</td></tr><tr><td>圓周運動</td><td>速度沿切線，加速度指向圓心</td><td>等速率≠等速度</td></tr></table></div></div></section>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q1" data-answer="B">
+          <div class="q-head"><span class="num">01</span><div><span class="source">九上第二次段考 第 1 題</span><h2>F 與 a 的關係圖</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q01.png" alt="第 1 題附圖" loading="lazy"></div><p class="stem">一木塊靜止放置在質地均勻的水平桌面上，若對木塊施以水平作用力，且逐漸加大作用力時，起初木塊仍保持靜止，但隨著作用力變大會開始移動，則在木塊移動過程中，水平作用力(F)與木塊的加速度(a)之關係最可能為下列何者？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;木塊移動時，水平方向的合力是？&quot;, [&quot;F&quot;, &quot;F－摩擦力&quot;, &quot;F＋摩擦力&quot;], 1, &quot;摩擦力和運動方向相反。&quot;, &quot;F合＝F－fk&quot;], [&quot;由 F合＝ma，a＝0 時 F 等於多少？&quot;, [&quot;F＝0&quot;, &quot;F＝摩擦力（＞0）&quot;], 1, &quot;a＝0 代表合力＝0。&quot;, &quot;直線通過 F 軸上的正值 → 選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q1" value="A"><span class="letter">A</span><span>圖(A)：從原點出發的斜直線</span></label><label class="option"><input type="radio" name="q1" value="B"><span class="letter">B</span><span>圖(B)：從 F 軸上某一點（F＞0）出發的斜直線</span></label><label class="option"><input type="radio" name="q1" value="C"><span class="letter">C</span><span>圖(C)：從 a 軸上某一點出發的斜直線</span></label><label class="option"><input type="radio" name="q1" value="D"><span class="letter">D</span><span>圖(D)：斜率為負的直線</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">木塊移動時受動摩擦力 fk（定值）：F－fk＝m × a<br>→ a＝(F－fk)／m，a 和 F 是「一次函數」關係（斜直線）<br>F 必須大於摩擦力才開始有加速度 → a＝0 時 F＞0，直線從 F 軸上的正值出發<br>所以選 (B)。</p><p class="key"><strong>解題關鍵：</strong>F－摩擦力＝ma，所以直線不過原點，而是在 F 軸上有截距。</p></div>
+        </article>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q2" data-answer="C">
+          <div class="q-head"><span class="num">02</span><div><span class="source">九上第二次段考 第 2 題</span><h2>v－t 圖判斷合力方向</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q02.png" alt="第 2 題附圖" loading="lazy"></div><p class="stem">一物體在東西直線水平面上運動，向東為正，其速度(V)與時間(t)的關係圖如圖，下列敘述何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q2" value="A"><span class="letter">A</span><span>0～2 秒，物體受合力方向向西，運動方向向東</span></label><label class="option"><input type="radio" name="q2" value="B"><span class="letter">B</span><span>2～4 秒，物體受合力方向向東，運動方向向東</span></label><label class="option"><input type="radio" name="q2" value="C"><span class="letter">C</span><span>4～5 秒，物體受合力方向向西，運動方向向東</span></label><label class="option"><input type="radio" name="q2" value="D"><span class="letter">D</span><span>0～5 秒，物體所受合力皆為 0，運動方向向東</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">v 一直是正值 → 全程都向東運動<br>0～2 秒：加速，斜率＞0 → 合力向東（(A) 錯）<br>2～4 秒：等速，合力＝0（(B) 錯）<br>4～5 秒：減速，斜率＜0 → 合力向西，運動仍向東 ✓<br>(D) 0～2、4～5 秒都有合力，錯。選 (C)。</p><p class="key"><strong>解題關鍵：</strong>v－t 圖：v 的正負看運動方向，斜率的正負看合力（加速度）方向。</p></div>
+        </article>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q3" data-answer="A">
+          <div class="q-head"><span class="num">03</span><div><span class="source">九上第二次段考 第 3 題</span><h2>煞車阻力－時間圖</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q03.png" alt="第 3 題附圖" loading="lazy"></div><p class="stem">一輛質量 4 公噸的貨車，以 30 m/s 的速度行駛，當駕駛看到路上有掉落物而以等加速度緊急煞車，5 秒後貨車停下，則貨車在煞車期間的阻力大小與時間關係圖為何？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;加速度大小是多少？&quot;, [&quot;6 m/s²&quot;, &quot;150 m/s²&quot;, &quot;30 m/s²&quot;], 0, &quot;a＝速度變化 ÷ 時間＝30 ÷ 5。&quot;, &quot;a＝6 m/s²&quot;], [&quot;4 公噸是多少公斤？&quot;, [&quot;40 kg&quot;, &quot;400 kg&quot;, &quot;4000 kg&quot;], 2, &quot;1 公噸＝1000 公斤。&quot;, &quot;m＝4000 kg&quot;], [&quot;等加速度時，阻力大小會怎樣變？&quot;, [&quot;固定不變&quot;, &quot;逐漸變小&quot;], 0, &quot;F＝ma，m、a 都固定。&quot;, &quot;F＝4000×6＝24000 N 固定 → 選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q3" value="A"><span class="letter">A</span><span>圖(A)：24000 N 的水平直線</span></label><label class="option"><input type="radio" name="q3" value="B"><span class="letter">B</span><span>圖(B)：由 24000 N 逐漸減少到 0</span></label><label class="option"><input type="radio" name="q3" value="C"><span class="letter">C</span><span>圖(C)：由 12000 N 逐漸減少到 0</span></label><label class="option"><input type="radio" name="q3" value="D"><span class="letter">D</span><span>圖(D)：由 0 增加到 12000 N 再減少</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">等加速度 → a 大小固定：a＝(0－30)／5＝－6 m/s²，大小 6 m/s²<br>4 公噸＝4000 kg<br>阻力 F＝m × a＝4000 × 6＝24000 N，而且全程固定<br>F－t 圖是 24000 N 的水平直線，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>等加速度 → 合力固定 → F－t 圖是水平線；記得公噸換成公斤。</p></div>
+        </article>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q4" data-answer="C">
+          <div class="q-head"><span class="num">04</span><div><span class="source">九上第二次段考 第 4 題</span><h2>合力大小為 1 N 的木塊</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q04.png" alt="第 4 題附圖" loading="lazy"></div><p class="stem">甲、乙、丙、丁四個木塊的質量均為 2 kg，分別置於不同的水平桌面上，並對木塊施以兩個方向相反的水平力，圖為四個木塊的受力情形及其運動狀態，則此時哪一個木塊所受合力大小為 1 N？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;靜止或等速運動的木塊，合力是多少？&quot;, [&quot;0&quot;, &quot;兩力相減&quot;], 0, &quot;牛頓第一定律。&quot;, &quot;甲、乙合力＝0&quot;], [&quot;丙：m＝2 kg，a＝0.5 m/s²，合力＝？&quot;, [&quot;1 N&quot;, &quot;2 N&quot;, &quot;4 N&quot;], 0, &quot;F＝m × a。&quot;, &quot;丙合力＝1 N → 選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q4" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q4" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q4" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q4" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">合力要用 F合＝m × a 求（桌面有摩擦力，不能只看兩個拉力相減）：<br>甲：靜止 → 合力 0<br>乙：等速直線運動 → 合力 0<br>丙：加速度 0.5 m/s² → 合力＝2 × 0.5＝1 N ✓<br>丁：加速度 1 m/s² → 合力＝2 × 1＝2 N<br>選 (C)。</p><p class="key"><strong>解題關鍵：</strong>有摩擦力時，用「運動狀態」配合 F合＝ma 判斷合力最可靠。</p></div>
+        </article>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q5" data-answer="B">
+          <div class="q-head"><span class="num">05</span><div><span class="source">九上第二次段考 第 5 題</span><h2>向上拉物體的加速度</h2></div></div>
+          <p class="stem">施力 60 牛頓，將質量 5 kg 之物體往上拉，若不計空氣阻力，則物體上升之加速度為多少 m/s²？（設重力加速度 g＝10 m/s²）</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;物體的重量是多少牛頓？&quot;, [&quot;5 N&quot;, &quot;50 N&quot;, &quot;60 N&quot;], 1, &quot;W＝mg。&quot;, &quot;W＝50 N&quot;], [&quot;向上的合力是多少？&quot;, [&quot;60 N&quot;, &quot;110 N&quot;, &quot;10 N&quot;], 2, &quot;拉力向上、重力向下，要相減。&quot;, &quot;F合＝10 N&quot;], [&quot;加速度＝？&quot;, [&quot;2 m/s²&quot;, &quot;12 m/s²&quot;], 0, &quot;a＝F合／m＝10／5。&quot;, &quot;a＝2 m/s² → 選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q5" value="A"><span class="letter">A</span><span>12</span></label><label class="option"><input type="radio" name="q5" value="B"><span class="letter">B</span><span>2</span></label><label class="option"><input type="radio" name="q5" value="C"><span class="letter">C</span><span>0.2</span></label><label class="option"><input type="radio" name="q5" value="D"><span class="letter">D</span><span>11</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">物體重量 W＝mg＝5 × 10＝50 N（向下）<br>合力＝60－50＝10 N（向上）<br>a＝F合 ÷ m＝10 ÷ 5＝2 m/s²，選 (B)。<br>⚠ 直接 60 ÷ 5＝12 是忘了扣重力（陷阱 (A)）。</p><p class="key"><strong>解題關鍵：</strong>向上拉時，合力＝拉力－重量。</p></div>
+        </article>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q6" data-answer="C">
+          <div class="q-head"><span class="num">06</span><div><span class="source">九上第二次段考 第 6 題</span><h2>理化觀念判斷</h2></div></div>
+          <p class="stem">下列有關「理化觀念」的敘述，何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q6" value="A"><span class="letter">A</span><span>「F＝ma」的關係式，在沒有重力的太空中不適用</span></label><label class="option"><input type="radio" name="q6" value="B"><span class="letter">B</span><span>我們施力無法舉起自己，是因為所施的力量「等於」體重的緣故</span></label><label class="option"><input type="radio" name="q6" value="C"><span class="letter">C</span><span>等速率圓周運動為「變加速度」運動</span></label><label class="option"><input type="radio" name="q6" value="D"><span class="letter">D</span><span>「功」的單位只能用「焦耳」</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">(A) 錯：F＝ma 在太空中一樣適用（太空中物體仍有質量）。<br>(B) 錯：自己拉自己是「內力」，作用力與反作用力都在自己身上，互相抵消，和體重無關。<br>(C) 對：等速率圓周運動的加速度大小不變，但方向一直指向圓心而不斷改變 → 變加速度運動。<br>(D) 錯：功的單位還有 N·m、kgw·m 等。<br>選 (C)。</p><p class="key"><strong>解題關鍵：</strong>加速度是向量，方向改變也算「變加速度」。</p></div>
+        </article>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q7" data-answer="C">
+          <div class="q-head"><span class="num">07</span><div><span class="source">九上第二次段考 第 7 題</span><h2>雙冠蜥水上行走</h2></div></div>
+          <p class="stem">雙冠蜥，又稱耶穌蜥蜴，能在水上行走。雙冠蜥在水上行走，和水黽利用表面張力不同。雙冠蜥後腿獨特的構造，會在入水時產生氣泡，踩踏氣泡，能給雙冠蜥支撐力，才不致落入水中。同時腿部水平向外施力，水會給雙冠蜥橫向支撐力，使其能直立。上述氣泡支撐力及橫向支撐力，可用哪一個運動定律解釋？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q7" value="A"><span class="letter">A</span><span>牛頓第一運動定律</span></label><label class="option"><input type="radio" name="q7" value="B"><span class="letter">B</span><span>牛頓第二運動定律</span></label><label class="option"><input type="radio" name="q7" value="C"><span class="letter">C</span><span>牛頓第三運動定律</span></label><label class="option"><input type="radio" name="q7" value="D"><span class="letter">D</span><span>力學能守恆定律</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">雙冠蜥踩踏氣泡（對水施力向下）→ 水給雙冠蜥向上的支撐力<br>腿向外推水 → 水給雙冠蜥反方向的橫向支撐力<br>「我推它，它推回我」＝作用力與反作用力，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>「施力的同時受到反方向的力」就是第三運動定律。</p></div>
+        </article>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q8" data-answer="A">
+          <div class="q-head"><span class="num">08</span><div><span class="source">九上第二次段考 第 8 題</span><h2>火箭升空的原理</h2></div></div>
+          <p class="stem">火箭升空的動力來源是將燃料燃燒所產生的氣體向下噴出。下列現象中，何者所運用的原理與火箭升空的原理相同？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q8" value="A"><span class="letter">A</span><span>游泳時手向後划水而使身體前進</span></label><label class="option"><input type="radio" name="q8" value="B"><span class="letter">B</span><span>抖動衣服可抖掉衣服上的灰塵</span></label><label class="option"><input type="radio" name="q8" value="C"><span class="letter">C</span><span>車輛緊急煞車時，車上的人會向前傾</span></label><label class="option"><input type="radio" name="q8" value="D"><span class="letter">D</span><span>用越大的力推動物體，物體的加速度會越大</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">火箭把氣體向下推 → 氣體把火箭向上推：第三定律。<br>(A) 手把水向後推 → 水把人向前推：第三定律 ✓<br>(B)、(C) 是慣性（第一定律）<br>(D) 是 F＝ma（第二定律）<br>選 (A)。</p><p class="key"><strong>解題關鍵：</strong>火箭、划水、划船、跳離小船都是作用力與反作用力。</p></div>
+        </article>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q9" data-answer="D">
+          <div class="q-head"><span class="num">09</span><div><span class="source">九上第二次段考 第 9 題</span><h2>書本重量的反作用力</h2></div></div>
+          <p class="stem">一書本靜置於水平桌面上，則書本重量的反作用力為何？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q9" value="A"><span class="letter">A</span><span>桌面受來自書本重量所施的一個向下力</span></label><label class="option"><input type="radio" name="q9" value="B"><span class="letter">B</span><span>桌面對書本的一個向上作用力</span></label><label class="option"><input type="radio" name="q9" value="C"><span class="letter">C</span><span>書本與桌面的靜摩擦力</span></label><label class="option"><input type="radio" name="q9" value="D"><span class="letter">D</span><span>書本對地球的吸引力</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">書本重量＝「地球」吸引「書本」的力<br>反作用力：把施力者和受力者對調 →「書本」吸引「地球」的力，選 (D)。<br>⚠ (B) 桌面對書本的支撐力和重量都作用在書本上，兩者是一對「平衡力」，不是反作用力。</p><p class="key"><strong>解題關鍵：</strong>找反作用力：把「誰對誰」的主角對調。</p></div>
+        </article>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q10" data-answer="C">
+          <div class="q-head"><span class="num">10</span><div><span class="source">九上第二次段考 第 10 題</span><h2>判斷小春、小偉的說法</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q10.png" alt="第 10 題附圖" loading="lazy"></div><p class="stem">如圖所示，水平桌面上靜置一個木塊，今對木塊施以向東且大小固定的水平力 F；小春、小偉兩人對於木塊受力後可能發生的狀態及原因解釋如下：<br>小春：若木塊向東作等加速度運動，是因為木塊在運動過程中所受的摩擦力大小逐漸變小。<br>小偉：若木塊保持靜止不動，是因為 F 與其反作用力的大小相同、方向相反，恰好互相抵消。<br>關於兩人的描述正確與否，下列何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q10" value="A"><span class="letter">A</span><span>兩人皆正確</span></label><label class="option"><input type="radio" name="q10" value="B"><span class="letter">B</span><span>小春正確，小偉不正確</span></label><label class="option"><input type="radio" name="q10" value="C"><span class="letter">C</span><span>兩人皆不正確</span></label><label class="option"><input type="radio" name="q10" value="D"><span class="letter">D</span><span>小春不正確，小偉正確</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">小春 ✗：等加速度 → 合力固定。F 固定、動摩擦力也固定，所以合力固定；摩擦力若變小，加速度就會變大，不是等加速度。<br>小偉 ✗：靜止是因為 F 和「靜摩擦力」互相抵消（兩力都作用在木塊上）。作用力與反作用力作用在不同物體上，不能抵消。<br>兩人皆不正確，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>平衡力作用在同一物體；作用力與反作用力作用在不同物體。</p></div>
+        </article>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q11" data-answer="A">
+          <div class="q-head"><span class="num">11</span><div><span class="source">九上第二次段考 第 11 題</span><h2>圓周運動 t＝3 秒的方向</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q11.png" alt="第 11 題附圖" loading="lazy"></div><p class="stem">如圖一，將小球固定在細繩的一端，手持細繩的另一端施力，使小球在水平面做等速率圓周運動。已知時間 t＝0 秒時，小球位於手的東方，速度方向向南，所受向心力方向向西，如圖二所示。若小球每轉 3 圈所花費的時間為 2 秒，則 t＝3 秒時，小球的速度方向與加速度方向分別為何？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;轉一圈要幾秒？&quot;, [&quot;2/3 秒&quot;, &quot;3/2 秒&quot;, &quot;6 秒&quot;], 0, &quot;3 圈花 2 秒。&quot;, &quot;T＝2/3 秒&quot;], [&quot;3 秒轉了幾圈？&quot;, [&quot;2 圈&quot;, &quot;4.5 圈&quot;, &quot;6 圈&quot;], 1, &quot;3 ÷ (2/3)。&quot;, &quot;4.5 圈 → 多出半圈，到了西方&quot;], [&quot;在西方時，速度和加速度方向？&quot;, [&quot;速度向北、加速度向東&quot;, &quot;速度向南、加速度向西&quot;], 0, &quot;半圈後所有方向都和 t＝0 相反。&quot;, &quot;選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q11" value="A"><span class="letter">A</span><span>速度向北，加速度向東</span></label><label class="option"><input type="radio" name="q11" value="B"><span class="letter">B</span><span>速度向北，加速度向西</span></label><label class="option"><input type="radio" name="q11" value="C"><span class="letter">C</span><span>速度向南，加速度向東</span></label><label class="option"><input type="radio" name="q11" value="D"><span class="letter">D</span><span>速度向南，加速度向西</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">週期 T＝2 ÷ 3＝2/3 秒（轉一圈的時間）<br>t＝3 秒轉了 3 ÷ (2/3)＝4.5 圈<br>4.5 圈＝轉了整數圈再多半圈 → 小球跑到起點的對面，位於手的「西方」<br>俯視圖：在東方時向南走 → 順時針轉；在西方時順時針方向是向「北」<br>加速度（向心）指向圓心（手）→ 向「東」<br>選 (A)。</p><p class="key"><strong>解題關鍵：</strong>多出半圈 → 位置、速度、加速度方向全部和起點相反。</p></div>
+        </article>
+<article class="card" data-chapter="力與運動：牛頓運動定律、圓周運動" id="q12" data-answer="A">
+          <div class="q-head"><span class="num">12</span><div><span class="source">九上第二次段考 第 12 題</span><h2>桌球揮拍的擊球點</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q12.png" alt="第 12 題附圖" loading="lazy"></div><p class="stem">桌球選手揮拍時可以視為一圓周運動，若去除擊球時的拍面變化和球的旋轉可能。如圖所示，小林想以垂直拍面方向將球擊出並讓球落在桌角乙處，使對手回球不及，則小林應在圖周中的 a、b、c、d 選擇哪一個點擊球最適宜？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q12" value="A"><span class="letter">A</span><span>a</span></label><label class="option"><input type="radio" name="q12" value="B"><span class="letter">B</span><span>b</span></label><label class="option"><input type="radio" name="q12" value="C"><span class="letter">C</span><span>c</span></label><label class="option"><input type="radio" name="q12" value="D"><span class="letter">D</span><span>d</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">題目說球沿「垂直拍面」的方向飛出。<br>從圖中檢查四個位置拍面的垂直方向：只有在 a 點時，拍面的垂直方向正好指向桌角乙處。<br>所以在 a 點擊球最適宜，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>先找出球飛出的方向（垂直拍面），再看哪一點指向目標。</p></div>
+        </article>
+<section class="sec-head" id="ch2"><h3>2. 萬有引力</h3><p>第 13～15 題，共 3 題</p><p class="kw">重點：F＝G·M·m／r²，和兩質量乘積成正比、和距離平方成反比；兩物體間的萬有引力是一對作用力與反作用力，大小一定相等</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>情況</th><th>結論</th></tr><tr><td>A 吸 B 與 B 吸 A</td><td>大小相等、方向相反（第三定律）</td></tr><tr><td>距離（地心算起）變 2 倍</td><td>引力變 1／4</td></tr><tr><td>距離變 3 倍</td><td>引力變 1／9</td></tr><tr><td>注意</td><td>r 要從「地心」量，不是從地表</td></tr></table></div></div></section>
+<article class="card" data-chapter="萬有引力" id="q13" data-answer="B">
+          <div class="q-head"><span class="num">13</span><div><span class="source">九上第二次段考 第 13 題</span><h2>日、地、月的萬有引力比較</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q13.png" alt="第 13 題附圖" loading="lazy"></div><p class="stem">發生月食時，太陽、地球與月球排在一直線上，相對位置如圖所示，三者的距離未依實際比例繪製。已知質量大小關係為太陽＞地球＞月球，則此時太陽、地球與月球三者間的萬有引力大小比較，下列何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q13" value="A"><span class="letter">A</span><span>太陽對地球的萬有引力＞地球對太陽的萬有引力</span></label><label class="option"><input type="radio" name="q13" value="B"><span class="letter">B</span><span>太陽對地球的萬有引力＞太陽對月球的萬有引力</span></label><label class="option"><input type="radio" name="q13" value="C"><span class="letter">C</span><span>月球對太陽的萬有引力＞地球對太陽的萬有引力</span></label><label class="option"><input type="radio" name="q13" value="D"><span class="letter">D</span><span>月球對地球的萬有引力＞地球對月球的萬有引力</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">(A)、(D) 錯：兩物體互相吸引的力是作用力與反作用力，大小一定相等。<br>(B) 對：F＝GMm／r²。地球質量＞月球，且地球離太陽較近 → 太陽對地球的引力較大。<br>(C) 錯：月球對太陽＝太陽對月球，比太陽對地球（＝地球對太陽）小。<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>A 吸 B ＝ B 吸 A；比較不同組時看質量乘積和距離。</p></div>
+        </article>
+<article class="card" data-chapter="萬有引力" id="q14" data-answer="D">
+          <div class="q-head"><span class="num">14</span><div><span class="source">九上第二次段考 第 14 題</span><h2>衛星甲、乙的引力比</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q14.png" alt="第 14 題附圖" loading="lazy"></div><p class="stem">如圖所示，地球半徑大小為 R。有甲、乙兩顆完全相同的人造衛星，分別在距離地球表面 R、2R 的軌道上做等速率圓周運動，若衛星甲、乙與地球間的萬有引力大小分別為 F甲、F乙，則 F甲：F乙＝？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;衛星甲到地心的距離是？&quot;, [&quot;R&quot;, &quot;2R&quot;, &quot;3R&quot;], 1, &quot;地球半徑 R＋離地表 R。&quot;, &quot;r甲＝2R&quot;], [&quot;衛星乙到地心的距離是？&quot;, [&quot;2R&quot;, &quot;3R&quot;, &quot;4R&quot;], 1, &quot;地球半徑 R＋離地表 2R。&quot;, &quot;r乙＝3R&quot;], [&quot;F 和距離的關係？&quot;, [&quot;和 r 成反比&quot;, &quot;和 r² 成反比&quot;], 1, &quot;F＝GMm／r²。&quot;, &quot;F甲：F乙＝3²：2²＝9：4 → 選 (D)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q14" value="A"><span class="letter">A</span><span>2：3</span></label><label class="option"><input type="radio" name="q14" value="B"><span class="letter">B</span><span>3：2</span></label><label class="option"><input type="radio" name="q14" value="C"><span class="letter">C</span><span>4：9</span></label><label class="option"><input type="radio" name="q14" value="D"><span class="letter">D</span><span>9：4</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">距離要從「地心」算：<br>r甲＝R＋R＝2R，r乙＝R＋2R＝3R<br>F 和 r² 成反比：F甲：F乙＝1/(2²)：1/(3²)＝1/4：1/9＝9：4<br>選 (D)。<br>⚠ 用地表距離 R：2R 去算會誤選 4：1 之類的答案。</p><p class="key"><strong>解題關鍵：</strong>萬有引力的距離要量到「地心」，再用平方反比。</p></div>
+        </article>
+<article class="card" data-chapter="萬有引力" id="q15" data-answer="D">
+          <div class="q-head"><span class="num">15</span><div><span class="source">九上第二次段考 第 15 題</span><h2>兩星球的萬有引力</h2></div></div>
+          <p class="stem">已知甲星球質量為乙星球的 2 倍，甲星球受到乙星球的萬有引力為 F甲，乙星球受到甲星球的萬有引力為 F乙，下列敘述何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q15" value="A"><span class="letter">A</span><span>F甲＞F乙，且兩力方向相同</span></label><label class="option"><input type="radio" name="q15" value="B"><span class="letter">B</span><span>F甲＝F乙，且兩力方向相同</span></label><label class="option"><input type="radio" name="q15" value="C"><span class="letter">C</span><span>F甲＞F乙，且兩力方向相反</span></label><label class="option"><input type="radio" name="q15" value="D"><span class="letter">D</span><span>F甲＝F乙，且兩力方向相反</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">甲吸乙、乙吸甲是一對作用力與反作用力 → 大小相等、方向相反，和誰的質量大無關。<br>選 (D)。</p><p class="key"><strong>解題關鍵：</strong>質量不同也一樣：互相吸引的兩個力大小相等。</p></div>
+        </article>
+<section class="sec-head" id="ch3"><h3>3. 力矩與槓桿</h3><p>第 16～20 題，共 5 題</p><p class="kw">重點：力矩＝力 × 力臂（支點到力作用線的垂直距離）；順時針力矩＝逆時針力矩才平衡；力臂越大越省力</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>觀念</th><th>說明</th></tr><tr><td>力矩</td><td>τ＝F × d，d 是支點到作用線的垂直距離</td></tr><tr><td>平衡條件</td><td>合力＝0 且 合力矩＝0</td></tr><tr><td>多層吊飾</td><td>從最下層往上算，每層的總重量掛在上一層</td></tr><tr><td>省力</td><td>同樣力矩，力臂越大施力越小</td></tr></table></div></div></section>
+<article class="card" data-chapter="力矩與槓桿" id="q16" data-answer="A">
+          <div class="q-head"><span class="num">16</span><div><span class="source">九上第二次段考 第 16 題</span><h2>陀螺的合力與合力矩</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q16.png" alt="第 16 題附圖" loading="lazy"></div><p class="stem">小瑜打陀螺，如圖所示。陀螺在水平地面上旋轉，由甲處轉到乙處，再由乙處轉回到甲處，過程中愈轉愈慢，下列關於陀螺由甲處出發再轉回到甲處，其間所受「合力與合力矩」的敘述，何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q16" value="A"><span class="letter">A</span><span>合力≠0　合力矩≠0</span></label><label class="option"><input type="radio" name="q16" value="B"><span class="letter">B</span><span>合力≠0　合力矩＝0</span></label><label class="option"><input type="radio" name="q16" value="C"><span class="letter">C</span><span>合力＝0　合力矩≠0</span></label><label class="option"><input type="radio" name="q16" value="D"><span class="letter">D</span><span>合力＝0　合力矩＝0</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">合力：陀螺沿曲線（繞圈）移動，運動方向一直改變，有加速度 → 合力≠0<br>合力矩：陀螺自轉愈轉愈慢，轉動狀態改變 → 有阻礙轉動的力矩，合力矩≠0<br>選 (A)。</p><p class="key"><strong>解題關鍵：</strong>移動方向或快慢改變 → 合力≠0；轉動快慢改變 → 合力矩≠0。</p></div>
+        </article>
+<article class="card" data-chapter="力矩與槓桿" id="q17" data-answer="A">
+          <div class="q-head"><span class="num">17</span><div><span class="source">九上第二次段考 第 17 題</span><h2>吊飾平衡：哪個瓶子裝水</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q17.png" alt="第 17 題附圖" loading="lazy"></div><p class="stem">阿呆將四個相同重量的空瓶子掛在質量極輕的木棒上，如圖所示，不過為了維持平衡，他在其中的一個空瓶子裡裝了水。請問應該是哪一個空瓶子裡裝了水？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;最下層乙、丙兩邊力臂都是 5 cm，平衡嗎？這層總重？&quot;, [&quot;平衡，2W&quot;, &quot;不平衡，W&quot;], 0, &quot;兩邊重量 × 力臂都是 5W。&quot;, &quot;最下層平衡，共 2W&quot;], [&quot;中間層：左 2W × 5 cm，右丁 W × 10 cm，平衡嗎？&quot;, [&quot;平衡&quot;, &quot;不平衡&quot;], 0, &quot;10W＝10W。&quot;, &quot;中間層平衡，共 3W&quot;], [&quot;最上層：右 3W × 15＝45W，左邊甲在 5 cm 處，甲要多重？&quot;, [&quot;W&quot;, &quot;3W&quot;, &quot;9W&quot;], 2, &quot;甲 × 5＝45W。&quot;, &quot;甲要 9W → 甲裝水，選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q17" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q17" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q17" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q17" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">設每個空瓶重 W，從最下層往上算：<br>最下層：乙、丙各在支點兩側 5 cm，W × 5＝W × 5 → 平衡，這一層共 2W<br>中間層：左邊 2W × 5＝10W，右邊丁 W × 10＝10W → 平衡，這一層共 3W<br>最上層：右邊 3W × 15＝45W，左邊甲只有 5 cm<br>甲要 45W ÷ 5＝9W 才平衡，比空瓶 W 重 → 甲要裝水。選 (A)。</p><p class="key"><strong>解題關鍵：</strong>多層吊飾從最下層算起，每層總重量掛到上一層。</p></div>
+        </article>
+<article class="card" data-chapter="力矩與槓桿" id="q18" data-answer="B">
+          <div class="q-head"><span class="num">18</span><div><span class="source">九上第二次段考 第 18 題</span><h2>槓桿交換位置後的轉向</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q18.png" alt="第 18 題附圖" loading="lazy"></div><p class="stem">取一支質量可忽略的桿子，每個刻度間距為 5 cm，同時以細繩掛上甲、乙、丙、丁四個物體，細繩質量忽略不計。已知甲的重量為丙的 1.5 倍，且丙、丁等重，此時桿子呈現水平平衡，如圖所示。若將乙、丁的位置互換，則桿子會呈現何種狀態？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;由原本平衡算出乙的重量（丙＝丁＝W）：1.5W×10＋乙×5＝W×10＋W×20&quot;, [&quot;乙＝W&quot;, &quot;乙＝3W&quot;, &quot;乙＝1.5W&quot;], 1, &quot;15W＋5乙＝30W。&quot;, &quot;乙＝3W&quot;], [&quot;互換後左邊力矩：甲 1.5W×10＋丁 W×5＝？&quot;, [&quot;20W&quot;, &quot;45W&quot;], 0, &quot;15W＋5W。&quot;, &quot;左（逆時針）＝20W&quot;], [&quot;互換後右邊力矩：丙 W×10＋乙 3W×20＝？&quot;, [&quot;70W&quot;, &quot;20W&quot;], 0, &quot;10W＋60W。&quot;, &quot;右（順時針）70W＞20W → 選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q18" value="A"><span class="letter">A</span><span>逆時鐘方向旋轉</span></label><label class="option"><input type="radio" name="q18" value="B"><span class="letter">B</span><span>順時鐘方向旋轉</span></label><label class="option"><input type="radio" name="q18" value="C"><span class="letter">C</span><span>保持平衡</span></label><label class="option"><input type="radio" name="q18" value="D"><span class="letter">D</span><span>左右搖擺</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">由圖讀力臂（每格 5 cm）：甲在支點左 2 格（10 cm）、乙在左 1 格（5 cm）、丙在右 2 格（10 cm）、丁在右 4 格（20 cm）。<br>設丙＝丁＝W，甲＝1.5W，原本平衡：<br>1.5W × 10＋乙 × 5＝W × 10＋W × 20 → 15W＋5乙＝30W → 乙＝3W<br>乙、丁互換後：<br>逆時針（左）：甲 1.5W × 10＋丁 W × 5＝20W<br>順時針（右）：丙 W × 10＋乙 3W × 20＝70W<br>順時針力矩較大 → 順時鐘方向旋轉，選 (B)。</p><p class="key"><strong>解題關鍵：</strong>先用原本的平衡算出未知重量，再算交換後兩邊力矩。</p></div>
+        </article>
+<article class="card" data-chapter="力矩與槓桿" id="q19" data-answer="A">
+          <div class="q-head"><span class="num">19</span><div><span class="source">九上第二次段考 第 19 題</span><h2>撥動籃球的施力點</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q19.png" alt="第 19 題附圖" loading="lazy"></div><p class="stem">常玩籃球的人，可以用一隻手指頂住旋轉的籃球，如圖所示，當球的轉速下降時，還會用另一隻手平行球表面撥動籃球，來增加球的轉速。若撥動籃球時，想用較小的力造成相同的轉動效果，應撥動圖中的 P 點或 Q 點？為什麼？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q19" value="A"><span class="letter">A</span><span>P 點，因為力臂較大</span></label><label class="option"><input type="radio" name="q19" value="B"><span class="letter">B</span><span>P 點，因為力臂較小</span></label><label class="option"><input type="radio" name="q19" value="C"><span class="letter">C</span><span>Q 點，因為力臂較大</span></label><label class="option"><input type="radio" name="q19" value="D"><span class="letter">D</span><span>Q 點，因為力臂較小</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">籃球繞「鉛直的轉軸」（手指頂的那條線）旋轉。<br>P 點在球的赤道附近，離轉軸最遠 → 力臂大<br>Q 點靠近頂部，離轉軸近 → 力臂小<br>力矩＝力 × 力臂，力臂大就能用較小的力產生相同力矩，選 (A)。</p><p class="key"><strong>解題關鍵：</strong>力臂是「轉軸」到作用線的垂直距離，不是到球心的距離。</p></div>
+        </article>
+<article class="card" data-chapter="力矩與槓桿" id="q20" data-answer="C">
+          <div class="q-head"><span class="num">20</span><div><span class="source">九上第二次段考 第 20 題</span><h2>槓桿受三力是否轉動</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q20.png" alt="第 20 題附圖" loading="lazy"></div><p class="stem">如圖一所示，槓桿上四個點間的長度關係為 PQ：QR：RS＝1：2：3，在 Q 點施一外力 F₁，施力後槓桿不轉動。若不計槓桿質量和摩擦力的影響，在 R 點施一外力 F₂，在 P 點再施一外力 F₃，且 F₃ 的施力大小是 F₂ 的 2 倍，如圖二所示，則槓桿可能會如何運動？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;圖一只在 Q 施力卻不轉，支點在哪裡？&quot;, [&quot;P&quot;, &quot;Q&quot;, &quot;S&quot;], 1, &quot;力通過支點時力矩是 0。&quot;, &quot;支點在 Q&quot;], [&quot;F₃（＝2F₂）在 P，離 Q 1 單位，力矩＝？&quot;, [&quot;2F₂&quot;, &quot;F₂&quot;], 0, &quot;2F₂ × 1。&quot;, &quot;逆時針 2F₂&quot;], [&quot;F₂ 在 R，離 Q 2 單位，力矩＝？&quot;, [&quot;2F₂&quot;, &quot;4F₂&quot;], 0, &quot;F₂ × 2。&quot;, &quot;順時針 2F₂，兩邊相等 → 選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q20" value="A"><span class="letter">A</span><span>順時針轉動</span></label><label class="option"><input type="radio" name="q20" value="B"><span class="letter">B</span><span>逆時針轉動</span></label><label class="option"><input type="radio" name="q20" value="C"><span class="letter">C</span><span>不會轉動</span></label><label class="option"><input type="radio" name="q20" value="D"><span class="letter">D</span><span>無法判斷</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">圖一只在 Q 施力卻不轉動 → 支點在 Q（F₁ 通過支點，力矩＝0）<br>圖二以 Q 為支點：<br>F₃ 在 P（左邊 1 單位）向下 → 逆時針力矩＝2F₂ × 1＝2F₂<br>F₂ 在 R（右邊 2 單位）向下 → 順時針力矩＝F₂ × 2＝2F₂<br>F₁ 通過支點，力矩＝0<br>兩邊力矩相等 → 不會轉動，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>先從「施力卻不轉動」找出支點，再算兩邊力矩。</p></div>
+        </article>
+<section class="sec-head" id="ch4"><h3>4. 功與能量</h3><p>第 21～32 題，共 12 題</p><p class="kw">重點：W＝F × s（力與位移同方向為正功、反方向為負功、垂直不作功）；P＝W／t；U＝mgh、K＝½mv²；只有重力或彈力作功時力學能守恆；合力作功＝動能變化</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>公式</th><th>說明</th></tr><tr><td>W＝F·s</td><td>力和位移垂直 → 不作功</td></tr><tr><td>P＝W／t</td><td>同樣的功，時間越短功率越大</td></tr><tr><td>U＝mgh</td><td>高度越高位能越大</td></tr><tr><td>K＝½mv²</td><td>速率越大動能越大</td></tr><tr><td>力學能守恆</td><td>K＋U＝定值（無摩擦、無空氣阻力）</td></tr><tr><td>功能定理</td><td>合力作功＝末動能－初動能</td></tr></table></div></div></section>
+<article class="card" data-chapter="功與能量" id="q21" data-answer="B">
+          <div class="q-head"><span class="num">21</span><div><span class="source">九上第二次段考 第 21 題</span><h2>重力對甲、乙作的功</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q21.png" alt="第 21 題附圖" loading="lazy"></div><p class="stem">甲、乙為 2 個相同的金屬塊，質量為 4 kg，如圖所示，對甲施力 1 kgw 使甲向左移動 2 m，另將乙垂直拉起到 2 m 高處。有關甲、乙重力作功的敘述，何者正確？（重力加速度為 10 m/s²）</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;重力對甲作功嗎？&quot;, [&quot;會&quot;, &quot;不會（垂直）&quot;], 1, &quot;甲水平移動，重力向下。&quot;, &quot;甲：不做功&quot;], [&quot;乙的重力有多大？&quot;, [&quot;4 N&quot;, &quot;40 N&quot;], 1, &quot;W＝mg＝4×10。&quot;, &quot;40 N&quot;], [&quot;乙向上 2 m，重力作功＝？&quot;, [&quot;＋80 J&quot;, &quot;－80 J&quot;], 1, &quot;重力向下、位移向上 → 負功。&quot;, &quot;－80 J → 選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q21" value="A"><span class="letter">A</span><span>甲：正功 2 焦耳；乙：正功 8 焦耳</span></label><label class="option"><input type="radio" name="q21" value="B"><span class="letter">B</span><span>甲：不做功；乙：負功 80 焦耳</span></label><label class="option"><input type="radio" name="q21" value="C"><span class="letter">C</span><span>甲：正功 20 焦耳；乙：不做功</span></label><label class="option"><input type="radio" name="q21" value="D"><span class="letter">D</span><span>甲：負功 40 焦耳；乙：正功 40 焦耳</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">重力 W＝mg＝4 × 10＝40 N，方向向下<br>甲：水平移動，位移和重力垂直 → 重力不作功<br>乙：向上移動 2 m，和重力方向相反 → 負功<br>重力對乙作功＝－40 × 2＝－80 焦耳<br>選 (B)。（題目的 1 kgw 是拉力，和「重力作功」無關，是干擾資訊。）</p><p class="key"><strong>解題關鍵：</strong>力與位移垂直不作功；方向相反作負功。</p></div>
+        </article>
+<article class="card" data-chapter="功與能量" id="q22" data-answer="C">
+          <div class="q-head"><span class="num">22</span><div><span class="source">九上第二次段考 第 22 題</span><h2>摩擦力對木塊作的功</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q22.png" alt="第 22 題附圖" loading="lazy"></div><p class="stem">一個質量為 0.2 kg 的木塊在水平面上做直線運動，因受摩擦力作用而速度逐漸變慢，木塊的速度與時間關係如圖所示。若不考慮空氣阻力，則 0～4 秒內，摩擦力對木塊所作的功為多少焦耳？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;初動能（v＝10 m/s）＝？&quot;, [&quot;1 J&quot;, &quot;10 J&quot;, &quot;20 J&quot;], 1, &quot;½ × 0.2 × 100。&quot;, &quot;K初＝10 J&quot;], [&quot;末動能（v＝6 m/s）＝？&quot;, [&quot;3.6 J&quot;, &quot;0.6 J&quot;, &quot;7.2 J&quot;], 0, &quot;½ × 0.2 × 36。&quot;, &quot;K末＝3.6 J&quot;], [&quot;摩擦力作功＝？&quot;, [&quot;＋6.4 J&quot;, &quot;－6.4 J&quot;], 1, &quot;末－初，動能減少是負功。&quot;, &quot;－6.4 J → 選 (C)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q22" value="A"><span class="letter">A</span><span>－0.4</span></label><label class="option"><input type="radio" name="q22" value="B"><span class="letter">B</span><span>－3.6</span></label><label class="option"><input type="radio" name="q22" value="C"><span class="letter">C</span><span>－6.4</span></label><label class="option"><input type="radio" name="q22" value="D"><span class="letter">D</span><span>－10</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">只有摩擦力作功 → 摩擦力作功＝動能變化（功能定理）<br>初動能＝½ × 0.2 × 10²＝10 J<br>末動能＝½ × 0.2 × 6²＝3.6 J<br>摩擦力作功＝3.6－10＝－6.4 J，選 (C)。</p><p class="key"><strong>解題關鍵：</strong>合力作功＝末動能－初動能；動能用速度平方，不能直接用速度差。</p></div>
+        </article>
+<article class="card" data-chapter="功與能量" id="q23" data-answer="B">
+          <div class="q-head"><span class="num">23</span><div><span class="source">九上第二次段考 第 23 題</span><h2>作功與平均功率比較</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q23.png" alt="第 23 題附圖" loading="lazy"></div><p class="stem">甲、乙兩人在長 10 公尺的相同賽道上，分別以相等的定力 F 推質量不同的 A、B 兩物體，如圖所示。已知兩人將物體從起點推到終點分別耗時 20 秒及 30 秒，關於兩人對物體作功及平均功率大小的敘述，何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q23" value="A"><span class="letter">A</span><span>作功：甲＞乙，平均功率：甲＞乙</span></label><label class="option"><input type="radio" name="q23" value="B"><span class="letter">B</span><span>作功：甲＝乙，平均功率：甲＞乙</span></label><label class="option"><input type="radio" name="q23" value="C"><span class="letter">C</span><span>作功：甲＞乙，平均功率：甲＜乙</span></label><label class="option"><input type="radio" name="q23" value="D"><span class="letter">D</span><span>作功：甲＝乙，平均功率：甲＜乙</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">W＝F × s：兩人的 F 相同、s 都是 10 m → 作功相同（和物體質量無關）<br>P＝W ÷ t：功相同，甲 20 秒＜乙 30 秒 → 甲的功率較大<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>作功只看力和位移；功率還要看時間，時間短功率大。</p></div>
+        </article>
+<article class="card" data-chapter="功與能量" id="q24" data-answer="D">
+          <div class="q-head"><span class="num">24</span><div><span class="source">九上第二次段考 第 24 題</span><h2>灌籃過程的能量變化</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q24.png" alt="第 24 題附圖" loading="lazy"></div><p class="stem">籃球聯賽冠軍爭霸戰正在進行，雙方比數相同僵持不下，場上氣氛緊繃，最後倒數 10 秒之際，等在籃框正下方的小喬接到隊友傳來的球，他雙腿微微彎曲後垂直向上跳躍，直接將球扣入籃框，此時哨聲響起比賽結束。附圖為小喬灌籃的過程示意圖，下列關於小喬力學能的變化敘述何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q24" value="A"><span class="letter">A</span><span>甲圖小喬動能最大</span></label><label class="option"><input type="radio" name="q24" value="B"><span class="letter">B</span><span>甲圖到乙圖，小喬的重力位能增加</span></label><label class="option"><input type="radio" name="q24" value="C"><span class="letter">C</span><span>丙圖到丁圖，小喬的動能增加</span></label><label class="option"><input type="radio" name="q24" value="D"><span class="letter">D</span><span>丁圖到戊圖，小喬重力位能減少</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">(A) 甲圖站著接球，速度不是最大 ✗<br>(B) 甲到乙：乙圖蹲低，高度下降，重力位能減少 ✗<br>(C) 丙到丁：向上跳，速度變慢，動能減少 ✗<br>(D) 丁到戊：從空中落回地面，高度降低 → 重力位能減少 ✓<br>選 (D)。</p><p class="key"><strong>解題關鍵：</strong>重力位能只看高度；往上跳時動能轉成位能。</p></div>
+        </article>
+<article class="card" data-chapter="功與能量" id="q25" data-answer="B">
+          <div class="q-head"><span class="num">25</span><div><span class="source">九上第二次段考 第 25 題</span><h2>殺球時的位能與動能</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q25.png" alt="第 25 題附圖" loading="lazy"></div><p class="stem">附圖中，小林正在示範桌球的殺球技巧：「當球上升時，由腰部帶動手臂揮動，用球拍擊球的上半部，同時……，讓球快速飛往對方桌面。」若球拍擊中桌球後，桌球由甲位置至乙位置為減速下墜，則甲至乙的過程中，桌球重力位能與動能的變化，下列何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q25" value="A"><span class="letter">A</span><span>重力位能與動能都增加</span></label><label class="option"><input type="radio" name="q25" value="B"><span class="letter">B</span><span>重力位能與動能都減少</span></label><label class="option"><input type="radio" name="q25" value="C"><span class="letter">C</span><span>重力位能增加但動能減少</span></label><label class="option"><input type="radio" name="q25" value="D"><span class="letter">D</span><span>重力位能減少但動能增加</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">「下墜」→ 高度降低 → 重力位能減少<br>「減速」→ 速率變小 → 動能減少<br>兩者都減少，選 (B)。（有空氣阻力等作負功，所以力學能不守恆。）</p><p class="key"><strong>解題關鍵：</strong>抓題目關鍵字：下墜看位能，減速看動能。</p></div>
+        </article>
+<article class="card" data-chapter="功與能量" id="q26" data-answer="D">
+          <div class="q-head"><span class="num">26</span><div><span class="source">九上第二次段考 第 26 題</span><h2>飛車軌道：動能是位能的 3 倍</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q26.png" alt="第 26 題附圖" loading="lazy"></div><p class="stem">如圖所示，遊樂園中的設施有一處「飛車軌道」是利用重力對飛車作用，使飛車由高度為 h 的位置沿軌道（甲→丁→丙→乙）自由滑行，若不計任何阻力及摩擦力，當滑行至哪一個位置時，飛車所具有的動能大小恰為位能的 3 倍？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;飛車在甲（靜止、高度 h）的總力學能是？&quot;, [&quot;0&quot;, &quot;mgh&quot;, &quot;½mgh&quot;], 1, &quot;靜止 → 動能 0，只有位能。&quot;, &quot;E＝mgh&quot;], [&quot;K＝3U 代入 K＋U＝mgh，U＝？&quot;, [&quot;¼mgh&quot;, &quot;⅓mgh&quot;, &quot;¾mgh&quot;], 0, &quot;3U＋U＝4U。&quot;, &quot;U＝¼mgh&quot;], [&quot;位能是 ¼mgh 時高度是？&quot;, [&quot;¼h&quot;, &quot;¾h&quot;], 0, &quot;U＝mg × 高度。&quot;, &quot;高度 ¼h → 丁，選 (D)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q26" value="A"><span class="letter">A</span><span>甲</span></label><label class="option"><input type="radio" name="q26" value="B"><span class="letter">B</span><span>乙</span></label><label class="option"><input type="radio" name="q26" value="C"><span class="letter">C</span><span>丙</span></label><label class="option"><input type="radio" name="q26" value="D"><span class="letter">D</span><span>丁</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">從甲靜止出發：總力學能 E＝mgh（全部是位能）<br>力學能守恆：K＋U＝mgh，且 K＝3U<br>→ 3U＋U＝4U＝mgh → U＝¼mgh<br>位能是起點的 ¼ → 高度＝¼h，圖中 ¼h 的位置是丁，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>K＝3U 代入 K＋U＝總力學能，就能求出位能占幾分之幾。</p></div>
+        </article>
+<article class="card" data-chapter="功與能量" id="q27" data-answer="D">
+          <div class="q-head"><span class="num">27</span><div><span class="source">九上第二次段考 第 27 題</span><h2>力學能守恆求動能</h2></div></div>
+          <div class="context"><div class="table-wrap"><table><tr><th>時間（秒）</th><th>動能（焦耳）</th><th>位能（焦耳）</th></tr><tr><td>0（開始計時瞬間）</td><td>50</td><td>3000</td></tr><tr><td>1</td><td>450</td><td>2600</td></tr><tr><td>2</td><td>？（汙損）</td><td>1800</td></tr><tr><td>3</td><td>2450</td><td>600</td></tr></table></div></div><p class="stem">在沒有空氣阻力狀況下，觀測並計算物體由高處落下的動能與位能變化情形，如表所示，表中第 2 秒的動能因汙損而無法判讀。根據此表的資料，可知汙損處的數據為何？（假設 g＝10 m/s²，地面的位能定為 0）</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;第 0 秒的總力學能 K＋U＝？&quot;, [&quot;2950 J&quot;, &quot;3050 J&quot;, &quot;3000 J&quot;], 1, &quot;50＋3000。&quot;, &quot;E＝3050 J&quot;], [&quot;第 2 秒的動能＝？&quot;, [&quot;1250 J&quot;, &quot;1800 J&quot;], 0, &quot;3050－1800。&quot;, &quot;K＝1250 J → 選 (D)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q27" value="A"><span class="letter">A</span><span>850</span></label><label class="option"><input type="radio" name="q27" value="B"><span class="letter">B</span><span>950</span></label><label class="option"><input type="radio" name="q27" value="C"><span class="letter">C</span><span>1150</span></label><label class="option"><input type="radio" name="q27" value="D"><span class="letter">D</span><span>1250</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">沒有空氣阻力 → 力學能守恆，K＋U 固定<br>第 0 秒：50＋3000＝3050 J（驗算第 1 秒：450＋2600＝3050 ✓）<br>第 2 秒：K＝3050－1800＝1250 J，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>力學能守恆：任一時刻 K＋U 都相同。</p></div>
+        </article>
+<article class="card" data-chapter="功與能量" id="q28" data-answer="D">
+          <div class="q-head"><span class="num">28</span><div><span class="source">九上第二次段考 第 28 題</span><h2>登山過程的重力位能</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q28.png" alt="第 28 題附圖" loading="lazy"></div><p class="stem">小豪記錄某次登山過程中，從登山口至山頂的海拔高度變化，如圖所示，則關於此次登山過程的敘述，下列何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q28" value="A"><span class="letter">A</span><span>小豪從登山口至山頂的過程中，重力位能持續增加</span></label><label class="option"><input type="radio" name="q28" value="B"><span class="letter">B</span><span>小豪的力學能全程保持不變</span></label><label class="option"><input type="radio" name="q28" value="C"><span class="letter">C</span><span>小豪在山谷休息時，其動能大於重力位能</span></label><label class="option"><input type="radio" name="q28" value="D"><span class="letter">D</span><span>小豪在山頂的重力位能大於在登山口的重力位能</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">(A) 圖中高度有升有降（經過山谷），位能不是持續增加 ✗<br>(B) 人走路會出力、會消耗能量，力學能不守恆 ✗<br>(C) 休息時靜止，動能＝0，不可能大於位能 ✗<br>(D) 山頂（約 1900 m）比登山口（約 600 m）高 → 位能較大 ✓<br>選 (D)。</p><p class="key"><strong>解題關鍵：</strong>U＝mgh：同一個人，高度越高位能越大。</p></div>
+        </article>
+<article class="card" data-chapter="功與能量" id="q29" data-answer="A">
+          <div class="q-head"><span class="num">29</span><div><span class="source">九上第二次段考 第 29 題</span><h2>101 電梯的能量變化</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q29.png" alt="第 29 題附圖" loading="lazy"></div><p class="stem">臺北 101 大樓的電梯停在 2 樓開始上升直達 60 樓後停止，共耗費 40 秒，其加速度(a)與時間(t)的關係圖如圖，下列關於電梯運動中能量的敘述，何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q29" value="A"><span class="letter">A</span><span>0～8 秒，電梯的動能與重力位能逐漸增加</span></label><label class="option"><input type="radio" name="q29" value="B"><span class="letter">B</span><span>8～32 秒，電梯的動能與重力位能維持固定</span></label><label class="option"><input type="radio" name="q29" value="C"><span class="letter">C</span><span>32～40 秒，電梯的動能與重力位能逐漸減少</span></label><label class="option"><input type="radio" name="q29" value="D"><span class="letter">D</span><span>0～40 秒，電梯的力學能維持固定</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">電梯全程都在「上升」→ 重力位能一直增加<br>0～8 秒：a＞0，加速上升 → 動能增加、位能增加 ✓<br>8～32 秒：a＝0，等速上升 → 動能固定，但位能仍增加 ✗<br>32～40 秒：減速上升 → 動能減少，位能仍增加 ✗<br>(D) 馬達一直作功，力學能不守恆 ✗<br>選 (A)。</p><p class="key"><strong>解題關鍵：</strong>a－t 圖看速率變化（動能）；一直往上走，位能一直增加。</p></div>
+        </article>
+<article class="card" data-chapter="功與能量" id="q30" data-answer="D">
+          <div class="q-head"><span class="num">30</span><div><span class="source">九上第二次段考 第 30 題</span><h2>彈簧振動：c 到 a</h2></div></div>
+          <div class="figure"><img src="./img/renai113-m2/q30.png" alt="第 30 題附圖" loading="lazy"></div><p class="stem">如下圖所示，一鉛直懸掛的彈簧下端繫一物體，物體在彈簧的彈力與地球引力作用下，鉛直上下運動。圖中 c 點為彈簧的原長。a、b 兩點為物體運動時的最高點、最低點。若不計任何阻力，當物體由 c 點往 a 點運動過程中，下列敘述何者正確？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q30" value="A"><span class="letter">A</span><span>動能變大</span></label><label class="option"><input type="radio" name="q30" value="B"><span class="letter">B</span><span>動能和重力位能總和不變</span></label><label class="option"><input type="radio" name="q30" value="C"><span class="letter">C</span><span>彈力位能變小</span></label><label class="option"><input type="radio" name="q30" value="D"><span class="letter">D</span><span>重力位能變大</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">c → a 是往上走到最高點：<br>高度增加 → 重力位能變大 ✓<br>到最高點 a 時速度為 0 → 動能變小（(A) ✗）<br>c 是原長，往上到 a 彈簧被壓縮越來越多 → 彈力位能變大（(C) ✗）<br>彈力位能有變化，所以「動能＋重力位能」不是定值（(B) ✗）<br>選 (D)。</p><p class="key"><strong>解題關鍵：</strong>彈簧系統守恆的是「動能＋重力位能＋彈力位能」三者總和。</p></div>
+        </article>
+<article class="card" data-chapter="功與能量" id="q31" data-answer="A">
+          <div class="q-head"><span class="num">31</span><div><span class="source">九上第二次段考 第 31 題</span><h2>定力 F 作的功</h2></div></div>
+          <div class="context"><strong>題組（第 31～32 題）</strong><p>如圖所示，甲、乙、丙三個長度均為 2 m 的不同平面，以 2 N 的水平定力 F 拉動質量 2 kg 的靜止物體，使其由 A 處經過甲、乙、丙平面到達 B 處時，所受的動摩擦力分別為 1 N、2 N、3 N。</p></div><div class="figure"><img src="./img/renai113-m2/g31.png" alt="第 31 題附圖" loading="lazy"></div><p class="stem">物體由 A 到 B，定力 F 對物體所作的功為多少焦耳？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;A 到 B 的總位移是？&quot;, [&quot;2 m&quot;, &quot;6 m&quot;], 1, &quot;甲、乙、丙各 2 m。&quot;, &quot;s＝6 m&quot;], [&quot;F 作的功＝？&quot;, [&quot;12 J&quot;, &quot;6 J&quot;, &quot;0 J&quot;], 0, &quot;W＝F × s＝2 × 6。&quot;, &quot;12 J → 選 (A)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q31" value="A"><span class="letter">A</span><span>12</span></label><label class="option"><input type="radio" name="q31" value="B"><span class="letter">B</span><span>6</span></label><label class="option"><input type="radio" name="q31" value="C"><span class="letter">C</span><span>0</span></label><label class="option"><input type="radio" name="q31" value="D"><span class="letter">D</span><span>－6</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：A</p><p class="steps">F＝2 N 全程向右拉，位移＝2＋2＋2＝6 m<br>W＝F × s＝2 × 6＝12 焦耳，選 (A)。<br>（問的是「F」作的功，摩擦力不用算進來。）</p><p class="key"><strong>解題關鍵：</strong>問哪一個力作功，就只用那個力 × 位移。</p></div>
+        </article>
+<article class="card" data-chapter="功與能量" id="q32" data-answer="D">
+          <div class="q-head"><span class="num">32</span><div><span class="source">九上第二次段考 第 32 題</span><h2>A 到 B 的動能變化</h2></div></div>
+          <div class="context"><strong>題組（第 31～32 題）</strong><p>如圖所示，甲、乙、丙三個長度均為 2 m 的不同平面，以 2 N 的水平定力 F 拉動質量 2 kg 的靜止物體，使其由 A 處經過甲、乙、丙平面到達 B 處時，所受的動摩擦力分別為 1 N、2 N、3 N。</p></div><div class="figure"><img src="./img/renai113-m2/g31.png" alt="第 32 題附圖" loading="lazy"></div><p class="stem">當物體由位置 A 到達位置 B 時，物體的動能變化為何？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;摩擦力在甲、乙、丙各作多少功？&quot;, [&quot;－2、－4、－6 J&quot;, &quot;－1、－2、－3 J&quot;], 0, &quot;摩擦力 × 2 m，方向與運動相反。&quot;, &quot;摩擦力共作 －12 J&quot;], [&quot;合力作功＝12＋(－12)＝？&quot;, [&quot;0 J&quot;, &quot;24 J&quot;], 0, &quot;正負相消。&quot;, &quot;動能變化 0 → 選 (D)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q32" value="A"><span class="letter">A</span><span>增加 12 焦耳</span></label><label class="option"><input type="radio" name="q32" value="B"><span class="letter">B</span><span>增加 6 焦耳</span></label><label class="option"><input type="radio" name="q32" value="C"><span class="letter">C</span><span>減少 6 焦耳</span></label><label class="option"><input type="radio" name="q32" value="D"><span class="letter">D</span><span>沒有增減</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：D</p><p class="steps">F 作功＝＋12 J（第 31 題）<br>摩擦力作功＝－(1×2＋2×2＋3×2)＝－12 J<br>合力作功＝12－12＝0 J<br>功能定理：動能變化＝合力作功＝0 → 沒有增減，選 (D)。</p><p class="key"><strong>解題關鍵：</strong>動能變化＝所有力作功的總和（合力作功）。</p></div>
+        </article>
+<section class="sec-head" id="ch5"><h3>5. 能源（題組）</h3><p>第 33～35 題，共 3 題</p><p class="kw">重點：初級能源是天然形成（風、太陽、煤、石油）；次級能源由初級能源轉換而來（電能、汽油）；再生能源可循環利用（風能、太陽能、水力）</p><div class="summary"><h4>📊 重點整理</h4><div class="table-wrap"><table><tr><th>分類</th><th>例子</th></tr><tr><td>初級＋再生</td><td>風能、太陽能、水力、地熱</td></tr><tr><td>初級＋非再生</td><td>煤、石油、天然氣、核燃料</td></tr><tr><td>次級能源</td><td>電能、汽油、氫能</td></tr></table></div></div></section>
+<article class="card" data-chapter="能源（題組）" id="q33" data-answer="B">
+          <div class="q-head"><span class="num">33</span><div><span class="source">九上第二次段考 第 33 題</span><h2>風能與電能的分類</h2></div></div>
+          <div class="context"><strong>題組（第 33～35 題）</strong><p>「能源」依產生的形式可大致分為兩類，一類為初級能源，是指天然形成的能源；另一類為次級能源，是初級能源經處理或轉換所形成的能源。初級能源依其能否循環利用可分為再生能源和非再生能源。<br>臺灣西部海岸建構多部風力發電機，透過風力發電機可以將風能轉換為電能，而在轉換過程中，能量無法百分之百轉換。科學上會使用功率係數 Cp 來呈現發電機葉片由風力獲取能量的效率：<br>Cp＝發電機葉片由風力中獲取的功率 ÷ 通過發電機前風力原始的功率<br>原始的風速為 v₁，在通過發電機後，最後風速變為 v₂。德國科學家貝茲通過理論計算，獲得理想情形下 Cp 與 (v₂／v₁) 的理論關係，如下圖所示。</p></div><div class="figure"><img src="./img/renai113-m2/g33a.png" alt="第 33 題附圖" loading="lazy"></div><p class="stem">已知風力發電機可將「風能轉換成電能」，則風能和電能應分別屬於何種類別？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q33" value="A"><span class="letter">A</span><span>風能屬於再生能源；電能屬於非再生能源</span></label><label class="option"><input type="radio" name="q33" value="B"><span class="letter">B</span><span>風能屬於再生能源；電能屬於次級能源</span></label><label class="option"><input type="radio" name="q33" value="C"><span class="letter">C</span><span>風能屬於非再生能源；電能屬於再生能源</span></label><label class="option"><input type="radio" name="q33" value="D"><span class="letter">D</span><span>風能屬於非再生能源；電能屬於次級能源</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">風能：自然形成、可以循環利用 → 初級能源中的「再生能源」<br>電能：由風能（初級能源）轉換而來 → 「次級能源」<br>選 (B)。</p><p class="key"><strong>解題關鍵：</strong>由別的能源轉換而來的就是次級能源（電能、汽油）。</p></div>
+        </article>
+<article class="card" data-chapter="能源（題組）" id="q34" data-answer="C">
+          <div class="q-head"><span class="num">34</span><div><span class="source">九上第二次段考 第 34 題</span><h2>Cp 值的意義</h2></div></div>
+          <div class="context"><strong>題組（第 33～35 題）</strong><p>「能源」依產生的形式可大致分為兩類，一類為初級能源，是指天然形成的能源；另一類為次級能源，是初級能源經處理或轉換所形成的能源。初級能源依其能否循環利用可分為再生能源和非再生能源。<br>臺灣西部海岸建構多部風力發電機，透過風力發電機可以將風能轉換為電能，而在轉換過程中，能量無法百分之百轉換。科學上會使用功率係數 Cp 來呈現發電機葉片由風力獲取能量的效率：<br>Cp＝發電機葉片由風力中獲取的功率 ÷ 通過發電機前風力原始的功率<br>原始的風速為 v₁，在通過發電機後，最後風速變為 v₂。德國科學家貝茲通過理論計算，獲得理想情形下 Cp 與 (v₂／v₁) 的理論關係，如下圖所示。</p></div><p class="stem">根據本文第二段的資訊，下列有關 Cp 的敘述，何者最合理？</p>
+          
+          <div class="options"><label class="option"><input type="radio" name="q34" value="A"><span class="letter">A</span><span>風力發電機葉片轉動的速率愈快，Cp 值會愈大</span></label><label class="option"><input type="radio" name="q34" value="B"><span class="letter">B</span><span>風力發電機葉片轉動的速率愈快，Cp 值會愈小</span></label><label class="option"><input type="radio" name="q34" value="C"><span class="letter">C</span><span>風力發電機葉片由風力獲得能量的比例愈高，Cp 值會愈大</span></label><label class="option"><input type="radio" name="q34" value="D"><span class="letter">D</span><span>風力發電機葉片由風力獲得能量的比例愈高，Cp 值會愈小</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p class="steps">Cp＝葉片獲取的功率 ÷ 風原始的功率<br>分子（葉片獲得的能量）占比愈高 → Cp 愈大，選 (C)。<br>文中沒有提到葉片轉速和 Cp 的關係，(A)、(B) 無法判斷。</p><p class="key"><strong>解題關鍵：</strong>Cp 是「效率」：獲得的 ÷ 原有的。</p></div>
+        </article>
+<article class="card" data-chapter="能源（題組）" id="q35" data-answer="B">
+          <div class="q-head"><span class="num">35</span><div><span class="source">九上第二次段考 第 35 題</span><h2>讀圖找最大 Cp</h2></div></div>
+          <div class="context"><strong>題組（第 33～35 題）</strong><p>「能源」依產生的形式可大致分為兩類，一類為初級能源，是指天然形成的能源；另一類為次級能源，是初級能源經處理或轉換所形成的能源。初級能源依其能否循環利用可分為再生能源和非再生能源。<br>臺灣西部海岸建構多部風力發電機，透過風力發電機可以將風能轉換為電能，而在轉換過程中，能量無法百分之百轉換。科學上會使用功率係數 Cp 來呈現發電機葉片由風力獲取能量的效率：<br>Cp＝發電機葉片由風力中獲取的功率 ÷ 通過發電機前風力原始的功率<br>原始的風速為 v₁，在通過發電機後，最後風速變為 v₂。德國科學家貝茲通過理論計算，獲得理想情形下 Cp 與 (v₂／v₁) 的理論關係，如下圖所示。</p></div><div class="figure"><img src="./img/renai113-m2/g33b.png" alt="第 35 題附圖" loading="lazy"></div><p class="stem">根據附圖，假設原始的風速 v₁ 為 10 m/s，通過發電機後，最後的風速 v₂ 為多少時，會接近最大的 Cp 值？</p>
+          <details class="guide"><summary>🧭 引導解題：不會嗎？跟著提問一步一步想</summary><div class="gsteps" data-steps="[[&quot;Cp 最大時，橫軸 v₂/v₁ 約是多少？&quot;, [&quot;0&quot;, &quot;約 0.33&quot;, &quot;1.0&quot;], 1, &quot;找曲線最高點往下對到橫軸。&quot;, &quot;v₂/v₁≈0.33&quot;], [&quot;v₁＝10 m/s，v₂＝？&quot;, [&quot;3.3 m/s&quot;, &quot;0.33 m/s&quot;], 0, &quot;0.33 × 10。&quot;, &quot;v₂＝3.3 m/s → 選 (B)&quot;]]"></div></details>
+          <div class="options"><label class="option"><input type="radio" name="q35" value="A"><span class="letter">A</span><span>0</span></label><label class="option"><input type="radio" name="q35" value="B"><span class="letter">B</span><span>3.3 m/s</span></label><label class="option"><input type="radio" name="q35" value="C"><span class="letter">C</span><span>5.9 m/s</span></label><label class="option"><input type="radio" name="q35" value="D"><span class="letter">D</span><span>10 m/s</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p class="steps">圖中 Cp 曲線的最高點（約 0.59）出現在橫軸 v₂/v₁ ≈ 0.33<br>v₂＝0.33 × v₁＝0.33 × 10＝3.3 m/s，選 (B)。</p><p class="key"><strong>解題關鍵：</strong>先讀曲線最高點的橫軸值，再乘以 v₁。</p></div>
+        </article>
+<p class="hint" style="text-align:center;color:var(--muted)">試題來源：臺北市立仁愛國中 113 學年度第 1 學期第二次段考九年級理化科；答案依學校公布答案卷，詳解為重新整理撰寫。</p>
+</main>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const downloadBtn=document.querySelector('#downloadDocx');
+let graded=false;
+
+function checkCard(card,revealUnanswered=false){
+  card.classList.remove('correct','incorrect','unanswered');
+  card.querySelectorAll('.option').forEach(option=>option.classList.remove('good','bad'));
+  const pick=card.querySelector('input:checked');
+  const answer=card.dataset.answer;
+  if(!pick&&!revealUnanswered)return {answered:false,correct:false};
+  card.classList.add('checked');
+  card.querySelectorAll('input').forEach(input=>{
+    const option=input.closest('.option');
+    if(input.value===answer)option.classList.add('good');
+    if(pick&&input===pick&&input.value!==answer)option.classList.add('bad');
+    input.disabled=true;
+  });
+  if(!pick)card.classList.add('unanswered');
+  else if(pick.value===answer)card.classList.add('correct');
+  else card.classList.add('incorrect');
+  return {answered:!!pick,correct:!!pick&&pick.value===answer};
+}
+
+function updateProgress(){
+  const answered=cards.filter(card=>card.querySelector('input:checked')).length;
+  const score=cards.filter(card=>card.querySelector('input:checked')?.value===card.dataset.answer).length;
+  document.querySelector('#score').textContent=`已作答 ${answered} / ${cards.length}・答對 ${score} 題`;
+  if(answered===cards.length){
+    graded=true;
+    const mistakeCount=cards.length-score;
+    downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+    downloadBtn.hidden=false;
+  }
+}
+
+cards.forEach(card=>card.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+  checkCard(card);
+  updateProgress();
+})));
+
+document.querySelector('#grade').addEventListener('click',()=>{
+  let score=0,first=null;
+  cards.forEach(c=>{
+    const result=checkCard(c,true);
+    if(!result.answered)first??=c;
+    if(result.correct)score++;
+  });
+  graded=true;
+  const mistakeCount=cards.length-score;
+  document.querySelector('#score').textContent=`得分 ${score} / ${cards.length}`;
+  downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+  downloadBtn.hidden=false;
+  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.querySelector('#reset').addEventListener('click',()=>{
+  cards.forEach(c=>{
+    c.className='card';
+    c.querySelectorAll('input').forEach(i=>{i.checked=false;i.disabled=false});
+    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
+  });
+  graded=false;
+  downloadBtn.hidden=true;
+  downloadBtn.textContent='下載錯題詳解 DOCX';
+  document.querySelector('#score').textContent=`已作答 0 / ${cards.length}`;
+  scrollTo({top:0,behavior:'smooth'});
+});
+
+function xmlEscape(value){
+  return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+}
+
+function wordParagraph(text,{bold=false,size=22,color='000000',before=0,after=100}={}){
+  const safe=xmlEscape(text);
+  return `<w:p><w:pPr><w:spacing w:before="${before}" w:after="${after}" w:line="330" w:lineRule="auto"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Microsoft JhengHei" w:hAnsi="Microsoft JhengHei" w:eastAsia="Microsoft JhengHei"/><w:sz w:val="${size}"/><w:szCs w:val="${size}"/>${bold?'<w:b/><w:bCs/>':''}${color!=='000000'?`<w:color w:val="${color}"/>`:''}<w:lang w:eastAsia="zh-TW"/></w:rPr><w:t xml:space="preserve">${safe}</w:t></w:r></w:p>`;
+}
+
+function textBlock(text,options={}){
+  return String(text??'').split(/\r?\n/).filter(Boolean).map(line=>wordParagraph(line,options)).join('');
+}
+
+function collectMistakes(){
+  return cards.filter(c=>{
+    const pick=c.querySelector('input:checked');
+    return !!pick&&pick.value!==c.dataset.answer;
+  }).map(c=>{
+    const picked=c.querySelector('input:checked');
+    const feedback=[...c.querySelectorAll('.feedback p')];
+    return {
+      number:c.querySelector('.num').textContent.trim(),
+      source:(c.dataset.chapter?c.dataset.chapter+'｜':'')+c.querySelector('.source').textContent.trim(),
+      topic:c.querySelector('h2').textContent.trim(),
+      context:c.querySelector('.context')?.innerText.trim()||'',
+      stem:c.querySelector('.stem').textContent.trim(),
+      options:[...c.querySelectorAll('.option')].map(o=>`${o.querySelector('.letter').textContent.trim()}　${o.querySelector('span:last-child').textContent.trim()}`),
+      selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
+      answer:c.dataset.answer,
+      explanation:feedback[1]?.innerText.trim()||'',
+      figures:[...c.querySelectorAll('.figure img')].map(i=>({src:i.getAttribute('src').replace(/\.svg$/,'.png'),alt:i.alt})),
+      key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
+    };
+  });
+}
+
+const encoder=new TextEncoder();
+function le16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function le32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function joinBytes(chunks){
+  const out=new Uint8Array(chunks.reduce((sum,c)=>sum+c.length,0));
+  let at=0;for(const c of chunks){out.set(c,at);at+=c.length}return out;
+}
+const crcTable=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(data){let c=0xffffffff;for(const b of data)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0}
+function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());return {time:(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date:((year-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate()}}
+
+function makeDocxZip(files){
+  const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
+  for(const [name,text] of files){
+    const nameBytes=encoder.encode(name),data=text instanceof Uint8Array?text:encoder.encode(text),crc=crc32(data);
+    const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
+    const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
+    locals.push(local);centrals.push(central);offset+=local.length;
+  }
+  const centralData=joinBytes(centrals);
+  const end=joinBytes([le32(0x06054b50),le16(0),le16(0),le16(files.length),le16(files.length),le32(centralData.length),le32(offset),le16(0)]);
+  return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+async function loadPng(src){
+  const res=await fetch(src);if(!res.ok)throw new Error(src);
+  const bytes=new Uint8Array(await res.arrayBuffer());
+  const dv=new DataView(bytes.buffer);
+  return {bytes,w:dv.getUint32(16),h:dv.getUint32(20)};
+}
+function imageParagraph(rid,id,w,h,alt){
+  const cx=Math.round(6.2*914400),cy=Math.round(cx*h/w);
+  return `<w:p><w:pPr><w:spacing w:after="80"/><w:jc w:val="center"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${id}" name="圖${id}" descr="${xmlEscape(alt)}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${id}" name="image${id}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+}
+async function buildMistakeDocx(){
+  const mistakes=collectMistakes();
+  const media=[],relsXml=[],cache={};
+  for(const m of mistakes){
+    m.imgs=[];
+    for(const f of m.figures||[]){
+      try{
+        if(!cache[f.src]){
+          const png=await loadPng(f.src),n=media.length+1;
+          media.push([`word/media/image${n}.png`,png.bytes]);
+          relsXml.push(`<Relationship Id="rImg${n}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/image${n}.png"/>`);
+          cache[f.src]={rid:`rImg${n}`,w:png.w,h:png.h};
+        }
+        m.imgs.push({...cache[f.src],alt:f.alt});
+      }catch(e){console.warn('圖片載入失敗',f.src)}
+    }
+  }
+  let picId=0;
+  let body=wordParagraph('理化九上第二次段考 錯題詳解',{bold:true,size:34,color:'17313A',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　答錯共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  if(!mistakes.length){
+    body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
+  }else{
+    mistakes.forEach((m,index)=>{
+      if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+      body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
+      if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      m.imgs.forEach(im=>{body+=imageParagraph(im.rid,++picId,im.w,im.h,im.alt)});
+      body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
+      m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
+      body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
+      body+=wordParagraph(`正確答案：${m.answer}`,{bold:true,size:22,color:'0B6B57',after:100});
+      body+=wordParagraph('詳解',{bold:true,size:22,after:55});
+      body+=textBlock(m.explanation,{size:21,after:90});
+      body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
+    });
+  }
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const docRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${relsXml.join('')}</Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml],['word/_rels/document.xml.rels',docRels],...media]);
+}
+
+downloadBtn.addEventListener('click',async()=>{
+  if(!graded)return;
+  downloadBtn.disabled=true;
+  let blob;try{blob=await buildMistakeDocx()}finally{downloadBtn.disabled=false}
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='理化九上第二次段考_錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+</script><script src="../../shared/moe-dict.js?v=20261116" defer></script>
+<script>
+document.querySelectorAll('.gsteps').forEach(box=>{
+  const steps=JSON.parse(box.dataset.steps);let i=0;
+  const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  function show(){
+    if(i>=steps.length){box.insertAdjacentHTML('beforeend','<div class="gdone">✅ 步驟都想出來了！現在回到下面的選項作答吧。</div>');return}
+    const [ask,ch0,ok0,hint,res]=steps[i];const n=i+1;const ord=ch0.map((_,k)=>k).sort(()=>Math.random()-.5);const ch=ord.map(k=>ch0[k]);const ok=ord.indexOf(ok0);
+    const d=document.createElement('div');d.className='gstep';
+    d.innerHTML=`<div class="ask"><b>步驟 ${n}／${steps.length}</b>　${esc(ask)}</div><div class="gchoices">${ch.map((c,k)=>`<button type="button" data-k="${k}">${esc(c)}</button>`).join('')}</div><div class="ghint" hidden></div>`;
+    box.appendChild(d);
+    d.querySelector('.gchoices').addEventListener('click',ev=>{const b=ev.target.closest('button');if(!b||d.dataset.done)return;
+      if(+b.dataset.k===ok){b.classList.add('yes');d.dataset.done=1;d.querySelectorAll('.gchoices button').forEach(x=>x.disabled=true);
+        const h=d.querySelector('.ghint');h.hidden=true;
+        d.insertAdjacentHTML('beforeend',`<div class="gres">✏️ ${esc(res)}</div>`);i++;setTimeout(show,250)}
+      else{b.classList.add('no');const h=d.querySelector('.ghint');h.hidden=false;h.textContent='💡 再想想：'+(hint||'回頭看看本章的重點整理表。')}});
+  }
+  show();
+});
+</script></body></html>
+
