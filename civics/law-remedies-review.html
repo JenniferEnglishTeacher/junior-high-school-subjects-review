@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>法律與權利救濟 總複習</title>
+<style>
+:root{--ink:#17313a;--muted:#61727a;--paper:#fffdf8;--bg:#edf4f3;--accent:#0b6b57;--accent2:#d39b36;--bad:#a33a35;--line:#d8e2df}
+*{box-sizing:border-box} body{margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e4f0ee,#f6efe2);line-height:1.65}
+.dashboard-link{position:fixed;left:16px;top:16px;z-index:10;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,248,.95);color:var(--ink);font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(22,49,58,.12);backdrop-filter:blur(10px)}.dashboard-link:hover{border-color:var(--accent);color:var(--accent)}
+header{padding:48px 20px 30px;text-align:center} h1{margin:0;font-size:clamp(2rem,5vw,3.6rem);line-height:1.12} header p{max-width:760px;margin:14px auto;color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;background:var(--accent);color:white} button.secondary{background:#dfe9e6;color:var(--ink)} button.download{background:#244b5a} button[hidden]{display:none}.score{font-weight:800;min-width:160px;text-align:center}
+main{width:min(920px,calc(100% - 28px));margin:24px auto 80px;display:grid;gap:22px} .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08)}
+.q-head{display:flex;gap:14px;align-items:center;margin-bottom:14px} .num{display:grid;place-items:center;min-width:52px;height:52px;border-radius:15px;background:var(--ink);color:white;font-weight:900} .source{color:var(--accent);font-weight:800;font-size:.9rem} h2{margin:0;font-size:1.18rem} .stem{font-size:1.08rem;font-weight:700}
+.context{background:#f2f7f5;border-left:4px solid var(--accent);padding:14px 16px;margin:14px 0;border-radius:0 12px 12px 0} .context p{margin:.35rem 0 0} .adapted{color:#73581c;background:#fff6dc;padding:8px 12px;border-radius:10px;font-size:.92rem}
+.options{display:grid;gap:10px} .option{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:12px 14px;cursor:pointer;transition:.15s} .option:hover{border-color:var(--accent);transform:translateY(-1px)} .card.checked .option{cursor:default}.card.checked .option:hover{transform:none}.option input{margin-top:6px} .letter{font-weight:900;color:var(--accent)}
+.card.correct{border-color:#58a58f} .card.incorrect{border-color:#cf7771} .option.good{background:#e4f5ef;border-color:#58a58f} .option.bad{background:#fae8e6;border-color:#cf7771}
+.feedback{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:15px} .card.checked .feedback{display:block} .answer-line{font-weight:900;color:var(--accent)} .key{color:#244b5a} .table-wrap{overflow-x:auto;margin-top:12px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid #cbd8d5;padding:8px;text-align:center} th{background:#244b5a;color:white}
+.unanswered{animation:shake .25s} @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}} @media print{.bar{display:none} body{background:white} .card{break-inside:avoid;box-shadow:none}}
+.jump{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}.jump a{padding:6px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-weight:700;text-decoration:none;font-size:.92rem}.jump a:hover{border-color:var(--accent);color:var(--accent)}.sec-head{margin-top:14px;padding:4px 6px 0;scroll-margin-top:70px}.sec-head h3{margin:0;font-size:1.45rem;color:var(--accent)}.sec-head p{margin:2px 0 0;color:var(--muted)}.unit-head{margin-top:26px;padding:16px 22px;border-radius:18px;background:var(--ink);color:white;scroll-margin-top:70px}.unit-head h2{margin:0;font-size:1.6rem}.unit-head p{margin:2px 0 0;opacity:.85}.figure{margin:6px 0 14px}.figure img{display:block;width:100%;max-width:640px;margin:0 auto;height:auto;border:1px solid var(--line);border-radius:12px;background:#fffdf8}
+
+.note{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px rgba(22,49,58,.08);scroll-margin-top:70px}
+.note h2{font-size:1.3rem;color:var(--ink);margin:0 0 8px}.note h3{font-size:1.05rem;color:var(--accent);margin:18px 0 6px}
+.note ul{margin:6px 0;padding-left:1.3em}.note li{margin:4px 0}
+.note td{text-align:left;vertical-align:top}.note td:first-child{font-weight:800;white-space:nowrap;background:#f2f7f5}
+.tip{background:#fff6dc;border-left:4px solid var(--accent2);border-radius:0 12px 12px 0;padding:10px 16px;margin-top:16px}.tip h3{color:#73581c;margin-top:4px}
+</style></head><body>
+<a class="dashboard-link" href="../index.html" aria-label="返回國中全科複習中心">← 返回總覽</a>
+<header><h1>法律與權利救濟</h1><p>涵蓋單元：行為能力制度・三大訴訟分類・公所與代表會區隔・和解／調解／仲裁比較・精選試題。先讀重點整理，再做 5 題精選試題；作答完可下載錯題詳解 DOCX。</p><nav class="jump"><a href="#s1">限制行為能力人的法律</a><a href="#s2">三大訴訟分類與適用情</a><a href="#s3">申請調解去哪裡？「公</a><a href="#s4">非訴訟糾紛解決方式：</a><a href="#quiz">精選試題</a></nav></header>
+<div class="bar"><button id="grade">結束作答並看整體成績</button><button class="download" id="downloadDocx" hidden>下載錯題詳解 DOCX</button><button class="secondary" id="reset">重新作答</button><span class="score" id="score">已作答 0 / 5</span></div>
+<main>
+<section class="unit-head"><h2>重點整理</h2><p>行為能力・訴訟分類・調解機關・和解／調解／仲裁</p></section>
+<section class="note" id="s1"><h2>一、限制行為能力人的法律行為（臺灣民法成年年齡：18 歲）</h2><p>「限制行為能力人」（滿 7 歲以上、未滿 18 歲的未成年人）原則上不能單獨進行「有法律效果且需負擔義務」的行為，必須經過法定代理人（父母）的事前允許或事後承認才算有效，否則屬於「效力未定」。</p><h3>1. 不能單獨做的事（需父母同意，否則效力未定）</h3><ul><li>買賣高價物品：未經父母同意自行購買昂貴手機（如 3 萬元 iPhone）、機車、高價遊戲機等。</li><li>簽訂各類契約：簽訂打工的勞動契約、租屋契約、手機門號綁約、補習班課程契約。</li><li>金錢借貸與開戶：向銀行申請貸款、申辦信用卡正卡、自己去銀行或郵局開立新帳戶。</li><li>拋棄權利或無償贈與：放棄繼承權、把自己的高價物品（如名牌球鞋）無償送給同學。</li></ul><h3>2. 可以自己單獨做的事（4 大法定例外，直接有效）</h3><ul><li>純獲法律上利益：只拿好處、不負擔任何義務。例如：收受長輩紅包、拿免費贈品、接受無條件禮物。</li><li>依其年齡及身分、日常生活所必需：符合該年紀日常合理消費。例如：用零用錢買便當、買飲料、買文具、搭公車。</li><li>法定代理人允許處分的財產：父母已同意可自由運用的零用錢，拿去買衣服或看電影。</li><li>法定代理人允許獨立營業：父母同意其自行創業做生意，關於該營業範圍內的簽約與買賣均有效。</li></ul><div class="tip"><h3>會考高頻陷阱：「去銀行開戶」vs.「自己去存款」</h3><ul><li>自己去「開戶」：屬於與銀行簽訂消費寄託契約，限制行為能力人「不能單獨辦理」，必須法定代理人陪同同意。</li><li>自己去「存款」：若帳戶已開好，未成年人拿壓歲錢或零用錢去臨櫃或 ATM 存進自己的戶頭，屬於「純獲法律上利益」或「處分允許的零用錢」，「不需要父母同意，直接有效」！</li></ul></div></section>
+<section class="note" id="s2"><h2>二、三大訴訟分類與適用情境總表</h2><p>判斷要提起哪一種訴訟，關鍵在於「發生糾紛的對象是誰」以及「事件的法律性質」：</p><div class="table-wrap"><table><tr><th>訴訟種類</th><th>糾紛對象</th><th>解決目的</th><th>適用情境（考試常見關鍵字）</th></tr><tr><td>民事訴訟</td><td>私人 vs. 私人（平民對平民）</td><td>解決財產或身分上的權利義務糾紛（要求賠錢、還錢、履行契約）。</td><td>車禍要求對方賠償醫藥費與修車費<br>房客積欠房租不搬走<br>網購收到瑕疵品賣家不退錢<br>借錢給朋友到期不還<br>夫妻訴請離婚、爭取子女監護權</td></tr><tr><td>刑事訴訟</td><td>國家（檢察官） vs. 犯罪嫌疑人</td><td>確定被告是否犯罪，並科處刑罰制裁（有期徒刑、拘役、罰金）。</td><td>遭人偷竊、搶劫、詐騙<br>被打傷（傷害罪）、網路公然侮辱或誹謗<br>酒駕撞傷人、殺人、縱火<br>車禍導致人員受傷或死亡（過失傷害／致死）</td></tr><tr><td>行政訴訟</td><td>人民 vs. 政府機關</td><td>人民認為政府機關（或學校）的「行政處分」違法或不當，侵害其權利。</td><td>收到超速或違規罰單，認為警察開錯單<br>認為國稅局核定稅額有誤<br>店家不服環保局勒令停業或罰鍰<br>學生不服學校記大過、退學處分</td></tr></table></div><div class="tip"><h3>兩大必考補充觀念</h3><ul><li>不服學校處分的救濟順序（釋字第 784 號）：學校對學生的處分（如記大過、退學）屬於「行政處分」，不可打民事訴訟！正確順序為：「校內申訴 → 訴願（向教育局／教育部）→ 行政訴訟（向行政法院）」。</li><li>一行為同時涉及民、刑事責任：例如「開車撞傷人」，被害人既可透過「民事訴訟」要求賠償醫藥費，也可追究肇事者的過失傷害「刑事責任」（實務上可提刑事附帶民事訴訟）。</li></ul></div></section>
+<section class="note" id="s3"><h2>三、申請調解去哪裡？「公所」vs.「代表會」區隔</h2><p>民眾發生民事糾紛或刑事告訴乃論案件想申請調解，應前往「鄉、鎮、市、區公所」的調解委員會（或直接向地方法院聲請），絕非代表會。</p><div class="table-wrap"><table><tr><th>比較項目</th><th>鄉、鎮、市、區公所</th><th>鄉、鎮、市民代表會</th></tr><tr><td>機關性質</td><td>地方「行政機關」（負責執行地方事務與為民服務）</td><td>地方「立法／民意機關」（代表民眾監督行政機關）</td></tr><tr><td>主要職權</td><td>辦理民政、社福、清潔隊、戶政配合業務，並設有「調解委員會」提供免費調解服務。</td><td>監督公所施政、審查公所預算、議決地方自治法規與提案。</td></tr><tr><td>能否申請調解？</td><td>可以！設有調解委員會（另一管道為直接向「地方法院」聲請調解）。</td><td>不可以！代表會不處理民眾法律糾紛調解業務。</td></tr></table></div></section>
+<section class="note" id="s4"><h2>四、非訴訟糾紛解決方式：「和解、調解、仲裁」比較表</h2><p>除了打官司外，法律也鼓勵民眾透過訴訟外途徑解決爭議。考題最常比較三者的「第三方介入程度」與「法律效力強弱（能否直接聲請強制執行）」：</p><div class="table-wrap"><table><tr><th>比較項目</th><th>和解</th><th>調解</th><th>仲裁</th></tr><tr><td>第三方介入與決定權</td><td>無第三方介入（或僅親友見證），由「當事人雙方」自行協商決定。</td><td>有第三方（調解委員或法官）居中協調勸和，但最終仍由「雙方自己」決定是否接受。</td><td>有第三方（雙方選任的專業仲裁人）聽取意見後，直接做出「仲裁判斷」。</td></tr><tr><td>辦理地點／機構</td><td>任何地點（車禍現場、警局、咖啡廳，或開庭時於法院內）。</td><td>鄉鎮市區公所調解委員會<br>地方法院</td><td>仲裁機構（如：中華民國仲裁協會）。</td></tr><tr><td>適用案件</td><td>民事糾紛<br>刑事「告訴乃論」之罪</td><td>民事糾紛<br>刑事「告訴乃論」之罪</td><td>僅限「民事財產權」糾紛（常見於大型工程、國際貿易、商業契約）。</td></tr><tr><td>法律效力（核心考點！）</td><td>效力最弱：僅具契約效力。私下和解（訴訟外和解）：對方反悔不賠錢，不能直接強制執行，須重打民事訴訟。（註：開庭時達成的「訴訟上和解」才具確定判決效力。）</td><td>效力強：與確定判決同效力。公所調解成立後，經「法院核定」即與確定判決有同一效力<br>對方反悔不賠錢，可直接向法院聲請強制執行。</td><td>效力強：與確定判決同效力。仲裁判斷與法院確定判決有同一效力<br>欲強制執行原則上須先向法院聲請「執行裁定」（契約另有約定者除外）。</td></tr></table></div><div class="tip"><h3>考場秒殺口訣</h3><ul><li>看誰做決定：自己談好 ＝ 和解｜公道伯勸和 ＝ 調解｜專家直接判輸贏 ＝ 仲裁。</li><li>看強制執行：路邊私下簽和解書反悔 → 不能直接強制執行（要告民事）；公所調解書經法院核定反悔 → 可直接向法院聲請強制執行！</li></ul></div></section>
+<section class="unit-head" id="quiz"><h2>精選試題</h2><p>5 題・選答案後立即顯示解析</p></section>
+<article class="card" data-chapter="法律與權利救濟・行為能力" id="lr1" data-answer="C">
+          <div class="q-head"><span class="num">01</span><div><span class="source">精選試題 第 1 題</span><h2>行為能力</h2></div></div>
+          <p class="stem">就讀國三的小明（15 歲）在未告知父母的情況下，做了下列四件事，請問哪一件事在法律上是「有效」的？</p>
+          <div class="options"><label class="option"><input type="radio" name="lr1" value="A"><span class="letter">A</span><span>拿壓歲錢去通訊行買了一支 25,000 元的手機</span></label><label class="option"><input type="radio" name="lr1" value="B"><span class="letter">B</span><span>與速食店店長簽訂暑期打工的勞動契約</span></label><label class="option"><input type="radio" name="lr1" value="C"><span class="letter">C</span><span>拿自己的壓歲錢去郵局存進已開好的個人帳戶裡</span></label><label class="option"><input type="radio" name="lr1" value="D"><span class="letter">D</span><span>自己帶著身分證去銀行申請開立新的活存帳戶</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>(A) 買高價手機、(B) 簽訂勞動契約、(D) 申請開立新帳戶（簽訂開戶契約）均須法定代理人同意，未經同意屬「效力未定」。(C) 存錢進已開好的自己帳戶屬「純獲法律上利益」或「處分允許的零用錢」，無須父母同意即有效。</p><p class="key"><strong>解題關鍵：</strong>開戶＝簽約（要父母同意）；存款進已開好的帳戶＝直接有效。</p></div>
+        </article>
+<article class="card" data-chapter="法律與權利救濟・訴訟分類" id="lr2" data-answer="C">
+          <div class="q-head"><span class="num">02</span><div><span class="source">精選試題 第 2 題</span><h2>訴訟分類</h2></div></div>
+          <p class="stem">大雄因被學校認定作弊而記了一支大過，但他認為自己是被冤枉的。請問他如果想依法維護權益，正確的救濟順序為何？</p>
+          <div class="options"><label class="option"><input type="radio" name="lr2" value="A"><span class="letter">A</span><span>民事訴訟 → 刑事訴訟</span></label><label class="option"><input type="radio" name="lr2" value="B"><span class="letter">B</span><span>調解委員會 → 民事訴訟</span></label><label class="option"><input type="radio" name="lr2" value="C"><span class="letter">C</span><span>校內申訴 → 訴願 → 行政訴訟</span></label><label class="option"><input type="radio" name="lr2" value="D"><span class="letter">D</span><span>訴願 → 行政訴訟 → 校內申訴</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>學校對學生所做的懲處屬於「行政處分」，應走行政救濟途徑，順序為：校內申訴 → 向主管教育行政機關提起訴願 → 向行政法院提起行政訴訟。</p><p class="key"><strong>解題關鍵：</strong>學校處分＝行政處分：申訴 → 訴願 → 行政訴訟。</p></div>
+        </article>
+<article class="card" data-chapter="法律與權利救濟・調解機關" id="lr3" data-answer="B">
+          <div class="q-head"><span class="num">03</span><div><span class="source">精選試題 第 3 題</span><h2>調解機關</h2></div></div>
+          <p class="stem">小明騎腳踏車擦撞路人阿花，雙方對於醫藥費賠償談不攏，決定先聲請「調解」。請問他們應該前往下列哪一個機關辦理？</p>
+          <div class="options"><label class="option"><input type="radio" name="lr3" value="A"><span class="letter">A</span><span>鄉鎮市民代表會</span></label><label class="option"><input type="radio" name="lr3" value="B"><span class="letter">B</span><span>鄉鎮市區公所</span></label><label class="option"><input type="radio" name="lr3" value="C"><span class="letter">C</span><span>地方檢察署</span></label><label class="option"><input type="radio" name="lr3" value="D"><span class="letter">D</span><span>警察局</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：B</p><p>鄉鎮市區公所為行政機關，底下設有「調解委員會」提供免費調解；代表會為民意機關（負責監督公所與審預算），不辦理調解業務。</p><p class="key"><strong>解題關鍵：</strong>調解去「公所」（或地方法院），不是代表會。</p></div>
+        </article>
+<article class="card" data-chapter="法律與權利救濟・和解與調解效力" id="lr4" data-answer="C">
+          <div class="q-head"><span class="num">04</span><div><span class="source">精選試題 第 4 題</span><h2>和解與調解效力</h2></div></div>
+          <p class="stem">大明開車撞壞小華的機車，兩人在路邊私下簽訂和解書，大明承諾一週後賠償 1 萬元。一週後大明卻避不見面、拒絕賠錢。小華接下來該怎麼做最符合法律規定？</p>
+          <div class="options"><label class="option"><input type="radio" name="lr4" value="A"><span class="letter">A</span><span>拿著路邊簽的和解書，直接向法院聲請強制執行查封財產</span></label><label class="option"><input type="radio" name="lr4" value="B"><span class="letter">B</span><span>向鄉鎮市區公所申請強制執行</span></label><label class="option"><input type="radio" name="lr4" value="C"><span class="letter">C</span><span>向法院提起民事訴訟，請求大明履行和解契約賠償</span></label><label class="option"><input type="radio" name="lr4" value="D"><span class="letter">D</span><span>向檢察官提起公訴，要求將大明判刑</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>路邊私下簽訂的是「訴訟外和解」，僅有一般契約效力，不能直接強制執行；若對方反悔，須向法院提起民事訴訟請求履行契約。</p><p class="key"><strong>解題關鍵：</strong>私下和解反悔 → 打民事訴訟；調解書經法院核定反悔 → 直接強制執行。</p></div>
+        </article>
+<article class="card" data-chapter="法律與權利救濟・仲裁適用" id="lr5" data-answer="C">
+          <div class="q-head"><span class="num">05</span><div><span class="source">精選試題 第 5 題</span><h2>仲裁適用</h2></div></div>
+          <p class="stem">某建設公司與營造廠因捷運工程款項產生重大商業爭議，由於工程專業度高，雙方希望由專家快速做出具法律拘束力的決定，避免漫長訴訟。他們最適合採取哪種方式？</p>
+          <div class="options"><label class="option"><input type="radio" name="lr5" value="A"><span class="letter">A</span><span>訴訟外和解</span></label><label class="option"><input type="radio" name="lr5" value="B"><span class="letter">B</span><span>鄉鎮市區公所調解</span></label><label class="option"><input type="radio" name="lr5" value="C"><span class="letter">C</span><span>提付仲裁</span></label><label class="option"><input type="radio" name="lr5" value="D"><span class="letter">D</span><span>提起行政訴訟</span></label></div>
+          <div class="feedback" aria-live="polite"><p class="answer-line">正確答案：C</p><p>商業、工程等高度專業的民事財產權糾紛，交由雙方選任的專業仲裁人做出具確定判決效力的決定，即為「仲裁」。</p><p class="key"><strong>解題關鍵：</strong>專家直接判輸贏＝仲裁（限民事財產權糾紛）。</p></div>
+        </article>
+</main>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const downloadBtn=document.querySelector('#downloadDocx');
+let graded=false;
+
+function checkCard(card,revealUnanswered=false){
+  card.classList.remove('correct','incorrect','unanswered');
+  card.querySelectorAll('.option').forEach(option=>option.classList.remove('good','bad'));
+  const pick=card.querySelector('input:checked');
+  const answer=card.dataset.answer;
+  if(!pick&&!revealUnanswered)return {answered:false,correct:false};
+  card.classList.add('checked');
+  card.querySelectorAll('input').forEach(input=>{
+    const option=input.closest('.option');
+    if(input.value===answer)option.classList.add('good');
+    if(pick&&input===pick&&input.value!==answer)option.classList.add('bad');
+    input.disabled=true;
+  });
+  if(!pick)card.classList.add('unanswered');
+  else if(pick.value===answer)card.classList.add('correct');
+  else card.classList.add('incorrect');
+  return {answered:!!pick,correct:!!pick&&pick.value===answer};
+}
+
+function updateProgress(){
+  const answered=cards.filter(card=>card.querySelector('input:checked')).length;
+  const score=cards.filter(card=>card.querySelector('input:checked')?.value===card.dataset.answer).length;
+  document.querySelector('#score').textContent=`已作答 ${answered} / ${cards.length}・答對 ${score} 題`;
+  if(answered===cards.length){
+    graded=true;
+    const mistakeCount=cards.length-score;
+    downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+    downloadBtn.hidden=false;
+  }
+}
+
+cards.forEach(card=>card.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+  checkCard(card);
+  updateProgress();
+})));
+
+document.querySelector('#grade').addEventListener('click',()=>{
+  let score=0,first=null;
+  cards.forEach(c=>{
+    const result=checkCard(c,true);
+    if(!result.answered)first??=c;
+    if(result.correct)score++;
+  });
+  graded=true;
+  const mistakeCount=cards.length-score;
+  document.querySelector('#score').textContent=`得分 ${score} / ${cards.length}`;
+  downloadBtn.textContent=mistakeCount?`下載 ${mistakeCount} 題錯題詳解 DOCX`:'下載全對紀錄 DOCX';
+  downloadBtn.hidden=false;
+  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.querySelector('#reset').addEventListener('click',()=>{
+  cards.forEach(c=>{
+    c.className='card';
+    c.querySelectorAll('input').forEach(i=>{i.checked=false;i.disabled=false});
+    c.querySelectorAll('.option').forEach(o=>o.classList.remove('good','bad'));
+  });
+  graded=false;
+  downloadBtn.hidden=true;
+  downloadBtn.textContent='下載錯題詳解 DOCX';
+  document.querySelector('#score').textContent=`已作答 0 / ${cards.length}`;
+  scrollTo({top:0,behavior:'smooth'});
+});
+
+function xmlEscape(value){
+  return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+}
+
+function wordParagraph(text,{bold=false,size=22,color='000000',before=0,after=100}={}){
+  const safe=xmlEscape(text);
+  return `<w:p><w:pPr><w:spacing w:before="${before}" w:after="${after}" w:line="330" w:lineRule="auto"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Microsoft JhengHei" w:hAnsi="Microsoft JhengHei" w:eastAsia="Microsoft JhengHei"/><w:sz w:val="${size}"/><w:szCs w:val="${size}"/>${bold?'<w:b/><w:bCs/>':''}${color!=='000000'?`<w:color w:val="${color}"/>`:''}<w:lang w:eastAsia="zh-TW"/></w:rPr><w:t xml:space="preserve">${safe}</w:t></w:r></w:p>`;
+}
+
+function textBlock(text,options={}){
+  return String(text??'').split(/\r?\n/).filter(Boolean).map(line=>wordParagraph(line,options)).join('');
+}
+
+function collectMistakes(){
+  return cards.filter(c=>{
+    const pick=c.querySelector('input:checked');
+    return !!pick&&pick.value!==c.dataset.answer;
+  }).map(c=>{
+    const picked=c.querySelector('input:checked');
+    const feedback=[...c.querySelectorAll('.feedback p')];
+    return {
+      number:c.querySelector('.num').textContent.trim(),
+      source:(c.dataset.chapter?c.dataset.chapter+'｜':'')+c.querySelector('.source').textContent.trim(),
+      topic:c.querySelector('h2').textContent.trim(),
+      context:c.querySelector('.context')?.innerText.trim()||'',
+      stem:c.querySelector('.stem').textContent.trim(),
+      options:[...c.querySelectorAll('.option')].map(o=>`${o.querySelector('.letter').textContent.trim()}　${o.querySelector('span:last-child').textContent.trim()}`),
+      selected:picked?`${picked.value}　${picked.closest('.option').querySelector('span:last-child').textContent.trim()}`:'未作答',
+      answer:c.dataset.answer,
+      explanation:feedback[1]?.textContent.trim()||'',
+      figures:[...c.querySelectorAll('.figure img')].map(i=>({src:i.getAttribute('src').replace(/\.svg$/,'.png'),alt:i.alt})),
+      key:c.querySelector('.key')?.textContent.replace(/^解題關鍵：?/,'').trim()||''
+    };
+  });
+}
+
+const encoder=new TextEncoder();
+function le16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function le32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function joinBytes(chunks){
+  const out=new Uint8Array(chunks.reduce((sum,c)=>sum+c.length,0));
+  let at=0;for(const c of chunks){out.set(c,at);at+=c.length}return out;
+}
+const crcTable=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(data){let c=0xffffffff;for(const b of data)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0}
+function dosStamp(){const d=new Date(),year=Math.max(1980,d.getFullYear());return {time:(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date:((year-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate()}}
+
+function makeDocxZip(files){
+  const locals=[],centrals=[];let offset=0;const stamp=dosStamp();
+  for(const [name,text] of files){
+    const nameBytes=encoder.encode(name),data=text instanceof Uint8Array?text:encoder.encode(text),crc=crc32(data);
+    const local=joinBytes([le32(0x04034b50),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),nameBytes,data]);
+    const central=joinBytes([le32(0x02014b50),le16(20),le16(20),le16(0x0800),le16(0),le16(stamp.time),le16(stamp.date),le32(crc),le32(data.length),le32(data.length),le16(nameBytes.length),le16(0),le16(0),le16(0),le16(0),le32(0),le32(offset),nameBytes]);
+    locals.push(local);centrals.push(central);offset+=local.length;
+  }
+  const centralData=joinBytes(centrals);
+  const end=joinBytes([le32(0x06054b50),le16(0),le16(0),le16(files.length),le16(files.length),le32(centralData.length),le32(offset),le16(0)]);
+  return new Blob([...locals,centralData,end],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+async function loadPng(src){
+  const res=await fetch(src);if(!res.ok)throw new Error(src);
+  const bytes=new Uint8Array(await res.arrayBuffer());
+  const dv=new DataView(bytes.buffer);
+  return {bytes,w:dv.getUint32(16),h:dv.getUint32(20)};
+}
+function imageParagraph(rid,id,w,h,alt){
+  const cx=Math.round(6.2*914400),cy=Math.round(cx*h/w);
+  return `<w:p><w:pPr><w:spacing w:after="80"/><w:jc w:val="center"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${id}" name="圖${id}" descr="${xmlEscape(alt)}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${id}" name="image${id}.png"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+}
+async function buildMistakeDocx(){
+  const mistakes=collectMistakes();
+  const media=[],relsXml=[],cache={};
+  for(const m of mistakes){
+    m.imgs=[];
+    for(const f of m.figures||[]){
+      try{
+        if(!cache[f.src]){
+          const png=await loadPng(f.src),n=media.length+1;
+          media.push([`word/media/image${n}.png`,png.bytes]);
+          relsXml.push(`<Relationship Id="rImg${n}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/image${n}.png"/>`);
+          cache[f.src]={rid:`rImg${n}`,w:png.w,h:png.h};
+        }
+        m.imgs.push({...cache[f.src],alt:f.alt});
+      }catch(e){console.warn('圖片載入失敗',f.src)}
+    }
+  }
+  let picId=0;
+  let body=wordParagraph('法律與權利救濟 錯題詳解',{bold:true,size:34,color:'17313A',after:180});
+  body+=wordParagraph(`測驗結果：${document.querySelector('#score').textContent}　答錯共 ${mistakes.length} 題`,{bold:true,size:22,color:'0B6B57',after:180});
+  if(!mistakes.length){
+    body+=wordParagraph('本次測驗全部答對，沒有需要訂正的題目。',{size:24,after:140});
+  }else{
+    mistakes.forEach((m,index)=>{
+      if(index)body+='<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+      body+=wordParagraph(`${m.number}　${m.source}　${m.topic}`,{bold:true,size:28,color:'17313A',after:140});
+      if(m.context){body+=wordParagraph('題組資料',{bold:true,size:22,after:60});body+=textBlock(m.context,{size:20,color:'455A64',after:70})}
+      m.imgs.forEach(im=>{body+=imageParagraph(im.rid,++picId,im.w,im.h,im.alt)});
+      body+=wordParagraph(m.stem,{bold:true,size:22,after:110});
+      m.options.forEach(option=>body+=wordParagraph(option,{size:21,after:55}));
+      body+=wordParagraph(`學生答案：${m.selected}`,{bold:true,size:22,color:'A33A35',before:90,after:70});
+      body+=wordParagraph(`正確答案：${m.answer}`,{bold:true,size:22,color:'0B6B57',after:100});
+      body+=wordParagraph('詳解',{bold:true,size:22,after:55});
+      body+=textBlock(m.explanation,{size:21,after:90});
+      body+=wordParagraph(`解題關鍵：${m.key}`,{bold:true,size:21,color:'244B5A',before:60,after:100});
+    });
+  }
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"><w:body>${body}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="450" w:footer="450" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const docRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${relsXml.join('')}</Relationships>`;
+  return makeDocxZip([['[Content_Types].xml',contentTypes],['_rels/.rels',rels],['word/document.xml',documentXml],['word/_rels/document.xml.rels',docRels],...media]);
+}
+
+downloadBtn.addEventListener('click',async()=>{
+  if(!graded)return;
+  downloadBtn.disabled=true;
+  let blob;try{blob=await buildMistakeDocx()}finally{downloadBtn.disabled=false}
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='法律與權利救濟錯題詳解.docx';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+</script><script src="../shared/moe-dict.js?v=20261116" defer></script>
+</body></html>
+
